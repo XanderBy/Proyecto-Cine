@@ -3,6 +3,7 @@ package modelo.POJOs;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Pelicula {
 	
@@ -19,7 +20,7 @@ public class Pelicula {
 	private LocalDate fechaEstrenoEs;
 	private String resumen;
 	private int idPelicula;
-	//private HashMap<String,Persona> directoresPelicula;
+	private HashMap<String,Artista> directoresPelicula;
 	private HashMap<String,String> repartoPelicula;
 	private HashMap<String,Opinion> opiniones;
 
@@ -38,7 +39,7 @@ public class Pelicula {
 		this.fechaEstrenoEs = fechaEstrenoEs;
 		this.resumen = resumen;
 		this.idPelicula = idPelicula;
-		//directoresPelicula = new HashMap<String,Persona>();
+		directoresPelicula = new HashMap<String,Artista>();
 		repartoPelicula = new HashMap<String,String>();
 		opiniones = new HashMap<String,Opinion>();
 		
@@ -164,8 +165,28 @@ public class Pelicula {
 		this.opiniones = opiniones;
 	}
 	
+	public String listar(HashMap lista) {
+		
+		Iterator it = lista.keySet().iterator();
+		String a="";
+		
+		while(it.hasNext()){
+			
+		  String key = (String) it.next();
+		  a = a + lista.get(key);
+		  
+		}
+		return a;
+	}
+	
 	public String toString() {
 		
-		return "";
+		return "\nId Pelicula: " + idPelicula + "\nTitulo de Distribucion: " + tituloDistribucion + 
+				"\nTitulo Original" + tituloOriginal + "\nAgno de Produccion: " + agnoProduccion + 
+				"\nPais de Origen: " + paisOrigen + "\nSitio Web: " + sitioWeb + 
+				"\nDuracion en minutos: " + duracionPelicula + "\nGenero: " + genero + "\nIdioma: " + idioma +
+				"\nSubtitulos Espagnol: " + subtitulosEs + "\nCalificacion por Edades: " + calificacionEdades +
+				"\nFecha de Estreno en Espagna: " + fechaEstrenoEs + "\nResumen: " + resumen + 
+				"\nDirectores: " + listar(directoresPelicula) + "\nReparto: " + listar(repartoPelicula) + "\nOpiniones: " + listar(opiniones);
 	}
 }

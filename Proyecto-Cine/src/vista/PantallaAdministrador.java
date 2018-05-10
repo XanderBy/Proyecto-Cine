@@ -1972,7 +1972,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
             );
 
             pack();
-        }// </editor-fold>                        
+        }// </editor-fold>//GEN-END:initComponents                       
 
         private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
             // TODO add your handling code here:
@@ -2037,7 +2037,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
             });
         }
 
-        // Variables declaration - do not modify                     
+        // Variables declaration - do not modify//GEN-BEGIN:variables                     
         private javax.swing.ButtonGroup GestionAdministrador;
         private javax.swing.JButton aBotonAñadirSala;
         private javax.swing.JButton mBotonEliminarFuncion;
@@ -2268,5 +2268,5 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         private javax.swing.JTextField aNumeroButacas;
         private javax.swing.JTextField mPrecioBase;
         private javax.swing.JTextField mIdSalaCine;
-        // End of variables declaration       
+        // End of variables declaration//GEN-END:variables       
         }

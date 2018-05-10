@@ -11,43 +11,13 @@ package vista;
  * @author Alumno
  */
 public class PantallaAdministrador extends javax.swing.JFrame {
-	 // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         GestionAdministrador = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jInternalFrame4 = new javax.swing.JInternalFrame();
         jTabbedPane4 = new javax.swing.JTabbedPane();
-        jInternalFrame13 = new javax.swing.JInternalFrame();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
-        jButton8 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        textoIdSalaCine = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel15 = new javax.swing.JLabel();
-        textoNumeroButacas = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        botonModificarSala = new javax.swing.JButton();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        listaSalasCine = new javax.swing.JList<>();
-        botonElegirSalas = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton10 = new javax.swing.JButton();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jList5 = new javax.swing.JList<>();
         jInternalFrame14 = new javax.swing.JInternalFrame();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList<>();
@@ -73,6 +43,36 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jInternalFrame13 = new javax.swing.JInternalFrame();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jList4 = new javax.swing.JList<>();
+        jButton8 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        textoIdSalaCine = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        textoNumeroButacas = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        botonModificarSala = new javax.swing.JButton();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        listaSalasCine = new javax.swing.JList<>();
+        botonElegirSalas = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton10 = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jList5 = new javax.swing.JList<>();
+        jLabel88 = new javax.swing.JLabel();
         jInternalFrame5 = new javax.swing.JInternalFrame();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         jInternalFrame15 = new javax.swing.JInternalFrame();
@@ -255,238 +255,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jInternalFrame4.setBorder(null);
         jInternalFrame4.setVisible(true);
 
-        jInternalFrame13.setVisible(true);
-
-        jList4.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Cine 1", "Cine 2", "Cine 3", "Cine 4", "Cine 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(jList4);
-
-        jButton8.setText("Elegir Cine");
-
-        jButton5.setText("Elegir Funcion");
-
-        jButton6.setText("Modificar Cine");
-
-        jLabel14.setText("Nombre Cine:");
-
-        jLabel15.setText("Direccion Cine:");
-
-        jLabel16.setText("Telefono Consulta:");
-
-        jLabel17.setText("numero Butacas:");
-
-        jLabel18.setText("Precio Base:");
-
-        jLabel19.setText("id Sala Cine:");
-
-        jLabel20.setText("Salas Cine:");
-
-        jLabel21.setText("FuncionesSemana:");
-
-        botonModificarSala.setText("Modificar Sala");
-        botonModificarSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonModificarSalaActionPerformed(evt);
-            }
-        });
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-
-        listaSalasCine.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Sala 1", "Sala 2", "Sala 3", "Sala 4" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane6.setViewportView(listaSalasCine);
-
-        botonElegirSalas.setText("Elegir Sala");
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Dia Y Hora", "Sala", "Pelicula", "promocion"
-            }
-        ));
-        jScrollPane7.setViewportView(jTable2);
-
-        jButton10.setText("Eliminar Funcion");
-
-        jList5.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Funcion 1", "Funcion 2", "Funcion 3", "Funcion 4", "Funcion 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane8.setViewportView(jList5);
-
-        javax.swing.GroupLayout jInternalFrame13Layout = new javax.swing.GroupLayout(jInternalFrame13.getContentPane());
-        jInternalFrame13.getContentPane().setLayout(jInternalFrame13Layout);
-        jInternalFrame13Layout.setHorizontalGroup(
-            jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton8)
-                        .addGap(48, 48, 48)
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(77, 77, 77)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addGap(49, 49, 49))
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addComponent(jLabel18)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(jLabel20))
-                                    .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                            .addComponent(jLabel17)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                                            .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createSequentialGroup()
-                                            .addComponent(jLabel19)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(textoIdSalaCine, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton10)
-                                        .addGap(33, 33, 33)))
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(47, 47, 47)
-                                        .addComponent(botonElegirSalas))
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(botonModificarSala)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jInternalFrame13Layout.setVerticalGroup(
-            jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(9, 9, 9)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                    .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel15)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel16)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(botonElegirSalas))
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel21)
-                                .addGap(7, 7, 7)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72))
-                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel19)
-                                    .addComponent(textoIdSalaCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel17)
-                                            .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(55, 55, 55)
-                                        .addComponent(botonModificarSala)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(95, 95, 95)
-                                        .addComponent(jButton10)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
-                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jButton5))
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-
-        jTabbedPane4.addTab("Modificar Cine", jInternalFrame13);
-
         jInternalFrame14.setBorder(null);
         jInternalFrame14.setVisible(true);
 
@@ -508,7 +276,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame14Layout.createSequentialGroup()
-                .addContainerGap(644, Short.MAX_VALUE)
+                .addContainerGap(850, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(198, 198, 198))
         );
@@ -587,49 +355,42 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jInternalFrame12Layout.createSequentialGroup()
                         .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame12Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame12Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(33, 33, 33))
+                            .addGroup(jInternalFrame12Layout.createSequentialGroup()
                                 .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame12Layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(49, 49, 49))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame12Layout.createSequentialGroup()
-                                        .addComponent(jButton2)
-                                        .addGap(33, 33, 33)))))
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                             .addComponent(jScrollPane2))))
                 .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame12Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62))
                     .addGroup(jInternalFrame12Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
                         .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jInternalFrame12Layout.createSequentialGroup()
+                                    .addComponent(jLabel12)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                                    .addComponent(textoNumeroButacasAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame12Layout.createSequentialGroup()
+                                    .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel13)
+                                        .addComponent(jLabel10))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(textoIdSalaCineAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jInternalFrame12Layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jInternalFrame12Layout.createSequentialGroup()
-                                        .addGap(129, 129, 129)
-                                        .addComponent(botonAniadirSala))
-                                    .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(jInternalFrame12Layout.createSequentialGroup()
-                                            .addComponent(jLabel12)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                                            .addComponent(textoNumeroButacasAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame12Layout.createSequentialGroup()
-                                            .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel13)
-                                                .addComponent(jLabel10))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(textoIdSalaCineAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jInternalFrame12Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(108, 108, 108)
+                                .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botonAniadirSala)))))
+                    .addGroup(jInternalFrame12Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(545, Short.MAX_VALUE))
         );
         jInternalFrame12Layout.setVerticalGroup(
             jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -668,12 +429,12 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addComponent(jLabel9)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jInternalFrame12Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(botonAniadirSala))
+                        .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botonAniadirSala)
+                            .addComponent(jLabel11))
                         .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFrame12Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -681,20 +442,223 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame12Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Añadir Cine", jInternalFrame12);
+
+        jInternalFrame13.setVisible(true);
+
+        jList4.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Cine 1", "Cine 2", "Cine 3", "Cine 4", "Cine 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane4.setViewportView(jList4);
+
+        jButton8.setText("Elegir Cine");
+
+        jButton5.setText("Elegir Funcion");
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton6.setText("Modificar Cine");
+
+        jLabel14.setText("Nombre Cine:");
+
+        jLabel15.setText("Direccion Cine:");
+
+        jLabel16.setText("Telefono Consulta:");
+
+        jLabel17.setText("numero Butacas:");
+
+        jLabel18.setText("Precio Base:");
+
+        jLabel19.setText("id Sala Cine:");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel20.setText("Salas Cine");
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel21.setText("Funciones semana");
+
+        botonModificarSala.setText("Modificar Sala");
+        botonModificarSala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonModificarSalaActionPerformed(evt);
+            }
+        });
+
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+
+        listaSalasCine.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Sala 1", "Sala 2", "Sala 3", "Sala 4" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane6.setViewportView(listaSalasCine);
+
+        botonElegirSalas.setText("Elegir Sala");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Dia Y Hora", "Sala", "Pelicula", "promocion"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable2);
+
+        jButton10.setText("Eliminar Funcion");
+
+        jList5.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Funcion 1", "Funcion 2", "Funcion 3", "Funcion 4", "Funcion 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane8.setViewportView(jList5);
+
+        jLabel88.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel88.setText("Datos cine");
+
+        javax.swing.GroupLayout jInternalFrame13Layout = new javax.swing.GroupLayout(jInternalFrame13.getContentPane());
+        jInternalFrame13.getContentPane().setLayout(jInternalFrame13Layout);
+        jInternalFrame13Layout.setHorizontalGroup(
+            jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addGap(44, 44, 44))
+                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel18))
+                                .addGap(18, 18, 18)))
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel19)
+                    .addComponent(botonModificarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textoIdSalaCine, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(botonElegirSalas))))
+                .addGap(51, 51, 51)
+                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(98, 98, 98)
+                        .addComponent(jButton10))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(181, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(jLabel88)
+                .addGap(236, 236, 236)
+                .addComponent(jLabel20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addGap(133, 133, 133))
+            .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jInternalFrame13Layout.setVerticalGroup(
+            jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel88)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addGap(11, 11, 11)
+                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(botonElegirSalas))
+                                .addGap(18, 18, 18)
+                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(textoIdSalaCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane8)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botonModificarSala)
+                            .addComponent(jButton5)
+                            .addComponent(jButton10)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton8))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(55, 55, 55)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
+        jTabbedPane4.addTab("Modificar Cine", jInternalFrame13);
 
         javax.swing.GroupLayout jInternalFrame4Layout = new javax.swing.GroupLayout(jInternalFrame4.getContentPane());
         jInternalFrame4.getContentPane().setLayout(jInternalFrame4Layout);
         jInternalFrame4Layout.setHorizontalGroup(
             jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 941, Short.MAX_VALUE)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jInternalFrame4Layout.setVerticalGroup(
             jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jTabbedPane1.addTab("Cine", jInternalFrame4);
@@ -800,9 +764,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addGap(125, 125, 125)
                 .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel84, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(botonElegirPromocion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)))
+                    .addComponent(botonElegirPromocion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9))
                 .addGap(68, 68, 68)
                 .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel25)
@@ -1588,13 +1551,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                     .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jInternalFrame8Layout.createSequentialGroup()
-                                .addComponent(jLabel74)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jInternalFrame8Layout.createSequentialGroup()
-                                .addComponent(jLabel69)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jInternalFrame8Layout.createSequentialGroup()
+                                        .addComponent(jLabel74)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel69))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame8Layout.createSequentialGroup()
                         .addGap(126, 126, 126)
@@ -1982,14 +1945,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_botonAniadirSalaActionPerformed
 
-    private void botonModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarSalaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonModificarSalaActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
     private void textoDescripcionPromocionAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDescripcionPromocionAniadirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textoDescripcionPromocionAniadirActionPerformed
@@ -2001,6 +1956,14 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void botonModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarSalaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonModificarSalaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2186,6 +2149,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
     private javax.swing.JList<String> jList10;
@@ -2214,7 +2178,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;

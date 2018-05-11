@@ -6,14 +6,14 @@ import java.sql.SQLException;
 
 public class Conexion {
 
-    private static Connection cnx = null;
+    private static Connection conex = null;
     
-    //1.1 CREAR CONEXION
+    //1.1 CREAR conex
     public static Connection obtener() throws SQLException, ClassNotFoundException {
-        if (cnx == null) {
+        if (conex == null) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
-                cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "");//Puerto, Usuario, Contrasenia
+                conex = DriverManager.getConnection("jdbc:mysql://localhost:3306/cine", "root", "");//Puerto, Usuario, Contrasenia
                 //(*) Obtener puerto: SHOW VARIABLES WHERE variable_name IN('hostname', 'port')
             } catch (SQLException ex) {
                 throw new SQLException(ex);
@@ -21,12 +21,12 @@ public class Conexion {
                 throw new ClassCastException(ex.getMessage());
             }
         }
-        return cnx;
+        return conex;
     }
 
     public static void cerrar() throws SQLException {
-        if (cnx != null) {
-            cnx.close();
+        if (conex != null) {
+            conex.close();
         }
     }
 }

@@ -15,11 +15,6 @@ public class MetodosArtistas {
 		Artistas.put(nombreCompleto, artista);
 	}
 
-	// Elimina Artista
-	public void EliminarArtista(String nombreCompleto) {
-		Artistas.remove(nombreCompleto);
-	}
-
 	// Anade el artista al Array director
 	public void AnadirADirector(String nombreCompleto, Pelicula pelicula) {
 		Artistas.get(nombreCompleto).PeliculasParticipaActor.put(nombreCompleto, pelicula);

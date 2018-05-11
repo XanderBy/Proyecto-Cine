@@ -1,21 +1,16 @@
 package modelo;
 
-import vista.CrearUsuario;
-import vista.IniciarSesion;
+import controlador.Controlador;
 import vista.PantallaAdministrador;
-import vista.PantallaUsuario;
 
 public class Main {
 
-	public static void Main(String[] args) {
-		
+	public static void main(String[] args) {
 		/*IniciarSesion is=new IniciarSesion();
 		is.setVisible(true);*/
 		
-		PantallaAdministrador pa = new PantallaAdministrador();
-        pa.setVisible(true);
-        pa.setLocationRelativeTo(null);
-        
+        new Controlador(new PantallaAdministrador()).Iniciar();
+
         /*CrearUsuario cu = new CrearUsuario();
         cu.setVisible(true);
         cu.setLocationRelativeTo(null);
@@ -23,6 +18,7 @@ public class Main {
         PantallaUsuario pu=new PantallaUsuario();
         pu.setVisible(true);
         pu.setLocationRelativeTo(null);*/
+
 	}
 
 }

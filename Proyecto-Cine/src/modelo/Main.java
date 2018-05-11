@@ -5,9 +5,9 @@ import vista.IniciarSesion;
 import vista.PantallaAdministrador;
 import vista.PantallaUsuario;
 
-public class main {
+public class Main {
 
-	public static void main(String[] args) {
+	public static void Main(String[] args) {
 		
 		/*IniciarSesion is=new IniciarSesion();
 		is.setVisible(true);*/

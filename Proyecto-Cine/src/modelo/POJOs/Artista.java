@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Artista {
 	private String nombreCompleto;
 	private Pais nacionalidad;
-	private static int cantidadPeliculaParticipa;
+	private int cantidadPeliculaParticipa;
 	public HashMap <String, Pelicula> PeliculasParticipaDirector=new HashMap <String,Pelicula>();
 	public HashMap <String, Pelicula> PeliculasParticipaActor=new HashMap <String,Pelicula>();
 	
@@ -29,11 +29,11 @@ public class Artista {
 	public void setNacionalidad(Pais nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-	public static int getCantidadPeliculaParticipa() {
+	public int getCantidadPeliculaParticipa() {
 		return cantidadPeliculaParticipa;
 	}
-	public static void setCantidadPeliculaParticipa(int cantidadPeliculaParticipa) {
-		Artista.cantidadPeliculaParticipa = cantidadPeliculaParticipa;
+	public void setCantidadPeliculaParticipa(int cantidadPeliculaParticipa) {
+		this.cantidadPeliculaParticipa = cantidadPeliculaParticipa;
 	}
 
 }

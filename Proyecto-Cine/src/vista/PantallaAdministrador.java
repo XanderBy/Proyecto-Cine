@@ -11,6 +11,11 @@ package vista;
  * @author Alumno
  */
 public class PantallaAdministrador extends javax.swing.JFrame {
+	
+	public PantallaAdministrador() {
+        initComponents();
+    }
+	
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 

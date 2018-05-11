@@ -14,7 +14,7 @@ public class Entrada {
 		this.cine = cine;
 		this.promocion = promocion;
 		this.pelicula = pelicula;
-		this.setPrecioEntrada( (double) cine.getPrecioBase() );//- promocion.getDescuento()
+		this.setPrecioEntrada( (double) cine.getPrecioBase() - promocion.getDescuentoPromo());
 	}
 
 

@@ -3,13 +3,15 @@ package modelo.POJOs;
 import java.util.HashMap;
 
 public class Cine {
+	// TODO: Atributos
 	private String nombreCine;
 	private String direccionCine;
 	private int telefonoConsulta;
-	public HashMap <String, Sala> lalasCine=new HashMap <String, Sala>();
-	public HashMap <String, Funcion> funcionesSemana=new HashMap <String,Funcion>();
+	public HashMap<String, Sala> lalasCine = new HashMap<String, Sala>();
+	public HashMap<String, Funcion> funcionesSemana = new HashMap<String, Funcion>();
 	private int precioBase;
 
+	// TODO:Constructores
 	public Cine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
 		super();
 		this.nombreCine = nombreCine;
@@ -18,6 +20,7 @@ public class Cine {
 		this.precioBase = precioBase;
 	}
 
+	// TODO: Metodos Get/Set
 	public String getNombreCine() {
 		return nombreCine;
 	}

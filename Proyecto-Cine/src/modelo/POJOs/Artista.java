@@ -3,6 +3,7 @@ package modelo.POJOs;
 import java.util.HashMap;
 
 public class Artista {
+	//TODO: Atributos
 	private String nombreCompleto;
 	private Pais nacionalidad;
 	private int cantidadPeliculaParticipa;
@@ -10,13 +11,14 @@ public class Artista {
 	public HashMap <String, Pelicula> PeliculasParticipaActor=new HashMap <String,Pelicula>();
 	
 	
-	
+	//TODO: Contructores
 	public Artista(String nombreCompleto, Pais nacionalidad) {
 		super();
 		this.nombreCompleto = nombreCompleto;
 		this.nacionalidad = nacionalidad;
 	}
 	
+	//TODO: Metodos Get/Set
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}

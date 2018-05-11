@@ -2001,14 +2001,14 @@ public class PantallaAdministrador extends javax.swing.JFrame {
      }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup GestionAdministrador;
-    private javax.swing.JButton botonAniadirPromocion;
-    private javax.swing.JButton botonAniadirSala;
-    private javax.swing.JButton botonElegirPromocion;
-    private javax.swing.JButton botonElegirSalas;
-    private javax.swing.JButton botonEliminarPromocion;
-    private javax.swing.JButton botonModificarPromocion;
-    private javax.swing.JButton botonModificarSala;
+    public javax.swing.ButtonGroup GestionAdministrador;
+    public javax.swing.JButton botonAniadirPromocion;
+    public javax.swing.JButton botonAniadirSala;
+    public javax.swing.JButton botonElegirPromocion;
+    public javax.swing.JButton botonElegirSalas;
+    public javax.swing.JButton botonEliminarPromocion;
+    public javax.swing.JButton botonModificarPromocion;
+    public javax.swing.JButton botonModificarSala;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton16;
@@ -2225,16 +2225,16 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField48;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JList<String> listaSalasCine;
-    private javax.swing.JList<String> listaSeleccionPromocion;
-    private javax.swing.JTable tablaEliminarPromocion;
-    private javax.swing.JTextField textoDescripcionPromocionAniadir;
-    private javax.swing.JTextField textoDescripcionPromocionModificar;
-    private javax.swing.JTextField textoDescuentoPromocionAniadir;
-    private javax.swing.JTextField textoDescuentoPromocionModificar;
-    private javax.swing.JTextField textoIdSalaCine;
-    private javax.swing.JTextField textoIdSalaCineAniadir;
-    private javax.swing.JTextField textoNumeroButacas;
-    private javax.swing.JTextField textoNumeroButacasAniadir;
+    public javax.swing.JList<String> listaSalasCine;
+    public javax.swing.JList<String> listaSeleccionPromocion;
+    public javax.swing.JTable tablaEliminarPromocion;
+    public javax.swing.JTextField textoDescripcionPromocionAniadir;
+    public javax.swing.JTextField textoDescripcionPromocionModificar;
+    public javax.swing.JTextField textoDescuentoPromocionAniadir;
+    public javax.swing.JTextField textoDescuentoPromocionModificar;
+    public javax.swing.JTextField textoIdSalaCine;
+    public javax.swing.JTextField textoIdSalaCineAniadir;
+    public javax.swing.JTextField textoNumeroButacas;
+    public javax.swing.JTextField textoNumeroButacasAniadir;
     // End of variables declaration//GEN-END:variables
 }

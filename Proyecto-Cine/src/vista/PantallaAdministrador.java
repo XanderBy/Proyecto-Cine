@@ -85,7 +85,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         textoDescripcionPromocionAniadir = new javax.swing.JTextField();
         textoDescuentoPromocionAniadir = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        botonAniadirPromocion = new javax.swing.JButton();
+        botonCrearPromocion = new javax.swing.JButton();
         jLabel83 = new javax.swing.JLabel();
         jInternalFrame16 = new javax.swing.JInternalFrame();
         jLabel24 = new javax.swing.JLabel();
@@ -683,7 +683,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel23.setText("Descuento Promocion:");
 
-        botonAniadirPromocion.setText("Añadir Promocion");
+        botonCrearPromocion.setText("Crear Promocion");
 
         jLabel83.setText("%");
 
@@ -707,7 +707,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                             .addComponent(textoDescripcionPromocionAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jInternalFrame15Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
-                        .addComponent(botonAniadirPromocion)))
+                        .addComponent(botonCrearPromocion)))
                 .addContainerGap(187, Short.MAX_VALUE))
         );
         jInternalFrame15Layout.setVerticalGroup(
@@ -723,11 +723,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addComponent(textoDescuentoPromocionAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83))
                 .addGap(26, 26, 26)
-                .addComponent(botonAniadirPromocion)
+                .addComponent(botonCrearPromocion)
                 .addContainerGap(294, Short.MAX_VALUE))
         );
 
-        jTabbedPane5.addTab("Añadir Promocion", jInternalFrame15);
+        jTabbedPane5.addTab("Crear Promocion", jInternalFrame15);
 
         jInternalFrame16.setVisible(true);
 
@@ -2007,7 +2007,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.ButtonGroup GestionAdministrador;
-    public javax.swing.JButton botonAniadirPromocion;
+    public javax.swing.JButton botonCrearPromocion;
     public javax.swing.JButton botonAniadirSala;
     public javax.swing.JButton botonElegirPromocion;
     public javax.swing.JButton botonElegirSalas;

@@ -51,12 +51,11 @@ public class ControladorPantallaAdministrador implements ActionListener, MouseLi
         pantallaAdministrador.botonCrearPromocion.addActionListener(this);
         
         //Añade e inicia los jTextField correspondientes a la pestania "Crear promocion"
+        pantallaAdministrador.textoDescripcionPromocionAniadir.addActionListener(this);//MIRAR SI ME TENGO QUE REFERIR ANTES A JTABBEDPANE5
+        //Poner aqui el equivalente a this.vista.__tabla_producto.setModel( new DefaultTableModel() )
+        pantallaAdministrador.textoDescuentoPromocionAniadir.addActionListener(this);//MIRAR SI ME TENGO QUE REFERIR ANTES A JTABBEDPANE5
+        //Poner aqui el equivalente a this.vista.__tabla_producto.setModel( new DefaultTableModel() )
         
-
-
-        /*añade e inicia el jtable con un DefaultTableModel vacio
-        this.vista.__tabla_producto.addMouseListener(this);
-        this.vista.__tabla_producto.setModel( new DefaultTableModel() );*/
     }
     
 

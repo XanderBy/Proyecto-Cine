@@ -10,11 +10,11 @@ public class Sala {
 	
 	//CONSTRUCTORES
 	
-	Sala(){
+	public Sala(){
 		codigoSala=codigoSala++;
 	}
 	
-	Sala(String auditoriumCineId, int seatsNumber){
+	public Sala(String auditoriumCineId, int seatsNumber){
 		idSalaCine=auditoriumCineId;
 		numeroButacas=seatsNumber;
 		codigoSala=codigoSala++;

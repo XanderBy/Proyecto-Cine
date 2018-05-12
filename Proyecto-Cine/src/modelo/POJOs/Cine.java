@@ -2,7 +2,7 @@ package modelo.POJOs;
 
 import java.util.HashMap;
 
-public class Cine {
+public class Cine implements Cartelera{
 	// TODO: Atributos
 	private String nombreCine;
 	private String direccionCine;

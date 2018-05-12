@@ -46,9 +46,14 @@ public class MetodosPromocion {
 	//ELIMINAR PROMOCION
 	
 	public void EliminarPromocion(Funcion f, Promocion p) {
-		p.setDescripcionPromo("");
-		p.setDescuentoPromo(0);
-		f.setPromocionFuncion(p);
+		try {
+			p.setDescripcionPromo("");
+			p.setDescuentoPromo(0);
+			f.setPromocionFuncion(p);
+		} catch (Exception e) {
+			System.out.println("Excepción no controlada");
+			e.printStackTrace();
+		}
 	}
 
 }

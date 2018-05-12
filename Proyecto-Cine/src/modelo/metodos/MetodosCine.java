@@ -1,7 +1,6 @@
 package modelo.metodos;
 
 import modelo.POJOs.Cine;
-import modelo.POJOs.Sala;
 
 public class MetodosCine {
 	// Crear Cine
@@ -32,6 +31,6 @@ public class MetodosCine {
 
 	}
 
-
+	
 
 }

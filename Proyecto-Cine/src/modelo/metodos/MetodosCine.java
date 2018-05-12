@@ -24,7 +24,7 @@ public class MetodosCine {
 	// TODO:Falta los metodos de funciones para el cine y las salas
 	// Añadir Funcion al cine
 	public void anadirFuncionACine() {
-
+		
 	}
 
 	public void anadirSalaACine() {

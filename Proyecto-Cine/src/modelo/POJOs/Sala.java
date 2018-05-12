@@ -50,7 +50,7 @@ public class Sala {
 
 	@Override
 	public String toString() {
-		return "La sala "+ getIdSalaCine()+ " y codigo "+ getCodigoSala()+ ", tiene "+getNumeroButacas()+" butacas";
+		return "La sala "+ getIdSalaCine()+ " con codigo "+ getCodigoSala()+ ", tiene "+getNumeroButacas()+" butacas";
 	}
 
 }

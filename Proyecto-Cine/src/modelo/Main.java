@@ -18,6 +18,9 @@ public class Main {
         PantallaUsuario pu=new PantallaUsuario();
         pu.setVisible(true);
         pu.setLocationRelativeTo(null);*/
+		
+		
+		
 
 	}
 

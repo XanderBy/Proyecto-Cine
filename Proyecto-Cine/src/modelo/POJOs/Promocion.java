@@ -9,11 +9,11 @@ public class Promocion {
 	
 	//CONSTRUCTORES
 	
-	Promocion(){
+	public Promocion(){
 		
 	}
 	
-	Promocion(String promoDescription, int promoDiscount){
+	public Promocion(String promoDescription, int promoDiscount){
 		
 		descripcionPromo=promoDescription;
 		descuentoPromo=promoDiscount;

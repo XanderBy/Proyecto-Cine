@@ -8,7 +8,7 @@ public class Conexion {
 
     private static Connection conex = null;
     
-    //1.1 CREAR conex
+    //1.1 CREAR CONEXION
     public static Connection obtener() throws SQLException, ClassNotFoundException {
         if (conex == null) {
             try {

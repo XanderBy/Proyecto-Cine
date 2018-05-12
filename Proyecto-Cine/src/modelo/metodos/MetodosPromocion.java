@@ -7,7 +7,7 @@ public class MetodosPromocion {
 	
 	//CREAR PROMOCION
 
-	public void crearPromocion(Funcion f, String promoDescription, int promoDiscount) {
+	public void crearPromocion(String promoDescription, int promoDiscount) {
 		Promocion p;
 		try {
 			if(promoDescription==null) {
@@ -15,7 +15,6 @@ public class MetodosPromocion {
 				promoDiscount=0;
 			}
 			p=new Promocion(promoDescription, promoDiscount);
-			f.setPromocionFuncion(p);
 		} catch (Exception e) {
 			System.out.println("Excepción no controlada");
 			e.printStackTrace();
@@ -24,7 +23,7 @@ public class MetodosPromocion {
 	
 	//MODIFICAR PROMOCION
 	
-	public void modificarPromocion(Funcion f, Promocion p,String promoDescription, int promoDiscount) {
+	public void modificarPromocion(Promocion p,String promoDescription, int promoDiscount) {
 		try {
 			if(p.getDescripcionPromo()==null) {
 				promoDescription="No hay descripcion. Debe introducir valores correctos.";
@@ -35,7 +34,6 @@ public class MetodosPromocion {
 				p.setDescripcionPromo(promoDescription);
 				p.setDescuentoPromo(promoDiscount);
 			}
-			f.setPromocionFuncion(p);
 		} catch (Exception e) {
 			System.out.println("Excepción no controlada");
 			e.printStackTrace();

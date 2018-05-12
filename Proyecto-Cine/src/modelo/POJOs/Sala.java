@@ -42,8 +42,12 @@ public class Sala {
 		return codigoSala;
 	}
 	
-	//MÉTODO TOSTRING
+	public static void setCodigoSala(int codigoSala) {
+		Sala.codigoSala = codigoSala;
+	}
 	
+	//MÉTODO TOSTRING
+
 	@Override
 	public String toString() {
 		return "La sala "+ getIdSalaCine()+ " y codigo "+ getCodigoSala()+ ", tiene "+getNumeroButacas()+" butacas";

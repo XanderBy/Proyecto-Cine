@@ -8,7 +8,7 @@ public class Cine implements Cartelera{
 	private String direccionCine;
 	private int telefonoConsulta;
 	public static HashMap<String, Sala> salasCine = new HashMap<String, Sala>();
-	public HashMap<String, Funcion> funcionesSemana = new HashMap<String, Funcion>();//Convertido en static para acceder desde metodosSala
+	public HashMap<String, Funcion> funcionesSemana = new HashMap<String, Funcion>();//Convertido en static para acceder desde metodosSala 
 	private int precioBase;
 
 	// TODO:Constructores

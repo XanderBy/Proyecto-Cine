@@ -21,7 +21,14 @@ public class MetodosSala {
 	}
 	
 	public void eliminarSala(String auditoriumCineId) {
-		Cine.salasCine.remove(auditoriumCineId);
+		
+		if(Cine.salasCine.containsKey(auditoriumCineId)) {
+			Cine.salasCine.remove(auditoriumCineId);
+		}
+		else {
+			System.out.println("No existe la sala");
+		}
+		
 	}
 
 	

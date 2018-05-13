@@ -7,7 +7,7 @@ public class Compagnia {
 	
 	private String nombreCompagnia;
 	
-	private HashMap<String,Cine> listaCines;
+	public static HashMap<String,Cine> listaCines;
 	
 	public Compagnia(String nomComp) {
 		

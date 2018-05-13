@@ -16,8 +16,8 @@ public class MetodosCine {
 	}
 
 	// modificar Cine
-	public void modificarCine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
-		Compagnia.listaCines.remove(nombreCine);
+	public void modificarCine(String nombreCineAntiguo,String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
+		Compagnia.listaCines.remove(nombreCineAntiguo);
 		Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta, precioBase);
 		Compagnia.listaCines.put(nombreCine, cine);
 	}

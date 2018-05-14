@@ -1,5 +1,8 @@
 package modelo.POJOs;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 public class Entrada {
@@ -26,15 +29,25 @@ public class Entrada {
 	public void aumentarEntradaVendida(Cine cine) {
 		if (EntradasVendidasCine.containsKey(cine)) {
 			EntradasVendidasCine.remove(cine);
+			volverCeroEntradaVendidas(cine);
 			cine.setEntradasVendidas(cine.getEntradasVendidas()+1);
 			EntradasVendidasCine.put(cine, cine.getEntradasVendidas());
 		} else {
-
+			volverCeroEntradaVendidas(cine);
 			cine.setEntradasVendidas(cine.getEntradasVendidas() + 1);
 			EntradasVendidasCine.put(cine, cine.getEntradasVendidas());
 		}
 	}
-
+	//metodo volver ha cero entradas vendidas cada principio de mes
+	public void volverCeroEntradaVendidas(Cine cine) {
+		Calendar c2 = new GregorianCalendar();
+		if(c2.get(Calendar.DATE)==1) {
+			cine.setEntradasVendidas(0);
+		}else {
+			System.out.println("Aun no es la fecha");
+		}
+	}
+	
 	// TODO: Metodos Get/Set
 	public Sala getSala() {
 		return sala;

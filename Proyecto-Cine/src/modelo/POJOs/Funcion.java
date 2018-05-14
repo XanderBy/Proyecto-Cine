@@ -11,14 +11,12 @@ public class Funcion implements Cartelera {
 	private int entradasVendidas;
 
 	// TODO: Contructores
-	public Funcion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion,
-			int entradasVendidas) {
+	public Funcion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion) {
 		super();
 		this.diaYHora = diaYHora;
 		this.salaFuncion = salaFuncion;
 		this.peliculaFuncion = peliculaFuncion;
 		this.promocionFuncion = promocionFuncion;
-		this.entradasVendidas = entradasVendidas;
 	}
 
 	// TODO: Metodos Get/Set

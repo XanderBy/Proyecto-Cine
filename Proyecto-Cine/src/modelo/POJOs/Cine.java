@@ -1,5 +1,6 @@
 package modelo.POJOs;
 
+import java.time.LocalTime;
 import java.util.HashMap;
 
 public class Cine implements Cartelera{
@@ -8,9 +9,9 @@ public class Cine implements Cartelera{
 	private String direccionCine;
 	private int telefonoConsulta;
 	public static HashMap<String, Sala> salasCine = new HashMap<String, Sala>();//Convertido en static para acceder desde metodosSala
-	public HashMap<String, Funcion> funcionesSemana = new HashMap<String, Funcion>(); 
+	public HashMap<LocalTime, Funcion> funcionesSemana = new HashMap<LocalTime, Funcion>(); 
 	private int precioBase;
-
+	private int entradasVendidas;
 	// TODO:Constructores
 	public Cine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
 		super();
@@ -51,6 +52,14 @@ public class Cine implements Cartelera{
 
 	public void setPrecioBase(int precioBase) {
 		this.precioBase = precioBase;
+	}
+
+	public int getEntradasVendidas() {
+		return entradasVendidas;
+	}
+
+	public void setEntradasVendidas(int entradasVendidas) {
+		this.entradasVendidas = entradasVendidas;
 	}
 
 }

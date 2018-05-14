@@ -8,7 +8,7 @@ public class Funcion implements Cartelera {
 	private Sala salaFuncion;
 	private Pelicula peliculaFuncion;
 	private Promocion promocionFuncion;
-	private int entradasVendidas;
+	
 
 	// TODO: Contructores
 	public Funcion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion) {
@@ -18,7 +18,9 @@ public class Funcion implements Cartelera {
 		this.peliculaFuncion = peliculaFuncion;
 		this.promocionFuncion = promocionFuncion;
 	}
-
+	
+	
+	
 	// TODO: Metodos Get/Set
 	public LocalTime getDiaYHora() {
 		return diaYHora;
@@ -52,11 +54,4 @@ public class Funcion implements Cartelera {
 		this.promocionFuncion = promocionFuncion;
 	}
 
-	public int getEntradasVendidas() {
-		return entradasVendidas;
-	}
-
-	public void setEntradasVendidas(int entradasVendidas) {
-		this.entradasVendidas = entradasVendidas;
-	}
 }

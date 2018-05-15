@@ -56,15 +56,15 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		
-		
-																						
-		
-
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		
+		switch (accionesPromocionAdministrador.valueOf(e.getActionCommand())) {
+		case CREAR_PROMOCION:
+			//PASO A MODIFICACION MODELO
+		}
 
 	}
 

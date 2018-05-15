@@ -10,7 +10,7 @@ import modelo.POJOs.Promocion;
 import modelo.POJOs.Sala;
 
 public class MetodosFuncion {
-	HashMap<LocalTime, Funcion> Funciones = new HashMap<LocalTime, Funcion>();
+	public static HashMap<LocalTime, Funcion> Funciones = new HashMap<LocalTime, Funcion>();
 
 	public void crearFuncion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			Promocion promocionFuncion) {

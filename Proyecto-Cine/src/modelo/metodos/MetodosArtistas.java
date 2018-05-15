@@ -7,7 +7,7 @@ import modelo.POJOs.Pais;
 import modelo.POJOs.Pelicula;
 
 public class MetodosArtistas {
-	HashMap<String, Artista> Artistas = new HashMap<String, Artista>();
+	public static HashMap<String, Artista> Artistas = new HashMap<String, Artista>();
 
 	// Creas Artista
 	public void CrearArtista(String nombreCompleto, Pais nacionalidad) {

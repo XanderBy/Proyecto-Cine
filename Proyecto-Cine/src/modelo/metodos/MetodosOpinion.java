@@ -2,14 +2,24 @@ package modelo.metodos;
 
 import java.time.LocalDate;
 
+import controlador.Conexion;
 import modelo.POJOs.Opinion;
 import modelo.POJOs.ValoracionPeli;
 
-public class MetodosOpinion {
+public class MetodosOpinion extends Conexion {
 	public void hacerOpinion(LocalDate fechaOpinion, String comentario, String idPelicula, ValoracionPeli valoracion,
 			int edadUsuario) {
-		
-		Opinion opinion=new Opinion(fechaOpinion, comentario, idPelicula, valoracion, edadUsuario);
-		//Añadir al navegar por un array de peliculas y introducir la opinion a la pelicula
+
+		Opinion opinion = new Opinion(fechaOpinion, comentario, idPelicula, valoracion, edadUsuario);
+		// Añadir al navegar por un array de peliculas y introducir la opinion a la
+		// pelicula
+	}
+
+	public void insertarOpinionBBDD() {
+
+	}
+
+	public void cogerOpinionBBDD() {
+
 	}
 }

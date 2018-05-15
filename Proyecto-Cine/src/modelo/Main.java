@@ -1,6 +1,6 @@
 package modelo;
 
-import controlador.Controlador;
+import controlador.ControladorCine;
 import vista.PantallaAdministrador;
 
 public class Main {
@@ -9,7 +9,7 @@ public class Main {
 		/*IniciarSesion is=new IniciarSesion();
 		is.setVisible(true);*/
 		
-        new Controlador(new PantallaAdministrador()).Iniciar();
+        new ControladorCine(new PantallaAdministrador()).Iniciar();
 
         /*CrearUsuario cu = new CrearUsuario();
         cu.setVisible(true);

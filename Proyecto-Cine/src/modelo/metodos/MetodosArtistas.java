@@ -2,11 +2,12 @@ package modelo.metodos;
 
 import java.util.HashMap;
 
+import controlador.Conexion;
 import modelo.POJOs.Artista;
 import modelo.POJOs.Pais;
 import modelo.POJOs.Pelicula;
 
-public class MetodosArtistas {
+public class MetodosArtistas extends Conexion {
 	public static HashMap<String, Artista> Artistas = new HashMap<String, Artista>();
 
 	// Creas Artista
@@ -44,5 +45,21 @@ public class MetodosArtistas {
 			System.out.println("Se suma + 1 en cantidad pelicula");
 
 		}
+	}
+
+	public void eliminarArtistaBBDD() {
+
+	}
+
+	public void insertarArtistaBBDD() {
+
+	}
+
+	public void actualizarArtistaBBDD() {
+
+	}
+
+	public void cogerArtistaBBDD() {
+
 	}
 }

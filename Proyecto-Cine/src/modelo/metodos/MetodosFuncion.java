@@ -3,13 +3,14 @@ package modelo.metodos;
 import java.time.LocalTime;
 import java.util.HashMap;
 
+import controlador.Conexion;
 import modelo.POJOs.Compagnia;
 import modelo.POJOs.Funcion;
 import modelo.POJOs.Pelicula;
 import modelo.POJOs.Promocion;
 import modelo.POJOs.Sala;
 
-public class MetodosFuncion {
+public class MetodosFuncion extends Conexion {
 	public static HashMap<LocalTime, Funcion> Funciones = new HashMap<LocalTime, Funcion>();
 
 	public void crearFuncion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
@@ -33,6 +34,20 @@ public class MetodosFuncion {
 		Compagnia.listaCines.get(nombreCine).funcionesSemana.put(diaYHora, Funciones.get(diaYHora));
 	}
 
-	
+	public void eliminarFuncionBBDD() {
+
+	}
+
+	public void insertarFuncionBBDD() {
+
+	}
+
+	public void actualizarFuncionBBDD() {
+
+	}
+
+	public void cogerFuncionBBDD() {
+
+	}
 
 }

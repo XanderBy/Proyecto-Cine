@@ -40,7 +40,7 @@ public class Cine implements Cartelera{
 
 	public int getTelefonoConsulta() {
 		return telefonoConsulta;
-	}
+	} 
 
 	public void setTelefonoConsulta(int telefonoConsulta) {
 		this.telefonoConsulta = telefonoConsulta;
@@ -60,6 +60,12 @@ public class Cine implements Cartelera{
 
 	public void setEntradasVendidas(int entradasVendidas) {
 		this.entradasVendidas = entradasVendidas;
+	}
+
+	@Override
+	public void nuevaSemana() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

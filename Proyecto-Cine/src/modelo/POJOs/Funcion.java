@@ -54,4 +54,12 @@ public class Funcion implements Cartelera {
 		this.promocionFuncion = promocionFuncion;
 	}
 
+
+
+	@Override
+	public void nuevaSemana() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

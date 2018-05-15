@@ -22,7 +22,7 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 	// Declaramos en un enum las acciones relacionadas con Promocion
 	public enum accionesPromocionAdministrador {
 		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION
-	};
+	}
 
 	// CONSTRUCTOR DE CLASE
 

@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-
-    private static Connection conex = null;
+	//Lo e cambiado de private a public
+    public static Connection conex = null;
     
     //1.1 CREAR CONEXION
     public static Connection obtener() throws SQLException, ClassNotFoundException {

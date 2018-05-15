@@ -1,7 +1,12 @@
 package modelo.POJOs;
 
 import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Iterator;
+
+import modelo.metodos.MetodosFuncion;
 
 public class Cine implements Cartelera{
 	// TODO: Atributos
@@ -64,7 +69,16 @@ public class Cine implements Cartelera{
 
 	@Override
 	public void nuevaSemana() {
-		// TODO Auto-generated method stub
+		Calendar c2 = new GregorianCalendar();
+		if(c2.get(Calendar.DAY_OF_WEEK)==1) {
+		Iterator it = funcionesSemana.keySet().iterator();
+		while(it.hasNext()){
+		Integer key = (Integer) it.next();
+		funcionesSemana.remove(key);
+		}
+		}else {
+			System.out.println("Aun no es lunes");
+		}
 		
 	}
 

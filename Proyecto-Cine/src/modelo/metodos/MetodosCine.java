@@ -1,5 +1,10 @@
 package modelo.metodos;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.table.DefaultTableModel;
+
 import controlador.Conexion;
 import modelo.POJOs.Cine;
 import modelo.POJOs.Compagnia;
@@ -23,19 +28,34 @@ public class MetodosCine extends Conexion{
 		Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta, precioBase);
 		Compagnia.listaCines.put(nombreCine, cine);
 	}
+	//TODO:Este metodo no funciona hay que cambiar la consulta
+	public boolean eliminarCineBBDD(String id) {
+		 boolean res=false;
+	        //se arma la consulta
+	        String q = " DELETE FROM cine WHERE  p_id='" + id + "' " ;
+	        //se ejecuta la consulta
+	         try {
+	            PreparedStatement pstm = this.conex.prepareStatement(q);
+	            pstm.execute();
+	            pstm.close();
+	            res=true;
+	         }catch(SQLException e){
+	            System.err.println( e.getMessage() );
+	        }
+	        return res;
+	}
 
-	public void eliminarCineBBDD() {
+	public boolean insertarCineBBDD() {
+		return false;
 
 	}
 
-	public void insertarCineBBDD() {
+	public boolean actualizarCineBBDD() {
+		return false;
 
 	}
-
-	public void actualizarCineBBDD() {
-
-	}
-	public void cogerCineBBDD() {
+	public DefaultTableModel cogerCineBBDD() {
+		return null;
 		
 	}
 

@@ -49,13 +49,16 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 		// Declara una acción y añade un escucha al evento producido por el componente
 		pantallaAdministrador.botonCrearPromocion.setActionCommand("CREAR_PROMOCION");
 		pantallaAdministrador.botonCrearPromocion.addActionListener(this);
-
+		// Declara una acción y añade un escucha al evento producido por el componente
+		pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
+		pantallaAdministrador.botonModificarPromocion.addActionListener(this);
+		// Declara una acción y añade un escucha al evento producido por el componente
+		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
+		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		
-		pantallaAdministrador.textoDescripcionPromocionAniadir.addActionListener(this);
-		pantallaAdministrador.textoDescuentoPromocionAniadir.addActionListener(this);
+		
 																						
-		// Poner aqui el equivalente a this.vista.__tabla_producto.setModel( new
-		// DefaultTableModel() )
+		
 
 	}
 

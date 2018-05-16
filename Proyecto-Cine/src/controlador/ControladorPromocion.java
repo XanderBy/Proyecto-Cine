@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import modelo.metodos.MetodosPromocion;
+import vista.CrearUsuario;
 import vista.PantallaAdministrador;
 
 public class ControladorPromocion implements ActionListener, MouseListener {
@@ -78,8 +79,10 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+	public void mouseClicked(MouseEvent b) {
+		if(b.getButton()==1) {
+			//accionesPromocionAdministrador.CREAR_PROMOCION
+		}
 
 	}
 

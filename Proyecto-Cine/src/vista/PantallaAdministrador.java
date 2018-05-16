@@ -16,7 +16,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         initComponents();
     }
 	
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                     
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents               
     private void initComponents() {
 
         GestionAdministrador = new javax.swing.ButtonGroup();
@@ -1984,35 +1984,35 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>//GEN-END:initComponents          
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed                                
         // TODO add your handling code here:
-    }                                           
+    }//GEN-LAST:event_jTextField1ActionPerformed                                           
 
-    private void botonAniadirSalaActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void botonAniadirSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAniadirSalaActionPerformed                                               
         // TODO add your handling code here:
-    }                                                
+    }//GEN-LAST:event_botonAniadirSalaActionPerformed                                                
 
-    private void textoDescripcionPromocionAniadirActionPerformed(java.awt.event.ActionEvent evt) {                                                                 
+    private void textoDescripcionPromocionAniadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDescripcionPromocionAniadirActionPerformed                                                                 
         // TODO add your handling code here:
-    }                                                                
+    }//GEN-LAST:event_textoDescripcionPromocionAniadirActionPerformed                                                                
 
-    private void textoDescripcionPromocionModificarActionPerformed(java.awt.event.ActionEvent evt) {                                                                   
+    private void textoDescripcionPromocionModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoDescripcionPromocionModificarActionPerformed                                                                   
         // TODO add your handling code here:
-    }                                                                  
+    }//GEN-LAST:event_textoDescripcionPromocionModificarActionPerformed                                                                  
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed                                             
         // TODO add your handling code here:
-    }                                            
+    }//GEN-LAST:event_jTextField17ActionPerformed                                            
 
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed                                             
         // TODO add your handling code here:
-    }                                            
+    }//GEN-LAST:event_jTextField11ActionPerformed                                            
 
-    private void botonModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void botonModificarSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarSalaActionPerformed                                                   
         // TODO add your handling code here:
-    }                                                  
+    }//GEN-LAST:event_botonModificarSalaActionPerformed                                                  
 
     /**
      * @param args the command line arguments
@@ -2049,7 +2049,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         });
      }
 
-    // Variables declaration - do not modify                     
+    // Variables declaration - do not modify//GEN-BEGIN:variables       
     public javax.swing.ButtonGroup GestionAdministrador;
     public javax.swing.JButton botonAniadirPromocion;
     public javax.swing.JButton botonAniadirSala;
@@ -2285,5 +2285,5 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTextField textoIdSalaCineAniadir;
     public javax.swing.JTextField textoNumeroButacas;
     public javax.swing.JTextField textoNumeroButacasAniadir;
-    // End of variables declaration                   
+    // End of variables declaration//GEN-END:variables
 }

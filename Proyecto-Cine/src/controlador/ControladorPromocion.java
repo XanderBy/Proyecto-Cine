@@ -71,6 +71,7 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 			System.out.println("Ok controlador");
 			break;
 		default:
+			System.out.println("Error");
 			break;
 		}
 

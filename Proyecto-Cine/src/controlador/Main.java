@@ -1,6 +1,5 @@
 package controlador;
 
-import controlador.ControladorCine;
 import vista.PantallaAdministrador;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
 		is.setVisible(true);*/
 		
         new ControladorCine(new PantallaAdministrador()).Iniciar();
-
+        
         /*CrearUsuario cu = new CrearUsuario();
         cu.setVisible(true);
         cu.setLocationRelativeTo(null);

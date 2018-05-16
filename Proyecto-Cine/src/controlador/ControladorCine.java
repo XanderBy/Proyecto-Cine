@@ -15,7 +15,7 @@ public class ControladorCine implements ActionListener {// Esta Clase es una pru
 	private MetodosArtistas metodosArtistas;
 
 	public enum AccionMVC {// Aqui van las opciones
-		ANADIR_DIRECTOR, ANADIR_ACTOR
+		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE
 	}
 
 	public ControladorCine(PantallaAdministrador pantallaAdministrador) {
@@ -35,20 +35,38 @@ public class ControladorCine implements ActionListener {// Esta Clase es una pru
 		} catch (InstantiationException ex) {
 		} catch (IllegalAccessException ex) {
 		}
-		 //declara una acción y añade un escucha al evento producido por el componente
-		this.pantallaAdministrador.jButton23.setActionCommand("ANADIR_DIRECTOR");
-		this.pantallaAdministrador.jButton23.addActionListener(this);
-	}
+		
+		// eliminar cine
+		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
+		this.pantallaAdministrador.jButton4.addActionListener(this);
+
+		
+		// Añadir Cine
+		this.pantallaAdministrador.jButton3.setActionCommand("ANIADIR_CINE");
+		this.pantallaAdministrador.jButton3.addActionListener(this);
+
+		
+		// Elegir Cine
+		this.pantallaAdministrador.jButton2.setActionCommand("ELEGIR_CINE");
+		this.pantallaAdministrador.jButton2.addActionListener(this);
+
+		// Modificar Cine
+		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
+		this.pantallaAdministrador.jButton6.addActionListener(this);
+
+		}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
 		switch (AccionMVC.valueOf(e.getActionCommand())) {
-		case ANADIR_DIRECTOR:
+		case ANIADIR_CINE:
 			// Aqui iría los metodos
 			System.out.println("Hola");
 			break;
-		case ANADIR_ACTOR:
+		case ELEGIR_CINE:
+			break;
+		case MODIFICAR_CINE:
 			break;
 		}
 

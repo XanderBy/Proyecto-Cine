@@ -11,9 +11,12 @@ import modelo.POJOs.Compagnia;
 
 public class MetodosCine extends Conexion{
 	// Crear Cine
-	public void crearCine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
-		Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta, precioBase);
+	public void crearCine(String nombreCine, String direccionCine, int numero, int prebioBase) {
+		System.out.println("Cine creado");
+		
+		Cine cine = new Cine(nombreCine, direccionCine,numero,prebioBase);
 		Compagnia.listaCines.put(nombreCine, cine);
+		
 	}
 
 	// Elimina el cine

@@ -26,7 +26,7 @@ public class MetodosSala {
 			Cine.salasCine.remove(auditoriumCineId);
 		}
 		else {
-			System.out.println("No existe la sala ");
+			System.out.println("No existe la sala");
 		}
 		
 	}

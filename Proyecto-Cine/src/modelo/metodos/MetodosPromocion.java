@@ -19,15 +19,20 @@ public class MetodosPromocion {
 		Promocion p = null;
 		try {
 			if(promoDescription==null) {
-				promoDescription="No hay descripcion. Debe introducir valores correctos.";
-				promoDiscount=0;
+				JOptionPane.showMessageDialog(null, "Introduzca datos válidos");
 			}
-			p=new Promocion(promoDescription, promoDiscount);
+			else {
+				p=new Promocion(promoDescription, promoDiscount);
+				JOptionPane.showMessageDialog(null, "Objeto creado correctamente");
+			}
+			
 		} catch (Exception e) {
 			System.out.println("Excepción no controlada");
 			e.printStackTrace();
+		}finally {
+			System.out.println("Ok vista");
 		}
-		System.out.println("Ok vista");
+		
 		return p;
 	}
 	

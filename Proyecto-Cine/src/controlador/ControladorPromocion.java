@@ -6,22 +6,19 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.security.auth.callback.TextOutputCallback;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import modelo.metodos.MetodosPromocion;
-import vista.CrearUsuario;
 import vista.PantallaAdministrador;
 
 public class ControladorPromocion implements ActionListener, MouseListener {
 
 	// Instanciamos vista PantallaAdministrador
-	private PantallaAdministrador pantallaAdministrador;
+	public PantallaAdministrador pantallaAdministrador=new PantallaAdministrador();
 	// Instanciamos modelo
-	private MetodosPromocion metodosPromocion;
-
+	public MetodosPromocion metodosPromocion=new MetodosPromocion();
 	// Declaramos en un enum las acciones relacionadas con Promocion
 	public enum accionesPromocionAdministrador {
 		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION
@@ -52,12 +49,15 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 		// Declara una acción y añade un escucha al evento producido por el componente
 		pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
 		pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
+		pantallaAdministrador.botonAniadirPromocion.addMouseListener(this);
 		// Declara una acción y añade un escucha al evento producido por el componente
 		pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
 		pantallaAdministrador.botonModificarPromocion.addActionListener(this);
+		pantallaAdministrador.botonModificarPromocion.addMouseListener(this);
 		// Declara una acción y añade un escucha al evento producido por el componente
 		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
+		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 		
 	}
 
@@ -65,11 +65,9 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (accionesPromocionAdministrador.valueOf(e.getActionCommand())) {
 		case CREAR_PROMOCION:
-			MetodosPromocion mp=new MetodosPromocion();
-			PantallaAdministrador pa=new PantallaAdministrador();
-			String descripcionPromo=pa.textoDescripcionPromocionAniadir.getText();
-			int descuentoPromo=Integer.valueOf(pa.textoDescuentoPromocionAniadir.getText());
-			mp.crearPromocion(descripcionPromo, descuentoPromo);
+			String descripcionPromo=pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
+			int descuentoPromo=Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
+			metodosPromocion.crearPromocion(descripcionPromo, descuentoPromo);
 			System.out.println("Ok controlador");
 			break;
 		default:

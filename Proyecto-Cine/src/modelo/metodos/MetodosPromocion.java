@@ -27,7 +27,7 @@ public class MetodosPromocion {
 			System.out.println("Excepción no controlada");
 			e.printStackTrace();
 		}
-		JOptionPane.showMessageDialog(null, p.getDescripcionPromo());
+		System.out.println("Ok vista");
 		return p;
 	}
 	

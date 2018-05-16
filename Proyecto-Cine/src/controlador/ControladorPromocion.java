@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.security.auth.callback.TextOutputCallback;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -62,27 +63,24 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		switch (accionesPromocionAdministrador.valueOf(e.getActionCommand())) {
 		case CREAR_PROMOCION:
 			MetodosPromocion mp=new MetodosPromocion();
 			PantallaAdministrador pa=new PantallaAdministrador();
 			String descripcionPromo=pa.textoDescripcionPromocionAniadir.getText();
-			int descuentoPromo=Integer.parseInt(pa.textoDescuentoPromocionAniadir.getText());
+			int descuentoPromo=Integer.valueOf(pa.textoDescuentoPromocionAniadir.getText());
 			mp.crearPromocion(descripcionPromo, descuentoPromo);
+			System.out.println("Ok controlador");
 			break;
 		default:
 			break;
-			
 		}
 
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent b) {
-		if(b.getButton()==1) {
-			//accionesPromocionAdministrador.CREAR_PROMOCION
-		}
+	public void mouseClicked(MouseEvent e) {
+		
 
 	}
 

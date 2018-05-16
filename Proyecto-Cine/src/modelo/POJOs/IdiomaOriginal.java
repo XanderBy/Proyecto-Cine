@@ -149,7 +149,7 @@ public enum IdiomaOriginal {
 	ESLOVENO,
 	SOMALI,
 	SOUTHERN_SOTHO,
-	ESPAÑOL,
+	ESPAGNOL,
 	SUNDANESE,
 	SWAHILI,
 	SWATI,

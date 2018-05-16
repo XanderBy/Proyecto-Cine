@@ -165,6 +165,18 @@ public class Pelicula {
 		this.opiniones = opiniones;
 	}
 	
+	public void addArtistaReparto(Artista a, String roll) {
+		
+		repartoPelicula.put(a.getNombreCompleto(), roll);
+		
+	}
+	
+	public void addDirector(Artista a) {
+		
+		directoresPelicula.put(a.getNombreCompleto(),a);
+		
+	}
+	
 	public String listar(HashMap lista) {
 		
 		Iterator it = lista.keySet().iterator();

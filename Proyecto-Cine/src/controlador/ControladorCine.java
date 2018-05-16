@@ -2,14 +2,18 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
+
 import modelo.metodos.MetodosCine;
 import vista.PantallaAdministrador;
 
-public class ControladorCine implements ActionListener {// Esta Clase es una prueba
+public class ControladorCine implements ActionListener, MouseListener {// Esta Clase es una prueba
 	private PantallaAdministrador pantallaAdministrador;
 	MetodosCine metodosCine=new MetodosCine();
 
@@ -24,7 +28,7 @@ public class ControladorCine implements ActionListener {// Esta Clase es una pru
 	}
 
 	public void Iniciar() {
-		System.out.println("dawdwaad");
+		
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(pantallaAdministrador);
@@ -35,7 +39,9 @@ public class ControladorCine implements ActionListener {// Esta Clase es una pru
 		} catch (InstantiationException ex) {
 		} catch (IllegalAccessException ex) {
 		}
-
+		
+		this.pantallaAdministrador.jTable4.addMouseListener(this);
+        this.pantallaAdministrador.jTable4.setModel( new DefaultTableModel() );
 		// eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
 		this.pantallaAdministrador.jButton4.addActionListener(this);
@@ -51,6 +57,8 @@ public class ControladorCine implements ActionListener {// Esta Clase es una pru
 		// Modificar Cine
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
+		
+		pantallaAdministrador.jTable4.setModel(metodosCine.cogerCineBBDD());
 		
 	}
 
@@ -77,6 +85,36 @@ public class ControladorCine implements ActionListener {// Esta Clase es una pru
 			break;
 		}
 
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

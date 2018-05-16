@@ -1,14 +1,22 @@
 package modelo.metodos;
 
+import javax.swing.JOptionPane;
+
 import modelo.POJOs.Funcion;
 import modelo.POJOs.Promocion;
 
 public class MetodosPromocion {
 	
+	//CONSTRUCTOR DE CLASE
+	
+	public MetodosPromocion() {
+		
+	}
+	
 	//CREAR PROMOCION
 
-	public void crearPromocion(String promoDescription, int promoDiscount) {
-		Promocion p;
+	public Promocion crearPromocion(String promoDescription, int promoDiscount) {
+		Promocion p = null;
 		try {
 			if(promoDescription==null) {
 				promoDescription="No hay descripcion. Debe introducir valores correctos.";
@@ -19,11 +27,13 @@ public class MetodosPromocion {
 			System.out.println("Excepción no controlada");
 			e.printStackTrace();
 		}
+		JOptionPane.showMessageDialog(null, p.getDescripcionPromo());
+		return p;
 	}
 	
 	//MODIFICAR PROMOCION
 	
-	public void modificarPromocion(Promocion p,String promoDescription, int promoDiscount) {
+	public Promocion modificarPromocion(Promocion p,String promoDescription, int promoDiscount) {
 		try {
 			if(p.getDescripcionPromo()==null) {
 				promoDescription="No hay descripcion. Debe introducir valores correctos.";
@@ -38,6 +48,7 @@ public class MetodosPromocion {
 			System.out.println("Excepción no controlada");
 			e.printStackTrace();
 		}
+		return p;
 		
 	}
 	

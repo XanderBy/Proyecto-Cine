@@ -22,7 +22,7 @@ public class Pelicula {
 	private int idPelicula;
 	private HashMap<String,Artista> directoresPelicula;
 	private HashMap<String,String> repartoPelicula;
-	private HashMap<String,Opinion> opiniones;
+	public HashMap<String,Opinion> opiniones;
 
 	public Pelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen, int idPelicula) {
 		

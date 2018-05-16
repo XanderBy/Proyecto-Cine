@@ -5,19 +5,20 @@ import java.time.LocalDate;
 public class Opinion {
 	private LocalDate fechaOpinion;
 	private String comentario;
-	private String idPelicula;
+	private int idPelicula;
 	private ValoracionPeli valoracion;
+	private CuentasAcceso usuario;
+	private int edadUsuario;
 	
-	
-	
-	public Opinion(LocalDate fechaOpinion, String comentario, String idPelicula, ValoracionPeli valoracion,
-			int edadUsuario) {
+	public Opinion(LocalDate fechaOpinion, String comentario, int idPelicula, ValoracionPeli valoracion,
+			int edadUsuario, CuentasAcceso usuario) {
 		super();
 		this.fechaOpinion = fechaOpinion;
 		this.comentario = comentario;
 		this.idPelicula = idPelicula;
 		this.valoracion = valoracion;
 		this.edadUsuario = edadUsuario;
+		this.usuario=usuario;
 	}
 	public LocalDate getFechaOpinion() {
 		return fechaOpinion;
@@ -31,10 +32,10 @@ public class Opinion {
 	public void setComentario(String comentario) {
 		this.comentario = comentario;
 	}
-	public String getIdPelicula() {
+	public Integer getIdPelicula() {
 		return idPelicula;
 	}
-	public void setIdPelicula(String idPelicula) {
+	public void setIdPelicula(int idPelicula) {
 		this.idPelicula = idPelicula;
 	}
 	public ValoracionPeli getValoracion() {
@@ -49,12 +50,10 @@ public class Opinion {
 	public void setEdadUsuario(int edadUsuario) {
 		this.edadUsuario = edadUsuario;
 	}
-	public static int getCodigoOpinion() {
-		return codigoOpinion;
+	public CuentasAcceso getUsuario() {
+		return usuario;
 	}
-	public static void setCodigoOpinion(int codigoOpinion) {
-		Opinion.codigoOpinion = codigoOpinion;
+	public void setUsuario(CuentasAcceso usuario) {
+		this.usuario = usuario;
 	}
-	private int edadUsuario;
-	private static int codigoOpinion;//tiene que aumentar solo
 }

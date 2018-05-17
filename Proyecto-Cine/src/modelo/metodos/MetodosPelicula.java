@@ -24,7 +24,7 @@ public class MetodosPelicula {
 			return true;
 			
 		}catch(Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return false;
 		}
@@ -38,7 +38,7 @@ public class MetodosPelicula {
 			return true;
 			
 		}catch(Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepciï¿½n no controlada");
 			e.printStackTrace();
 			return false;
 		}
@@ -51,7 +51,7 @@ public class MetodosPelicula {
 			return true;
 			
 		}catch(Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepciï¿½n no controlada");
 			e.printStackTrace();
 			return false;
 		}
@@ -76,7 +76,7 @@ public class MetodosPelicula {
 				}
 			}
 		}catch (Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepciï¿½n no controlada");
 			e.printStackTrace();
 			return resultado;
 		}

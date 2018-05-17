@@ -13,7 +13,7 @@ public class MetodosOpinion extends Conexion {
 
 		Opinion opinion = new Opinion(fechaOpinion, comentario, idPelicula, valoracion, edadUsuario, usuario);
 		MetodosPelicula.peliculas.get(idPelicula).opiniones.put(usuario.getNombreAdminUsuario(), opinion);
-		// Añadir al navegar por un array de peliculas y introducir la opinion a la
+		// Anadir al navegar por un array de peliculas y introducir la opinion a la
 		// pelicula
 	}
 

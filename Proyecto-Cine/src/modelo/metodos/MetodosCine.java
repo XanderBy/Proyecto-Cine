@@ -86,7 +86,7 @@ public class MetodosCine extends Conexion{
 	            i++;
 	         }
 	         res.close();
-	         //se añade la matriz de datos en el DefaultTableModel
+	         //se anade la matriz de datos en el DefaultTableModel
 	         tablemodel.setDataVector(data, columNames );
 	         }catch(SQLException e){
 	            System.err.println( e.getMessage() );

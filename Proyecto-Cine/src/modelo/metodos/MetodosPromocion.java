@@ -19,7 +19,7 @@ public class MetodosPromocion {
 		Promocion p = null;
 		try {
 			if(promoDescription==null) {
-				JOptionPane.showMessageDialog(null, "Introduzca datos válidos");
+				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
 			}
 			else {
 				p=new Promocion(promoDescription, promoDiscount);
@@ -27,7 +27,7 @@ public class MetodosPromocion {
 			}
 			
 		} catch (Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepciï¿½n no controlada");
 			e.printStackTrace();
 		}finally {
 			System.out.println("Ok vista");
@@ -50,7 +50,7 @@ public class MetodosPromocion {
 				p.setDescuentoPromo(promoDiscount);
 			}
 		} catch (Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepciï¿½n no controlada");
 			e.printStackTrace();
 		}
 		return p;
@@ -65,7 +65,7 @@ public class MetodosPromocion {
 			p.setDescuentoPromo(0);
 			f.setPromocionFuncion(p);
 		} catch (Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepciï¿½n no controlada");
 			e.printStackTrace();
 		}
 	}

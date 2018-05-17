@@ -20,9 +20,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public PantallaAdministrador pantallaAdministrador = new PantallaAdministrador();
 	// Instanciamos modelos
 	public MetodosCine metodosCine = new MetodosCine();
+	public MetodosPromocion metodosPromocion=new MetodosPromocion();
 	// Declaramos en un enum las acciones relacionadas con Promocion
 	public enum accionesAdministrador {
-		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ANIADIR_SALA, MODIFICAR_SALA
+		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA
 	}
 
 	// CONSTRUCTOR DE CLASE
@@ -64,6 +65,21 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Modificar Cine
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
+		
+		// Crear promocion
+		pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
+		pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
+		pantallaAdministrador.botonAniadirPromocion.addMouseListener(this);
+		
+		// Modificar promocion
+		pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
+		pantallaAdministrador.botonModificarPromocion.addActionListener(this);
+		pantallaAdministrador.botonModificarPromocion.addMouseListener(this);
+		
+		// Eliminar promocion
+		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
+		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
+		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 
 		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
 	}
@@ -86,6 +102,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 			System.out.print("dwadaw");
 			break;
 		case MODIFICAR_CINE:
+			break;
+		case CREAR_PROMOCION:
+			String descripcionPromo=pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
+			int descuentoPromo=Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
+			metodosPromocion.crearPromocion(descripcionPromo, descuentoPromo);
+			System.out.println("Ok controlador");
 			break;
 		default:
 			System.out.println("error");

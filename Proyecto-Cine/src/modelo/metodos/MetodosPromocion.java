@@ -27,6 +27,7 @@ public class MetodosPromocion {
 			}
 			else {
 				p=new Promocion(promoDescription, promoDiscount);
+				listaPromocionesCreadas.add(p);
 				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
 			}
 			

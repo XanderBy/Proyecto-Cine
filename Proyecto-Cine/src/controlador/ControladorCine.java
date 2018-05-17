@@ -6,11 +6,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JOptionPane;
-import javax.swing.ListModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.event.ListDataListener;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.metodos.MetodosCine;
@@ -24,7 +22,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	// Instanciamos modelos
 	public MetodosCine metodosCine = new MetodosCine();
 	public MetodosPromocion metodosPromocion=new MetodosPromocion();
-	// Declaramos en un enum las acciones relacionadas con Promocion
+	// Declaramos en un enum las acciones relacionadas con el Administrador
 	public enum accionesAdministrador {
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA
 	}

@@ -16,13 +16,37 @@ public class MetodosPelicula {
 	
 	public static HashMap<Integer,Pelicula> peliculas = new HashMap<Integer,Pelicula>();
 	
-	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen, int idPelicula) {
+	public boolean agnadirPelicula(Pelicula p, int idPelicula) {
 
 		try {
-			
-			peliculas.put(idPelicula, new Pelicula(agnoProduccion,tituloDistribucion,tituloOriginal,genero,idioma,subtitulosEs,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEs,resumen,idPelicula));
+			peliculas.put(idPelicula, p);
 			return true;
 			
+		}catch(Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen) {
+		
+		try {
+			Pelicula aux = peliculas.get(idPelicula);
+			aux.setAgnoProduccion(agnoProduccion);
+			aux.setTituloDistribucion(tituloDistribucion);
+			aux.setTituloOriginal(tituloOriginal);
+			aux.setGenero(genero);
+			aux.setIdioma(idioma);
+			aux.setSubtitulosEs(subtitulosEs);
+			aux.setPaisOrigen(paisOrigen);
+			aux.setSitioWeb(sitioWeb);
+			aux.setDuracionPelicula(duracionPelicula);
+			aux.setCalificacionEdades(calificacionEdades);
+			aux.setFechaEstrenoEs(fechaEstrenoEs);
+			aux.setResumen(resumen);
+			peliculas.put(idPelicula, aux);
+			return true;
 		}catch(Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
@@ -38,7 +62,7 @@ public class MetodosPelicula {
 			return true;
 			
 		}catch(Exception e) {
-			System.out.println("Excepci�n no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return false;
 		}
@@ -51,7 +75,7 @@ public class MetodosPelicula {
 			return true;
 			
 		}catch(Exception e) {
-			System.out.println("Excepci�n no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return false;
 		}
@@ -76,7 +100,7 @@ public class MetodosPelicula {
 				}
 			}
 		}catch (Exception e) {
-			System.out.println("Excepci�n no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return resultado;
 		}

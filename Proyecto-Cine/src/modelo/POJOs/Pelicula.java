@@ -24,7 +24,7 @@ public class Pelicula {
 	private HashMap<String,String> repartoPelicula;
 	public HashMap<String,Opinion> opiniones;
 
-	public Pelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen, int idPelicula) {
+	public Pelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen) {
 		
 		this.agnoProduccion = agnoProduccion;
 		this.tituloDistribucion = tituloDistribucion;
@@ -38,7 +38,6 @@ public class Pelicula {
 		this.calificacionEdades = calificacionEdades;
 		this.fechaEstrenoEs = fechaEstrenoEs;
 		this.resumen = resumen;
-		this.idPelicula = idPelicula;
 		directoresPelicula = new HashMap<String,Artista>();
 		repartoPelicula = new HashMap<String,String>();
 		opiniones = new HashMap<String,Opinion>();

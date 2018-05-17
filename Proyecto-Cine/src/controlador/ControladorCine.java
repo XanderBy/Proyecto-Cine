@@ -18,7 +18,7 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 	MetodosCine metodosCine=new MetodosCine();
 
 	public enum AccionMVC {// Aqui van las opciones
-		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE
+		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ANIADIR_SALA, MODIFICAR_SALA
 	}
 
 	public ControladorCine(PantallaAdministrador pantallaAdministrador) {
@@ -40,12 +40,12 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		}
 		
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
-                this.pantallaAdministrador.jTable7.setModel( new DefaultTableModel() );
+        this.pantallaAdministrador.jTable7.setModel( new DefaultTableModel() );
 		// eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
 		this.pantallaAdministrador.jButton4.addActionListener(this);
 
-		// A�adir Cine
+		// Aniadir Cine
 		this.pantallaAdministrador.jButton3.setActionCommand("ANIADIR_CINE");
 		this.pantallaAdministrador.jButton3.addActionListener(this);
 

@@ -7,30 +7,39 @@ import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.Conexion;
+import javax.swing.JOptionPane;
 import modelo.POJOs.Cine;
 import modelo.POJOs.Compagnia;
 
 public class MetodosCine extends Conexion{
 	// Crear Cine
-	public void crearCine(String nombreCine, String direccionCine, int numero, int prebioBase) {
-		System.out.println("Cine creado");
-		
-		Cine cine = new Cine(nombreCine, direccionCine,numero,prebioBase);
+	public void crearCine(String nombreCine, String direccionCine, int numero, int precioBase) {
+		if(nombreCine==null || direccionCine==null|| numero==0||precioBase==0){
+                    JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
+                }else{
+		Cine cine = new Cine(nombreCine, direccionCine,numero,precioBase);
 		Compagnia.listaCines.put(nombreCine, cine);
-		
+                JOptionPane.showMessageDialog(null, "Cine creado con exito");
+                }
 	}
 
 	// Elimina el cine
 	public void eliminarCine(String nombreCine) {
 		Compagnia.listaCines.remove(nombreCine);
+                JOptionPane.showMessageDialog(null, "Cine eliminado");
 	}
 
 	// modificar Cine
 	public void modificarCine(String nombreCineAntiguo, String nombreCine, String direccionCine, int telefonoConsulta,
 			int precioBase) {
+            if(nombreCineAntiguo==null|| nombreCine==null|| direccionCine==null|| telefonoConsulta==0|| precioBase==0){
+                JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
+            }else{
 		Compagnia.listaCines.remove(nombreCineAntiguo);
 		Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta, precioBase);
 		Compagnia.listaCines.put(nombreCine, cine);
+                JOptionPane.showMessageDialog(null, "Cine modificado con exito");
+        }
 	}
 	//TODO:Este metodo no funciona hay que cambiar la consulta
 	public boolean eliminarCineBBDD(String id) {

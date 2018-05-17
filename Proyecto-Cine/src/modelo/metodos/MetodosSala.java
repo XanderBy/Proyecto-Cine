@@ -1,6 +1,9 @@
 package modelo.metodos;
 
 import modelo.POJOs.Sala;
+
+import javax.swing.JOptionPane;
+
 import modelo.POJOs.Cine;
 
 public class MetodosSala {
@@ -15,11 +18,11 @@ public class MetodosSala {
 		Sala s = null;
 		try {
 			if (auditoriumCineId==null) {
-				auditoriumCineId="Introduzca valores validos";
-				seatsNumber=0;
+				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
 			}
 			else {
 				s=new Sala(auditoriumCineId, seatsNumber);
+				JOptionPane.showMessageDialog(null, "Sala creada correctamente");
 			}
 		} catch (Exception e) {
 			System.out.println("Excepcion no controlada");

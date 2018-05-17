@@ -38,7 +38,7 @@ public class Promocion {
 		this.descuentoPromo = descuentoPromo;
 	}
 	
-	//M�TODO TOSTRING
+	//METODO TOSTRING
 	
 	@Override
 	

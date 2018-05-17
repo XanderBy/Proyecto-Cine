@@ -23,14 +23,14 @@ public class MetodosPromocion {
 			}
 			else {
 				p=new Promocion(promoDescription, promoDiscount);
-				JOptionPane.showMessageDialog(null, "Objeto creado correctamente");
+				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
 			}
 			
 		} catch (Exception e) {
-			System.out.println("Excepci�n no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
-		}finally {
-			System.out.println("Ok vista");
+		} finally {
+			
 		}
 		
 		return p;
@@ -40,17 +40,15 @@ public class MetodosPromocion {
 	
 	public Promocion modificarPromocion(Promocion p,String promoDescription, int promoDiscount) {
 		try {
-			if(p.getDescripcionPromo()==null) {
-				promoDescription="No hay descripcion. Debe introducir valores correctos.";
-				p.setDescripcionPromo(promoDescription);
-				p.setDescuentoPromo(0);
+			if(p.getDescripcionPromo()==null || p==null) {
+				JOptionPane.showMessageDialog(null, "La promocion seleccionada no existe. Introduzca nuevos datos");
 			}
 			else {
 				p.setDescripcionPromo(promoDescription);
 				p.setDescuentoPromo(promoDiscount);
 			}
 		} catch (Exception e) {
-			System.out.println("Excepci�n no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
 		return p;
@@ -65,7 +63,7 @@ public class MetodosPromocion {
 			p.setDescuentoPromo(0);
 			f.setPromocionFuncion(p);
 		} catch (Exception e) {
-			System.out.println("Excepci�n no controlada");
+			System.out.println("ExcepciOn no controlada");
 			e.printStackTrace();
 		}
 	}

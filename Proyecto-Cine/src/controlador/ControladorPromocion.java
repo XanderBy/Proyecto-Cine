@@ -47,9 +47,9 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 		}
 
 		// Declara una acci�n y a�ade un escucha al evento producido por el componente
-		pantallaAdministrador.botonCrearPromocion.setActionCommand("CREAR_PROMOCION");
-		pantallaAdministrador.botonCrearPromocion.addActionListener(this);
-		pantallaAdministrador.botonCrearPromocion.addMouseListener(this);
+		pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
+		pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
+		pantallaAdministrador.botonAniadirPromocion.addMouseListener(this);
 		// Declara una acci�n y a�ade un escucha al evento producido por el componente
 		pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
 		pantallaAdministrador.botonModificarPromocion.addActionListener(this);

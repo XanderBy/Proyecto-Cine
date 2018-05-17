@@ -1454,7 +1454,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel60)
                             .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Añadir Pelicula", jInternalFrame1);
@@ -1793,7 +1793,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame9Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jButton31)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Eliminar Pelicula", jInternalFrame9);
@@ -1807,7 +1807,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jInternalFrame2Layout.setVerticalGroup(
             jInternalFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame2Layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -2081,23 +2081,23 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup GestionAdministrador;
-    private javax.swing.JButton botonAniadirPromocion;
-    private javax.swing.JButton botonAniadirSala;
-    private javax.swing.JButton botonElegirPromocion;
-    private javax.swing.JButton botonElegirSalas;
-    private javax.swing.JButton botonEliminarPromocion;
-    private javax.swing.JButton botonModificarPromocion;
-    private javax.swing.JButton botonModificarSala;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
+    public javax.swing.JButton botonAniadirPromocion;
+    public javax.swing.JButton botonAniadirSala;
+    public javax.swing.JButton botonElegirPromocion;
+    public javax.swing.JButton botonElegirSalas;
+    public javax.swing.JButton botonEliminarPromocion;
+    public javax.swing.JButton botonModificarPromocion;
+    public javax.swing.JButton botonModificarSala;
+    public javax.swing.JButton jButton10;
+    public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
+    public javax.swing.JButton jButton19;
+    public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton20;
+    public javax.swing.JButton jButton21;
+    public javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
@@ -2105,13 +2105,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton30;
+    public javax.swing.JButton jButton31;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton6;
+    public javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -2164,7 +2164,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -2197,7 +2197,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -2231,7 +2231,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList12;
-    private javax.swing.JList<String> jList13;
+    public javax.swing.JList<String> jList13;
     private javax.swing.JList<String> jList9;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane12;
@@ -2250,40 +2250,40 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable10;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable10;
+    public javax.swing.JTable jTable2;
+    public javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
+    public javax.swing.JTable jTable5;
+    public javax.swing.JTable jTable6;
+    public javax.swing.JTable jTable7;
+    public javax.swing.JTable jTable8;
+    public javax.swing.JTable jTable9;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField11;
+    public javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
-    private javax.swing.JTextField jTextField25;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField27;
+    public javax.swing.JTextField jTextField19;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField20;
+    public javax.swing.JTextField jTextField21;
+    public javax.swing.JTextField jTextField22;
+    public javax.swing.JTextField jTextField23;
+    public javax.swing.JTextField jTextField24;
+    public javax.swing.JTextField jTextField25;
+    public javax.swing.JTextField jTextField26;
+    public javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField31;
     private javax.swing.JTextField jTextField32;
@@ -2294,7 +2294,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField38;
     private javax.swing.JTextField jTextField39;
-    private javax.swing.JTextField jTextField4;
+    public javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField40;
     private javax.swing.JTextField jTextField41;
     private javax.swing.JTextField jTextField42;
@@ -2303,19 +2303,19 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField45;
     private javax.swing.JTextField jTextField46;
     private javax.swing.JTextField jTextField47;
-    private javax.swing.JTextField jTextField48;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JList<String> listaSalasCine;
-    private javax.swing.JList<String> listaSeleccionPromocion;
-    private javax.swing.JTable tablaEliminarPromocion;
-    private javax.swing.JTextField textoDescripcionPromocionAniadir;
-    private javax.swing.JTextField textoDescripcionPromocionModificar;
-    private javax.swing.JTextField textoDescuentoPromocionAniadir;
-    private javax.swing.JTextField textoDescuentoPromocionModificar;
-    private javax.swing.JTextField textoIdSalaCine;
-    private javax.swing.JTextField textoIdSalaCineAniadir;
-    private javax.swing.JTextField textoNumeroButacas;
-    private javax.swing.JTextField textoNumeroButacasAniadir;
+    public javax.swing.JTextField jTextField48;
+    public javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextField8;
+    public javax.swing.JList<String> listaSalasCine;
+    public javax.swing.JList<String> listaSeleccionPromocion;
+    public javax.swing.JTable tablaEliminarPromocion;
+    public javax.swing.JTextField textoDescripcionPromocionAniadir;
+    public javax.swing.JTextField textoDescripcionPromocionModificar;
+    public javax.swing.JTextField textoDescuentoPromocionAniadir;
+    public javax.swing.JTextField textoDescuentoPromocionModificar;
+    public javax.swing.JTextField textoIdSalaCine;
+    public javax.swing.JTextField textoIdSalaCineAniadir;
+    public javax.swing.JTextField textoNumeroButacas;
+    public javax.swing.JTextField textoNumeroButacasAniadir;
     // End of variables declaration//GEN-END:variables
 }

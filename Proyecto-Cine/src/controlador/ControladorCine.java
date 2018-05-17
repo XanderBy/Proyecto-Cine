@@ -11,21 +11,27 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.metodos.MetodosCine;
+import modelo.metodos.MetodosPromocion;
 import vista.PantallaAdministrador;
 
-public class ControladorCine implements ActionListener, MouseListener {// Esta Clase es una prueba
-	private PantallaAdministrador pantallaAdministrador;
-	MetodosCine metodosCine=new MetodosCine();
+public class ControladorCine implements ActionListener, MouseListener {
 
-	public enum AccionMVC {// Aqui van las opciones
+	// Instanciamos vista PantallaAdministrador
+	public PantallaAdministrador pantallaAdministrador = new PantallaAdministrador();
+	// Instanciamos modelos
+	public MetodosCine metodosCine = new MetodosCine();
+	// Declaramos en un enum las acciones relacionadas con Promocion
+	public enum accionesAdministrador {
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ANIADIR_SALA, MODIFICAR_SALA
 	}
 
+	// CONSTRUCTOR DE CLASE
+
 	public ControladorCine(PantallaAdministrador pantallaAdministrador) {
-		super();
 		this.pantallaAdministrador = pantallaAdministrador;
-		// this.pantallaAdministrador.jButton23.addActionListener(this);
 	}
+
+	// INICIAMOS
 
 	public void Iniciar() {
 		try {
@@ -39,12 +45,14 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		} catch (IllegalAccessException ex) {
 		}
 		
+		//Declaramos las acciones y aniadimos las escuchas al evento producido por el componente
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
-        this.pantallaAdministrador.jTable7.setModel( new DefaultTableModel() );
-		// eliminar cine
+		this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
+		
+		// Eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
 		this.pantallaAdministrador.jButton4.addActionListener(this);
-
+		
 		// Aniadir Cine
 		this.pantallaAdministrador.jButton3.setActionCommand("ANIADIR_CINE");
 		this.pantallaAdministrador.jButton3.addActionListener(this);
@@ -56,27 +64,26 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		// Modificar Cine
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
-		
+
 		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-		switch (AccionMVC.valueOf(e.getActionCommand())) {
+		switch (accionesAdministrador.valueOf(e.getActionCommand())) {
 		case ANIADIR_CINE:
 			// Aqui iria los metodos
 			String nombreCine = pantallaAdministrador.jTextField1.getText();
 			String direccion = pantallaAdministrador.jTextField2.getText();
 			int numero = Integer.parseInt(pantallaAdministrador.jTextField3.getText());
 			int prebioBase = Integer.parseInt(pantallaAdministrador.jTextField4.getText());
-			
+
 			metodosCine.crearCine(nombreCine, direccion, numero, prebioBase);
 			break;
 		case ELIMINAR_CINE:
-                    pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
-			//pantallaAdministrador.jList1.getSelectedValues()
-                    System.out.print("dwadaw");
+			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
+			// pantallaAdministrador.jList1.getSelectedValues()
+			System.out.print("dwadaw");
 			break;
 		case MODIFICAR_CINE:
 			break;
@@ -90,31 +97,31 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

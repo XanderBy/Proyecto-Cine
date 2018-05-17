@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.ListModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.event.ListDataListener;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.metodos.MetodosCine;
@@ -48,8 +50,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 		}
 		
 		//Declaramos las acciones y aniadimos las escuchas al evento producido por el componente
+		//Cine
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
 		this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
+		//Promocion
+		
 		
 		// Eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");

@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -110,10 +111,14 @@ public class ControladorCine implements ActionListener, MouseListener {
 		case MODIFICAR_CINE:
 			break;
 		case CREAR_PROMOCION:
-			String descripcionPromo=pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
-			int descuentoPromo=Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
-			metodosPromocion.crearPromocion(descripcionPromo, descuentoPromo);
-			System.out.println("Ok controlador");
+			try {
+				String descripcionPromo=pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
+				int descuentoPromo=Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
+				metodosPromocion.crearPromocion(descripcionPromo, descuentoPromo);
+				System.out.println("Ok controlador");
+			} catch (NumberFormatException e1) {
+				JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+			}
 			break;
 		case MODIFICAR_PROMOCION:
 			 

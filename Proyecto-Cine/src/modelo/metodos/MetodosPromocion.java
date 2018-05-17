@@ -1,11 +1,15 @@
 package modelo.metodos;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import modelo.POJOs.Funcion;
 import modelo.POJOs.Promocion;
 
 public class MetodosPromocion {
+	
+	ArrayList<Promocion> listaPromocionesCreadas=new ArrayList<Promocion>();
 	
 	//CONSTRUCTOR DE CLASE
 	

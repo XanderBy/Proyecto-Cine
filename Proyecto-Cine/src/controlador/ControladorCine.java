@@ -29,6 +29,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	// CONSTRUCTOR DE CLASE
 
 	public ControladorCine(PantallaAdministrador pantallaAdministrador) {
+		super();
 		this.pantallaAdministrador = pantallaAdministrador;
 	}
 
@@ -109,6 +110,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 			metodosPromocion.crearPromocion(descripcionPromo, descuentoPromo);
 			System.out.println("Ok controlador");
 			break;
+		case MODIFICAR_PROMOCION:
+			 
 		default:
 			System.out.println("error");
 			break;

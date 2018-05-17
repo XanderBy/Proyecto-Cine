@@ -15,9 +15,9 @@ public class Sala {
 	}
 	
 	public Sala(String auditoriumCineId, int seatsNumber){
-		idSalaCine=auditoriumCineId;
 		numeroButacas=seatsNumber;
 		codigoSala=codigoSala++;
+		idSalaCine=auditoriumCineId+codigoSala;
 	}
 	
 	//ACCEDENTES Y MUTADORES
@@ -27,7 +27,7 @@ public class Sala {
 	}
 
 	public void setIdSalaCine(String idSalaCine) {
-		this.idSalaCine = idSalaCine;
+		this.idSalaCine = idSalaCine+codigoSala;
 	}
 
 	public int getNumeroButacas() {

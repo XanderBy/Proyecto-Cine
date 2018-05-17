@@ -39,7 +39,7 @@ public class MetodosCine extends Conexion{
 	        String q = " DELETE FROM cine WHERE  nombreCine='" + id + "' " ;
 	        //se ejecuta la consulta
 	         try {
-	            PreparedStatement pstm = this.conex.prepareStatement(q);
+	            PreparedStatement pstm = this.getConexion().prepareStatement(q);
 	            pstm.execute();
 	            pstm.close();
 	            res=true;
@@ -62,11 +62,12 @@ public class MetodosCine extends Conexion{
 		System.out.println("prueba");
 		 DefaultTableModel tablemodel = new DefaultTableModel();
 	      int registros = 0;
-	      String[] columNames = {"Nombre","dw3a"};
+              PreparedStatement pstm=null;
+	      String[] columNames = {"nombre Cine"};
 	      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
 	      //para formar la matriz de datos
 	      try{
-	         PreparedStatement pstm = this.conex.prepareStatement( "SELECT count(*) as total FROM cine");
+	         pstm = getConexion().prepareStatement( "SELECT count(*) as total FROM cine");
 	         ResultSet res = pstm.executeQuery();
 	         res.next();
 	         registros = res.getInt("total");
@@ -75,10 +76,10 @@ public class MetodosCine extends Conexion{
 	         System.err.println( e.getMessage() );
 	      }
 	    //se crea una matriz con tantas filas y columnas que necesite
-	    Object[][] data = new String[registros][5];
+	    Object[][] data = new String[registros][1];
 	      try{
 	          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-	         PreparedStatement pstm = this.conex.prepareStatement("SELECT nombre FROM cine");
+	         pstm = this.getConexion().prepareStatement("SELECT nombreCine FROM cine");
 	         ResultSet res = pstm.executeQuery();
 	         int i=0;
 	         while(res.next()){

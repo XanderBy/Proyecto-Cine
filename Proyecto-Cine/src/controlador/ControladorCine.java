@@ -28,7 +28,6 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 	}
 
 	public void Iniciar() {
-		
 		try {
 			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 			SwingUtilities.updateComponentTreeUI(pantallaAdministrador);
@@ -40,8 +39,8 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		} catch (IllegalAccessException ex) {
 		}
 		
-		//this.pantallaAdministrador.jTable4.addMouseListener(this);
-        //this.pantallaAdministrador.jTable4.setModel( new DefaultTableModel() );
+		this.pantallaAdministrador.jTable7.addMouseListener(this);
+                this.pantallaAdministrador.jTable7.setModel( new DefaultTableModel() );
 		// eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
 		this.pantallaAdministrador.jButton4.addActionListener(this);
@@ -58,8 +57,7 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
 		
-		//pantallaAdministrador.jTable4.setModel(metodosCine.cogerCineBBDD());
-		
+		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
 	}
 
 	@Override
@@ -75,8 +73,10 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 			
 			metodosCine.crearCine(nombreCine, direccion, numero, prebioBase);
 			break;
-		case ELEGIR_CINE:
+		case ELIMINAR_CINE:
+                    pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
 			//pantallaAdministrador.jList1.getSelectedValues()
+                    System.out.print("dwadaw");
 			break;
 		case MODIFICAR_CINE:
 			break;

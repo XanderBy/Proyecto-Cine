@@ -7,8 +7,10 @@ import javax.swing.JOptionPane;
 import modelo.POJOs.Promocion;
 
 public class MetodosPromocion {
+	
+	//DECLARAMOS HASHMAP
 
-	HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
+	public static HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
 
 	// CONSTRUCTOR DE CLASE
 

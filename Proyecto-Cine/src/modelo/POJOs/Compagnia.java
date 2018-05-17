@@ -61,7 +61,7 @@ public class Compagnia {
 	
 	public String toString() {
 		
-		return "\nNombre de la Compañia: " + nombreCompagnia + "\nListado de Cines: " + listarCines();
+		return "\nNombre de la Compania: " + nombreCompagnia + "\nListado de Cines: " + listarCines();
 		
 	}
 

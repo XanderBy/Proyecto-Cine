@@ -38,12 +38,12 @@ public class Promocion {
 		this.descuentoPromo = descuentoPromo;
 	}
 	
-	//MÉTODO TOSTRING
+	//Mï¿½TODO TOSTRING
 	
 	@Override
 	
 	public String toString() {
-		return "Descripcion de la promoción: ".concat(getDescripcionPromo()) + "\nDescuento aplicable: "+ getDescuentoPromo();
+		return "Descripcion de la promocion: ".concat(getDescripcionPromo()) + "\nDescuento aplicable: "+ getDescuentoPromo();
 	}
 	
 	

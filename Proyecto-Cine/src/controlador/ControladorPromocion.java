@@ -46,15 +46,15 @@ public class ControladorPromocion implements ActionListener, MouseListener {
 		} catch (IllegalAccessException ex) {
 		}
 
-		// Declara una acción y añade un escucha al evento producido por el componente
+		// Declara una acciï¿½n y aï¿½ade un escucha al evento producido por el componente
 		pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
 		pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
 		pantallaAdministrador.botonAniadirPromocion.addMouseListener(this);
-		// Declara una acción y añade un escucha al evento producido por el componente
+		// Declara una acciï¿½n y aï¿½ade un escucha al evento producido por el componente
 		pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
 		pantallaAdministrador.botonModificarPromocion.addActionListener(this);
 		pantallaAdministrador.botonModificarPromocion.addMouseListener(this);
-		// Declara una acción y añade un escucha al evento producido por el componente
+		// Declara una acciï¿½n y aï¿½ade un escucha al evento producido por el componente
 		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);

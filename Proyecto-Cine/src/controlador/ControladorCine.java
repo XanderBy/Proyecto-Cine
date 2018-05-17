@@ -40,13 +40,13 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		} catch (IllegalAccessException ex) {
 		}
 		
-		this.pantallaAdministrador.jTable4.addMouseListener(this);
-        this.pantallaAdministrador.jTable4.setModel( new DefaultTableModel() );
+		//this.pantallaAdministrador.jTable4.addMouseListener(this);
+        //this.pantallaAdministrador.jTable4.setModel( new DefaultTableModel() );
 		// eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
 		this.pantallaAdministrador.jButton4.addActionListener(this);
 
-		// Añadir Cine
+		// Aï¿½adir Cine
 		this.pantallaAdministrador.jButton3.setActionCommand("ANIADIR_CINE");
 		this.pantallaAdministrador.jButton3.addActionListener(this);
 
@@ -58,7 +58,7 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
 		
-		pantallaAdministrador.jTable4.setModel(metodosCine.cogerCineBBDD());
+		//pantallaAdministrador.jTable4.setModel(metodosCine.cogerCineBBDD());
 		
 	}
 
@@ -67,7 +67,7 @@ public class ControladorCine implements ActionListener, MouseListener {// Esta C
 
 		switch (AccionMVC.valueOf(e.getActionCommand())) {
 		case ANIADIR_CINE:
-			// Aqui iría los metodos
+			// Aqui iria los metodos
 			String nombreCine = pantallaAdministrador.jTextField1.getText();
 			String direccion = pantallaAdministrador.jTextField2.getText();
 			int numero = Integer.parseInt(pantallaAdministrador.jTextField3.getText());

@@ -22,7 +22,7 @@ public class MetodosSala {
 				s=new Sala(auditoriumCineId, seatsNumber);
 			}
 		} catch (Exception e) {
-			System.out.println("Excepción no controlada");
+			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
 		return s;

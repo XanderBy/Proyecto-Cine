@@ -46,7 +46,7 @@ public class Sala {
 		Sala.codigoSala = codigoSala;
 	}
 	
-	//MÉTODO TOSTRING
+	//METODO TOSTRING
 
 	@Override
 	public String toString() {

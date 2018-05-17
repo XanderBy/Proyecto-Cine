@@ -32,4 +32,26 @@ public class MetodosCuentasAcceso {
 			return false;
 		}
 	}
+	
+	public boolean iniciarSesion(String nombre, String pass) {
+		
+		try {
+			if (MetodosGenerales.encuentraKeyStringHashMap(cuentasUsuario, nombre)) {
+				if (cuentasUsuario.get(nombre).getContrasegnaAdminUsuario().equals(pass)) {
+					return true;
+				}else{
+					JOptionPane.showMessageDialog(null, "Contrasegna Incorrecta", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+					return false;
+				}
+			}else{
+				JOptionPane.showMessageDialog(null, "Nombre de usuario no encontrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+				return false;
+			}
+			
+		}catch(Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace();
+			return false;
+		}
+	}
 }

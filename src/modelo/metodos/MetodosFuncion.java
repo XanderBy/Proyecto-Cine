@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import controlador.Conexion;
 import javax.swing.JOptionPane;
@@ -27,7 +28,7 @@ public class MetodosFuncion extends Conexion {
 		} else {
 			Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
 			Funciones.put(diaYHora, funcion);
-			JOptionPane.showMessageDialog(null, "Funcion Añadida");
+			JOptionPane.showMessageDialog(null, "Funcion Aniadida");
 		}
 	}
 
@@ -57,7 +58,7 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public DefaultTableModel cogerFuncionBBDD() {
+	public DefaultTableModel cogerFuncionBBDDNombre() {
 		System.out.println("prueba");
 		DefaultTableModel tablemodel = new DefaultTableModel();
 		int registros = 0;
@@ -67,7 +68,7 @@ public class MetodosFuncion extends Conexion {
 		// variable "registros"
 		// para formar la matriz de datos
 		try {
-			//TODO: No se si se llama asi la tabla
+			// TODO: No se si se llama asi la tabla
 			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM funcion");
 			ResultSet res = pstm.executeQuery();
 			res.next();
@@ -96,6 +97,33 @@ public class MetodosFuncion extends Conexion {
 		}
 		return tablemodel;
 
+	}
+
+	// ---------------------------------------------------------
+	public void eliminarFuncionesArray() {
+		Iterator it = Compagnia.listaCines.keySet().iterator();
+		while (it.hasNext()) {
+			String clave = (String) it.next();
+			Funciones.remove(clave);
+		}
+	}
+
+	//TODO: Creo que esta implementado
+	// ---------------------------------------------------------
+	public void eliminarFuncionesSemanaArray() {
+		Iterator it = Funciones.keySet().iterator();
+		Iterator ito = Compagnia.listaCines.keySet().iterator();
+		while (ito.hasNext()) {
+			String clave = (String) ito.next();
+
+			do {
+				while (it.hasNext()) {
+					String clave1 = (String) it.next();
+					Compagnia.listaCines.get(clave).funcionesSemana.remove(clave1);
+				}
+			} while (Compagnia.listaCines.get(clave).funcionesSemana.size() != 0);
+
+		}
 	}
 
 	// ---------------------------------------------------------

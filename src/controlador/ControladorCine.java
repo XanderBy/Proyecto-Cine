@@ -24,7 +24,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public MetodosPromocion metodosPromocion=new MetodosPromocion();
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 	public enum accionesAdministrador {
-		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA
+		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, 
+		//ELIMINAR_FUNCION, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION,//Este ultimo dudo
+		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, 
+		ANIADIR_SALA, MODIFICAR_SALA
 	}
 
 	// CONSTRUCTOR DE CLASE
@@ -86,7 +89,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 
-		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
+		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
 	}
 
 	@Override
@@ -102,11 +105,13 @@ public class ControladorCine implements ActionListener, MouseListener {
 			metodosCine.crearCine(nombreCine, direccion, numero, prebioBase);
 			break;
 		case ELIMINAR_CINE:
-			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDD());
+			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
 			// pantallaAdministrador.jList1.getSelectedValues()
 			System.out.print("dwadaw");
 			break;
 		case MODIFICAR_CINE:
+			break;
+		case ELEGIR_CINE:
 			break;
 		case CREAR_PROMOCION:
 			try {

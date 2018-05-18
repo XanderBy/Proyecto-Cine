@@ -146,7 +146,7 @@ public class MetodosCine extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public DefaultTableModel cogerCineBBDD() {
+	public DefaultTableModel cogerCineBBDDNombre() {
 		System.out.println("prueba");
 		DefaultTableModel tablemodel = new DefaultTableModel();
 		int registros = 0;

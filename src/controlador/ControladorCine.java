@@ -89,7 +89,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 
-		//pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
+		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
 	}
 
 	@Override

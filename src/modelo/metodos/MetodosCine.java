@@ -156,6 +156,7 @@ public class MetodosCine extends Conexion {
 		// variable "registros"
 		// para formar la matriz de datos
 		try {
+			System.out.println("pruebass");
 			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM cine");
 			ResultSet res = pstm.executeQuery();
 			res.next();

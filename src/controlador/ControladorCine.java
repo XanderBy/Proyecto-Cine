@@ -89,20 +89,29 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 
-		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
+		//pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (accionesAdministrador.valueOf(e.getActionCommand())) {
 		case ANIADIR_CINE:
-			// Aqui iria los metodos
+			int numero=0,precioBase=0;
 			String nombreCine = pantallaAdministrador.jTextField1.getText();
 			String direccion = pantallaAdministrador.jTextField2.getText();
-			int numero = Integer.parseInt(pantallaAdministrador.jTextField3.getText());
-			int prebioBase = Integer.parseInt(pantallaAdministrador.jTextField4.getText());
+			if(pantallaAdministrador.jTextField3.getText().length()==0) {
+				numero=0;
+			}else {
+				numero = Integer.parseInt(pantallaAdministrador.jTextField3.getText());
+			}
+			if(pantallaAdministrador.jTextField4.getText().length()==0) {
+				precioBase=0;
+			}else {
+				precioBase = Integer.parseInt(pantallaAdministrador.jTextField4.getText());
+			}
+			
 
-			metodosCine.crearCine(nombreCine, direccion, numero, prebioBase);
+			metodosCine.crearCine(nombreCine, direccion, numero, precioBase);
 			break;
 		case ELIMINAR_CINE:
 			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());

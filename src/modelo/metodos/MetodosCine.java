@@ -44,7 +44,7 @@ public class MetodosCine extends ConexionManager {
 	// modificar Cine
 	// ----------------------------------------------------------
 	public void modificarCine(String nombreCineAntiguo, String nombreCine, String direccionCine, int telefonoConsulta,
-			int precioBase) {
+			double precioBase) {
 		if (nombreCineAntiguo == null || nombreCine == null || direccionCine == null || telefonoConsulta == 0
 				|| precioBase == 0) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
@@ -85,7 +85,7 @@ public class MetodosCine extends ConexionManager {
 
 	// ---------------------------------------------------------
 	public void actualizarCineBBDD(String nombreCineAntiguo, String nombreCine, String direccionCine,
-			int telefonoConsulta, int precioBase) {
+			int telefonoConsulta, double precioBase) {
 
 		// se arma la consulta
 		String q = " UPDATE cine " + "SET nombreCine = '" + nombreCine + "', direccionCine = '" + direccionCine

@@ -128,8 +128,13 @@ public class ControladorCine implements ActionListener, MouseListener {
             case RECARGAR_TABLA:
 
                 pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
+                pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
+                
                 break;
             case MODIFICAR_CINE:
+
+                metodosCine.actualizarCineBBDD(pantallaAdministrador.jLabel91.getText(), pantallaAdministrador.jTextField11.getText(), pantallaAdministrador.jTextField12.getText(), Integer.parseInt(pantallaAdministrador.jTextField5.getText()), Double.parseDouble(pantallaAdministrador.jTextField8.getText()));
+                
                 break;
             case ELEGIR_CINE:
                 break;
@@ -169,6 +174,7 @@ public class ControladorCine implements ActionListener, MouseListener {
         {
             int fila = this.pantallaAdministrador.jTable9.rowAtPoint(e.getPoint());
             if (fila > -1) {
+                this.pantallaAdministrador.jLabel91.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
                 this.pantallaAdministrador.jTextField11.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
                 this.pantallaAdministrador.jTextField12.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 1)));
                 this.pantallaAdministrador.jTextField5.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));

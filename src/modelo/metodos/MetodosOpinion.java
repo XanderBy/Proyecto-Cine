@@ -2,13 +2,13 @@ package modelo.metodos;
 
 import java.time.LocalDate;
 
-import controlador.Conexion;
+import controlador.ConexionManager;
 import javax.swing.JOptionPane;
 import modelo.POJOs.CuentasAcceso;
 import modelo.POJOs.Opinion;
 import modelo.POJOs.ValoracionPeli;
 
-public class MetodosOpinion extends Conexion {
+public class MetodosOpinion extends ConexionManager {
 	public void hacerOpinion(LocalDate fechaOpinion, String comentario, int idPelicula, ValoracionPeli valoracion,
 			int edadUsuario, CuentasAcceso usuario) {
             if(fechaOpinion== null || comentario==null|| idPelicula==0 || valoracion==null|| edadUsuario==0||usuario==null){

@@ -2,13 +2,13 @@ package modelo.metodos;
 
 import java.util.HashMap;
 
-import controlador.Conexion;
+import controlador.ConexionManager;
 import javax.swing.JOptionPane;
 import modelo.POJOs.Artista;
 import modelo.POJOs.Pais;
 import modelo.POJOs.Pelicula;
 
-public class MetodosArtistas extends Conexion {
+public class MetodosArtistas extends ConexionManager {
 	public static HashMap<String, Artista> Artistas = new HashMap<String, Artista>();
 
 	// Creas Artista

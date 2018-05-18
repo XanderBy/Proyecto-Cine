@@ -7,12 +7,12 @@ import java.util.Iterator;
 
 import javax.swing.table.DefaultTableModel;
 
-import controlador.Conexion;
+import controlador.ConexionManager;
 import javax.swing.JOptionPane;
 import modelo.POJOs.Cine;
 import modelo.POJOs.Compagnia;
 
-public class MetodosCine extends Conexion {
+public class MetodosCine extends ConexionManager {
 	// Crear Cine
 	// ---------------------------------------------------------
 	public void crearCine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {

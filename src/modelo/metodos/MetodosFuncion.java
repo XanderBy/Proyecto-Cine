@@ -8,7 +8,7 @@ import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import controlador.Conexion;
+import controlador.ConexionManager;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,7 +19,7 @@ import modelo.POJOs.Pelicula;
 import modelo.POJOs.Promocion;
 import modelo.POJOs.Sala;
 
-public class MetodosFuncion extends Conexion {
+public class MetodosFuncion extends ConexionManager {
 	public static HashMap<LocalDateTime, Funcion> Funciones = new HashMap<LocalDateTime, Funcion>();
 	/*
 	 * Falta-----

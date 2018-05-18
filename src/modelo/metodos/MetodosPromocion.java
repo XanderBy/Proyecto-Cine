@@ -1,9 +1,12 @@
 package modelo.metodos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
+import controlador.ConexionManager;
 import modelo.POJOs.Promocion;
 
 public class MetodosPromocion {
@@ -17,7 +20,6 @@ public class MetodosPromocion {
 	}
 
 	// CREAR PROMOCION
-
 	public void crearPromocion(String promoDescription, int promoDiscount) {
 		Promocion p = null;
 		try {
@@ -27,8 +29,22 @@ public class MetodosPromocion {
 			} else {
 				p = new Promocion(promoDescription, promoDiscount);
 				mapPromocionesCreadas.put(promoDiscount, p);
+				
+				ConexionManager conexionManager= new ConexionManager();
+				Connection conexion = conexionManager.crear();
+				
+				//REALIZA EL INSERT
+				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO PROMOCION (DESCRIPCIONPROMO, DESCUENTOPROMO) VALUES (?, ?)");
+				preparedStatement.setString(1, promoDescription);
+				preparedStatement.setInt(2, promoDiscount);
+				preparedStatement.execute();
+				
+				
+				conexionManager.cerrar();
+				
 				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
 				System.out.println("Ok modelo2");//Eliminar
+				
 			}
 
 		} catch (Exception e) {
@@ -36,6 +52,30 @@ public class MetodosPromocion {
 			e.printStackTrace();
 		}
 	}
+	
+	
+/*	public Object [][] leerPromociones(){
+
+		ConexionManager conexionManager= new ConexionManager();
+		Connection conexion = conexionManager.crear();
+		
+		PreparedStatement conteo = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
+		ResultSet rs = consulta.executeQuery();
+		
+		PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
+		ResultSet rs = consulta.executeQuery();
+		
+		while (rs.next()) {
+			String descripcion = rs.getString("DESCRIPCIONPROMO");
+			int decuento = rs.getInt("DESCUENTOPROMO");
+
+			System.out.println("descripcion : " + descripcion);
+			System.out.println("decuento : " + decuento);
+		}				
+		
+		
+		conexionManager.cerrar();
+	}*/
 
 	// MODIFICAR PROMOCION
 

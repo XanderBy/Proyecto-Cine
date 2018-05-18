@@ -108,7 +108,7 @@ public class MetodosFuncion extends Conexion {
 		}
 	}
 
-	//TODO: Creo que esta implementado
+	// TODO: Creo que esta implementado
 	// ---------------------------------------------------------
 	public void eliminarFuncionesSemanaArray() {
 		Iterator it = Funciones.keySet().iterator();
@@ -122,18 +122,29 @@ public class MetodosFuncion extends Conexion {
 					Compagnia.listaCines.get(clave).funcionesSemana.remove(clave1);
 				}
 			} while (Compagnia.listaCines.get(clave).funcionesSemana.size() != 0);
-
+			System.out.println("El tamaño del array de funciones semana es "
+					+ Compagnia.listaCines.get(clave).funcionesSemana.size());
 		}
+
 	}
 
 	// ---------------------------------------------------------
-	public void eliminarFuncionBBDD() {
-
+	public void eliminarFuncionBBDD(LocalTime diaYHora) {
+		// se arma la consulta
+				String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
+				// se ejecuta la consulta
+				try {
+					PreparedStatement pstm = this.getConexion().prepareStatement(q);
+					pstm.execute();
+					pstm.close();
+				} catch (SQLException e) {
+					System.err.println(e.getMessage());
+				}
 	}
 
 	// ---------------------------------------------------------
 	public void insertarFuncionBBDD() {
-
+		
 	}
 
 	// ---------------------------------------------------------

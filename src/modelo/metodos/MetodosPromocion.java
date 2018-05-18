@@ -53,7 +53,8 @@ public class MetodosPromocion {
 			e.printStackTrace();
 		}
 	}
-
+	
+	//LEER PROMOCIONES
 	public Object[][] leerPromociones() {
 		try {
 			Object[][] resultado;

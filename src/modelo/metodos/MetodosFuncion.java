@@ -19,6 +19,13 @@ import modelo.POJOs.Sala;
 
 public class MetodosFuncion extends Conexion {
 	public static HashMap<LocalTime, Funcion> Funciones = new HashMap<LocalTime, Funcion>();
+	/*
+	 * Falta
+	 * 
+	 * falta coger las funcionesSemana linea 81 falta implementar coger funciones
+	 * 
+	 * 
+	 */
 
 	// ---------------------------------------------------------
 	public void crearFuncion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
@@ -26,15 +33,24 @@ public class MetodosFuncion extends Conexion {
 		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
-			Funciones.put(diaYHora, funcion);
+			// Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
+			// promocionFuncion);
+			// Funciones.put(diaYHora, funcion);
+			crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
+			eliminarFuncionesArray();
+			cogerTodasLasFuncionesBBDD();
+
 			JOptionPane.showMessageDialog(null, "Funcion Aniadida");
 		}
 	}
 
 	// ---------------------------------------------------------
 	public void eliminarFuncion(LocalTime diaYHora) {
-		Funciones.remove(diaYHora);
+		// Funciones.remove(diaYHora);
+
+		eliminarFuncionBBDD(diaYHora);
+		eliminarFuncionesArray();// TODO:Aqui a lo mejor de error
+		cogerTodasLasFuncionesBBDD();
 		JOptionPane.showMessageDialog(null, "Funcion Eliminada");
 	}
 
@@ -45,9 +61,13 @@ public class MetodosFuncion extends Conexion {
 				|| promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			Funciones.remove(diaYHoraAntiguo);
-			Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
-			Funciones.put(diaYHora, funcion);
+			// Funciones.remove(diaYHoraAntiguo);
+			// Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
+			// promocionFuncion);
+			// Funciones.put(diaYHora, funcion);
+			actualizarFuncionBBDD(diaYHoraAntiguo, diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
+			eliminarFuncionesArray();
+			cogerTodasLasFuncionesBBDD();
 			JOptionPane.showMessageDialog(null, "Funcion modificada");
 		}
 	}
@@ -55,48 +75,9 @@ public class MetodosFuncion extends Conexion {
 	// ---------------------------------------------------------
 	public void anadirFuncionACine(String nombreCine, LocalTime diaYHora) {
 		Compagnia.listaCines.get(nombreCine).funcionesSemana.put(diaYHora, Funciones.get(diaYHora));
-	}
-
-	// ---------------------------------------------------------
-	public DefaultTableModel cogerFuncionBBDDNombre() {
-		System.out.println("prueba");
-		DefaultTableModel tablemodel = new DefaultTableModel();
-		int registros = 0;
-		PreparedStatement pstm = null;
-		String[] columNames = { "Dia y Hora" };
-		// obtenemos la cantidad de registros existentes en la tabla y se almacena en la
-		// variable "registros"
-		// para formar la matriz de datos
-		try {
-			// TODO: No se si se llama asi la tabla
-			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM funcion");
-			ResultSet res = pstm.executeQuery();
-			res.next();
-			registros = res.getInt("total");
-			res.close();
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-		// se crea una matriz con tantas filas y columnas que necesite
-		Object[][] data = new String[registros][1];
-		try {
-			// realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
-			// data"
-			pstm = this.getConexion().prepareStatement("SELECT diaYHora FROM Funcion");
-			ResultSet res = pstm.executeQuery();
-			int i = 0;
-			while (res.next()) {
-				data[i][0] = res.getString("nombreCine");
-				i++;
-			}
-			res.close();
-			// se anade la matriz de datos en el DefaultTableModel
-			tablemodel.setDataVector(data, columNames);
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-		return tablemodel;
-
+		// TODO: Aqui falta
+		eliminarFuncionesSemanaArray();
+		// TODO: Tambien falta coger las funcionesSemana
 	}
 
 	// ---------------------------------------------------------
@@ -146,16 +127,16 @@ public class MetodosFuncion extends Conexion {
 	public void crearFuncionBBDD(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			Promocion promocionFuncion) {
 		// se arma la consulta
-				String q = " INSERT INTO funcion (diaYHora, salaFuncion, peliculaFuncion, promocionFuncion)" + "VALUES ("
-						+ diaYHora + "," + salaFuncion + "," + peliculaFuncion + "," + promocionFuncion + ")";
-				// se ejecuta la consulta
-				try {
-					PreparedStatement pstm = this.getConexion().prepareStatement(q);
-					pstm.execute();
-					pstm.close();
-				} catch (SQLException e) {
-					System.err.println(e.getMessage());
-				}
+		String q = " INSERT INTO funcion (diaYHora, salaFuncion, peliculaFuncion, promocionFuncion)" + "VALUES ("
+				+ diaYHora + "," + salaFuncion + "," + peliculaFuncion + "," + promocionFuncion + ")";
+		// se ejecuta la consulta
+		try {
+			PreparedStatement pstm = this.getConexion().prepareStatement(q);
+			pstm.execute();
+			pstm.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 	// ---------------------------------------------------------
@@ -173,6 +154,58 @@ public class MetodosFuncion extends Conexion {
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
+	}
+
+	// ---------------------------------------------------------
+	public void cogerTodasLasFuncionesBBDD() {
+
+	}
+
+	// ---------------------------------------------------------
+	public void cogerTodasLasFuncionesSemanaBBDD() {
+
+	}
+
+	// ---------------------------------------------------------
+	public DefaultTableModel cogerFuncionBBDDNombre() {
+		System.out.println("prueba");
+		DefaultTableModel tablemodel = new DefaultTableModel();
+		int registros = 0;
+		PreparedStatement pstm = null;
+		String[] columNames = { "Dia y Hora" };
+		// obtenemos la cantidad de registros existentes en la tabla y se almacena en la
+		// variable "registros"
+		// para formar la matriz de datos
+		try {
+			// TODO: No se si se llama asi la tabla
+			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM funcion");
+			ResultSet res = pstm.executeQuery();
+			res.next();
+			registros = res.getInt("total");
+			res.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		// se crea una matriz con tantas filas y columnas que necesite
+		Object[][] data = new String[registros][1];
+		try {
+			// realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
+			// data"
+			pstm = this.getConexion().prepareStatement("SELECT diaYHora FROM Funcion");
+			ResultSet res = pstm.executeQuery();
+			int i = 0;
+			while (res.next()) {
+				data[i][0] = res.getString("nombreCine");
+				i++;
+			}
+			res.close();
+			// se anade la matriz de datos en el DefaultTableModel
+			tablemodel.setDataVector(data, columNames);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		return tablemodel;
+
 	}
 
 }

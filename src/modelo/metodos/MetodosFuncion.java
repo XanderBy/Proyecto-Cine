@@ -195,7 +195,7 @@ public class MetodosFuncion extends Conexion {
 			ResultSet res = pstm.executeQuery();
 			int i = 0;
 			while (res.next()) {
-				data[i][0] = res.getString("nombreCine");
+				data[i][0] = res.getString("diaYHora");
 				i++;
 			}
 			res.close();

@@ -31,7 +31,7 @@ public class MetodosFuncion extends Conexion {
 	 */
 
 	// ---------------------------------------------------------
-	public void crearFuncion(LocalDateTime diaYHora, String salaFuncion, String peliculaFuncion,
+	public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			String promocionFuncion) {
 		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
@@ -58,8 +58,8 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void modificarFuncion(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, String salaFuncion,
-			String peliculaFuncion, String promocionFuncion) {
+	public void modificarFuncion(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
+			Pelicula peliculaFuncion, Promocion promocionFuncion) {
 		if (diaYHoraAntiguo == null || diaYHora == null || salaFuncion == null || peliculaFuncion == null
 				|| promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
@@ -106,7 +106,7 @@ public class MetodosFuncion extends Conexion {
 					Compagnia.listaCines.get(clave).funcionesSemana.remove(clave1);
 				}
 			} while (Compagnia.listaCines.get(clave).funcionesSemana.size() != 0);
-			System.out.println("El tamaño del array de funciones semana es "
+			System.out.println("El tamaï¿½o del array de funciones semana es "
 					+ Compagnia.listaCines.get(clave).funcionesSemana.size());
 		}
 
@@ -127,7 +127,7 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void crearFuncionBBDD(LocalDateTime diaYHora, String salaFuncion, String peliculaFuncion,
+	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			String promocionFuncion) {
 		// se arma la consulta
 		String q = " INSERT INTO funcion (diaYHora, salaFuncion, peliculaFuncion, promocionFuncion)" + "VALUES ("
@@ -143,8 +143,8 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, String salaFuncion,
-			String peliculaFuncion, String promocionFuncion) {
+	public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
+			Pelicula peliculaFuncion, Promocion promocionFuncion) {
 		// se arma la consulta
 		String q = " UPDATE funcion " + "SET diaYHora = '" + diaYHora + "', salaFuncion = '" + salaFuncion
 				+ "', peliculaFuncion = '" + peliculaFuncion + "', promocionFuncion = '" + promocionFuncion + "'"
@@ -169,8 +169,9 @@ public class MetodosFuncion extends Conexion {
 			int i = 0;
 			while (res.next()) {
 				LocalDateTime tiempo= LocalDateTime.parse(res.getString("diaYHora"));
-				Funcion funcion=new Funcion(tiempo , res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"));
-				Funciones.put(tiempo, funcion);
+                                
+				//Funcion funcion=new Funcion(tiempo , res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"));
+				//Funciones.put(tiempo, funcion);
 				i++;
 			}
 			res.close();

@@ -13,7 +13,7 @@ public class Conexion {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 //Modificar nombre BBDD para pruebas locales
-                conex = DriverManager.getConnection("jdbc:mysql://localhost:3306/pruebaproyecto", "root", "");//Puerto, Usuario, Contrasenia
+                conex = DriverManager.getConnection("jdbc:mysql://localhost:3306/bbddCine", "root", "");//Puerto, Usuario, Contrasenia
                 //(*) Obtener puerto: SHOW VARIABLES WHERE variable_name IN('hostname', 'port')
             } catch (SQLException ex) {
                 throw new SQLException(ex);

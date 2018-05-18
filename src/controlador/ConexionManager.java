@@ -26,8 +26,10 @@ public class ConexionManager {
 				Class.forName("com.mysql.jdbc.Driver");
 				conex = DriverManager.getConnection(URL_BBDD, USUARIO, PASSWORD);
 			}
+			System.out.println("Conexion creada");
 			return conex;
 		} catch (ClassNotFoundException e) {
+			System.out.println("Error al crear la conexion");
 			throw new SQLException(e);
 		}
 	}
@@ -44,8 +46,8 @@ public class ConexionManager {
 			} catch (SQLException e) {
 				System.out.println("Error al cerrar");
 			} finally {
-				System.out.println("Conexion devuelta a null");
 				conex = null;
+				System.out.println("Conexion cerrada");
 			}
 		}
 	}

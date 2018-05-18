@@ -26,7 +26,6 @@ public class MetodosPromocion {
 		try {
 			if (promoDescription == "") {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
-				System.out.println("Ok modelo1");// Eliminar
 			} else {
 				p = new Promocion(promoDescription, promoDiscount);
 				mapPromocionesCreadas.put(promoDiscount, p);
@@ -44,7 +43,6 @@ public class MetodosPromocion {
 				conexionManager.cerrar();
 
 				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
-				System.out.println("Ok modelo2");// Eliminar
 
 			}
 

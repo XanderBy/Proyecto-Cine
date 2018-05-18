@@ -10,7 +10,7 @@ public class MetodosPromocion {
 
 	HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
 
-	// CONSTRUCTOR DE CLASE
+	// CONSTRUCTOR VACIO
 
 	public MetodosPromocion() {
 

@@ -11,6 +11,7 @@ import controlador.Conexion;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.POJOs.Cine;
 import modelo.POJOs.Compagnia;
 import modelo.POJOs.Funcion;
 import modelo.POJOs.Pelicula;
@@ -158,7 +159,23 @@ public class MetodosFuncion extends Conexion {
 
 	// ---------------------------------------------------------
 	public void cogerTodasLasFuncionesBBDD() {
-
+		PreparedStatement pstm = null;
+		try {
+			pstm = this.getConexion()
+					.prepareStatement("SELECT diaYHora, salaFuncion, peliculaFuncion, promocionFuncion FROM funcion");
+			ResultSet res = pstm.executeQuery();
+			int i = 0;
+			while (res.next()) {
+				String a= res.getString("salaFuncion");
+				Object b= a;
+				//Funcion funcion=new Funcion((LocalTime) res.getString("diaYHora"), res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"))
+				//Funciones.put(res.getString("diaYHora"), funcion);
+				i++;
+			}
+			res.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 	// ---------------------------------------------------------

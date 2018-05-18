@@ -124,12 +124,8 @@ public class MetodosCine extends Conexion {
 		// TODO: Aqui se debe coger todos los cines que esten en la bbdd e introducirlos
 		// en el hashmap
 
-		int registros = 0;
 		PreparedStatement pstm = null;
-		String[] columNames = { "nombre Cine" };
 		try {
-			// realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
-			// data"
 			pstm = this.getConexion()
 					.prepareStatement("SELECT nombreCine, direccionCine, telefonoConsulta, precioBase FROM cine");
 			ResultSet res = pstm.executeQuery();

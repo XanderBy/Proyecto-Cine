@@ -14,7 +14,7 @@ public class Cine implements Cartelera{
 	private String nombreCine;
 	private String direccionCine;
 	private int telefonoConsulta;
-	public static HashMap<String, Sala> salasCine = new HashMap<String, Sala>();//Convertido en static para acceder desde metodosSala
+	public HashMap<String, Sala> salasCine = new HashMap<String, Sala>();
 	public HashMap<LocalDateTime, Funcion> funcionesSemana = new HashMap<LocalDateTime, Funcion>(); 
 	private double precioBase;
 	private int entradasVendidas;

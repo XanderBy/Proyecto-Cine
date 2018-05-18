@@ -1,5 +1,6 @@
 package modelo.metodos;
 
+import java.util.HashMap;
 import modelo.POJOs.Sala;
 
 import javax.swing.JOptionPane;
@@ -8,6 +9,7 @@ import modelo.POJOs.Cine;
 
 public class MetodosSala {
 	
+    public static HashMap <String, Sala>Salas=new HashMap <String, Sala>();
 	//CONSTRUCTOR DE CLASE
 	
 	public MetodosSala(){
@@ -33,12 +35,12 @@ public class MetodosSala {
 	
 	public void eliminarSala(String auditoriumCineId) {
 		
-		if(Cine.salasCine.containsKey(auditoriumCineId)) {
-			Cine.salasCine.remove(auditoriumCineId);
-		}
-		else {
-			System.out.println("No existe la sala");
-		}
+		//if(Cine.salasCine.containsKey(auditoriumCineId)) {
+		//	Cine.salasCine.remove(auditoriumCineId);
+		//}
+		//else {
+		//	System.out.println("No existe la sala");
+		//}
 		
 	}
 

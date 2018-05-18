@@ -12,7 +12,7 @@ import modelo.POJOs.Promocion;
 
 public class MetodosPromocion {
 
-	HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
+	public static HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
 
 	// CONSTRUCTOR VACIO
 

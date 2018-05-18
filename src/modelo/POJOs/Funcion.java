@@ -11,15 +11,12 @@ import modelo.metodos.MetodosFuncion;
 public class Funcion implements Cartelera {
 	// TODO: Atributos
 	private LocalDateTime diaYHora;
-	//private Sala salaFuncion;
-	//private Pelicula peliculaFuncion;
-	//private Promocion promocionFuncion;
-	private String salaFuncion;
-	private String peliculaFuncion;
-	private String promocionFuncion;
+	private Sala salaFuncion;
+	private Pelicula peliculaFuncion;
+	private Promocion promocionFuncion;
 
 	// TODO: Contructores
-	public Funcion(LocalDateTime diaYHora, String salaFuncion, String peliculaFuncion, String promocionFuncion) {
+	public Funcion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion) {
 		super();
 		this.diaYHora = diaYHora;
 		this.salaFuncion = salaFuncion;
@@ -38,27 +35,27 @@ public class Funcion implements Cartelera {
 		this.diaYHora = diaYHora;
 	}
 
-	public String getSalaFuncion() {
+	public Sala getSalaFuncion() {
 		return salaFuncion;
 	}
 
-	public void setSalaFuncion(String salaFuncion) {
+	public void setSalaFuncion(Sala salaFuncion) {
 		this.salaFuncion = salaFuncion;
 	}
 
-	public String getPeliculaFuncion() {
+	public Pelicula getPeliculaFuncion() {
 		return peliculaFuncion;
 	}
 
-	public void setPeliculaFuncion(String peliculaFuncion) {
+	public void setPeliculaFuncion(Pelicula peliculaFuncion) {
 		this.peliculaFuncion = peliculaFuncion;
 	}
 
-	public String getPromocionFuncion() {
+	public Promocion getPromocionFuncion() {
 		return promocionFuncion;
 	}
 
-	public void setPromocionFuncion(String promocionFuncion) {
+	public void setPromocionFuncion(Promocion promocionFuncion) {
 		this.promocionFuncion = promocionFuncion;
 	}
 

@@ -159,7 +159,63 @@ public class MetodosFuncion extends ConexionManager {
 			System.err.println(e.getMessage());
 		}
 	}
-
+        // ---------------------------------------------------------
+        public Sala encuentraKeyStringHashMapSala(String key) {
+		
+		Sala resultado = null;
+		
+		try {
+			Iterator it = MetodosSala.Salas.keySet().iterator();
+			while (it.hasNext()) {
+				String clave = (String) it.next();
+				if (clave.equals(key)) {
+					resultado=MetodosSala.Salas.get(key);
+				}
+			}
+		}catch (Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace();
+		}
+		return resultado;
+	}
+         // ---------------------------------------------------------
+        public Pelicula encuentraKeyStringHashMapPelicula(Integer key) {
+		
+		Pelicula resultado = null;
+		
+		try {
+			Iterator it = MetodosPelicula.peliculas.keySet().iterator();
+			while (it.hasNext()) {
+				Integer clave = (Integer) it.next();
+				if (clave == key) {
+					resultado=MetodosPelicula.peliculas.get(key);
+				}
+			}
+		}catch (Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace();
+		}
+		return resultado;
+	}
+         // ---------------------------------------------------------
+        public Promocion encuentraKeyStringHashMapPromocion(Integer key) {
+		
+		Promocion resultado = null;
+		
+		try {
+			Iterator it = MetodosPromocion.mapPromocionesCreadas.keySet().iterator();
+			while (it.hasNext()) {
+				int clave = (Integer) it.next();
+				if (clave == key) {
+					resultado=MetodosPromocion.mapPromocionesCreadas.get(key);
+				}
+			}
+		}catch (Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace();
+		}
+		return resultado;
+	}
 	// ---------------------------------------------------------
 	public void cogerTodasLasFuncionesBBDD() {
 		PreparedStatement pstm = null;
@@ -170,9 +226,12 @@ public class MetodosFuncion extends ConexionManager {
 			int i = 0;
 			while (res.next()) {
 				LocalDateTime tiempo= LocalDateTime.parse(res.getString("diaYHora"));
+                                Sala sala=encuentraKeyStringHashMapSala(res.getString("salaFuncion"));
+                                Pelicula peliculaPromocion1=encuentraKeyStringHashMapPelicula(Integer.parseInt(res.getString("peliculaFuncion")));
+                                Promocion promocionFuncion1=encuentraKeyStringHashMapPromocion(Integer.parseInt(res.getString("promocionFuncion")));
                                 //localizar la sala pelicula etc.. buscando con un iterator en los hashmap
-				//Funcion funcion=new Funcion(tiempo , res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"));
-				//Funciones.put(tiempo, funcion);
+				Funcion funcion=new Funcion(tiempo , sala, peliculaPromocion1, promocionFuncion1);
+				Funciones.put(tiempo, funcion);
 				i++;
 			}
 			res.close();

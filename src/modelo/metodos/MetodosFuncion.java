@@ -32,7 +32,7 @@ public class MetodosFuncion extends Conexion {
 
 	// ---------------------------------------------------------
 	public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-			String promocionFuncion) {
+			Promocion promocionFuncion) {
 		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
@@ -128,10 +128,11 @@ public class MetodosFuncion extends Conexion {
 
 	// ---------------------------------------------------------
 	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-			String promocionFuncion) {
+			Promocion promocionFuncion) {
+		
 		// se arma la consulta
 		String q = " INSERT INTO funcion (diaYHora, salaFuncion, peliculaFuncion, promocionFuncion)" + "VALUES ("
-				+ diaYHora + "," + salaFuncion + "," + peliculaFuncion + "," + promocionFuncion + ")";
+				+ diaYHora + "," + salaFuncion.getIdSalaCine() + "," + peliculaFuncion.getIdPelicula() + "," + promocionFuncion.getDescuentoPromo() + ")";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -169,7 +170,7 @@ public class MetodosFuncion extends Conexion {
 			int i = 0;
 			while (res.next()) {
 				LocalDateTime tiempo= LocalDateTime.parse(res.getString("diaYHora"));
-                                
+                                //localizar la sala pelicula etc.. buscando con un iterator en los hashmap
 				//Funcion funcion=new Funcion(tiempo , res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"));
 				//Funciones.put(tiempo, funcion);
 				i++;

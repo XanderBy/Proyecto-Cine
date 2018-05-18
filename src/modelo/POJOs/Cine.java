@@ -16,10 +16,10 @@ public class Cine implements Cartelera{
 	private int telefonoConsulta;
 	public static HashMap<String, Sala> salasCine = new HashMap<String, Sala>();//Convertido en static para acceder desde metodosSala
 	public HashMap<LocalDateTime, Funcion> funcionesSemana = new HashMap<LocalDateTime, Funcion>(); 
-	private int precioBase;
+	private double precioBase;
 	private int entradasVendidas;
 	// TODO:Constructores
-	public Cine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
+	public Cine(String nombreCine, String direccionCine, int telefonoConsulta, double precioBase) {
 		super();
 		this.nombreCine = nombreCine;
 		this.direccionCine = direccionCine;
@@ -52,11 +52,11 @@ public class Cine implements Cartelera{
 		this.telefonoConsulta = telefonoConsulta;
 	}
 
-	public int getPrecioBase() {
+	public double getPrecioBase() {
 		return precioBase;
 	}
 
-	public void setPrecioBase(int precioBase) {
+	public void setPrecioBase(double precioBase) {
 		this.precioBase = precioBase;
 	}
 

@@ -103,11 +103,11 @@ public class MetodosCine extends ConexionManager {
 	}
 
 	// ---------------------------------------------------------
-	public void crearCineBBDD(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
+	public void crearCineBBDD(String nombreCine, String direccionCine, int telefonoConsulta, double precioBase) {
 
 		// se arma la consulta
-		String q = " INSERT INTO cine (nombreCine, direccionCine, telefonoConsulta, precioBase)" + "VALUES ("
-				+ nombreCine + "," + direccionCine + "," + telefonoConsulta + "," + precioBase + ")";
+		String q = " INSERT INTO cine (nombreCine, direccionCine, telefonoConsulta, precioBase, compania_nombreCompagnia)" + "VALUES ("
+				+ nombreCine + "," + direccionCine + "," + telefonoConsulta + "," + precioBase +", asd)";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -131,10 +131,9 @@ public class MetodosCine extends ConexionManager {
 			ResultSet res = pstm.executeQuery();
 			int i = 0;
 			while (res.next()) {
-
 				Cine cine = new Cine(res.getString("nombreCine"), res.getString("direccionCine"),
 						Integer.parseInt(res.getString("telefonoConsulta")),
-						Integer.parseInt(res.getString("precioBase")));
+						Double.parseDouble(res.getString("precioBase")));
 				Compagnia.listaCines.put(res.getString("nombreCine"), cine);
 				i++;
 			}

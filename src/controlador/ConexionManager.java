@@ -16,7 +16,7 @@ public class ConexionManager {
 
 	/**
 	 * 
-	 * @return Crea una conexión a la base de datos si no existe
+	 * @return Crea una conexion a la base de datos si no existe
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
@@ -35,7 +35,7 @@ public class ConexionManager {
 	}
 
 	/**
-	 * Cierra la conexión con la base de datos
+	 * Cierra la conexion con la base de datos
 	 * 
 	 * @throws SQLException
 	 */

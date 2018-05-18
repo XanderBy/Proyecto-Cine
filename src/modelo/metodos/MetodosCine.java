@@ -185,5 +185,48 @@ public class MetodosCine extends ConexionManager {
 		return tablemodel;
 
 	}
+        public DefaultTableModel cogerCineBBDDTodo() {
+		System.out.println("prueba");
+		DefaultTableModel tablemodel = new DefaultTableModel();
+		int registros = 0;
+		PreparedStatement pstm = null;
+		String[] columNames = { "nombre Cine", "direcion cine","telefono","precio Base" };
+		// obtenemos la cantidad de registros existentes en la tabla y se almacena en la
+		// variable "registros"
+		// para formar la matriz de datos
+		try {
+			System.out.println("pruebass");
+			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM cine");
+			ResultSet res = pstm.executeQuery();
+			res.next();
+			registros = res.getInt("total");
+			res.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		// se crea una matriz con tantas filas y columnas que necesite
+		Object[][] data = new String[registros][4];
+		try {
+			// realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
+			// data"
+			pstm = this.getConexion().prepareStatement("SELECT nombreCine, direccionCine, telefonoConsulta, precioBase FROM cine");
+			ResultSet res = pstm.executeQuery();
+			int i = 0;
+			while (res.next()) {
+				data[i][0] = res.getString("nombreCine");
+                                data[i][1] = res.getString("direccionCine");
+                                data[i][2] = res.getString("telefonoConsulta");
+                                data[i][3] = res.getString("precioBase");
+				i++;
+			}
+			res.close();
+			// se anade la matriz de datos en el DefaultTableModel
+			tablemodel.setDataVector(data, columNames);
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		return tablemodel;
+
+	}
 
 }

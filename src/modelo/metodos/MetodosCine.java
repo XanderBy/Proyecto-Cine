@@ -24,7 +24,7 @@ public class MetodosCine extends Conexion {
 			// Compagnia.listaCines.put(nombreCine, cine);
 			crearCineBBDD(nombreCine, direccionCine, telefonoConsulta, precioBase);
 			eliminarCineArray();
-			insertarCineArray();
+			cogerTodosLosCineBBDD();
 			JOptionPane.showMessageDialog(null, "Cine creado con exito");
 		}
 	}
@@ -33,11 +33,12 @@ public class MetodosCine extends Conexion {
 	// ----------------------------------------------------------
 	public void eliminarCine(String nombreCine) {
 		// Compagnia.listaCines.remove(nombreCine);
-		eliminarCineBBDD(nombreCine);
 
-		JOptionPane.showMessageDialog(null, "Cine eliminado");
+		eliminarCineBBDD(nombreCine);
 		eliminarCineArray();
-		insertarCineArray();
+		cogerTodosLosCineBBDD();
+		JOptionPane.showMessageDialog(null, "Cine eliminado");
+
 	}
 
 	// modificar Cine
@@ -48,9 +49,13 @@ public class MetodosCine extends Conexion {
 				|| precioBase == 0) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			Compagnia.listaCines.remove(nombreCineAntiguo);
-			Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta, precioBase);
-			Compagnia.listaCines.put(nombreCine, cine);
+			// Compagnia.listaCines.remove(nombreCineAntiguo);
+			// Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta,
+			// precioBase);
+			// Compagnia.listaCines.put(nombreCine, cine);
+			actualizarCineBBDD(nombreCineAntiguo, nombreCine, direccionCine, telefonoConsulta, precioBase);
+			eliminarCineArray();
+			cogerTodosLosCineBBDD();
 			JOptionPane.showMessageDialog(null, "Cine modificado con exito");
 		}
 	}
@@ -62,11 +67,6 @@ public class MetodosCine extends Conexion {
 			String clave = (String) it.next();
 			Compagnia.listaCines.remove(clave);
 		}
-	}
-
-	// ---------------------------------------------------------
-	public void insertarCineArray() {
-		// TODO: Aqui se deberia de meter toda la informacion de la bbdd
 	}
 
 	// ---------------------------------------------------------
@@ -121,8 +121,32 @@ public class MetodosCine extends Conexion {
 
 	// ---------------------------------------------------------
 	public void cogerTodosLosCineBBDD() {
-		//TODO: Aqui se ebe de coger todos los cines que esten en la bbdd e introducirlos en
-		// el hashmap
+		// TODO: Aqui se debe coger todos los cines que esten en la bbdd e introducirlos
+		// en el hashmap
+
+		int registros = 0;
+		PreparedStatement pstm = null;
+		String[] columNames = { "nombre Cine" };
+		try {
+			// realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
+			// data"
+			pstm = this.getConexion()
+					.prepareStatement("SELECT nombreCine, direccionCine, telefonoConsulta, precioBase FROM cine");
+			ResultSet res = pstm.executeQuery();
+			int i = 0;
+			while (res.next()) {
+
+				Cine cine = new Cine(res.getString("nombreCine"), res.getString("direccionCine"),
+						Integer.parseInt(res.getString("telefonoConsulta")),
+						Integer.parseInt(res.getString("precioBase")));
+				Compagnia.listaCines.put(res.getString("nombreCine"), cine);
+				i++;
+			}
+			res.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+
 	}
 
 	// ---------------------------------------------------------

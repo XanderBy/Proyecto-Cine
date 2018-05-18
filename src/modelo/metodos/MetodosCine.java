@@ -15,7 +15,7 @@ import modelo.POJOs.Compagnia;
 public class MetodosCine extends ConexionManager {
 	// Crear Cine
 	// ---------------------------------------------------------
-	public void crearCine(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
+	public void crearCine(String nombreCine, String direccionCine, int telefonoConsulta, double precioBase) {
 		if (nombreCine == null || direccionCine == null || telefonoConsulta == 0 || precioBase == 0) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
@@ -106,8 +106,8 @@ public class MetodosCine extends ConexionManager {
 	public void crearCineBBDD(String nombreCine, String direccionCine, int telefonoConsulta, double precioBase) {
 
 		// se arma la consulta
-		String q = " INSERT INTO cine (nombreCine, direccionCine, telefonoConsulta, precioBase, compania_nombreCompagnia)" + "VALUES ("
-				+ nombreCine + "," + direccionCine + "," + telefonoConsulta + "," + precioBase +", asd)";
+		String q = " INSERT INTO cine (nombreCine, direccionCine, telefonoConsulta, precioBase, compania_nombreCompagnia)" + "VALUES ('"
+				+ nombreCine + "','" + direccionCine + "'," + telefonoConsulta + "," + precioBase +", 'asd')";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

@@ -96,8 +96,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public void actionPerformed(ActionEvent e) {
 		switch (accionesAdministrador.valueOf(e.getActionCommand())) {
 		case ANIADIR_CINE:
-			int numero=0,precioBase=0;
+			int numero=0;
+			double precioBase=0;
 			String nombreCine = pantallaAdministrador.jTextField1.getText();
+			System.out.println(nombreCine);
 			String direccion = pantallaAdministrador.jTextField2.getText();
 			if(pantallaAdministrador.jTextField3.getText().length()==0) {
 				numero=0;
@@ -107,7 +109,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			if(pantallaAdministrador.jTextField4.getText().length()==0) {
 				precioBase=0;
 			}else {
-				precioBase = Integer.parseInt(pantallaAdministrador.jTextField4.getText());
+				precioBase = Double.parseDouble(pantallaAdministrador.jTextField4.getText());
 			}
 			
 

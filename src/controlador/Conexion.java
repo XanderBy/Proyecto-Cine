@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-    private static Connection conex = null;
+    private Connection conex = null;
     
     //CREAR CONEXION
-    public static Connection obtener() throws SQLException, ClassNotFoundException {
+    public Connection obtener() throws SQLException, ClassNotFoundException {
         if (conex == null) {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
@@ -24,11 +24,12 @@ public class Conexion {
         return conex;
     }
 
-    public static void cerrar() throws SQLException {
+    public void cerrar() throws SQLException {
         if (conex != null) {
             conex.close();
         }
     }
+    
     public Connection getConexion(){
         return this.conex;
     }

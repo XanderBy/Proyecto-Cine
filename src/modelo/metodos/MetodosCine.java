@@ -19,8 +19,9 @@ public class MetodosCine extends Conexion {
 		if (nombreCine == null || direccionCine == null || telefonoConsulta == 0 || precioBase == 0) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			//Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta, precioBase);
-			//Compagnia.listaCines.put(nombreCine, cine);
+			// Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta,
+			// precioBase);
+			// Compagnia.listaCines.put(nombreCine, cine);
 			crearCineBBDD(nombreCine, direccionCine, telefonoConsulta, precioBase);
 			eliminarCineArray();
 			insertarCineArray();
@@ -86,14 +87,10 @@ public class MetodosCine extends Conexion {
 	public void actualizarCineBBDD(String nombreCineAntiguo, String nombreCine, String direccionCine,
 			int telefonoConsulta, int precioBase) {
 
-	}
-
-	// ---------------------------------------------------------
-	public void crearCineBBDD(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
-
 		// se arma la consulta
-		String q = " INSERT INTO table_name (nombreCine, direccionCine, telefonoConsulta, precioBase)"
-				+ "VALUES ("+nombreCine+","+ direccionCine+","+ telefonoConsulta+","+ precioBase +")";
+		String q = " UPDATE cine " + "SET nombreCine = '" + nombreCine + "', direccionCine = '" + direccionCine
+				+ "', telefonoConsulta = '" + telefonoConsulta + "', precioBase = '" + precioBase + "'"
+				+ "WHERE nombreCine= '" + nombreCineAntiguo + " '";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -103,6 +100,29 @@ public class MetodosCine extends Conexion {
 			System.err.println(e.getMessage());
 		}
 
+	}
+
+	// ---------------------------------------------------------
+	public void crearCineBBDD(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
+
+		// se arma la consulta
+		String q = " INSERT INTO table_name (nombreCine, direccionCine, telefonoConsulta, precioBase)" + "VALUES ("
+				+ nombreCine + "," + direccionCine + "," + telefonoConsulta + "," + precioBase + ")";
+		// se ejecuta la consulta
+		try {
+			PreparedStatement pstm = this.getConexion().prepareStatement(q);
+			pstm.execute();
+			pstm.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+
+	}
+
+	// ---------------------------------------------------------
+	public void cogerTodosLosCineBBDD() {
+		//TODO: Aqui se ebe de coger todos los cines que esten en la bbdd e introducirlos en
+		// el hashmap
 	}
 
 	// ---------------------------------------------------------

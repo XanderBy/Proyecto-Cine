@@ -16,8 +16,7 @@ public class MetodosOpinion extends Conexion {
             }else{
 		Opinion opinion = new Opinion(fechaOpinion, comentario, idPelicula, valoracion, edadUsuario, usuario);
 		MetodosPelicula.peliculas.get(idPelicula).opiniones.put(usuario.getNombreAdminUsuario(), opinion);
-		// Anadir al navegar por un array de peliculas y introducir la opinion a la
-		// pelicula
+		
                 JOptionPane.showMessageDialog(null, "Opinion realizada");
             }
 	}

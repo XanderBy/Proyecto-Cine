@@ -2,6 +2,7 @@ package modelo.metodos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
@@ -25,26 +26,26 @@ public class MetodosPromocion {
 		try {
 			if (promoDescription == "") {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
-				System.out.println("Ok modelo1");//Eliminar
+				System.out.println("Ok modelo1");// Eliminar
 			} else {
 				p = new Promocion(promoDescription, promoDiscount);
 				mapPromocionesCreadas.put(promoDiscount, p);
-				
-				ConexionManager conexionManager= new ConexionManager();
+
+				ConexionManager conexionManager = new ConexionManager();
 				Connection conexion = conexionManager.crear();
-				
-				//REALIZA EL INSERT
-				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO PROMOCION (DESCRIPCIONPROMO, DESCUENTOPROMO) VALUES (?, ?)");
+
+				// REALIZA EL INSERT
+				PreparedStatement preparedStatement = conexion
+						.prepareStatement("INSERT INTO PROMOCION (DESCRIPCIONPROMO, DESCUENTOPROMO) VALUES (?, ?)");
 				preparedStatement.setString(1, promoDescription);
 				preparedStatement.setInt(2, promoDiscount);
 				preparedStatement.execute();
-				
-				
+
 				conexionManager.cerrar();
-				
+
 				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
-				System.out.println("Ok modelo2");//Eliminar
-				
+				System.out.println("Ok modelo2");// Eliminar
+
 			}
 
 		} catch (Exception e) {
@@ -52,30 +53,43 @@ public class MetodosPromocion {
 			e.printStackTrace();
 		}
 	}
-	
-	
-/*	public Object [][] leerPromociones(){
 
-		ConexionManager conexionManager= new ConexionManager();
-		Connection conexion = conexionManager.crear();
-		
-		PreparedStatement conteo = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
-		ResultSet rs = consulta.executeQuery();
-		
-		PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
-		ResultSet rs = consulta.executeQuery();
-		
-		while (rs.next()) {
-			String descripcion = rs.getString("DESCRIPCIONPROMO");
-			int decuento = rs.getInt("DESCUENTOPROMO");
+	public Object[][] leerPromociones() {
+		try {
+			Object[][] resultado;
 
-			System.out.println("descripcion : " + descripcion);
-			System.out.println("decuento : " + decuento);
-		}				
-		
-		
-		conexionManager.cerrar();
-	}*/
+			ConexionManager conexionManager = new ConexionManager();
+			Connection conexion = conexionManager.crear();
+
+			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
+			ResultSet rs1 = count.executeQuery();
+			int numeroFilas = rs1.getInt(1);
+
+			resultado = new Object[numeroFilas][2];
+
+			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
+			ResultSet rs2 = consulta.executeQuery();
+
+			int i = 0;
+			while (rs2.next()) {
+				String descripcion = rs2.getString("DESCRIPCIONPROMO");
+				int decuento = rs2.getInt("DESCUENTOPROMO");
+				resultado[i][0] = descripcion;
+				resultado[i][1] = decuento;
+				i++;
+			}
+
+			conexionManager.cerrar();
+			
+			return resultado;
+
+		} catch (Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace();
+			//Aqui se debe relanzar una excepcion ohacer algo
+			return null;
+		}
+	}
 
 	// MODIFICAR PROMOCION
 

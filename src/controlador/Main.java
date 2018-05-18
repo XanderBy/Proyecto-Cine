@@ -4,10 +4,10 @@ import vista.PantallaAdministrador;
 
 public class Main {
 
-	//public static void main(String[] args) {
+	public static void main(String[] args) {
 		/*IniciarSesion is=new IniciarSesion();
 		is.setVisible(true);*/
-        //new ControladorCine(new PantallaAdministrador()).Iniciar();
+        new ControladorCine(new PantallaAdministrador()).Iniciar();
 	//	new ControladorPromocion(new PantallaAdministrador()).iniciar();
         /*CrearUsuario cu = new CrearUsuario();
         cu.setVisible(true);
@@ -16,11 +16,10 @@ public class Main {
         PantallaUsuario pu=new PantallaUsuario();
         pu.setVisible(true);
         pu.setLocationRelativeTo(null);*/
-	//}
-	
-	public static void main(String[] args) {
-		new ControladorCine(new PantallaAdministrador()).Iniciar();
 		
+		
+		
+
 	}
 
 }

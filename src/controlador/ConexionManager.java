@@ -20,12 +20,16 @@ public class ConexionManager {
 	 * @throws SQLException
 	 * @throws ClassNotFoundException
 	 */
-	public Connection crear() throws ClassNotFoundException, SQLException {
-		if (conex == null) {
-			Class.forName("com.mysql.jdbc.Driver");
-			conex = DriverManager.getConnection(URL_BBDD, USUARIO, PASSWORD);
+	public Connection crear() throws SQLException {
+		try {
+			if (conex == null) {
+				Class.forName("com.mysql.jdbc.Driver");
+				conex = DriverManager.getConnection(URL_BBDD, USUARIO, PASSWORD);
+			}
+			return conex;
+		} catch (ClassNotFoundException e) {
+			throw new SQLException(e);
 		}
-		return conex;
 	}
 
 	/**
@@ -45,22 +49,10 @@ public class ConexionManager {
 		}
 	}
 
-
-	public Connection getConexion() {
+	public Connection getConexion() throws SQLException {
+		if (this.conex == null) {
+			return crear();
+		}
 		return this.conex;
 	}
-	
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		ConexionManager conexion = new ConexionManager();
-		Connection conn = conexion.crear();
-		if(conn!= null){
-			System.out.println("Hay conexion!");
-			conexion.cerrar();
-		}else {
-			System.out.println("algo ha ido mal");
-		}
-		
-	}
-	
-	
 }

@@ -23,13 +23,15 @@ public class Conexion {
         }
         return conex;
     }
-
+    
+    //CERRAR CONEXION
     public void cerrar() throws SQLException {
         if (conex != null) {
             conex.close();
         }
     }
     
+    //OBTENER CONEXION
     public Connection getConexion(){
         return this.conex;
     }

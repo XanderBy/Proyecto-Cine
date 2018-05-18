@@ -106,7 +106,7 @@ public class MetodosCine extends Conexion {
 	public void crearCineBBDD(String nombreCine, String direccionCine, int telefonoConsulta, int precioBase) {
 
 		// se arma la consulta
-		String q = " INSERT INTO table_name (nombreCine, direccionCine, telefonoConsulta, precioBase)" + "VALUES ("
+		String q = " INSERT INTO cine (nombreCine, direccionCine, telefonoConsulta, precioBase)" + "VALUES ("
 				+ nombreCine + "," + direccionCine + "," + telefonoConsulta + "," + precioBase + ")";
 		// se ejecuta la consulta
 		try {

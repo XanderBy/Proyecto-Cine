@@ -131,7 +131,23 @@ public class MetodosFuncion extends Conexion {
 	// ---------------------------------------------------------
 	public void eliminarFuncionBBDD(LocalTime diaYHora) {
 		// se arma la consulta
-				String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
+		String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
+		// se ejecuta la consulta
+		try {
+			PreparedStatement pstm = this.getConexion().prepareStatement(q);
+			pstm.execute();
+			pstm.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+	}
+
+	// ---------------------------------------------------------
+	public void crearFuncionBBDD(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
+			Promocion promocionFuncion) {
+		// se arma la consulta
+				String q = " INSERT INTO funcion (diaYHora, salaFuncion, peliculaFuncion, promocionFuncion)" + "VALUES ("
+						+ diaYHora + "," + salaFuncion + "," + peliculaFuncion + "," + promocionFuncion + ")";
 				// se ejecuta la consulta
 				try {
 					PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -143,13 +159,20 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void insertarFuncionBBDD() {
-		
-	}
-
-	// ---------------------------------------------------------
-	public void actualizarFuncionBBDD() {
-
+	public void actualizarFuncionBBDD(LocalTime diaYHoraAntiguo, LocalTime diaYHora, Sala salaFuncion,
+			Pelicula peliculaFuncion, Promocion promocionFuncion) {
+		// se arma la consulta
+		String q = " UPDATE funcion " + "SET diaYHora = '" + diaYHora + "', salaFuncion = '" + salaFuncion
+				+ "', peliculaFuncion = '" + peliculaFuncion + "', promocionFuncion = '" + promocionFuncion + "'"
+				+ "WHERE diaYHora= '" + diaYHoraAntiguo + " '";
+		// se ejecuta la consulta
+		try {
+			PreparedStatement pstm = this.getConexion().prepareStatement(q);
+			pstm.execute();
+			pstm.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
 	}
 
 }

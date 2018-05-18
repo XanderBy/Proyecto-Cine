@@ -1,5 +1,6 @@
 package modelo.POJOs;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -9,14 +10,16 @@ import modelo.metodos.MetodosFuncion;
 
 public class Funcion implements Cartelera {
 	// TODO: Atributos
-	private LocalTime diaYHora;
-	private Sala salaFuncion;
-	private Pelicula peliculaFuncion;
-	private Promocion promocionFuncion;
-	
+	private LocalDateTime diaYHora;
+	//private Sala salaFuncion;
+	//private Pelicula peliculaFuncion;
+	//private Promocion promocionFuncion;
+	private String salaFuncion;
+	private String peliculaFuncion;
+	private String promocionFuncion;
 
 	// TODO: Contructores
-	public Funcion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion) {
+	public Funcion(LocalDateTime diaYHora, String salaFuncion, String peliculaFuncion, String promocionFuncion) {
 		super();
 		this.diaYHora = diaYHora;
 		this.salaFuncion = salaFuncion;
@@ -27,35 +30,35 @@ public class Funcion implements Cartelera {
 	
 	
 	// TODO: Metodos Get/Set
-	public LocalTime getDiaYHora() {
+	public LocalDateTime getDiaYHora() {
 		return diaYHora;
 	}
 
-	public void setDiaYHora(LocalTime diaYHora) {
+	public void setDiaYHora(LocalDateTime diaYHora) {
 		this.diaYHora = diaYHora;
 	}
 
-	public Sala getSalaFuncion() {
+	public String getSalaFuncion() {
 		return salaFuncion;
 	}
 
-	public void setSalaFuncion(Sala salaFuncion) {
+	public void setSalaFuncion(String salaFuncion) {
 		this.salaFuncion = salaFuncion;
 	}
 
-	public Pelicula getPeliculaFuncion() {
+	public String getPeliculaFuncion() {
 		return peliculaFuncion;
 	}
 
-	public void setPeliculaFuncion(Pelicula peliculaFuncion) {
+	public void setPeliculaFuncion(String peliculaFuncion) {
 		this.peliculaFuncion = peliculaFuncion;
 	}
 
-	public Promocion getPromocionFuncion() {
+	public String getPromocionFuncion() {
 		return promocionFuncion;
 	}
 
-	public void setPromocionFuncion(Promocion promocionFuncion) {
+	public void setPromocionFuncion(String promocionFuncion) {
 		this.promocionFuncion = promocionFuncion;
 	}
 

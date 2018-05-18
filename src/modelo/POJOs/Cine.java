@@ -1,5 +1,6 @@
 package modelo.POJOs;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -14,7 +15,7 @@ public class Cine implements Cartelera{
 	private String direccionCine;
 	private int telefonoConsulta;
 	public static HashMap<String, Sala> salasCine = new HashMap<String, Sala>();//Convertido en static para acceder desde metodosSala
-	public HashMap<LocalTime, Funcion> funcionesSemana = new HashMap<LocalTime, Funcion>(); 
+	public HashMap<LocalDateTime, Funcion> funcionesSemana = new HashMap<LocalDateTime, Funcion>(); 
 	private int precioBase;
 	private int entradasVendidas;
 	// TODO:Constructores

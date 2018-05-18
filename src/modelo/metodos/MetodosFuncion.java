@@ -3,6 +3,7 @@ package modelo.metodos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,18 +20,19 @@ import modelo.POJOs.Promocion;
 import modelo.POJOs.Sala;
 
 public class MetodosFuncion extends Conexion {
-	public static HashMap<LocalTime, Funcion> Funciones = new HashMap<LocalTime, Funcion>();
+	public static HashMap<LocalDateTime, Funcion> Funciones = new HashMap<LocalDateTime, Funcion>();
 	/*
-	 * Falta
+	 * Falta-----
 	 * 
 	 * falta coger las funcionesSemana linea 81 falta implementar coger funciones
 	 * 
-	 * 
+	 * Cambiar los constructores de objeto a 
+	 * strings
 	 */
 
 	// ---------------------------------------------------------
-	public void crearFuncion(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-			Promocion promocionFuncion) {
+	public void crearFuncion(LocalDateTime diaYHora, String salaFuncion, String peliculaFuncion,
+			String promocionFuncion) {
 		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
@@ -46,7 +48,7 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void eliminarFuncion(LocalTime diaYHora) {
+	public void eliminarFuncion(LocalDateTime diaYHora) {
 		// Funciones.remove(diaYHora);
 
 		eliminarFuncionBBDD(diaYHora);
@@ -56,8 +58,8 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void modificarFuncion(LocalTime diaYHoraAntiguo, LocalTime diaYHora, Sala salaFuncion,
-			Pelicula peliculaFuncion, Promocion promocionFuncion) {
+	public void modificarFuncion(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, String salaFuncion,
+			String peliculaFuncion, String promocionFuncion) {
 		if (diaYHoraAntiguo == null || diaYHora == null || salaFuncion == null || peliculaFuncion == null
 				|| promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
@@ -74,7 +76,7 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void anadirFuncionACine(String nombreCine, LocalTime diaYHora) {
+	public void anadirFuncionACine(String nombreCine, LocalDateTime diaYHora) {
 		Compagnia.listaCines.get(nombreCine).funcionesSemana.put(diaYHora, Funciones.get(diaYHora));
 		// TODO: Aqui falta
 		eliminarFuncionesSemanaArray();
@@ -111,7 +113,7 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void eliminarFuncionBBDD(LocalTime diaYHora) {
+	public void eliminarFuncionBBDD(LocalDateTime diaYHora) {
 		// se arma la consulta
 		String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
 		// se ejecuta la consulta
@@ -125,8 +127,8 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void crearFuncionBBDD(LocalTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-			Promocion promocionFuncion) {
+	public void crearFuncionBBDD(LocalDateTime diaYHora, String salaFuncion, String peliculaFuncion,
+			String promocionFuncion) {
 		// se arma la consulta
 		String q = " INSERT INTO funcion (diaYHora, salaFuncion, peliculaFuncion, promocionFuncion)" + "VALUES ("
 				+ diaYHora + "," + salaFuncion + "," + peliculaFuncion + "," + promocionFuncion + ")";
@@ -141,8 +143,8 @@ public class MetodosFuncion extends Conexion {
 	}
 
 	// ---------------------------------------------------------
-	public void actualizarFuncionBBDD(LocalTime diaYHoraAntiguo, LocalTime diaYHora, Sala salaFuncion,
-			Pelicula peliculaFuncion, Promocion promocionFuncion) {
+	public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, String salaFuncion,
+			String peliculaFuncion, String promocionFuncion) {
 		// se arma la consulta
 		String q = " UPDATE funcion " + "SET diaYHora = '" + diaYHora + "', salaFuncion = '" + salaFuncion
 				+ "', peliculaFuncion = '" + peliculaFuncion + "', promocionFuncion = '" + promocionFuncion + "'"
@@ -166,10 +168,9 @@ public class MetodosFuncion extends Conexion {
 			ResultSet res = pstm.executeQuery();
 			int i = 0;
 			while (res.next()) {
-				String a= res.getString("salaFuncion");
-				Object b= a;
-				//Funcion funcion=new Funcion((LocalTime) res.getString("diaYHora"), res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"))
-				//Funciones.put(res.getString("diaYHora"), funcion);
+				LocalDateTime tiempo= LocalDateTime.parse(res.getString("diaYHora"));
+				Funcion funcion=new Funcion(tiempo , res.getString("salaFuncion"), res.getString("peliculaFuncion"), res.getString("promocionFuncion"));
+				Funciones.put(tiempo, funcion);
 				i++;
 			}
 			res.close();

@@ -55,6 +55,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		//Cine
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
 		this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
+                this.pantallaAdministrador.jTable9.addMouseListener(this);
+		this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
 		//Promocion
 		
 		
@@ -89,7 +91,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 
-		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDNombre());
+		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
+                pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 	}
 
 	@Override
@@ -145,7 +148,16 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if( e.getButton()== 1)//boton izquierdo
+        {
+             int fila = this.pantallaAdministrador.jTable9.rowAtPoint(e.getPoint());
+             if (fila > -1){                
+                this.pantallaAdministrador.jTextField11.setText( String.valueOf( this.pantallaAdministrador.jTable9.getValueAt(fila, 0) ));
+                this.pantallaAdministrador.jTextField12.setText( String.valueOf( this.pantallaAdministrador.jTable9.getValueAt(fila, 1) ));
+                this.pantallaAdministrador.jTextField5.setText( String.valueOf( this.pantallaAdministrador.jTable9.getValueAt(fila, 2) ));
+                this.pantallaAdministrador.jTextField8.setText( String.valueOf( this.pantallaAdministrador.jTable9.getValueAt(fila, 3) ));
+             }
+        }
 
 	}
 

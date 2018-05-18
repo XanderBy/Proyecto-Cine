@@ -42,8 +42,9 @@ public class ConexionManager {
 			try {
 				conex.close();
 			} catch (SQLException e) {
-				// No se hace nada si se produce un error
+				System.out.println("Error al cerrar");
 			} finally {
+				System.out.println("Conexion devuelta a null");
 				conex = null;
 			}
 		}

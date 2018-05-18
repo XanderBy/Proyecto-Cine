@@ -49,7 +49,7 @@ public class MetodosPromocion {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
+			System.out.println("Excepcion no controlada al crear promocion");
 			e.printStackTrace();
 		}
 	}

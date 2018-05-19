@@ -101,9 +101,12 @@ public class ControladorCine implements ActionListener, MouseListener {
         pantallaAdministrador.botonAniadirPromocion.addMouseListener(this);
 
         // Modificar promocion
+        pantallaAdministrador.tablaModificarPromocion.addMouseListener(this);
+        pantallaAdministrador.tablaModificarPromocion.setModel(new DefaultTableModel());//TODO:
         pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
         pantallaAdministrador.botonModificarPromocion.addActionListener(this);
         pantallaAdministrador.botonModificarPromocion.addMouseListener(this);
+        pantallaAdministrador.tablaModificarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 
         // Eliminar promocion
         pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");

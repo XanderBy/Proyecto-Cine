@@ -254,28 +254,31 @@ public class MetodosPromocion {
 
 	/**
 	 * Prepara una tabla para refrescar la contenida en modificar promocion
+	 * 
 	 * @return tabla
+	 * @throws SQLException
 	 */
 	public DefaultTableModel generarTablaPromociones() {
+		// 1.Declaramos defaultTableModel,matriz tipo Object y string
+		DefaultTableModel tablaPromocion = new DefaultTableModel();
+		Object[][] resultado;
+		String[] columnNames = { "Descuento promocion", "Descripcion promocion" };
+		// 2.Abrimos la conexion
 		try {
-			//1.Declaramos defaultTableModel,matriz tipo Object y string
-			DefaultTableModel tablaPromocion = new DefaultTableModel();
-			Object[][] resultado;
-			String[] columnNames = {"Descuento promocion", "Descripcion promocion"};
-			//2.Abrimos la conexion
 			ConexionManager conexionManager = new ConexionManager();
 			Connection conexion = conexionManager.crear();
-			//3.Creamos el prepared statement que nos devolvera el numero de tuplas
+			// 3.Creamos el prepared statement que nos devolvera el numero de tuplas
 			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
 			ResultSet rs1 = count.executeQuery();
-			int numeroFilas = rs1.getInt(1);
-			//4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el numero de columnas.
+			int numeroFilas = rs1.getInt("NUM_PROMOCIONES");
+			// 4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el
+			// numero de columnas.
 			resultado = new Object[numeroFilas][2];
-			
-			//5.Creamos el prepared statement que obtendra toda la info de la tabla
+
+			// 5.Creamos el prepared statement que obtendra toda la info de la tabla
 			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
 			ResultSet rs2 = consulta.executeQuery();
-			//6.Obtenemos valores por tuplas
+			// 6.Obtenemos valores por tuplas
 			int i = 0;
 			while (rs2.next()) {
 				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
@@ -284,14 +287,14 @@ public class MetodosPromocion {
 				resultado[i][1] = descuentoPromo;
 				i++;
 			}
-
+			// 7.Cerramos la conexion
 			conexionManager.cerrar();
+			// 8.Creamos la tabla
 			tablaPromocion.setDataVector(resultado, columnNames);
 			return tablaPromocion;
-
-		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace(); // Aqui se debe relanzar una excepcion ohacer algo
+		} catch (SQLException e) {
+			System.err.println("Excepcion SQL no controlada");
+			e.printStackTrace();
 			return null;
 		}
 	}

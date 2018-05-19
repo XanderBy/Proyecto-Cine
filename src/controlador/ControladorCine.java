@@ -34,6 +34,7 @@ public class ControladorCine implements ActionListener, MouseListener {
     public MetodosPromocion metodosPromocion = new MetodosPromocion();
     public MetodosSala metodosSala = new MetodosSala();
     public MetodosPelicula metodosPelicula = new MetodosPelicula();
+    //Declaracion de variables
     private String nombreCineA;
     // Declaramos en un enum las acciones relacionadas con el Administrador
 
@@ -204,7 +205,8 @@ public class ControladorCine implements ActionListener, MouseListener {
         }
 
     }
-
+    
+    //METODOS
     private void presionarJTable7(java.awt.event.MouseEvent e) {
 
         if (e.getButton() == 1)//boton izquierdo
@@ -230,6 +232,18 @@ public class ControladorCine implements ActionListener, MouseListener {
             }
         }
     }
+    
+    private void presionarTablaModificarPromocion(java.awt.event.MouseEvent e) {
+    	 if (e.getButton() == 1)//boton izquierdo
+         {
+             int fila = this.pantallaAdministrador.jTable7.rowAtPoint(e.getPoint());
+             if (fila > -1) {
+                 nombreCineA = String.valueOf(this.pantallaAdministrador.jTable7.getValueAt(fila, 0));
+
+             }
+         }
+    }
+    
 
     @Override
     public void mouseClicked(MouseEvent e) {

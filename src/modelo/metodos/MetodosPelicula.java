@@ -101,8 +101,19 @@ public class MetodosPelicula {
 				consulta.setLong(9, duracionPelicula.toMinutes());
 				consulta.setString(10, calificacionEdades);
 				consulta.setString(11, fechaEstrenoEs.toString());
+				consulta.setString(12, resumen);
+				consulta.setInt(13, idPelicula);
+				
+				consulta.execute();
+				conManager.cerrar();
+				
+				JOptionPane.showMessageDialog(null, "Pelicula creada correctamente");
+				cargarPeliculas();
 				
 			}else{
+				
+				JOptionPane.showMessageDialog(null, "Ya hay una pelicula con el mismo IdPelicula");
+				return false;
 				
 			}
 			
@@ -115,28 +126,37 @@ public class MetodosPelicula {
 	}
 	
 	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen) {
+	//TODO terminar el metodo
+		cargarPeliculas();
 		
-		try {
-			Pelicula aux = peliculas.get(idPelicula);
-			aux.setAgnoProduccion(agnoProduccion);
-			aux.setTituloDistribucion(tituloDistribucion);
-			aux.setTituloOriginal(tituloOriginal);
-			aux.setGenero(genero);
-			aux.setIdioma(idioma);
-			aux.setSubtitulosEs(subtitulosEs);
-			aux.setPaisOrigen(paisOrigen);
-			aux.setSitioWeb(sitioWeb);
-			aux.setDuracionPelicula(duracionPelicula);
-			aux.setCalificacionEdades(calificacionEdades);
-			aux.setFechaEstrenoEs(fechaEstrenoEs);
-			aux.setResumen(resumen);
-			peliculas.put(idPelicula, aux);
-			return true;
-		}catch(Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
-			return false;
+		if (modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
+			
+			try {
+				Pelicula aux = peliculas.get(idPelicula);
+				aux.setAgnoProduccion(agnoProduccion);
+				aux.setTituloDistribucion(tituloDistribucion);
+				aux.setTituloOriginal(tituloOriginal);
+				aux.setGenero(genero);
+				aux.setIdioma(idioma);
+				aux.setSubtitulosEs(subtitulosEs);
+				aux.setPaisOrigen(paisOrigen);
+				aux.setSitioWeb(sitioWeb);
+				aux.setDuracionPelicula(duracionPelicula);
+				aux.setCalificacionEdades(calificacionEdades);
+				aux.setFechaEstrenoEs(fechaEstrenoEs);
+				aux.setResumen(resumen);
+				peliculas.put(idPelicula, aux);
+				return true;
+				
+			}catch(Exception e) {
+				System.out.println("Excepcion no controlada");
+				e.printStackTrace();
+				return false;
+			}
+			
+			
 		}
+		return true;
 	}
 	
 	public boolean agnadirActor(int idPelicula,String nombreCompleto, Pais nacionalidad,String roll) {

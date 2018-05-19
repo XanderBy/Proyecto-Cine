@@ -291,7 +291,7 @@ public class MetodosPromocion {
 			return tablaPromocion;
 
 		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
+			System.out.println("Excepcion no controlada en generarTablaPromociones");
 			e.printStackTrace(); // Aqui se debe relanzar una excepcion ohacer algo
 			return null;
 		}

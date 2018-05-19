@@ -14,13 +14,13 @@ public class MetodosPromocion {
 
 	public static HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
 
-	// CONSTRUCTOR VACIO
+	// CONSTRUCTOR: Vacio
 
 	public MetodosPromocion() {
 
 	}
 
-	// CREAR PROMOCION
+	// METODO: Crear promocion. Recibe la decsripcion de la promo y el descuento. Las inserta en el map y en la base de datos.
 	public void crearPromocion(String promoDescription, int promoDiscount) {
 		Promocion p = null;
 		try {
@@ -29,19 +29,24 @@ public class MetodosPromocion {
 			} else {
 				p = new Promocion(promoDescription, promoDiscount);
 				mapPromocionesCreadas.put(promoDiscount, p);
-
+				
+				// Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
 				Connection conexion = conexionManager.crear();
 
-				// REALIZA EL INSERT
-				PreparedStatement preparedStatement = conexion
-						.prepareStatement("INSERT INTO PROMOCION (DESCRIPCIONPROMO, DESCUENTOPROMO) VALUES (?, ?)");
-				preparedStatement.setString(1, promoDescription);
-				preparedStatement.setInt(2, promoDiscount);
+				// Realizamos la insercion
+				
+				//1.Creamos el PreparedStatement: Consulta, con valores desconocidos
+				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");
+				//2.Decimos que en el valor desconocido 1 inserte el valor del String promoDiscount
+				preparedStatement.setInt(1, promoDiscount);
+				//3.Decimos que en el valor desconocido 2 inserte el valor del String promoDescription
+				preparedStatement.setString(2, promoDescription);
+				//4.Ejecutamos el preparedStatement
 				preparedStatement.execute();
-
+				//5.Cerramos la conexion
 				conexionManager.cerrar();
-
+				//6.Informamos
 				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
 
 			}

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.ConexionManager;
 import modelo.POJOs.Promocion;
@@ -179,7 +180,7 @@ public class MetodosPromocion {
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
 							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?) WHERE DESCUENTOPROMO="
-									+ oldPromoDiscount);//TODO: COMPROBAR
+									+ oldPromoDiscount);// TODO: COMPROBAR
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// promoDiscount
 					preparedStatement.setInt(1, promoDiscount);
@@ -187,7 +188,7 @@ public class MetodosPromocion {
 					// promoDescription
 					preparedStatement.setString(2, promoDescription);
 					// 2.2.4.Ejecutamos el preparedStatement
-					preparedStatement.execute();//TODO: COMPROBAR
+					preparedStatement.execute();// TODO: COMPROBAR
 					// 2.2.5.Cerramos la conexion
 					conexionManager.cerrar();
 				} catch (Exception e) {
@@ -204,9 +205,10 @@ public class MetodosPromocion {
 		}
 
 	}
-	
+
 	/**
 	 * Elimina la promocion cuyo descuento se introduce por parametro
+	 * 
 	 * @param promoDiscount
 	 * @throws SQLException
 	 */
@@ -228,7 +230,8 @@ public class MetodosPromocion {
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
 					PreparedStatement preparedStatement = conexion
-							.prepareStatement("DELETE FROM PROMOCION WHERE DESCUENTOPROMO=" + promoDiscount);//TODO: COMPROBAR
+							.prepareStatement("DELETE FROM PROMOCION WHERE DESCUENTOPROMO=" + promoDiscount);// TODO:
+																												// COMPROBAR
 					// 2.2.2.Ejecutamos el preparedStatement
 					preparedStatement.execute();
 					// 2.2.3.Cerramos la conexion
@@ -241,41 +244,47 @@ public class MetodosPromocion {
 				JOptionPane.showMessageDialog(null, "Promocion eliminada correctamente");
 				// 2.2.5. Actualizamos map
 				cargarPromociones();
-			}else {
+			} else {
 				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
 			}
 		}
 	}
 
-	/*
-	 * LEER PROMOCIONES public Object[][] leerPromociones() { try { Object[][]
-	 * resultado;
-	 * 
-	 * ConexionManager conexionManager = new ConexionManager(); Connection conexion
-	 * = conexionManager.crear();
-	 * 
-	 * PreparedStatement count =
-	 * conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION"
-	 * ); ResultSet rs1 = count.executeQuery(); int numeroFilas = rs1.getInt(1);
-	 * 
-	 * resultado = new Object[numeroFilas][2];
-	 * 
-	 * PreparedStatement consulta =
-	 * conexion.prepareStatement("SELECT * FROM PROMOCION"); ResultSet rs2 =
-	 * consulta.executeQuery();
-	 * 
-	 * int i = 0; while (rs2.next()) { String descripcionPromo =
-	 * rs2.getString("DESCRIPCIONPROMO"); int descuentoPromo =
-	 * rs2.getInt("DESCUENTOPROMO"); resultado[i][0] = descripcionPromo;
-	 * resultado[i][1] = descuentoPromo; i++; }
-	 * 
-	 * conexionManager.cerrar();
-	 * 
-	 * return resultado;
-	 * 
-	 * } catch (Exception e) { System.out.println("Excepcion no controlada");
-	 * e.printStackTrace(); // Aqui se debe relanzar una excepcion ohacer algo
-	 * return null; } }
-	 */
+	//TODO: Metodo sin utilizar
+	public Object[][] leerPromociones() {
+		try {
+			Object[][] resultado;
+
+			ConexionManager conexionManager = new ConexionManager();
+			Connection conexion = conexionManager.crear();
+
+			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
+			ResultSet rs1 = count.executeQuery();
+			int numeroFilas = rs1.getInt(1);
+
+			resultado = new Object[numeroFilas][2];
+
+			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
+			ResultSet rs2 = consulta.executeQuery();
+
+			int i = 0;
+			while (rs2.next()) {
+				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
+				int descuentoPromo = rs2.getInt("DESCUENTOPROMO");
+				resultado[i][0] = descripcionPromo;
+				resultado[i][1] = descuentoPromo;
+				i++;
+			}
+
+			conexionManager.cerrar();
+
+			return resultado;
+
+		} catch (Exception e) {
+			System.out.println("Excepcion no controlada");
+			e.printStackTrace(); // Aqui se debe relanzar una excepcion ohacer algo
+			return null;
+		}
+	}
 
 }

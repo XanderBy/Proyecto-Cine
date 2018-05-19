@@ -22,8 +22,9 @@ public class MetodosPromocion {
 	}
 
 	// METODO: Crear promocion. Recibe la decsripcion de la promo y el descuento. Las inserta en el map y en la base de datos.
-	public void crearPromocion(String promoDescription, int promoDiscount) {
+	public void crearPromocion(int promoDiscount,String promoDescription) {
 		Promocion p = null;
+		
 		try {
 			if (promoDescription == null || promoDiscount == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");

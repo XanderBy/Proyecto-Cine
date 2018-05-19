@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -142,7 +143,7 @@ public class ControladorCine implements ActionListener, MouseListener {
                 try {
                     String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
                     int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
-                    metodosPromocion.crearPromocion(descripcionPromo, descuentoPromo);
+                    metodosPromocion.crearPromocion(descuentoPromo, descripcionPromo);
                     System.out.println("Ok controlador");
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");

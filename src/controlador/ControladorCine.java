@@ -198,7 +198,14 @@ public class ControladorCine implements ActionListener, MouseListener {
                 }
                 break;
             case MODIFICAR_PROMOCION:
-
+            	String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionModificar.getText();
+                int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionModificar.getText());
+			try {
+				metodosPromocion.modificarPromocion(descripcionPromo, descuentoPromo);
+			} catch (SQLException e1) {
+				System.err.println("Excepcion SQL no controlada");
+				e1.printStackTrace();
+			}
             default:
                 System.out.println("error");
                 break;

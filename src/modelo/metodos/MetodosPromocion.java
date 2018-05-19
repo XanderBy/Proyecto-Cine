@@ -161,17 +161,16 @@ public class MetodosPromocion {
 	 * @param promoDiscount
 	 * @throws SQLException
 	 */
-	public void modificarPromocion(int oldPromoDiscount, String promoDescription, int promoDiscount)
+	public void modificarPromocion(String promoDescription, int promoDiscount)
 			throws SQLException {
 		// 0.Cargamos promociones en el map y generamos la tabla
 		cargarPromociones();
 		generarTablaPromociones();
 
 		// 1.Comprobamos que no haya valores nulos
-		if (oldPromoDiscount == 0 || promoDescription == null || promoDiscount == 0) {
+		if (promoDescription == null || promoDiscount == 0) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
 		} else {
-			if (mapPromocionesCreadas.containsKey(oldPromoDiscount)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -181,8 +180,7 @@ public class MetodosPromocion {
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
-							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?) WHERE DESCUENTOPROMO="
-									+ oldPromoDiscount);// TODO: COMPROBAR
+							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");// TODO: COMPROBAR
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// promoDiscount
 					preparedStatement.setInt(1, promoDiscount);
@@ -201,9 +199,6 @@ public class MetodosPromocion {
 				JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 				// 2.2.7. Actualizamos map
 				cargarPromociones();
-			} else {
-				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
-			}
 		}
 
 	}

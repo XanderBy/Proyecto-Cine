@@ -1,10 +1,12 @@
 package modelo.metodos;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -46,9 +48,7 @@ public class MetodosPelicula {
 			
 			ConexionManager conManager = new ConexionManager();
 			Connection conexion = conManager.crear();
-			
 			PreparedStatement consulta = conexion.prepareStatement("SELECT agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula FROM pelicula");
-			
 			ResultSet resultado = consulta.executeQuery();
 			
 			while (resultado.next()) {
@@ -78,21 +78,40 @@ public class MetodosPelicula {
 		}
 	}
 	
-	public boolean agnadirPelicula(Pelicula p, int idPelicula) {
+	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) {
 
 		cargarPeliculas();
 		
 		try {
 			
-			
-			peliculas.put(idPelicula, p);
-			return true;
+			if(modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
+				
+				ConexionManager conManager = new ConexionManager();
+				Connection conexion = conManager.crear();
+				PreparedStatement consulta = conexion.prepareStatement("INSERT INTO pelicula (agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula) VALUES (?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				
+				consulta.setInt(1, agnoProduccion);
+				consulta.setString(2, tituloDistribucion);
+				consulta.setString(3, tituloOriginal);
+				consulta.setString(4, genero);
+				consulta.setString(5, idioma);
+				consulta.setBoolean(6, subtitulosEs);
+				consulta.setString(7, paisOrigen);
+				consulta.setString(8, sitioWeb);
+				consulta.setLong(9, duracionPelicula.toMinutes());
+				consulta.setString(10, calificacionEdades);
+				consulta.setString(11, fechaEstrenoEs.toString());
+				
+			}else{
+				
+			}
 			
 		}catch(Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return false;
 		}
+		return true;
 	}
 	
 	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen) {

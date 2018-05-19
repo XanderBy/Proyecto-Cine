@@ -270,7 +270,9 @@ public class MetodosPromocion {
 			// 3.Creamos el prepared statement que nos devolvera el numero de tuplas
 			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
 			ResultSet rs1 = count.executeQuery();
+			rs1.next();//(*) Aqui saltaba la excepcion
 			int numeroFilas = rs1.getInt("NUM_PROMOCIONES");
+			rs1.close();
 			// 4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el
 			// numero de columnas.
 			resultado = new Object[numeroFilas][2];

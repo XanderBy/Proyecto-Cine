@@ -129,24 +129,6 @@ public class MetodosPromocion {
 		MetodosPromocion mp=new MetodosPromocion();
 		mp.leerPromociones();
 	}
-	
-	  /*public void actualizarCineBBDD(String nombreCineAntiguo, String nombreCine, String direccionCine,
-	            int telefonoConsulta, double precioBase) {
-
-	        // se arma la consulta
-	        String q = " UPDATE cine " + "SET nombreCine = '" + nombreCine + "', direccionCine = '" + direccionCine
-	                + "', telefonoConsulta = '" + telefonoConsulta + "', precioBase = '" + precioBase + "'"
-	                + "WHERE nombreCine= '" + nombreCineAntiguo + " '";
-	        // se ejecuta la consulta
-	        try {
-	            PreparedStatement pstm = this.getConexion().prepareStatement(q);
-	            pstm.execute();
-	            pstm.close();
-	        } catch (SQLException e) {
-	            System.err.println(e.getMessage());
-	        }
-
-	    }*/
 
 	// ELIMINAR PROMOCION
 

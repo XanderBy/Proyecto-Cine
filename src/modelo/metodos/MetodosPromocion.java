@@ -96,9 +96,9 @@ public class MetodosPromocion {
 		}
 	}
 
-	// MODIFICAR PROMOCION
+	// Metodo: Modificar promocion logica
 
-	public void modificarPromocion(String oldPromoDescription, String newPromoDescription, int oldPromoDiscount,
+	public void modificarPromocionLogica(String oldPromoDescription, String newPromoDescription, int oldPromoDiscount,
 			int newPromoDiscount) {
 		Promocion p = null;
 		try {
@@ -118,6 +118,11 @@ public class MetodosPromocion {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
+	}
+	
+	public void leerPromocionesBBDD() {
+		MetodosPromocion mp=new MetodosPromocion();
+		mp.leerPromociones();
 	}
 	
 	  /*public void actualizarCineBBDD(String nombreCineAntiguo, String nombreCine, String direccionCine,

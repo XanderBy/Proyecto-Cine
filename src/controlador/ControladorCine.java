@@ -27,11 +27,11 @@ public class ControladorCine implements ActionListener, MouseListener {
     // Instanciamos vista PantallaAdministrador
     public PantallaAdministrador pantallaAdministrador = new PantallaAdministrador();
     // Instanciamos modelos
-    public MetodosFuncion metodosFuncion=new MetodosFuncion();
+    public MetodosFuncion metodosFuncion = new MetodosFuncion();
     public MetodosCine metodosCine = new MetodosCine();
     public MetodosPromocion metodosPromocion = new MetodosPromocion();
-    public MetodosSala metodosSala=new MetodosSala();
-    public MetodosPelicula metodosPelicula=new MetodosPelicula();
+    public MetodosSala metodosSala = new MetodosSala();
+    public MetodosPelicula metodosPelicula = new MetodosPelicula();
     private String nombreCineA;
     // Declaramos en un enum las acciones relacionadas con el Administrador
 
@@ -69,7 +69,6 @@ public class ControladorCine implements ActionListener, MouseListener {
         this.pantallaAdministrador.jTable9.addMouseListener(this);
         this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
 
-        
         //Recargar tabla cine
         this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
         this.pantallaAdministrador.jButton7.addActionListener(this);
@@ -89,11 +88,11 @@ public class ControladorCine implements ActionListener, MouseListener {
         // Modificar Cine
         this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
         this.pantallaAdministrador.jButton6.addActionListener(this);
-        
+
         //Aniadir Funcion
         this.pantallaAdministrador.jButton30.setActionCommand("ANIADIR_FUNCION");
         this.pantallaAdministrador.jButton30.addActionListener(this);
-        
+
         // Crear promocion
         pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
         pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
@@ -143,49 +142,52 @@ public class ControladorCine implements ActionListener, MouseListener {
 
                 pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
                 pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
-                
+
                 break;
             case MODIFICAR_CINE:
 
                 metodosCine.actualizarCineBBDD(pantallaAdministrador.jLabel91.getText(), pantallaAdministrador.jTextField11.getText(), pantallaAdministrador.jTextField12.getText(), Integer.parseInt(pantallaAdministrador.jTextField5.getText()), Double.parseDouble(pantallaAdministrador.jTextField8.getText()));
-                
+
                 break;
             case ANIADIR_FUNCION:
-            	//"2016-11-09 10:30" tengo que poner este formato
-            	 String now = pantallaAdministrador.jTextField19.getText();
+                //"2016-11-09 10:30" tengo que poner este formato
+                String now = "2016-11-09 10:30";
+                now = pantallaAdministrador.jTextField19.getText();
 
-                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-                 LocalDateTime formatDateTime = LocalDateTime.parse(now, formatter);
+                LocalDateTime formatDateTime = LocalDateTime.parse(now, formatter);
 
-                // Compagnia.listaCines.
-            	//pantallaAdministrador.jTextField20.getText() Sala
-                 //pantallaAdministrador.jTextField21.getText() Pelicula
-            	//pantallaAdministrador.jTextField22.getText() Promocion
-            	//metodosFuncion.crearFuncion(formatDateTime.format(formatter)), salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
-            	
-            	break;
+                //pantallaAdministrador.jTextField20.getText() Sala MetodosSala.salas.get(pantallaAdministrador.jTextField20.getText())
+                //pantallaAdministrador.jTextField21.getText() Pelicula MetodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField21.getText()))
+                //pantallaAdministrador.jTextField22.getText() Promocion MetodosPromocion.mapPromocionesCreadas.get(Integer.parseInt(pantallaAdministrador.jTextField22.getText()))
+                metodosFuncion.crearFuncion(formatDateTime, null,
+                         null,
+                         null, null
+                );
+
+                break;
             case CREAR_PROMOCION:
                 try {
                     String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
                     int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
                     try {
-						metodosPromocion.crearPromocion(descuentoPromo, descripcionPromo);
-					} catch (SQLException e1) {
-						System.err.println("Error SQL");
-						e1.printStackTrace();
-					}
+                        metodosPromocion.crearPromocion(descuentoPromo, descripcionPromo);
+                    } catch (SQLException e1) {
+                        System.err.println("Error SQL");
+                        e1.printStackTrace();
+                    }
                     System.out.println("Ok controlador");
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
                 }
-				try {
-					pantallaAdministrador.textoDescripcionPromocionAniadir.setText("");
-	                pantallaAdministrador.textoDescuentoPromocionAniadir.setText("");
-				} catch (Exception e1) {
-					System.err.println("Excepcion no controlada");
-					e1.printStackTrace();
-				}
+                try {
+                    pantallaAdministrador.textoDescripcionPromocionAniadir.setText("");
+                    pantallaAdministrador.textoDescuentoPromocionAniadir.setText("");
+                } catch (Exception e1) {
+                    System.err.println("Excepcion no controlada");
+                    e1.printStackTrace();
+                }
                 break;
             case MODIFICAR_PROMOCION:
 

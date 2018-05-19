@@ -34,7 +34,7 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
             Cine cine_nombreCine, Promocion promocionFuncion) {
-        if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || cine_nombreCine == null || promocionFuncion == null) {
+        if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
             JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
         } else {
             //Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);

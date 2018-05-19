@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -26,7 +27,7 @@ public class MetodosPelicula {
 		
 	}
 	
-	public void cargarPeliculas() {
+	public void cargarPeliculas() throws SQLException {
 		
 		
 		int agnoProduccion;
@@ -44,10 +45,11 @@ public class MetodosPelicula {
 		int idPelicula;
 		Pelicula P;
 		
+		ConexionManager conManager = new ConexionManager();
+		Connection conexion = conManager.crear();
+		
 		try {
 			
-			ConexionManager conManager = new ConexionManager();
-			Connection conexion = conManager.crear();
 			PreparedStatement consulta = conexion.prepareStatement("SELECT agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula FROM pelicula");
 			ResultSet resultado = consulta.executeQuery();
 			
@@ -78,7 +80,7 @@ public class MetodosPelicula {
 		}
 	}
 	
-	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) {
+	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) throws SQLException {
 
 		cargarPeliculas();
 		
@@ -125,27 +127,39 @@ public class MetodosPelicula {
 		return true;
 	}
 	
-	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, GeneroPelicula genero, IdiomaOriginal idioma, boolean subtitulosEs,Pais paisOrigen,String sitioWeb, Duration duracionPelicula, CalificacionEdades calificacionEdades,LocalDate fechaEstrenoEs,String resumen) {
+	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen) throws SQLException {
 	//TODO terminar el metodo
 		cargarPeliculas();
 		
 		if (modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
 			
+			ConexionManager conManager = new ConexionManager();
+			Connection conexion = conManager.crear();
+			
 			try {
-				Pelicula aux = peliculas.get(idPelicula);
-				aux.setAgnoProduccion(agnoProduccion);
-				aux.setTituloDistribucion(tituloDistribucion);
-				aux.setTituloOriginal(tituloOriginal);
-				aux.setGenero(genero);
-				aux.setIdioma(idioma);
-				aux.setSubtitulosEs(subtitulosEs);
-				aux.setPaisOrigen(paisOrigen);
-				aux.setSitioWeb(sitioWeb);
-				aux.setDuracionPelicula(duracionPelicula);
-				aux.setCalificacionEdades(calificacionEdades);
-				aux.setFechaEstrenoEs(fechaEstrenoEs);
-				aux.setResumen(resumen);
-				peliculas.put(idPelicula, aux);
+				
+				PreparedStatement consulta = conexion.prepareStatement("UPDATE pelicula (agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula) VALUES (?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				
+				consulta.setInt(1, agnoProduccion);
+				consulta.setString(2, tituloDistribucion);
+				consulta.setString(3, tituloOriginal);
+				consulta.setString(4, genero);
+				consulta.setString(5, idioma);
+				consulta.setBoolean(6, subtitulosEs);
+				consulta.setString(7, paisOrigen);
+				consulta.setString(8, sitioWeb);
+				consulta.setLong(9, duracionPelicula.toMinutes());
+				consulta.setString(10, calificacionEdades);
+				consulta.setString(11, fechaEstrenoEs.toString());
+				consulta.setString(12, resumen);
+				consulta.setInt(13, idPelicula);
+				
+				consulta.execute();
+				conManager.cerrar();
+				
+				JOptionPane.showMessageDialog(null, "Pelicula modificada correctamente");
+				cargarPeliculas();
+				
 				return true;
 				
 			}catch(Exception e) {
@@ -155,8 +169,11 @@ public class MetodosPelicula {
 			}
 			
 			
+		}else{
+			JOptionPane.showMessageDialog(null, "Pelicula no encontrada");
+			return false;
 		}
-		return true;
+
 	}
 	
 	public boolean agnadirActor(int idPelicula,String nombreCompleto, Pais nacionalidad,String roll) {

@@ -128,7 +128,7 @@ public class MetodosPelicula {
 	}
 	
 	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen) throws SQLException {
-	//TODO terminar el metodo
+		
 		cargarPeliculas();
 		
 		if (modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
@@ -138,7 +138,7 @@ public class MetodosPelicula {
 			
 			try {
 				
-				PreparedStatement consulta = conexion.prepareStatement("UPDATE pelicula (agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula) VALUES (?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				PreparedStatement consulta = conexion.prepareStatement("UPDATE pelicula SET agnoProduccion = ?,titulo = ?,tituloOriginal = ?,genero = ?,idioma = ?,subtitulos = ?,paisOrigen = ?,sitioWeb = ?,duracionPelicula = ?,calificacionEdades = ?,fechaEstrenoEspagna = ?,resumen = ? WHERE idPelicula = " + idPelicula);
 				
 				consulta.setInt(1, agnoProduccion);
 				consulta.setString(2, tituloDistribucion);
@@ -152,7 +152,6 @@ public class MetodosPelicula {
 				consulta.setString(10, calificacionEdades);
 				consulta.setString(11, fechaEstrenoEs.toString());
 				consulta.setString(12, resumen);
-				consulta.setInt(13, idPelicula);
 				
 				consulta.execute();
 				conManager.cerrar();
@@ -176,7 +175,17 @@ public class MetodosPelicula {
 
 	}
 	
-	public boolean agnadirActor(int idPelicula,String nombreCompleto, Pais nacionalidad,String roll) {
+	/*public boolean agnadirActor(int idPelicula,String nombreCompleto, Pais nacionalidad,String roll) throws SQLException {
+		
+		//cargarPeliculas();
+		
+		//MetodosArtistas a = new MetodosArtistas();
+		//a.cogerArtistaBBDD();
+		
+		
+		//if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+			
+		//}
 		
 		try {
 			
@@ -201,7 +210,7 @@ public class MetodosPelicula {
 			e.printStackTrace();
 			return false;
 		}
-	}
+	}*/
 	
 	public boolean eliminarPelicula(String nombre) {
 		

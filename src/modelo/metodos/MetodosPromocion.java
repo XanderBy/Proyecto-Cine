@@ -3,6 +3,7 @@ package modelo.metodos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
@@ -24,7 +25,7 @@ public class MetodosPromocion {
 	public void crearPromocion(String promoDescription, int promoDiscount) {
 		Promocion p = null;
 		try {
-			if (promoDescription == "") {
+			if (promoDescription == null || promoDiscount == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
 			} else {
 				p = new Promocion(promoDescription, promoDiscount);
@@ -76,10 +77,10 @@ public class MetodosPromocion {
 
 			int i = 0;
 			while (rs2.next()) {
-				String descripcion = rs2.getString("DESCRIPCIONPROMO");
-				int decuento = rs2.getInt("DESCUENTOPROMO");
-				resultado[i][0] = descripcion;
-				resultado[i][1] = decuento;
+				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
+				int descuentoPromo = rs2.getInt("DESCUENTOPROMO");
+				resultado[i][0] = descripcionPromo;
+				resultado[i][1] = descuentoPromo;
 				i++;
 			}
 
@@ -103,23 +104,39 @@ public class MetodosPromocion {
 		try {
 			if (newPromoDescription == null || newPromoDiscount == 0) {
 				JOptionPane.showMessageDialog(null, "Debe introducir un nuevo descuento y una nueva descripcion");
-			} else if (newPromoDescription != null && newPromoDiscount != 0) {
+			} else {
 				if (mapPromocionesCreadas.containsKey(oldPromoDiscount)) {
 					mapPromocionesCreadas.remove(oldPromoDiscount);
 					p = new Promocion(newPromoDescription, newPromoDiscount);
 					mapPromocionesCreadas.put(newPromoDiscount, p);
-					JOptionPane.showMessageDialog(null, "Promocion modificada");
+					System.out.println("Promocion modificada en la logica del programa");
 				} else {
-					JOptionPane.showMessageDialog(null, "La promocion que intenta modificar ya no existe");
+					System.out.println("La promocion que intenta modificar ya no existe");
 				}
-			} else {
-
 			}
 		} catch (Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
 	}
+	
+	  /*public void actualizarCineBBDD(String nombreCineAntiguo, String nombreCine, String direccionCine,
+	            int telefonoConsulta, double precioBase) {
+
+	        // se arma la consulta
+	        String q = " UPDATE cine " + "SET nombreCine = '" + nombreCine + "', direccionCine = '" + direccionCine
+	                + "', telefonoConsulta = '" + telefonoConsulta + "', precioBase = '" + precioBase + "'"
+	                + "WHERE nombreCine= '" + nombreCineAntiguo + " '";
+	        // se ejecuta la consulta
+	        try {
+	            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+	            pstm.execute();
+	            pstm.close();
+	        } catch (SQLException e) {
+	            System.err.println(e.getMessage());
+	        }
+
+	    }*/
 
 	// ELIMINAR PROMOCION
 

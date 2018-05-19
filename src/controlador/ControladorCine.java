@@ -147,6 +147,13 @@ public class ControladorCine implements ActionListener, MouseListener {
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
                 }
+				try {
+					pantallaAdministrador.textoDescripcionPromocionAniadir.setText("");
+	                pantallaAdministrador.textoDescuentoPromocionAniadir.setText("");
+				} catch (Exception e1) {
+					System.err.println("Excepcion no controlada");
+					e1.printStackTrace();
+				}
                 break;
             case MODIFICAR_PROMOCION:
 

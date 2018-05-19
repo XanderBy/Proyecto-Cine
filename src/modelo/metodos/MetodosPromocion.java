@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JOptionPane;
@@ -61,6 +62,33 @@ public class MetodosPromocion {
 			System.err.println("Excepcion no controlada al crear promocion");
 			e.printStackTrace();
 		}
+	}
+	
+	
+	//	METODO: Obtener las claves primarias (descuento) de las promociones insertadas en la BBDD 
+	
+	public ArrayList<Integer> obtenerClavesPrimariasPromocion() throws SQLException {
+		
+		ArrayList<Integer> clavesPrimariasPromocion = new ArrayList<Integer>();
+		
+		// Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el metodo crear()
+		ConexionManager conexionManager = new ConexionManager();
+		Connection conexion = conexionManager.crear();
+
+		//1.Creamos el Statement
+		PreparedStatement consulta = conexion.prepareStatement("SELECT DESCUENTOPROMO FROM PROMOCION");
+		//2.Preparamos el ResultSet
+		ResultSet resultado=consulta.executeQuery();
+		//3.Iteramos sobre las tuplas de la base de datos
+		while(resultado.next()) {
+			clavesPrimariasPromocion.add(resultado.getInt("DESCUENTOPROMO"));
+		}
+		
+		//Cerramos la conexion
+		conexionManager.cerrar();
+		
+		return clavesPrimariasPromocion;
+		
 	}
 	
 	//LEER PROMOCIONES
@@ -125,6 +153,7 @@ public class MetodosPromocion {
 		}
 	}
 	
+	//REVISAR METODO
 	public void leerPromocionesBBDD() {
 		MetodosPromocion mp=new MetodosPromocion();
 		mp.leerPromociones();

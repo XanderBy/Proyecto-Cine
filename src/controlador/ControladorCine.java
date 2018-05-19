@@ -143,7 +143,12 @@ public class ControladorCine implements ActionListener, MouseListener {
                 try {
                     String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
                     int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionAniadir.getText());
-                    metodosPromocion.crearPromocion(descuentoPromo, descripcionPromo);
+                    try {
+						metodosPromocion.crearPromocion(descuentoPromo, descripcionPromo);
+					} catch (SQLException e1) {
+						System.err.println("Error SQL");
+						e1.printStackTrace();
+					}
                     System.out.println("Ok controlador");
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");

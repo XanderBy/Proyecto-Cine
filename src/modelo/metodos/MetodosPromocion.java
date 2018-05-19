@@ -22,20 +22,19 @@ public class MetodosPromocion {
 
 	}
 
-	// METODO: Crear promocion. Recibe la decsripcion de la promo y el descuento. Las inserta en el map y en la base de datos.
-	public void crearPromocion(int promoDiscount,String promoDescription) {
+	// METODO: Crear promocion. Recibe la descripcion de la promo y el descuento. Inserta en BBDD.
+	public void crearPromocion(int promoDiscount,String promoDescription) throws SQLException {
 		Promocion p = null;
+		ArrayList<Integer> clavesPrimariasPromocion = obtenerClavesPrimariasPromocion();
 		
 		try {
 			if (promoDescription == null || promoDiscount == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
 				
-			}else if(mapPromocionesCreadas.containsKey(promoDiscount)){
+			}else if(clavesPrimariasPromocion.contains(promoDiscount)){
 				JOptionPane.showMessageDialog(null, "Ya existe una promocion con ese descuento");
 			}
 			else {
-				p = new Promocion(promoDescription, promoDiscount);
-				mapPromocionesCreadas.put(promoDiscount, p);
 				
 				// Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -153,11 +152,6 @@ public class MetodosPromocion {
 		}
 	}
 	
-	//REVISAR METODO
-	public void leerPromocionesBBDD() {
-		MetodosPromocion mp=new MetodosPromocion();
-		mp.leerPromociones();
-	}
 
 	// ELIMINAR PROMOCION
 

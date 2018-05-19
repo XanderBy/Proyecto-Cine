@@ -182,8 +182,8 @@ public class MetodosPromocion {
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
-							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?) WHERE DESCUENTOPROMO="
-									+ oldPromoDiscount);// TODO: COMPROBAR
+							"UPDATE PROMOCION SET DESCUENTOPROMO=?, DESCRIPCIONPROMO=? WHERE DESCUENTOPROMO="
+									+ oldPromoDiscount);
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// promoDiscount
 					preparedStatement.setInt(1, promoDiscount);

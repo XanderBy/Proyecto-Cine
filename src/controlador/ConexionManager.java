@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConexionManager {
 
-	private static String URL_BBDD = "jdbc:mysql://localhost:3306/pruebaproyecto";
+	private static String URL_BBDD = "jdbc:mysql://localhost:3306/bbddCine";
 
 	private static String USUARIO = "root";
 

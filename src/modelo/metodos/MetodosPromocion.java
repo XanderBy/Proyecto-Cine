@@ -12,85 +12,152 @@ import javax.swing.JOptionPane;
 import controlador.ConexionManager;
 import modelo.POJOs.Promocion;
 
-public class MetodosPromocion {
-
+public class MetodosPromocion  {
+	
+	/**
+	 * Declaramos map en el que se van a cargar las promociones creadas
+	 */
 	public static HashMap<Integer, Promocion> mapPromocionesCreadas = new HashMap<Integer, Promocion>();
 
-	// CONSTRUCTOR: Vacio
-
+	/**
+	 * Constructor vacio
+	 */
 	public MetodosPromocion() {
 
 	}
+	
+	/**
+	 * Carga las promociones existentes en la BBDD en el map
+	 * @throws SQLException
+	 */
+	public void cargarPromociones() throws SQLException {
+		// 1.Declaramos map y variables
+		HashMap<Integer, Promocion> loadPromotions = new HashMap<Integer, Promocion>();
+		int descuPromo;
+		String descrPromo;
+		Promocion p;
 
-	// METODO: Crear promocion. Recibe la descripcion de la promo y el descuento. Inserta en BBDD.
-	public void crearPromocion(int promoDiscount,String promoDescription) throws SQLException {
-		Promocion p = null;
-		ArrayList<Integer> clavesPrimariasPromocion = obtenerClavesPrimariasPromocion();
+		try {
+			// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
+			// metodo crear()
+			ConexionManager conexionManager = new ConexionManager();
+			Connection conexion = conexionManager.crear();
+
+			// 2.1.Creamos statement
+			PreparedStatement consulta = conexion
+					.prepareStatement("SELECT DESCUENTOPROMO,DESCRIPCIONPROMO FROM PROMOCION");
+			// 2.2.Preparamos el ResultSet
+			ResultSet resultado = consulta.executeQuery();
+			// 2.3.Iteramos sobre las tuplas de la base de datos
+			while (resultado.next()) {
+				descuPromo = resultado.getInt("DESCUENTOPROMO");
+				descrPromo = resultado.getString("DESCRIPCIONPROMO");
+				p = new Promocion(descrPromo, descuPromo);
+				loadPromotions.put(descuPromo, p);
+			}
+			// 2.4.Cerramos la conexion
+			conexionManager.cerrar();
+		} catch (Exception e) {
+			System.err.println("Excepcion no controlada");
+			e.printStackTrace();
+		}
+
+		// 3.Actualizamos map
+		mapPromocionesCreadas=loadPromotions;
+	}
+	
+	/**
+	 * 
+	 * @return ArrayList<Integer>: Claves primarias promocion
+	 * @throws SQLException
+	 */
+	public ArrayList<Integer> obtenerClavesPrimariasPromocion() throws SQLException {
+
+		// 1.Declaramos ArrayList
+		ArrayList<Integer> clavesPrimariasPromocion = new ArrayList<Integer>();
+
+		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
+		// metodo crear()
+		ConexionManager conexionManager = new ConexionManager();
+		Connection conexion = conexionManager.crear();
+
+		// 2.1.Creamos el Statement
+		PreparedStatement consulta = conexion.prepareStatement("SELECT DESCUENTOPROMO FROM PROMOCION");
+		// 2.2.Preparamos el ResultSet
+		ResultSet resultado = consulta.executeQuery();
+		// 2.3.Iteramos sobre las tuplas de la base de datos
+		while (resultado.next()) {
+			clavesPrimariasPromocion.add(resultado.getInt("DESCUENTOPROMO"));
+		}
+		// 2.4.Cerramos la conexion
+		conexionManager.cerrar();
+
+		// 2.5.Devolvemos claves primarias promocion
+		return clavesPrimariasPromocion;
+	}
+
+	/**
+	 * Invoca obtenerClavesPrimariasPromocion() 
+	 * Si el promoDiscount introducido no coincide con ninguna PK 
+	 * inserta en la BBDD 
+	 * Invoca cargarPromociones()
+	 * @param promoDiscount
+	 * @param promoDescription
+	 * @throws SQLException
+	 */
+	public void crearPromocion(int promoDiscount, String promoDescription) throws SQLException {
+		//0.Cargamos promociones en el map
+		cargarPromociones();
 		
+		// 1.Obtenemos claves primarias
+		ArrayList<Integer> clavesPrimariasPromocion = obtenerClavesPrimariasPromocion();
+
+		// 2.Comprobamos que promoDiscount no coincida con ninguna clave primaria e
+		// insertamos
 		try {
 			if (promoDescription == null || promoDiscount == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
-				
-			}else if(clavesPrimariasPromocion.contains(promoDiscount)){
+			} else if (clavesPrimariasPromocion.contains(promoDiscount)) {
 				JOptionPane.showMessageDialog(null, "Ya existe una promocion con ese descuento");
-			}
-			else {
-				
-				// Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el metodo crear()
+			} else {
+				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
+				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
 				Connection conexion = conexionManager.crear();
 
-				// Realizamos la insercion
-				
-				//1.Creamos el PreparedStatement: Consulta, con valores desconocidos
-				PreparedStatement preparedStatement = conexion.prepareStatement("INSERT INTO PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");
-				//2.Decimos que en el valor desconocido 1 inserte el valor del String promoDiscount
+				// 2.2 Realizamos la insercion
+				// 2.2.1.Creamos el PreparedStatement: Consulta, con valores desconocidos
+				PreparedStatement preparedStatement = conexion
+						.prepareStatement("INSERT INTO PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");
+				// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
+				// promoDiscount
 				preparedStatement.setInt(1, promoDiscount);
-				//3.Decimos que en el valor desconocido 2 inserte el valor del String promoDescription
+				// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
+				// promoDescription
 				preparedStatement.setString(2, promoDescription);
-				//4.Ejecutamos el preparedStatement
+				// 2.2.4.Ejecutamos el preparedStatement
 				preparedStatement.execute();
-				//5.Cerramos la conexion
+				// 2.2.5.Cerramos la conexion
 				conexionManager.cerrar();
-				//6.Informamos
+				// 2.2.6.Informamos
 				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
-
+				// 2.2.7. Actualizamos map
+				cargarPromociones();
 			}
-
 		} catch (Exception e) {
 			System.err.println("Excepcion no controlada al crear promocion");
 			e.printStackTrace();
 		}
 	}
 	
-	
-	//	METODO: Obtener las claves primarias (descuento) de las promociones insertadas en la BBDD 
-	
-	public ArrayList<Integer> obtenerClavesPrimariasPromocion() throws SQLException {
-		
-		ArrayList<Integer> clavesPrimariasPromocion = new ArrayList<Integer>();
-		
-		// Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el metodo crear()
-		ConexionManager conexionManager = new ConexionManager();
-		Connection conexion = conexionManager.crear();
+	public void modificarPromocion(String oldPromoDescription, String newPromoDescription, int oldPromoDiscount,
+			int newPromoDiscount) {
 
-		//1.Creamos el Statement
-		PreparedStatement consulta = conexion.prepareStatement("SELECT DESCUENTOPROMO FROM PROMOCION");
-		//2.Preparamos el ResultSet
-		ResultSet resultado=consulta.executeQuery();
-		//3.Iteramos sobre las tuplas de la base de datos
-		while(resultado.next()) {
-			clavesPrimariasPromocion.add(resultado.getInt("DESCUENTOPROMO"));
-		}
-		
-		//Cerramos la conexion
-		conexionManager.cerrar();
-		
-		return clavesPrimariasPromocion;
-		
 	}
+
 	
-	//LEER PROMOCIONES
+
+	// LEER PROMOCIONES
 	public Object[][] leerPromociones() {
 		try {
 			Object[][] resultado;
@@ -117,56 +184,26 @@ public class MetodosPromocion {
 			}
 
 			conexionManager.cerrar();
-			
+
 			return resultado;
 
 		} catch (Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
-			//Aqui se debe relanzar una excepcion ohacer algo
+			// Aqui se debe relanzar una excepcion ohacer algo
 			return null;
 		}
 	}
 
-	// Metodo: Modificar promocion logica
 
-	public void modificarPromocionLogica(String oldPromoDescription, String newPromoDescription, int oldPromoDiscount,
-			int newPromoDiscount) {
-		Promocion p = null;
-		try {
-			if (newPromoDescription == null || newPromoDiscount == 0) {
-				JOptionPane.showMessageDialog(null, "Debe introducir un nuevo descuento y una nueva descripcion");
-			} else {
-				if (mapPromocionesCreadas.containsKey(oldPromoDiscount)) {
-					mapPromocionesCreadas.remove(oldPromoDiscount);
-					p = new Promocion(newPromoDescription, newPromoDiscount);
-					mapPromocionesCreadas.put(newPromoDiscount, p);
-					System.out.println("Promocion modificada en la logica del programa");
-				} else {
-					System.out.println("La promocion que intenta modificar ya no existe");
-				}
-			}
-		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
-		}
-	}
+
 	
 
 	// ELIMINAR PROMOCION
 
 	public void EliminarPromocion(Promocion p, int promoDiscount) {
-		try {
-			if (mapPromocionesCreadas.containsKey(promoDiscount)) {
-				mapPromocionesCreadas.remove(promoDiscount);
-				JOptionPane.showMessageDialog(null, "Promocion eliminada");
-			} else {
-				JOptionPane.showMessageDialog(null, "No existe la promocion");
-			}
-		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
-		}
+	
 	}
+	
 
 }

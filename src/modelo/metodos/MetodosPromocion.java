@@ -27,7 +27,11 @@ public class MetodosPromocion {
 		try {
 			if (promoDescription == null || promoDiscount == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
-			} else {
+				
+			}else if(mapPromocionesCreadas.containsKey(promoDiscount)){
+				JOptionPane.showMessageDialog(null, "Ya existe una promocion con ese descuento");
+			}
+			else {
 				p = new Promocion(promoDescription, promoDiscount);
 				mapPromocionesCreadas.put(promoDiscount, p);
 				

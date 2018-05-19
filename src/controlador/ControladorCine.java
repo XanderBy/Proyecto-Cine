@@ -5,8 +5,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -158,14 +160,16 @@ public class ControladorCine implements ActionListener, MouseListener {
 
                 LocalDateTime formatDateTime = LocalDateTime.parse(now, formatter);
 
-                //pantallaAdministrador.jTextField20.getText() Sala MetodosSala.salas.get(pantallaAdministrador.jTextField20.getText())
-                //pantallaAdministrador.jTextField21.getText() Pelicula MetodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField21.getText()))
-                //pantallaAdministrador.jTextField22.getText() Promocion MetodosPromocion.mapPromocionesCreadas.get(Integer.parseInt(pantallaAdministrador.jTextField22.getText()))
-                metodosFuncion.crearFuncion(formatDateTime, null,
-                         null,
-                         null, null
-                );
+                //pantallaAdministrador.jTextField20.getText() Sala 
+                //pantallaAdministrador.jTextField21.getText() Pelicula 
+                //pantallaAdministrador.jTextField22.getText() Promocion 
 
+                metodosFuncion.crearFuncion(formatDateTime, MetodosSala.salas.get(pantallaAdministrador.jTextField20.getText()),
+                		MetodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField21.getText())),
+                         null, MetodosPromocion.mapPromocionesCreadas.get(Integer.parseInt(pantallaAdministrador.jTextField22.getText()))
+                );
+                	 
+               
                 break;
             case CREAR_PROMOCION:
                 try {

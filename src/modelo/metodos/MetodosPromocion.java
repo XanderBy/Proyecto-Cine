@@ -40,12 +40,11 @@ public class MetodosPromocion {
 		String descrPromo;
 		Promocion p;
 		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
-					// metodo crear()
+		// metodo crear()
 		ConexionManager conexionManager = new ConexionManager();
 		Connection conexion = conexionManager.crear();
 
 		try {
-			
 
 			// 2.1.Creamos statement
 			PreparedStatement consulta = conexion
@@ -59,7 +58,7 @@ public class MetodosPromocion {
 				p = new Promocion(descrPromo, descuPromo);
 				loadPromotions.put(descuPromo, p);
 			}
-			
+
 		} catch (Exception e) {
 			System.err.println("Excepcion no controlada");
 			e.printStackTrace();
@@ -163,16 +162,17 @@ public class MetodosPromocion {
 	 * @param promoDiscount
 	 * @throws SQLException
 	 */
-	public void modificarPromocion(String promoDescription, int promoDiscount)
+	public void modificarPromocion(int oldPromoDiscount, String promoDescription, int promoDiscount)
 			throws SQLException {
 		// 0.Cargamos promociones en el map y generamos la tabla
 		cargarPromociones();
 		generarTablaPromociones();
 
 		// 1.Comprobamos que no haya valores nulos
-		if (promoDescription == null || promoDiscount == 0) {
+		if (oldPromoDiscount == 0 || promoDescription == null || promoDiscount == 0) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
 		} else {
+			if (mapPromocionesCreadas.containsKey(oldPromoDiscount)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -181,7 +181,9 @@ public class MetodosPromocion {
 				// 2.2 Realizamos la actualizacion
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
-					PreparedStatement preparedStatement = conexion.prepareStatement("UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");// TODO: COMPROBAR
+					PreparedStatement preparedStatement = conexion.prepareStatement(
+							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?) WHERE DESCUENTOPROMO="
+									+ oldPromoDiscount);// TODO: COMPROBAR
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// promoDiscount
 					preparedStatement.setInt(1, promoDiscount);
@@ -192,15 +194,19 @@ public class MetodosPromocion {
 					preparedStatement.execute();// TODO: COMPROBAR
 					// 2.2.5.Informamos
 					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
+					// 2.2.6. Actualizamos map
+					cargarPromociones();
+					// 2.2.7.Cerramos la conexion
+					conexionManager.cerrar();
 				} catch (Exception e) {
 					System.err.println("Excepcion no controlada");
 					e.printStackTrace();
 				}
-				
-				// 2.2.6. Actualizamos map
-				cargarPromociones();
-				// 2.2.7.Cerramos la conexion
-				conexionManager.cerrar();
+			} else {
+				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
+			}
+
+			
 		}
 
 	}
@@ -267,7 +273,7 @@ public class MetodosPromocion {
 			// 3.Creamos el prepared statement que nos devolvera el numero de tuplas
 			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
 			ResultSet rs1 = count.executeQuery();
-			rs1.next();//(*) Aqui saltaba la excepcion
+			rs1.next();// (*) Aqui saltaba la excepcion
 			int numeroFilas = rs1.getInt("NUM_PROMOCIONES");
 			rs1.close();
 			// 4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el

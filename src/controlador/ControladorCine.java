@@ -36,6 +36,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
 	// Declaracion de variables
 	private String nombreCineA;
+	private String oldPromoDiscount;
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
 	public enum accionesAdministrador {
@@ -204,8 +205,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 			try {
 				String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionModificar.getText();
 				int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionModificar.getText());
+				int antiguoDescuentoPromo=Integer.parseInt(oldPromoDiscount);
 				if (descripcionPromo != null && descuentoPromo != 0) {
-					metodosPromocion.modificarPromocion(descripcionPromo, descuentoPromo);
+					metodosPromocion.modificarPromocion(antiguoDescuentoPromo,descripcionPromo, descuentoPromo);
 				} else {
 					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
 				}
@@ -259,6 +261,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		{
 			int fila = this.pantallaAdministrador.tablaModificarPromocion.rowAtPoint(e.getPoint());
 			if (fila > -1) {
+				oldPromoDiscount=String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1));
 				this.pantallaAdministrador.textoDescuentoPromocionModificar.setText(
 						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1)));//TODO:DEBERIA SER AL REVES
 				this.pantallaAdministrador.textoDescripcionPromocionModificar.setText(

@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
 import controlador.ConexionManager;
 import modelo.POJOs.Promocion;
 
-public class MetodosPromocion  {
-	
+public class MetodosPromocion {
+
 	/**
 	 * Declaramos map en el que se van a cargar las promociones creadas
 	 */
@@ -25,9 +25,10 @@ public class MetodosPromocion  {
 	public MetodosPromocion() {
 
 	}
-	
+
 	/**
 	 * Carga las promociones existentes en la BBDD en el map
+	 * 
 	 * @throws SQLException
 	 */
 	public void cargarPromociones() throws SQLException {
@@ -63,9 +64,9 @@ public class MetodosPromocion  {
 		}
 
 		// 3.Actualizamos map
-		mapPromocionesCreadas=loadPromotions;
+		mapPromocionesCreadas = loadPromotions;
 	}
-	
+
 	/**
 	 * 
 	 * @return ArrayList<Integer>: Claves primarias promocion
@@ -97,18 +98,17 @@ public class MetodosPromocion  {
 	}
 
 	/**
-	 * Invoca obtenerClavesPrimariasPromocion() 
-	 * Si el promoDiscount introducido no coincide con ninguna PK 
-	 * inserta en la BBDD 
-	 * Invoca cargarPromociones()
+	 * Invoca obtenerClavesPrimariasPromocion() Si el promoDiscount introducido no
+	 * coincide con ninguna PK inserta en la BBDD Invoca cargarPromociones()
+	 * 
 	 * @param promoDiscount
 	 * @param promoDescription
 	 * @throws SQLException
 	 */
 	public void crearPromocion(int promoDiscount, String promoDescription) throws SQLException {
-		//0.Cargamos promociones en el map
+		// 0.Cargamos promociones en el map
 		cargarPromociones();
-		
+
 		// 1.Obtenemos claves primarias
 		ArrayList<Integer> clavesPrimariasPromocion = obtenerClavesPrimariasPromocion();
 
@@ -149,16 +149,26 @@ public class MetodosPromocion  {
 			e.printStackTrace();
 		}
 	}
-	
-	public void modificarPromocion(int oldPromoDiscount,String promoDescription, int promoDiscount) throws SQLException {
-		//0.Cargamos promociones en el map
+
+	/**
+	 * Invoca cargarPromociones() Comprueba que no haya valores nulos. Ejecuta el
+	 * update
+	 * 
+	 * @param oldPromoDiscount
+	 * @param promoDescription
+	 * @param promoDiscount
+	 * @throws SQLException
+	 */
+	public void modificarPromocion(int oldPromoDiscount, String promoDescription, int promoDiscount)
+			throws SQLException {
+		// 0.Cargamos promociones en el map
 		cargarPromociones();
-		
-		//1.Comprobamos que no haya valores nulos
-		if(oldPromoDiscount==0 || promoDescription==null || promoDiscount==0) {
+
+		// 1.Comprobamos que no haya valores nulos
+		if (oldPromoDiscount == 0 || promoDescription == null || promoDiscount == 0) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
-		}else {
-			if(mapPromocionesCreadas.containsKey(oldPromoDiscount)) {
+		} else {
+			if (mapPromocionesCreadas.containsKey(oldPromoDiscount)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -166,76 +176,106 @@ public class MetodosPromocion  {
 
 				// 2.2 Realizamos la actualizacion
 				// 2.2.1.Creamos el PreparedStatement: Update
-				PreparedStatement preparedStatement = conexion
-						.prepareStatement("UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?) WHERE DESCUENTOPROMO=?");
-				// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
-				// promoDiscount
-				preparedStatement.setInt(1, promoDiscount);
-				// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
-				// promoDescription
-				preparedStatement.setString(2, promoDescription);
-				// 2.2.4.Ejecutamos el preparedStatement
-				preparedStatement.execute();
-				// 2.2.5.Cerramos la conexion
-				conexionManager.cerrar();
+				try {
+					PreparedStatement preparedStatement = conexion.prepareStatement(
+							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?) WHERE DESCUENTOPROMO="
+									+ oldPromoDiscount);//TODO: COMPROBAR
+					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
+					// promoDiscount
+					preparedStatement.setInt(1, promoDiscount);
+					// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
+					// promoDescription
+					preparedStatement.setString(2, promoDescription);
+					// 2.2.4.Ejecutamos el preparedStatement
+					preparedStatement.execute();//TODO: COMPROBAR
+					// 2.2.5.Cerramos la conexion
+					conexionManager.cerrar();
+				} catch (Exception e) {
+					System.err.println("Excepcion no controlada");
+					e.printStackTrace();
+				}
 				// 2.2.6.Informamos
-				JOptionPane.showMessageDialog(null, "Promocion creada correctamente");
+				JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 				// 2.2.7. Actualizamos map
 				cargarPromociones();
+			} else {
+				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
 			}
 		}
-		
+
 	}
-
 	
+	/**
+	 * Elimina la promocion cuyo descuento se introduce por parametro
+	 * @param promoDiscount
+	 * @throws SQLException
+	 */
+	public void EliminarPromocion(int promoDiscount) throws SQLException {
+		// 0.Cargamos promociones en el map
+		cargarPromociones();
 
-	// LEER PROMOCIONES
-	public Object[][] leerPromociones() {
-		try {
-			Object[][] resultado;
+		// 1.Comprobamos que no haya valores nulos
+		if (promoDiscount == 0) {
+			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
+		} else {
+			if (mapPromocionesCreadas.containsKey(promoDiscount)) {
+				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
+				// el metodo crear()
+				ConexionManager conexionManager = new ConexionManager();
+				Connection conexion = conexionManager.crear();
 
-			ConexionManager conexionManager = new ConexionManager();
-			Connection conexion = conexionManager.crear();
-
-			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
-			ResultSet rs1 = count.executeQuery();
-			int numeroFilas = rs1.getInt(1);
-
-			resultado = new Object[numeroFilas][2];
-
-			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
-			ResultSet rs2 = consulta.executeQuery();
-
-			int i = 0;
-			while (rs2.next()) {
-				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
-				int descuentoPromo = rs2.getInt("DESCUENTOPROMO");
-				resultado[i][0] = descripcionPromo;
-				resultado[i][1] = descuentoPromo;
-				i++;
+				// 2.2 Realizamos la eliminacion
+				// 2.2.1.Creamos el PreparedStatement: Update
+				try {
+					PreparedStatement preparedStatement = conexion
+							.prepareStatement("DELETE FROM PROMOCION WHERE DESCUENTOPROMO=" + promoDiscount);//TODO: COMPROBAR
+					// 2.2.2.Ejecutamos el preparedStatement
+					preparedStatement.execute();
+					// 2.2.3.Cerramos la conexion
+					conexionManager.cerrar();
+				} catch (Exception e) {
+					System.err.println("Excepcion no controlada");
+					e.printStackTrace();
+				}
+				// 2.2.4.Informamos
+				JOptionPane.showMessageDialog(null, "Promocion eliminada correctamente");
+				// 2.2.5. Actualizamos map
+				cargarPromociones();
+			}else {
+				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
 			}
-
-			conexionManager.cerrar();
-
-			return resultado;
-
-		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
-			// Aqui se debe relanzar una excepcion ohacer algo
-			return null;
 		}
 	}
 
-
-
-	
-
-	// ELIMINAR PROMOCION
-
-	public void EliminarPromocion(Promocion p, int promoDiscount) {
-	
-	}
-	
+	/*
+	 * LEER PROMOCIONES public Object[][] leerPromociones() { try { Object[][]
+	 * resultado;
+	 * 
+	 * ConexionManager conexionManager = new ConexionManager(); Connection conexion
+	 * = conexionManager.crear();
+	 * 
+	 * PreparedStatement count =
+	 * conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION"
+	 * ); ResultSet rs1 = count.executeQuery(); int numeroFilas = rs1.getInt(1);
+	 * 
+	 * resultado = new Object[numeroFilas][2];
+	 * 
+	 * PreparedStatement consulta =
+	 * conexion.prepareStatement("SELECT * FROM PROMOCION"); ResultSet rs2 =
+	 * consulta.executeQuery();
+	 * 
+	 * int i = 0; while (rs2.next()) { String descripcionPromo =
+	 * rs2.getString("DESCRIPCIONPROMO"); int descuentoPromo =
+	 * rs2.getInt("DESCUENTOPROMO"); resultado[i][0] = descripcionPromo;
+	 * resultado[i][1] = descuentoPromo; i++; }
+	 * 
+	 * conexionManager.cerrar();
+	 * 
+	 * return resultado;
+	 * 
+	 * } catch (Exception e) { System.out.println("Excepcion no controlada");
+	 * e.printStackTrace(); // Aqui se debe relanzar una excepcion ohacer algo
+	 * return null; } }
+	 */
 
 }

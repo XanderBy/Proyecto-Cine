@@ -284,8 +284,9 @@ public class MetodosPromocion {
 				resultado[i][1] = descuentoPromo;
 				i++;
 			}
-
+			//7.Cerramos la conexion
 			conexionManager.cerrar();
+			//8.Creamos la tabla
 			tablaPromocion.setDataVector(resultado, columnNames);
 			return tablaPromocion;
 

@@ -212,9 +212,13 @@ public class MetodosPelicula {
 		}
 	}*/
 	
-	public boolean eliminarPelicula(String nombre) {
+	public boolean eliminarPelicula(String nombre) throws SQLException {
 		
+		cargarPeliculas();
 		boolean resultado=false;
+		
+		ConexionManager conManager = new ConexionManager();
+		Connection conexion = conManager.crear();
 		
 		try {
 			
@@ -224,19 +228,23 @@ public class MetodosPelicula {
 				int key = (int) it.next();
 				
 				if (peliculas.get(key).getTituloDistribucion().equalsIgnoreCase(nombre)) {
-					peliculas.remove(key);
+					PreparedStatement consulta = conexion.prepareStatement("DELETE FROM pelicula WHERE idPelicula = " + key);
+					consulta.execute();
+					conManager.cerrar();
+					JOptionPane.showMessageDialog(null, "Pelicula eliminada correctamente");
+					cargarPeliculas();
 					resultado=true;
-				}else{
-					JOptionPane.showMessageDialog(null, "Pelicula no encontrada", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 				}
+			}
+			
+			if (resultado != true) {
+				JOptionPane.showMessageDialog(null, "Pelicula no encontrada", "Informacion", JOptionPane.INFORMATION_MESSAGE);	
 			}
 		}catch (Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return resultado;
 		}
-
 		return resultado;
 	}
-
 }

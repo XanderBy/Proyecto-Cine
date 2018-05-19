@@ -33,16 +33,16 @@ public class MetodosFuncion extends ConexionManager {
      */
     // ---------------------------------------------------------
     public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-            Cine cine_nombreCine) {
-        if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || cine_nombreCine == null) {
+            Cine cine_nombreCine, Promocion promocionFuncion) {
+        if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || cine_nombreCine == null || promocionFuncion == null) {
             JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
         } else {
-            // Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
-            // promocionFuncion);
-            // Funciones.put(diaYHora, funcion);
-            crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine);
-            //eliminarFuncionesArray();
-            //cogerTodasLasFuncionesBBDD();
+            //Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
+            //Funciones.put(diaYHora, funcion);
+
+            crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
+            eliminarFuncionesArray();
+            cogerTodasLasFuncionesBBDD();
 
             JOptionPane.showMessageDialog(null, "Funcion Aniadida");
         }
@@ -54,10 +54,10 @@ public class MetodosFuncion extends ConexionManager {
 
         eliminarFuncionBBDD(diaYHora);
         //eliminarFuncionesArray();// TODO:Aqui a lo mejor de error
-        cogerTodasLasFuncionesBBDD();
+        //cogerTodasLasFuncionesBBDD();
         JOptionPane.showMessageDialog(null, "Funcion Eliminada");
     }
-
+//TODO: TENGO QUE COMPROBAR ESTO ME QUEDA HACER METODO MODIFICAR FUNCIONPROMOCION
     // ---------------------------------------------------------
     public void modificarFuncion(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
             Pelicula peliculaFuncion, Promocion promocionFuncion, Cine cine_nombreCine) {
@@ -91,9 +91,9 @@ public class MetodosFuncion extends ConexionManager {
         }
     }
 
-    // ---------------------------------------------------------
+    // ---------------------------------------------------------(tiene la tabla funcionpromocion tambien)
     public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-            Cine cine_nombreCine) {
+            Cine cine_nombreCine, Promocion promocionFuncion) {
 
         // se arma la consulta
         String q = " INSERT INTO funcion (diaYHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ("
@@ -101,6 +101,18 @@ public class MetodosFuncion extends ConexionManager {
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        // se arma la consulta
+        String qq = " INSERT INTO funcionPromocion (funcion_diayHora, promocion_descuentoPromo)" + "VALUES ("
+                + diaYHora + "," + promocionFuncion.getDescuentoPromo() + ")";
+        // se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(qq);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
@@ -127,10 +139,17 @@ public class MetodosFuncion extends ConexionManager {
 
     // ---------------------------------------------------------
     public void eliminarFuncionesArray() {
-        Iterator it = Compagnia.listaCines.keySet().iterator();
+        Iterator it = Funciones.keySet().iterator();
         while (it.hasNext()) {
             String clave = (String) it.next();
             Funciones.remove(clave);
+        }
+    }
+    public void eliminarFuncionesSemanasArray(String nombreCine) {
+        Iterator it = Compagnia.listaCines.get(nombreCine).funcionesSemana.keySet().iterator();
+        while (it.hasNext()) {
+            String clave = (String) it.next();
+            Compagnia.listaCines.get(nombreCine).funcionesSemana.remove(clave);
         }
     }
     // ---------------------------------------------------------
@@ -199,23 +218,26 @@ public class MetodosFuncion extends ConexionManager {
         PreparedStatement pstm = null;
         try {
             pstm = this.getConexion()
-                    .prepareStatement("SELECT diaYHora, salaFuncion, peliculaFuncion, promocionFuncion FROM funcion");
+                    .prepareStatement("SELECT diaYHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
             ResultSet res = pstm.executeQuery();
             int i = 0;
+            eliminarFuncionesSemanasArray(res.getString("cine_nombreCine"));
             while (res.next()) {
                 LocalDateTime tiempo = LocalDateTime.parse(res.getString("diaYHora"));
-                Sala sala = encuentraKeyStringHashMapSala(res.getString("salaFuncion"));
+                Sala sala = encuentraKeyStringHashMapSala(res.getString("sala_idSalaCine"));
                 Pelicula peliculaPromocion1 = encuentraKeyStringHashMapPelicula(Integer.parseInt(res.getString("peliculaFuncion")));
-                Promocion promocionFuncion1 = encuentraKeyStringHashMapPromocion(Integer.parseInt(res.getString("promocionFuncion")));
+                Promocion promocionFuncion1 = encuentraKeyStringHashMapPromocion(Integer.parseInt(res.getString("promocion_descuentoPromo")));
                 //localizar la sala pelicula etc.. buscando con un iterator en los hashmap
                 Funcion funcion = new Funcion(tiempo, sala, peliculaPromocion1, promocionFuncion1);
                 Funciones.put(tiempo, funcion);
+                Compagnia.listaCines.get(res.getString("cine_nombreCine")).funcionesSemana.put(tiempo, funcion);
                 i++;
             }
             res.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+
     }
 
     // ---------------------------------------------------------

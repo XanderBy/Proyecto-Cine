@@ -39,12 +39,13 @@ public class MetodosPromocion {
 		int descuPromo;
 		String descrPromo;
 		Promocion p;
+		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
+					// metodo crear()
+		ConexionManager conexionManager = new ConexionManager();
+		Connection conexion = conexionManager.crear();
 
 		try {
-			// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
-			// metodo crear()
-			ConexionManager conexionManager = new ConexionManager();
-			Connection conexion = conexionManager.crear();
+			
 
 			// 2.1.Creamos statement
 			PreparedStatement consulta = conexion
@@ -58,8 +59,7 @@ public class MetodosPromocion {
 				p = new Promocion(descrPromo, descuPromo);
 				loadPromotions.put(descuPromo, p);
 			}
-			// 2.4.Cerramos la conexion
-			conexionManager.cerrar();
+			
 		} catch (Exception e) {
 			System.err.println("Excepcion no controlada");
 			e.printStackTrace();
@@ -67,6 +67,8 @@ public class MetodosPromocion {
 
 		// 3.Actualizamos map
 		mapPromocionesCreadas = loadPromotions;
+		// 4.Cerramos la conexion
+		conexionManager.cerrar();
 	}
 
 	/**
@@ -179,8 +181,7 @@ public class MetodosPromocion {
 				// 2.2 Realizamos la actualizacion
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
-					PreparedStatement preparedStatement = conexion.prepareStatement(
-							"UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");// TODO: COMPROBAR
+					PreparedStatement preparedStatement = conexion.prepareStatement("UPDATE PROMOCION (DESCUENTOPROMO, DESCRIPCIONPROMO) VALUES (?, ?)");// TODO: COMPROBAR
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// promoDiscount
 					preparedStatement.setInt(1, promoDiscount);
@@ -189,16 +190,17 @@ public class MetodosPromocion {
 					preparedStatement.setString(2, promoDescription);
 					// 2.2.4.Ejecutamos el preparedStatement
 					preparedStatement.execute();// TODO: COMPROBAR
-					// 2.2.5.Cerramos la conexion
-					conexionManager.cerrar();
+					// 2.2.5.Informamos
+					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 				} catch (Exception e) {
 					System.err.println("Excepcion no controlada");
 					e.printStackTrace();
 				}
-				// 2.2.6.Informamos
-				JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
-				// 2.2.7. Actualizamos map
+				
+				// 2.2.6. Actualizamos map
 				cargarPromociones();
+				// 2.2.7.Cerramos la conexion
+				conexionManager.cerrar();
 		}
 
 	}

@@ -159,11 +159,11 @@ public class MetodosFuncion extends ConexionManager {
         Sala resultado = null;
 
         try {
-            Iterator it = MetodosSala.Salas.keySet().iterator();
+            Iterator it = MetodosSala.salas.keySet().iterator();
             while (it.hasNext()) {
                 String clave = (String) it.next();
                 if (clave.equals(key)) {
-                    resultado = MetodosSala.Salas.get(key);
+                    resultado = MetodosSala.salas.get(key);
                 }
             }
         } catch (Exception e) {

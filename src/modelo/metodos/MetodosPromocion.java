@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import controlador.ConexionManager;
 import modelo.POJOs.Promocion;
@@ -162,8 +163,9 @@ public class MetodosPromocion {
 	 */
 	public void modificarPromocion(int oldPromoDiscount, String promoDescription, int promoDiscount)
 			throws SQLException {
-		// 0.Cargamos promociones en el map
+		// 0.Cargamos promociones en el map y generamos la tabla
 		cargarPromociones();
+		generarTablaPromociones();
 
 		// 1.Comprobamos que no haya valores nulos
 		if (oldPromoDiscount == 0 || promoDescription == null || promoDiscount == 0) {
@@ -250,23 +252,30 @@ public class MetodosPromocion {
 		}
 	}
 
-	//TODO: Metodo sin utilizar
-	public Object[][] leerPromociones() {
+	/**
+	 * Prepara una tabla para refrescar la contenida en modificar promocion
+	 * @return tabla
+	 */
+	public DefaultTableModel generarTablaPromociones() {
 		try {
+			//1.Declaramos defaultTableModel,matriz tipo Object y string
+			DefaultTableModel tablaPromocion = new DefaultTableModel();
 			Object[][] resultado;
-
+			String[] columnNames = {"Descuento promocion", "Descripcion promocion"};
+			//2.Abrimos la conexion
 			ConexionManager conexionManager = new ConexionManager();
 			Connection conexion = conexionManager.crear();
-
+			//3.Creamos el prepared statement que nos devolvera el numero de tuplas
 			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_PROMOCIONES FROM PROMOCION");
 			ResultSet rs1 = count.executeQuery();
 			int numeroFilas = rs1.getInt(1);
-
+			//4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el numero de columnas.
 			resultado = new Object[numeroFilas][2];
-
+			
+			//5.Creamos el prepared statement que obtendra toda la info de la tabla
 			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM PROMOCION");
 			ResultSet rs2 = consulta.executeQuery();
-
+			//6.Obtenemos valores por tuplas
 			int i = 0;
 			while (rs2.next()) {
 				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
@@ -277,8 +286,8 @@ public class MetodosPromocion {
 			}
 
 			conexionManager.cerrar();
-
-			return resultado;
+			tablaPromocion.setDataVector(resultado, columnNames);
+			return tablaPromocion;
 
 		} catch (Exception e) {
 			System.out.println("Excepcion no controlada");

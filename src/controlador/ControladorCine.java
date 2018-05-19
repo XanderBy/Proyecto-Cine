@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -12,8 +14,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.POJOs.Compagnia;
 import modelo.metodos.MetodosCine;
+import modelo.metodos.MetodosFuncion;
+import modelo.metodos.MetodosPelicula;
 import modelo.metodos.MetodosPromocion;
+import modelo.metodos.MetodosSala;
 import vista.PantallaAdministrador;
 
 public class ControladorCine implements ActionListener, MouseListener {
@@ -21,14 +27,17 @@ public class ControladorCine implements ActionListener, MouseListener {
     // Instanciamos vista PantallaAdministrador
     public PantallaAdministrador pantallaAdministrador = new PantallaAdministrador();
     // Instanciamos modelos
+    public MetodosFuncion metodosFuncion=new MetodosFuncion();
     public MetodosCine metodosCine = new MetodosCine();
     public MetodosPromocion metodosPromocion = new MetodosPromocion();
+    public MetodosSala metodosSala=new MetodosSala();
+    public MetodosPelicula metodosPelicula=new MetodosPelicula();
     private String nombreCineA;
     // Declaramos en un enum las acciones relacionadas con el Administrador
 
     public enum accionesAdministrador {
         ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA,
-        //ELIMINAR_FUNCION, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION,//Este ultimo dudo
+        ELIMINAR_FUNCION, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION,//Este ultimo dudo
         CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION,
         ANIADIR_SALA, MODIFICAR_SALA
     }
@@ -60,7 +69,7 @@ public class ControladorCine implements ActionListener, MouseListener {
         this.pantallaAdministrador.jTable9.addMouseListener(this);
         this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
 
-        //Promocion
+        
         //Recargar tabla cine
         this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
         this.pantallaAdministrador.jButton7.addActionListener(this);
@@ -80,7 +89,11 @@ public class ControladorCine implements ActionListener, MouseListener {
         // Modificar Cine
         this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
         this.pantallaAdministrador.jButton6.addActionListener(this);
-
+        
+        //Aniadir Funcion
+        this.pantallaAdministrador.jButton30.setActionCommand("ANIADIR_FUNCION");
+        this.pantallaAdministrador.jButton30.addActionListener(this);
+        
         // Crear promocion
         pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
         pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
@@ -137,8 +150,21 @@ public class ControladorCine implements ActionListener, MouseListener {
                 metodosCine.actualizarCineBBDD(pantallaAdministrador.jLabel91.getText(), pantallaAdministrador.jTextField11.getText(), pantallaAdministrador.jTextField12.getText(), Integer.parseInt(pantallaAdministrador.jTextField5.getText()), Double.parseDouble(pantallaAdministrador.jTextField8.getText()));
                 
                 break;
-            case ELEGIR_CINE:
-                break;
+            case ANIADIR_FUNCION:
+            	//"2016-11-09 10:30" tengo que poner este formato
+            	 String now = pantallaAdministrador.jTextField19.getText();
+
+                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+                 LocalDateTime formatDateTime = LocalDateTime.parse(now, formatter);
+
+                // Compagnia.listaCines.
+            	//pantallaAdministrador.jTextField20.getText() Sala
+                 //pantallaAdministrador.jTextField21.getText() Pelicula
+            	//pantallaAdministrador.jTextField22.getText() Promocion
+            	//metodosFuncion.crearFuncion(formatDateTime.format(formatter)), salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
+            	
+            	break;
             case CREAR_PROMOCION:
                 try {
                     String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionAniadir.getText();

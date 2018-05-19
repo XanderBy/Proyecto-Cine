@@ -120,6 +120,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jScrollPane24 = new javax.swing.JScrollPane();
         jTable10 = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
+        jLabel94 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
         jInternalFrame19 = new javax.swing.JInternalFrame();
         jLabel34 = new javax.swing.JLabel();
         jButton20 = new javax.swing.JButton();
@@ -767,7 +770,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame15Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(botonAniadirPromocion)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(714, Short.MAX_VALUE))
         );
         jInternalFrame15Layout.setVerticalGroup(
             jInternalFrame15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,12 +861,12 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jInternalFrame16Layout.createSequentialGroup()
                         .addComponent(jLabel85)
-                        .addContainerGap(659, Short.MAX_VALUE))))
+                        .addContainerGap(1149, Short.MAX_VALUE))))
             .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jInternalFrame16Layout.createSequentialGroup()
                     .addGap(21, 21, 21)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(866, Short.MAX_VALUE)))
+                    .addContainerGap(1356, Short.MAX_VALUE)))
         );
         jInternalFrame16Layout.setVerticalGroup(
             jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -934,7 +937,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame17Layout.createSequentialGroup()
                         .addGap(464, 464, 464)
                         .addComponent(botonEliminarPromocion)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(711, Short.MAX_VALUE))
         );
         jInternalFrame17Layout.setVerticalGroup(
             jInternalFrame17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -996,6 +999,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jButton8.setText("Añadir A Cine");
 
+        jLabel94.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel94.setText("Formato de dia y hora");
+
+        jLabel95.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        jLabel96.setText("2016-11-09 10:30");
+
         javax.swing.GroupLayout jInternalFrame18Layout = new javax.swing.GroupLayout(jInternalFrame18.getContentPane());
         jInternalFrame18.getContentPane().setLayout(jInternalFrame18Layout);
         jInternalFrame18Layout.setHorizontalGroup(
@@ -1007,31 +1017,37 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addComponent(jButton8)
                 .addGap(111, 111, 111))
             .addGroup(jInternalFrame18Layout.createSequentialGroup()
-                .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(320, 320, 320)
+                .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addGap(30, 30, 30)
+                        .addComponent(jTextField22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addGap(44, 44, 44)
+                        .addComponent(jTextField21))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addGap(59, 59, 59)
+                        .addComponent(jTextField20))
                     .addGroup(jInternalFrame18Layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
-                                .addComponent(jLabel33)
-                                .addGap(30, 30, 30)
-                                .addComponent(jTextField22))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(44, 44, 44)
-                                .addComponent(jTextField21))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
-                                .addComponent(jLabel31)
-                                .addGap(59, 59, 59)
-                                .addComponent(jTextField20))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame18Layout.createSequentialGroup()
+                        .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame18Layout.createSequentialGroup()
                                 .addComponent(jLabel30)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 287, Short.MAX_VALUE)
-                                .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(193, 193, 193))
-                    .addGroup(jInternalFrame18Layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jInternalFrame18Layout.createSequentialGroup()
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(127, 127, 127)
+                                .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87)))
+                        .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame18Layout.createSequentialGroup()
+                                .addComponent(jLabel96)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel95, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(205, 205, 205)
                 .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1042,7 +1058,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jInternalFrame18Layout.createSequentialGroup()
-                        .addComponent(jLabel29)
+                        .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel94)
+                            .addComponent(jLabel95)
+                            .addComponent(jLabel96))
                         .addGap(18, 18, 18)
                         .addGroup(jInternalFrame18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
@@ -1136,7 +1156,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                 .addComponent(jTextField24))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame19Layout.createSequentialGroup()
                                 .addComponent(jLabel36)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 740, Short.MAX_VALUE)
                                 .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1214,7 +1234,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame20Layout.createSequentialGroup()
                         .addGap(423, 423, 423)
                         .addComponent(jButton22)))
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(1061, Short.MAX_VALUE))
         );
         jInternalFrame20Layout.setVerticalGroup(
             jInternalFrame20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1281,7 +1301,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(689, Short.MAX_VALUE))
+                .addContainerGap(1190, Short.MAX_VALUE))
             .addGroup(jInternalFrame7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jInternalFrame7Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1404,7 +1424,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                         .addComponent(jLabel43)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 426, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 907, Short.MAX_VALUE)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1700,7 +1720,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel69))
-                                .addGap(0, 20, Short.MAX_VALUE))))
+                                .addGap(0, 250, Short.MAX_VALUE))))
                     .addGroup(jInternalFrame8Layout.createSequentialGroup()
                         .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1742,7 +1762,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame8Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addComponent(jButton29, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(480, Short.MAX_VALUE))
         );
         jInternalFrame8Layout.setVerticalGroup(
             jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1959,7 +1979,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 764, Short.MAX_VALUE)
                 .addComponent(jButton19)
                 .addGap(230, 230, 230))
         );
@@ -2035,7 +2055,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame11Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 305, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 806, Short.MAX_VALUE)
                 .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jInternalFrame11Layout.createSequentialGroup()
@@ -2340,6 +2360,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel91;
     public javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
     private javax.swing.JList<String> jList12;
     public javax.swing.JList<String> jList13;
     private javax.swing.JList<String> jList9;

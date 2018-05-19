@@ -1,18 +1,15 @@
 package modelo.metodos;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import controlador.ConexionManager;
-import modelo.POJOs.Artista;
 import modelo.POJOs.CalificacionEdades;
 import modelo.POJOs.GeneroPelicula;
 import modelo.POJOs.IdiomaOriginal;

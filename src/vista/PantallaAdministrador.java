@@ -1390,7 +1390,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel50.setText("Duración de la película:");
 
-        jLabel52.setText("Fecha de estreno:");
+        jLabel52.setText("Fecha de estreno: (dd/MM/yyy)");
 
         jLabel53.setText("Resumen:");
 
@@ -1524,7 +1524,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                 .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jCheckBox1))
-                        .addGap(0, 732, Short.MAX_VALUE))))
+                        .addGap(0, 693, Short.MAX_VALUE))))
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)

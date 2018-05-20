@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -82,12 +83,11 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox1.isSelected();
 				String paisOrigen = pantallaAdministrador.jComboBox11.getName();
 				String sitioWeb = pantallaAdministrador.jTextField32.getText();
-				Duration duracionPelicula = pantallaAdministrador.jTextField33.getText();
-				String calificacionEdades;
-				LocalDate fechaEstrenoEs;
-				String resumen;
-				int idPelicula;
-				
+				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField33.getText()));
+				String calificacionEdades = pantallaAdministrador.jComboBox3.getName();
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField49.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				String resumen = pantallaAdministrador.jTextField35.getText();
+				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField34.getText());
 				
 			} catch (NumberFormatException e1) {
                 JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");

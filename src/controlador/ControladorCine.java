@@ -36,10 +36,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
 	// Declaracion de variables
 	private String nombreCineA;
-	private String oldPromoDiscount;
+	private String oldPromoDiscount;//Fijate Antonio
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
-	public enum accionesAdministrador {
+	public enum accionesAdministrador {//Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
 																																						// ultimo
 																																						// dudo
@@ -111,7 +111,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonAniadirPromocion.addMouseListener(this);
 
 		// Modificar promocion
-		pantallaAdministrador.tablaModificarPromocion.addMouseListener(this);
+		pantallaAdministrador.tablaModificarPromocion.addMouseListener(this);//Fijate Antonio
 		pantallaAdministrador.tablaModificarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 		pantallaAdministrador.botonModificarPromocion.setActionCommand("MODIFICAR_PROMOCION");
 		pantallaAdministrador.botonModificarPromocion.addActionListener(this);
@@ -214,7 +214,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e1.printStackTrace();
 			}
 			break;
-		case MODIFICAR_PROMOCION:
+		case MODIFICAR_PROMOCION://Fijate Antonio
 			try {
 				String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionModificar.getText();
 				int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionModificar.getText());
@@ -286,7 +286,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		}
 	}
 
-	private void presionarTablaModificarPromocion(java.awt.event.MouseEvent e) {
+	private void presionarTablaModificarPromocion(java.awt.event.MouseEvent e) {//Fijate Antonio
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.tablaModificarPromocion.rowAtPoint(e.getPoint());
 			if (fila > -1) {
@@ -318,7 +318,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		presionarJTable9(e);
 		presionarJTable7(e);
-		presionarTablaModificarPromocion(e);
+		presionarTablaModificarPromocion(e);//Fijate Antonio
 		presionarTablaEliminarPromocion(e);
 	}
 

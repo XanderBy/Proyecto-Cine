@@ -111,13 +111,13 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField28.getText());
 				String tituloDistribucion = pantallaAdministrador.jTextField29.getText();
 				String tituloOriginal = pantallaAdministrador.jTextField30.getText();
-				String genero = pantallaAdministrador.jComboBox1.getName();
-				String idioma = pantallaAdministrador.jComboBox2.getName();
+				String genero = pantallaAdministrador.jComboBox1.getSelectedItem().toString();
+				String idioma = pantallaAdministrador.jComboBox2.getSelectedItem().toString();
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox1.isSelected();
-				String paisOrigen = pantallaAdministrador.jComboBox11.getName();
+				String paisOrigen = pantallaAdministrador.jComboBox11.getSelectedItem().toString();
 				String sitioWeb = pantallaAdministrador.jTextField32.getText();
 				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField33.getText()));
-				String calificacionEdades = pantallaAdministrador.jComboBox3.getName();
+				String calificacionEdades = pantallaAdministrador.jComboBox3.getSelectedItem().toString();
 				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField49.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				String resumen = pantallaAdministrador.jTextField35.getText();
 				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField34.getText());
@@ -216,7 +216,7 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 	}
 
 	public void mouseClicked(MouseEvent e) {
-		
+		clickTablaModificarPelicula(e);
 	}
 	
 }

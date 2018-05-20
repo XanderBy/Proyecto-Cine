@@ -2104,20 +2104,14 @@
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel89" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jComboBox5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jTextField37" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jButton24" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jTextField6" min="-2" pref="128" max="-2" attributes="0"/>
+                                                  <Component id="jComboBox5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jTextField37" alignment="0" min="-2" pref="128" max="-2" attributes="0"/>
                                               </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="jButton24" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
@@ -2270,11 +2264,6 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jComboBox5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel89" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -2510,13 +2499,6 @@
                         <Property name="text" type="java.lang.String" value="INSERTAR PEL&#xcd;CULA"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel89">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Roll:"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField6">
-                    </Component>
                     <Component class="javax.swing.JTextField" name="jTextField49">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel97">
@@ -2688,12 +2670,6 @@
                                                           </Group>
                                                       </Group>
                                                   </Group>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                                      <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                                      <Component id="jTextField7" min="-2" pref="128" max="-2" attributes="0"/>
-                                                  </Group>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
                                           </Group>
@@ -2801,14 +2777,9 @@
                                                           <Component id="jLabel80" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jComboBox10" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jTextField7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel99" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      </Group>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -3115,13 +3086,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField50">
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField7">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel99">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Roll:"/>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>

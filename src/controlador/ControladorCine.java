@@ -230,10 +230,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 			
 			String antiguo = pantallaAdministrador.jLabel92.getText();
 
-			LocalDateTime formatDateTimeAntiguo = LocalDateTime.parse(now, formatter);
-			
-			metodosFuncion.actualizarFuncionBBDD(formatDateTimeAntiguo, formatDateTime, metodosSala.salas.get(pantallaAdministrador.jTextField24.getText()), metodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField25.getText())), Compagnia.listaCines.get(pantallaAdministrador.jTextField26.getText()));
-			break;
+			LocalDateTime formatDateTimeAntiguo = LocalDateTime.parse(antiguo, formatter);
+			metodosFuncion.modificarFuncion(formatDateTimeAntiguo, formatDateTime, metodosSala.salas.get(pantallaAdministrador.jTextField24.getText()), metodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField25.getText())), MetodosPromocion.mapPromocionesCreadas.get(Integer.parseInt(pantallaAdministrador.jTextField26.getText())), Compagnia.listaCines.get(pantallaAdministrador.jLabel92.getText()));
+			 break;
 		case CREAR_PROMOCION:
 			try {
 				String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
@@ -352,7 +351,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				this.pantallaAdministrador.jTextField25
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 2)));
 				this.pantallaAdministrador.jTextField26
-						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 3)));
+						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 4)));
 
 			}
 		}

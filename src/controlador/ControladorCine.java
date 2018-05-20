@@ -67,6 +67,13 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		// Declaramos las acciones y aniadimos las escuchas al evento producido por el
 		// componente
+		//Funcion
+		this.pantallaAdministrador.jTable2.addMouseListener(this);
+		this.pantallaAdministrador.jTable2.setModel(new DefaultTableModel());
+		
+		this.pantallaAdministrador.jTable8.addMouseListener(this);
+		this.pantallaAdministrador.jTable8.setModel(new DefaultTableModel());
+		
 		// Cine
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
 		this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
@@ -114,9 +121,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
-
+		
+		//TABLAS ALE
 		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 		pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
+		pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 	}
 
 	@Override
@@ -149,9 +159,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case RECARGAR_TABLA:
-
-			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
-			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			
 
 			break;
@@ -182,7 +189,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 					MetodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField21.getText())), null,
 					MetodosPromocion.mapPromocionesCreadas
 							.get(Integer.parseInt(pantallaAdministrador.jTextField22.getText())));
-
+			
 			break;
 		case CREAR_PROMOCION:
 			try {

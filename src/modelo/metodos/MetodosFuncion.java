@@ -240,7 +240,7 @@ public class MetodosFuncion extends ConexionManager {
 		PreparedStatement pstm = null;
 		try {
 			pstm = this.getConexion().prepareStatement(
-					"SELECT diaYHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+					"SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
 			ResultSet res = pstm.executeQuery();
 			int i = 0;
 			eliminarFuncionesSemanasArray(res.getString("cine_nombreCine"));
@@ -305,5 +305,94 @@ public class MetodosFuncion extends ConexionManager {
 		return tablemodel;
 
 	}
+	// ---------------------------------------------------------
+	public DefaultTableModel cogerFuncionBBDDCine(Cine nombreCine) {
+        System.out.println("prueba");
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        PreparedStatement pstm = null;
+        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento"};
+        // obtenemos la cantidad de registros existentes en la tabla y se almacena en la
+        // variable "registros"
+        // para formar la matriz de datos
+        try {
+            System.out.println("pruebass");
+            pstm = getConexion().prepareStatement("SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora WHERE f.cine_nombreCine = '"+ nombreCine.getNombreCine() + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        // se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][5];
+        try {
+            // realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
+            // data"
+            pstm = this.getConexion().prepareStatement("SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("diayHora");
+                data[i][1] = res.getString("sala_idSalaCine");
+                data[i][2] = res.getString("peliculaFuncion");
+                data[i][3] = res.getString("cine_nombreCine");
+                data[i][4] = res.getString("promocion_descuentoPromo");
+                i++;
+            }
+            res.close();
+            // se anade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
 
+    }
+	// ---------------------------------------------------------
+		public DefaultTableModel cogerFuncionBBDDTodo() {
+	        System.out.println("prueba");
+	        DefaultTableModel tablemodel = new DefaultTableModel();
+	        int registros = 0;
+	        PreparedStatement pstm = null;
+	        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento"};
+	        // obtenemos la cantidad de registros existentes en la tabla y se almacena en la
+	        // variable "registros"
+	        // para formar la matriz de datos
+	        try {
+	            System.out.println("pruebass");
+	            pstm = getConexion().prepareStatement("SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+	            ResultSet res = pstm.executeQuery();
+	            res.next();
+	            registros = res.getInt("total");
+	            res.close();
+	        } catch (SQLException e) {
+	            System.err.println(e.getMessage());
+	        }
+	        // se crea una matriz con tantas filas y columnas que necesite
+	        Object[][] data = new String[registros][5];
+	        try {
+	            // realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
+	            // data"
+	            pstm = this.getConexion().prepareStatement("SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+	            ResultSet res = pstm.executeQuery();
+	            int i = 0;
+	            while (res.next()) {
+	                data[i][0] = res.getString("diayHora");
+	                data[i][1] = res.getString("sala_idSalaCine");
+	                data[i][2] = res.getString("peliculaFuncion");
+	                data[i][3] = res.getString("cine_nombreCine");
+	                data[i][4] = res.getString("promocion_descuentoPromo");
+	                i++;
+	            }
+	            res.close();
+	            // se anade la matriz de datos en el DefaultTableModel
+	            tablemodel.setDataVector(data, columNames);
+	        } catch (SQLException e) {
+	            System.err.println(e.getMessage());
+	        }
+	        return tablemodel;
+
+	    }
 }

@@ -312,7 +312,7 @@ public class MetodosFuncion extends ConexionManager {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
         PreparedStatement pstm = null;
-        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento"};
+        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento", "nombre compania"};
         // obtenemos la cantidad de registros existentes en la tabla y se almacena en la
         // variable "registros"
         // para formar la matriz de datos

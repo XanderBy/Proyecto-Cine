@@ -127,7 +127,6 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
             Pelicula peliculaFuncion, Cine cine_nombre) {
-    	System.out.println("AIUDA");
         // se arma la consulta
         String q = " UPDATE funcion SET diayHora = " + diaYHora + ", PeliculaFuncion = "
                 + peliculaFuncion.getIdPelicula() + ", sala_idSalaCine = '" + salaFuncion.getIdSalaCine() + "'"

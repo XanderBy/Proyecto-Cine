@@ -96,6 +96,7 @@ public class MetodosPelicula {
 			ResultSet resultado = consulta.executeQuery();
 			
 			while(resultado.next()) {
+				
 				idPelicula = resultado.getInt("pelicula_idPelicula");
 				nombreCompleto = resultado.getString("artista_nombreCompleto");
 				director = resultado.getBoolean("director");
@@ -109,6 +110,8 @@ public class MetodosPelicula {
 					peliculas.get(idPelicula).addArtistaReparto(new Artista(nombreCompleto,nacionalidad));
 				}
 			}
+			
+			conManager.cerrar();
 			
 		} catch (Exception e) {
 			System.err.println("Excepcion no controlada");

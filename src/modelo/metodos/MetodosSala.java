@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import modelo.POJOs.Sala;
 
@@ -16,16 +17,24 @@ import modelo.POJOs.Promocion;
 
 public class MetodosSala {
 
-	// DECLARACION:Map (Key: IdSalaCine, Value: Sala)
-
+	/**
+	 * Declaramos map en el que se van a cargar las salas creadas
+	 */
 	public static HashMap<String, Sala> salas = new HashMap<String, Sala>();
 
-	// CONSTRUCTOR:Vacio
-
+	
+	/**
+	 * Constructor vacio
+	 */
 	public MetodosSala() {
 
 	}
 	
+	/**
+	 * Carga las salas existentes en el map
+	 * El valor nameHall (codigoSala) vesta anulado (vale lo mismo que idSalaCine)
+	 * @throws SQLException
+	 */
 	public void cargarSalas() throws SQLException {
 		// 1.Declaramos map y variables
 		HashMap<String, Sala> loadHalls = new HashMap<String, Sala>();
@@ -64,10 +73,40 @@ public class MetodosSala {
 		// 4.Cerramos la conexion
 		conexionManager.cerrar();
 	}
+	
+	/**
+	 * 
+	 * @return ArrayList<Integer>: Claves primarias promocion
+	 * @throws SQLException
+	 */
+	public ArrayList<String> obtenerClavesPrimariasSala() throws SQLException {
+
+		// 1.Declaramos ArrayList
+		ArrayList<String> clavesPrimariasSala = new ArrayList<String>();
+
+		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
+		// metodo crear()
+		ConexionManager conexionManager = new ConexionManager();
+		Connection conexion = conexionManager.crear();
+
+		// 2.1.Creamos el Statement
+		PreparedStatement consulta = conexion.prepareStatement("SELECT IDSALACINE FROM PROMOCION");
+		// 2.2.Preparamos el ResultSet
+		ResultSet resultado = consulta.executeQuery();
+		// 2.3.Iteramos sobre las tuplas de la base de datos
+		while (resultado.next()) {
+			clavesPrimariasSala.add(resultado.getString("IDSALACINE"));
+		}
+		// 2.4.Cerramos la conexion
+		conexionManager.cerrar();
+
+		// 2.5.Devolvemos claves primarias promocion
+		return clavesPrimariasSala;
+	}
 
 	// METODO: Crear salas recibiendo por parametro su nombre y numero de asientos. Introduce la sala en el map.
 
-	public Sala crearSala(String auditoriumCineId, int seatsNumber) {
+	public Sala crearSala(String auditoriumCineId, int seatsNumber) {//TODO: Estoy aqui
 		Sala s = null;
 		try {
 			if (auditoriumCineId == null) {

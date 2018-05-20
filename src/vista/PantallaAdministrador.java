@@ -210,7 +210,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         jTextField40 = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
-        jTextField41 = new javax.swing.JTextField();
         jLabel67 = new javax.swing.JLabel();
         jTextField42 = new javax.swing.JTextField();
         jLabel68 = new javax.swing.JLabel();
@@ -245,6 +244,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jTable13 = new javax.swing.JTable();
         jLabel101 = new javax.swing.JLabel();
         jComboBox12 = new javax.swing.JComboBox<>();
+        jCheckBox2 = new javax.swing.JCheckBox();
         jInternalFrame9 = new javax.swing.JInternalFrame();
         jLabel81 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -1736,27 +1736,28 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                     .addComponent(jLabel98)
                                     .addGap(83, 83, 83)
                                     .addComponent(jTextField50, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jInternalFrame8Layout.createSequentialGroup()
-                                    .addComponent(jLabel67)
-                                    .addGap(95, 95, 95)
-                                    .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jInternalFrame8Layout.createSequentialGroup()
+                                    .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel67)
+                                        .addComponent(jLabel66))
+                                    .addGap(43, 43, 43)
+                                    .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jInternalFrame8Layout.createSequentialGroup()
+                                            .addGap(169, 169, 169)
+                                            .addComponent(jLabel74)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jInternalFrame8Layout.createSequentialGroup()
                                     .addComponent(jLabel68)
                                     .addGap(34, 34, 34)
-                                    .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel69))
-                                .addGroup(jInternalFrame8Layout.createSequentialGroup()
                                     .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel66)
+                                        .addComponent(jCheckBox2)
                                         .addGroup(jInternalFrame8Layout.createSequentialGroup()
-                                            .addGap(165, 165, 165)
-                                            .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(92, 92, 92)
-                                    .addComponent(jLabel74)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jTextField43, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabel69))))))
                         .addGap(0, 258, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1861,11 +1862,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                                     .addComponent(jLabel80)
                                                     .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(jInternalFrame8Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                                .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(jTextField41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(38, 38, 38)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                                .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jCheckBox2))
+                                                .addGap(36, 36, 36)
                                                 .addGroup(jInternalFrame8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel67)
                                                     .addComponent(jTextField42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -2271,6 +2272,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButton8;
     public javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     public javax.swing.JComboBox<String> jComboBox1;
     public javax.swing.JComboBox<String> jComboBox10;
     public javax.swing.JComboBox<String> jComboBox11;
@@ -2471,7 +2473,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField39;
     public javax.swing.JTextField jTextField4;
     public javax.swing.JTextField jTextField40;
-    public javax.swing.JTextField jTextField41;
     public javax.swing.JTextField jTextField42;
     public javax.swing.JTextField jTextField43;
     public javax.swing.JTextField jTextField44;

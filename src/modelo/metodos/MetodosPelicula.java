@@ -79,7 +79,6 @@ public class MetodosPelicula {
 	}
 	
 	public void cargarActorDirectorPelicula() throws SQLException {
-		//TODO hacer metodo
 		
 		int idPelicula;
 		String nombreCompleto;

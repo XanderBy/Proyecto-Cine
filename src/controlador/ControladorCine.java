@@ -140,15 +140,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 
 			metodosCine.crearCine(nombreCine, direccion, numero, precioBase);
+			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
+			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case ELIMINAR_CINE:
 			metodosCine.eliminarCine(nombreCineA);
 			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
+			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case RECARGAR_TABLA:
 
 			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
+			
 
 			break;
 		case MODIFICAR_CINE:
@@ -157,7 +161,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 					pantallaAdministrador.jTextField11.getText(), pantallaAdministrador.jTextField12.getText(),
 					Integer.parseInt(pantallaAdministrador.jTextField5.getText()),
 					Double.parseDouble(pantallaAdministrador.jTextField8.getText()));
-
+			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
+			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case ANIADIR_FUNCION:
 			// "2016-11-09 10:30" tengo que poner este formato

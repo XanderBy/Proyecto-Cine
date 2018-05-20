@@ -150,7 +150,7 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
 				String genero = pantallaAdministrador.jComboBox6.getName();
 				String idioma = pantallaAdministrador.jComboBox7.getName();
-				//boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
+				boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
 				String paisOrigen = pantallaAdministrador.jComboBox12.getName();
 				String sitioWeb = pantallaAdministrador.jTextField42.getText();
 				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
@@ -159,14 +159,14 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 				String resumen = pantallaAdministrador.jTextField45.getText();
 				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField50.getText());
 				
-				//metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen);
+				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen);
 				
 			} catch (NumberFormatException e1) {
                 JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
-            } //catch (SQLException e1) {
+            } catch (SQLException e1) {
 				System.err.println("Error SQL");
-				//e1.printStackTrace();
-			//}
+				e1.printStackTrace();
+			}
 			
 			break;
 		

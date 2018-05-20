@@ -265,6 +265,7 @@ public class MetodosFuncion extends ConexionManager {
 
 	}
 
+        
 	// ---------------------------------------------------------
 	public DefaultTableModel cogerFuncionBBDDNombre() {
 		System.out.println("prueba");
@@ -308,18 +309,20 @@ public class MetodosFuncion extends ConexionManager {
 	}
 	// ---------------------------------------------------------
 	public DefaultTableModel cogerFuncionBBDDCine(Cine nombreCine) {
-        System.out.println("prueba");
+        System.out.println("pruebaaa1");
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
         PreparedStatement pstm = null;
-        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento", "nombre compania"};
+        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento", "nombre compania", "diayHora2" };
         // obtenemos la cantidad de registros existentes en la tabla y se almacena en la
         // variable "registros"
         // para formar la matriz de datos
         try {
-            System.out.println("pruebass");
+            System.out.println("pruebass1");
             try {
+                System.out.println("Por si acaso");
             pstm = getConexion().prepareStatement("SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora WHERE f.cine_nombreCine = '"+ nombreCine.getNombreCine() + "'");
+            
             }catch (NullPointerException e) {
 				return null;
 			}
@@ -331,19 +334,20 @@ public class MetodosFuncion extends ConexionManager {
             System.err.println(e.getMessage());
         }
         // se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][5];
+        Object[][] data = new String[registros][6];
         try {
             // realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
             // data"
-            pstm = this.getConexion().prepareStatement("SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+            pstm = this.getConexion().prepareStatement("SELECT f.diayHora, fp.funcion_diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
-                data[i][0] = res.getString("diayHora");
-                data[i][1] = res.getString("sala_idSalaCine");
-                data[i][2] = res.getString("peliculaFuncion");
-                data[i][3] = res.getString("cine_nombreCine");
-                data[i][4] = res.getString("promocion_descuentoPromo");
+                data[i][0] = res.getString("f.diayHora");
+                data[i][1] = res.getString("fp.funcion_diayHora");
+                data[i][2] = res.getString("sala_idSalaCine");
+                data[i][3] = res.getString("peliculaFuncion");
+                data[i][4] = res.getString("cine_nombreCine");
+                data[i][5] = res.getString("promocion_descuentoPromo");
                 i++;
             }
             res.close();

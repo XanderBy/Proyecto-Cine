@@ -81,8 +81,8 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 				String idioma = pantallaAdministrador.jComboBox2.getName();
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox1.isSelected();
 				String paisOrigen = pantallaAdministrador.jComboBox11.getName();
-				String sitioWeb;
-				Duration duracionPelicula;
+				String sitioWeb = pantallaAdministrador.jTextField32.getText();
+				Duration duracionPelicula = pantallaAdministrador.jTextField33.getText();
 				String calificacionEdades;
 				LocalDate fechaEstrenoEs;
 				String resumen;

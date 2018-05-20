@@ -202,7 +202,7 @@ public class MetodosSala {
 			ResultSet rs2 = consulta.executeQuery();
 			// 6.Obtenemos valores por tuplas
 			int i = 0;
-			while (rs2.next()) {//TODO: Me quedo aqui. Falta el cambio de Antonio
+			while (rs2.next()) {//TODO: Me quedo aqui. Falta el cambio de aniadir otra columna Antonio
 				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
 				int descuentoPromo = rs2.getInt("DESCUENTOPROMO");
 				resultado[i][0] = descripcionPromo;

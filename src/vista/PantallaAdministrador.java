@@ -2477,7 +2477,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField8;
     public javax.swing.JTable tablaEliminarPromocion;
     public javax.swing.JTable tablaModificarPromocion;
-    private javax.swing.JTable tablaSalasmodificarCine;
+    public javax.swing.JTable tablaSalasmodificarCine;
     public javax.swing.JTextField textoDescripcionPromocionAniadir;
     public javax.swing.JTextField textoDescripcionPromocionModificar;
     public javax.swing.JTextField textoDescuentoPromocionAniadir;

@@ -217,9 +217,10 @@ public class MetodosPromocion {
 	 * @param promoDiscount
 	 * @throws SQLException
 	 */
-	public void EliminarPromocion(int promoDiscount) throws SQLException {
-		// 0.Cargamos promociones en el map
+	public void eliminarPromocion(int promoDiscount) throws SQLException {
+		// 0.Cargamos promociones en el map y generamos la tabla
 		cargarPromociones();
+		generarTablaPromociones();
 
 		// 1.Comprobamos que no haya valores nulos
 		if (promoDiscount == 0) {

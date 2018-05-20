@@ -39,12 +39,6 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 	public MetodosSala metodosSala = new MetodosSala();
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
 	//Variables
-<<<<<<< HEAD
-	
-	//TODO AÑADIR VARIABLES PARA MODIFICAR Y ELIMINAR CON TABLAS
-=======
-	//TODO AnADIR VARIABLES PARA MODIFICAR Y ELIMINAR CON TABLAS
->>>>>>> e77fef81653539b57c64f1761285746f965f6234
 	
 	public enum accionesAdministrador{
 		

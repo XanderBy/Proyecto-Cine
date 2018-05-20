@@ -89,7 +89,7 @@ public class MetodosSala {
 		Connection conexion = conexionManager.crear();
 
 		// 2.1.Creamos el Statement
-		PreparedStatement consulta = conexion.prepareStatement("SELECT IDSALACINE FROM PROMOCION");
+		PreparedStatement consulta = conexion.prepareStatement("SELECT IDSALACINE FROM SALA");
 		// 2.2.Preparamos el ResultSet
 		ResultSet resultado = consulta.executeQuery();
 		// 2.3.Iteramos sobre las tuplas de la base de datos

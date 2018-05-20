@@ -237,6 +237,7 @@ public class MetodosCine extends ConexionManager {
         }
         return tablemodel;
 
+        
     }
 
 }

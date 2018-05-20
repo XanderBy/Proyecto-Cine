@@ -265,6 +265,7 @@ public class MetodosFuncion extends ConexionManager {
 
 	}
 
+        
 	// ---------------------------------------------------------
 	public DefaultTableModel cogerFuncionBBDDNombre() {
 		System.out.println("prueba");

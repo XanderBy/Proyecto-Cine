@@ -115,7 +115,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Aniadir Funcion
 		this.pantallaAdministrador.jButton30.setActionCommand("ANIADIR_FUNCION");
 		this.pantallaAdministrador.jButton30.addActionListener(this);
-
+		//modificar funcion
+		this.pantallaAdministrador.jButton21.setActionCommand("MODIFICAR_FUNCION");
+		this.pantallaAdministrador.jButton21.addActionListener(this);
 		// Crear promocion
 		pantallaAdministrador.botonAniadirPromocion.setActionCommand("CREAR_PROMOCION");
 		pantallaAdministrador.botonAniadirPromocion.addActionListener(this);
@@ -219,8 +221,18 @@ public class ControladorCine implements ActionListener, MouseListener {
 			now = pantallaAdministrador.jTextField27.getText();
 
 			formatDateTime = LocalDateTime.parse(now, formatter);
-			System.out.print("pruebaaaaaaaaaa");
 			metodosFuncion.eliminarFuncion(formatDateTime);
+			break;
+		case MODIFICAR_FUNCION:
+			now = pantallaAdministrador.jTextField23.getText();
+
+			formatDateTime = LocalDateTime.parse(now, formatter);
+			
+			String antiguo = pantallaAdministrador.jLabel92.getText();
+
+			LocalDateTime formatDateTimeAntiguo = LocalDateTime.parse(now, formatter);
+			
+			metodosFuncion.actualizarFuncionBBDD(formatDateTimeAntiguo, formatDateTime, metodosSala.salas.get(pantallaAdministrador.jTextField24.getText()), metodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField25.getText())), Compagnia.listaCines.get(pantallaAdministrador.jTextField26.getText()));
 			break;
 		case CREAR_PROMOCION:
 			try {
@@ -331,6 +343,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		{
 			int fila = this.pantallaAdministrador.jTable6.rowAtPoint(e.getPoint());
 			if (fila > -1) {
+				this.pantallaAdministrador.jLabel92
+				.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 0)));
 				this.pantallaAdministrador.jTextField23
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 0)));
 				this.pantallaAdministrador.jTextField24

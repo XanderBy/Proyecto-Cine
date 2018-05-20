@@ -196,7 +196,7 @@ public class MetodosCine extends ConexionManager {
     }
 
     public DefaultTableModel cogerCineBBDDTodo() {
-        System.out.println("prueba");
+        System.out.println("pruebaaaaaaaa");
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
         PreparedStatement pstm = null;
@@ -215,11 +215,11 @@ public class MetodosCine extends ConexionManager {
             System.err.println(e.getMessage());
         }
         // se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][4];
+        Object[][] data = new String[registros][5];
         try {
             // realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
             // data"
-            pstm = this.getConexion().prepareStatement("SELECT nombreCine, direccionCine, telefonoConsulta, precioBase FROM cine");
+            pstm = this.getConexion().prepareStatement("SELECT nombreCine, direccionCine, telefonoConsulta, precioBase, compania_nombreCompagnia FROM cine");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
@@ -227,6 +227,7 @@ public class MetodosCine extends ConexionManager {
                 data[i][1] = res.getString("direccionCine");
                 data[i][2] = res.getString("telefonoConsulta");
                 data[i][3] = res.getString("precioBase");
+                data[i][4] = res.getString("compania_nombreCompagnia");
                 i++;
             }
             res.close();

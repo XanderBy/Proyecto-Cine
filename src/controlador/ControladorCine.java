@@ -132,6 +132,7 @@ public class ControladorCine implements ActionListener, MouseListener {
         pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
 
         // TABLAS ALE
+        //
         pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
         pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
          //coger las funciones del cine no todas
@@ -300,7 +301,11 @@ public class ControladorCine implements ActionListener, MouseListener {
                 this.pantallaAdministrador.jLabel91
                         .setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
                 try{
+                    
+                    metodosCine.cogerTodosLosCineBBDD();
+                //El error esta aqui 
                 pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines.get(String.valueOf(this.pantallaAdministrador.jTable2.getValueAt(fila, 0)))));
+                System.out.print("error al coger la tabla");
                 }catch(IllegalArgumentException ew){
                     System.out.print("no tiene funciones");
                 }

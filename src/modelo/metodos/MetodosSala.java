@@ -23,24 +23,24 @@ public class MetodosSala {
 	 */
 	public static HashMap<String, Sala> salas = new HashMap<String, Sala>();
 
-	
 	/**
 	 * Constructor vacio
 	 */
 	public MetodosSala() {
 
 	}
-	
+
 	/**
-	 * Carga las salas existentes en el map
-	 * El valor nameHall (codigoSala) esta anulado (vale lo mismo que idSalaCine)
+	 * Carga las salas existentes en el map El valor nameHall (codigoSala) esta
+	 * anulado (vale lo mismo que idSalaCine)
+	 * 
 	 * @throws SQLException
 	 */
 	public void cargarSalas() throws SQLException {
 		// 1.Declaramos map y variables
 		HashMap<String, Sala> loadHalls = new HashMap<String, Sala>();
-		
-		String idHallCine,nameHall;
+
+		String idHallCine, nameHall;
 		int seatsNumber;
 		Sala s;
 		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
@@ -59,7 +59,7 @@ public class MetodosSala {
 			while (resultado.next()) {
 				idHallCine = resultado.getString("IDSALACINE");
 				nameHall = resultado.getString("NOMBRESALA");
-				seatsNumber= resultado.getInt("NUMEROBUTACAS");
+				seatsNumber = resultado.getInt("NUMEROBUTACAS");
 				s = new Sala(idHallCine, seatsNumber);
 				loadHalls.put(idHallCine, s);
 			}
@@ -74,7 +74,7 @@ public class MetodosSala {
 		// 4.Cerramos la conexion
 		conexionManager.cerrar();
 	}
-	
+
 	/**
 	 * 
 	 * @return ArrayList<String>: Claves primarias sala
@@ -107,24 +107,26 @@ public class MetodosSala {
 
 	/**
 	 * Crea una sala si no hay otra en la BBDD con el mismo nombre
+	 * 
 	 * @param auditoriumCineId
 	 * @param seatsNumber
 	 * @throws SQLException
 	 */
 	public void crearSala(String auditoriumCineId, int seatsNumber) throws SQLException {
-		//0.Igualamos la clave primaria al valor de auditoriumCineId
-		String auditoriumCode=auditoriumCineId;
-		
-		//1.Cargamos salas en el map
+		// 0.Igualamos la clave primaria al valor de auditoriumCineId
+		String auditoriumCode = auditoriumCineId;
+
+		// 1.Cargamos salas en el map
 		cargarSalas();
-		
+
 		// 2.Obtenemos claves primarias
-		ArrayList<String> clavesPrimariasSalas= obtenerClavesPrimariasSala();
-		
-		//3.Comprobamos que auditorimCineId no coincida con ninguna clave primaria e insertamos
-		
+		ArrayList<String> clavesPrimariasSalas = obtenerClavesPrimariasSala();
+
+		// 3.Comprobamos que auditorimCineId no coincida con ninguna clave primaria e
+		// insertamos
+
 		try {
-			if (auditoriumCineId == null || seatsNumber==0 || auditoriumCode==null) {
+			if (auditoriumCineId == null || seatsNumber == 0 || auditoriumCode == null) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
 			} else if (clavesPrimariasSalas.contains(auditoriumCode)) {
 				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
@@ -161,17 +163,62 @@ public class MetodosSala {
 			e.printStackTrace();
 		}
 	}
-	
-	public void modificarSala(String oldAuditoriumCineId, String auditoriumCineId, int seatsNumber) {
-		
+
+	public void modificarSala(String oldAuditoriumCineId, String auditoriumCineId, int seatsNumber)
+			throws SQLException {
+		// 0.Igualamos la clave primaria al valor de auditoriumCineId
+		String auditoriumCode = auditoriumCineId;
+
+		// 1.Cargamos salas en el map y generamos la tabla
+		cargarSalas();
+		generarTablaSalas();
+
+		// 2.Comprobamos que no haya valores nulos
+		if (oldAuditoriumCineId == null || auditoriumCineId == null || seatsNumber == 0 || auditoriumCode == null) {
+			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
+		} else {
+			if (salas.containsKey(oldPromoDiscount)) {//TODO: Aqui me quedo
+				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
+				// el metodo crear()
+				ConexionManager conexionManager = new ConexionManager();
+				Connection conexion = conexionManager.crear();
+
+				// 2.2 Realizamos la actualizacion
+				// 2.2.1.Creamos el PreparedStatement: Update
+				try {
+					PreparedStatement preparedStatement = conexion.prepareStatement(
+							"UPDATE PROMOCION SET DESCUENTOPROMO=?, DESCRIPCIONPROMO=? WHERE DESCUENTOPROMO="
+									+ oldPromoDiscount);
+					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
+					// promoDiscount
+					preparedStatement.setInt(1, promoDiscount);
+					// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
+					// promoDescription
+					preparedStatement.setString(2, promoDescription);
+					// 2.2.4.Ejecutamos el preparedStatement
+					preparedStatement.execute();// TODO: COMPROBAR
+					// 2.2.5.Informamos
+					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
+					// 2.2.6. Actualizamos map
+					cargarPromociones();
+					// 2.2.7.Cerramos la conexion
+					conexionManager.cerrar();
+				} catch (Exception e) {
+					System.err.println("Excepcion no controlada");
+					e.printStackTrace();
+				}
+			} else {
+				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
+			}
+
+		}
+
 	}
-	
-	
-	
+
 	public void eliminarSala(String auditoriumCineId) {
-	
+
 	}
-	
+
 	/**
 	 * Prepara una tabla para refrescar la contenida en modificar cine (salas cine)
 	 * 
@@ -180,9 +227,9 @@ public class MetodosSala {
 	 */
 	public DefaultTableModel generarTablaSalas() {
 		// 1.Declaramos defaultTableModel,matriz tipo Object y string
-		DefaultTableModel tablaPromocion = new DefaultTableModel();
+		DefaultTableModel tablaSala = new DefaultTableModel();
 		Object[][] resultado;
-		String[] columnNames = { "Id Sala", "Numero butacas" };
+		String[] columnNames = { "Id Sala", "Nombre sala", "Numero butacas" };
 		// 2.Abrimos la conexion
 		try {
 			ConexionManager conexionManager = new ConexionManager();
@@ -195,33 +242,32 @@ public class MetodosSala {
 			rs1.close();
 			// 4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el
 			// numero de columnas.
-			resultado = new Object[numeroFilas][2];
+			resultado = new Object[numeroFilas][3];
 
 			// 5.Creamos el prepared statement que obtendra toda la info de la tabla
 			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM SALA");
 			ResultSet rs2 = consulta.executeQuery();
 			// 6.Obtenemos valores por tuplas
 			int i = 0;
-			while (rs2.next()) {//TODO: Me quedo aqui. Falta el cambio de aniadir otra columna Antonio
-				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
-				int descuentoPromo = rs2.getInt("DESCUENTOPROMO");
-				resultado[i][0] = descripcionPromo;
-				resultado[i][1] = descuentoPromo;
+			while (rs2.next()) {
+				String idSalaCine = rs2.getString("IDSALACINE");
+				String nombreSala = rs2.getString("NOMBRESALA");
+				int numeroButacas = rs2.getInt("NUMEROBUTACAS");
+				resultado[i][0] = idSalaCine;
+				resultado[i][1] = nombreSala;
+				resultado[i][2] = numeroButacas;
 				i++;
 			}
 			// 7.Cerramos la conexion
 			conexionManager.cerrar();
 			// 8.Creamos la tabla
-			tablaPromocion.setDataVector(resultado, columnNames);
-			return tablaPromocion;
+			tablaSala.setDataVector(resultado, columnNames);
+			return tablaSala;
 		} catch (SQLException e) {
 			System.err.println("Excepcion SQL no controlada");
 			e.printStackTrace();
 			return null;
 		}
 	}
-
-
-
 
 }

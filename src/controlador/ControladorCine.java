@@ -73,7 +73,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jTable8.addMouseListener(this);
 		this.pantallaAdministrador.jTable8.setModel(new DefaultTableModel());
-
+                
+                this.pantallaAdministrador.jTable11.addMouseListener(this);
+		this.pantallaAdministrador.jTable11.setModel(new DefaultTableModel());
+                
 		// Cine
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
 		this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
@@ -129,6 +132,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 		// pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+                pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 	}
 
 	@Override
@@ -264,7 +268,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+        private void presionarJTable11(java.awt.event.MouseEvent e) {
 
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaAdministrador.jTable11.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				this.pantallaAdministrador.jTextField27.setText(String.valueOf(this.pantallaAdministrador.jTable11.getValueAt(fila, 0)));
+
+			}
+		}
+	}
 	private void presionarJTable9(java.awt.event.MouseEvent e) {
 		if (e.getButton() == 1)// boton izquierdo
 		{
@@ -318,6 +332,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		presionarJTable9(e);
 		presionarJTable7(e);
+                presionarJTable11(e);
 		presionarTablaModificarPromocion(e);//Fijate Antonio
 		presionarTablaEliminarPromocion(e);
 	}

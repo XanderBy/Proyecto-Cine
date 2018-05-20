@@ -146,6 +146,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         jTextField27 = new javax.swing.JTextField();
         jButton22 = new javax.swing.JButton();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        jTable11 = new javax.swing.JTable();
         jInternalFrame7 = new javax.swing.JInternalFrame();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -302,7 +304,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame14Layout.createSequentialGroup()
                 .addGap(133, 133, 133)
                 .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 790, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 880, Short.MAX_VALUE)
                 .addGroup(jInternalFrame14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -428,7 +430,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGroup(jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botonAniadirSala))))
-                .addContainerGap(974, Short.MAX_VALUE))
+                .addContainerGap(1064, Short.MAX_VALUE))
         );
         jInternalFrame12Layout.setVerticalGroup(
             jInternalFrame12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -629,7 +631,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                         .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
                                 .addComponent(botonElegirSalas)
                                 .addGap(315, 315, 315)))
                         .addComponent(jButton5))
@@ -640,7 +642,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(98, 98, 98)
                 .addComponent(jButton10)
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(jLabel88)
@@ -722,9 +724,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jInternalFrame4.getContentPane().setLayout(jInternalFrame4Layout);
         jInternalFrame4Layout.setHorizontalGroup(
             jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1608, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jInternalFrame4Layout.setVerticalGroup(
             jInternalFrame4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1230,35 +1230,55 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jButton22.setText("Eliminar función");
 
+        jTable11.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane25.setViewportView(jTable11);
+
         javax.swing.GroupLayout jInternalFrame20Layout = new javax.swing.GroupLayout(jInternalFrame20.getContentPane());
         jInternalFrame20.getContentPane().setLayout(jInternalFrame20Layout);
         jInternalFrame20Layout.setHorizontalGroup(
             jInternalFrame20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame20Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jInternalFrame20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame20Layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
+                        .addGap(41, 41, 41)
                         .addGroup(jInternalFrame20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel41, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField27)))
                     .addGroup(jInternalFrame20Layout.createSequentialGroup()
-                        .addGap(423, 423, 423)
+                        .addGap(134, 134, 134)
                         .addComponent(jButton22)))
-                .addContainerGap(1061, Short.MAX_VALUE))
+                .addContainerGap(1089, Short.MAX_VALUE))
         );
         jInternalFrame20Layout.setVerticalGroup(
             jInternalFrame20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame20Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel40)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel41)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jButton22)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addGroup(jInternalFrame20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame20Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jLabel40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton22))
+                    .addGroup(jInternalFrame20Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         jTabbedPane6.addTab("Eliminar Funcion", jInternalFrame20);
@@ -2408,6 +2428,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
     private javax.swing.JScrollPane jScrollPane24;
+    private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
@@ -2419,6 +2440,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane6;
     public javax.swing.JTable jTable1;
     public javax.swing.JTable jTable10;
+    public javax.swing.JTable jTable11;
     public javax.swing.JTable jTable2;
     public javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;

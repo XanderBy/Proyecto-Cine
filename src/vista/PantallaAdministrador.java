@@ -2272,7 +2272,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
+    public javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
@@ -2470,8 +2470,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField25;
     public javax.swing.JTextField jTextField26;
     public javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
+    public javax.swing.JTextField jTextField28;
+    public javax.swing.JTextField jTextField29;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField30;
     public javax.swing.JTextField jTextField32;

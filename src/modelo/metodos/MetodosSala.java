@@ -10,6 +10,7 @@ import java.util.HashMap;
 import modelo.POJOs.Sala;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.ConexionManager;
 import modelo.POJOs.Cine;
@@ -161,15 +162,65 @@ public class MetodosSala {
 		}
 	}
 	
-	public void modificarSala() {
+	public void modificarSala(String oldAuditoriumCineId, String auditoriumCineId, int seatsNumber) {
+		
+	}
+	
+	
+	
+	public void eliminarSala(String auditoriumCineId) {
+	
+	}
+	
+	/**
+	 * Prepara una tabla para refrescar la contenida en modificar cine (salas cine)
+	 * 
+	 * @return tabla
+	 * @throws SQLException
+	 */
+	public DefaultTableModel generarTablaSalas() {
+		// 1.Declaramos defaultTableModel,matriz tipo Object y string
+		DefaultTableModel tablaPromocion = new DefaultTableModel();
+		Object[][] resultado;
+		String[] columnNames = { "Id Sala", "Numero butacas" };
+		// 2.Abrimos la conexion
+		try {
+			ConexionManager conexionManager = new ConexionManager();
+			Connection conexion = conexionManager.crear();
+			// 3.Creamos el prepared statement que nos devolvera el numero de tuplas
+			PreparedStatement count = conexion.prepareStatement("SELECT COUNT(*) AS NUM_SALAS FROM SALA");
+			ResultSet rs1 = count.executeQuery();
+			rs1.next();// (*) Aqui saltaba la excepcion
+			int numeroFilas = rs1.getInt("NUM_SALAS");
+			rs1.close();
+			// 4.Establecemos que la matriz sera del tamanio [numerofilas][2] donde 2 es el
+			// numero de columnas.
+			resultado = new Object[numeroFilas][2];
 
+			// 5.Creamos el prepared statement que obtendra toda la info de la tabla
+			PreparedStatement consulta = conexion.prepareStatement("SELECT * FROM SALA");
+			ResultSet rs2 = consulta.executeQuery();
+			// 6.Obtenemos valores por tuplas
+			int i = 0;
+			while (rs2.next()) {//TODO: Me quedo aqui. Falta el cambio de Antonio
+				String descripcionPromo = rs2.getString("DESCRIPCIONPROMO");
+				int descuentoPromo = rs2.getInt("DESCUENTOPROMO");
+				resultado[i][0] = descripcionPromo;
+				resultado[i][1] = descuentoPromo;
+				i++;
+			}
+			// 7.Cerramos la conexion
+			conexionManager.cerrar();
+			// 8.Creamos la tabla
+			tablaPromocion.setDataVector(resultado, columnNames);
+			return tablaPromocion;
+		} catch (SQLException e) {
+			System.err.println("Excepcion SQL no controlada");
+			e.printStackTrace();
+			return null;
+		}
 	}
-	
-	//METODO: Comprueba si existe la sala en el map listaSalas de la clase Cine. Si existe la elimina, sino informa.
-	
-	public void eliminarSala(Cine c, String auditoriumCineId) {
-	
-	}
+
 
 
 

@@ -93,17 +93,18 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         textoDescuentoPromocionModificar = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         botonModificarPromocion = new javax.swing.JButton();
-        botonElegirPromocion = new javax.swing.JButton();
         jLabel84 = new javax.swing.JLabel();
         jLabel85 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         tablaModificarPromocion = new javax.swing.JTable();
+        jLabel89 = new javax.swing.JLabel();
         jInternalFrame17 = new javax.swing.JInternalFrame();
         botonEliminarPromocion = new javax.swing.JButton();
         jScrollPane10 = new javax.swing.JScrollPane();
         tablaEliminarPromocion = new javax.swing.JTable();
         jLabel87 = new javax.swing.JLabel();
+        jLabel99 = new javax.swing.JLabel();
         jInternalFrame6 = new javax.swing.JInternalFrame();
         jTabbedPane6 = new javax.swing.JTabbedPane();
         jInternalFrame18 = new javax.swing.JInternalFrame();
@@ -807,8 +808,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         botonModificarPromocion.setText("Modificar Promocion");
 
-        botonElegirPromocion.setText("Elegir Promocion");
-
         jLabel84.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel84.setText("Seleccione la promocion");
@@ -833,19 +832,16 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         ));
         jScrollPane11.setViewportView(tablaModificarPromocion);
 
+        jLabel89.setText("(Haga click en la tabla para refrescar)");
+
         javax.swing.GroupLayout jInternalFrame16Layout = new javax.swing.GroupLayout(jInternalFrame16.getContentPane());
         jInternalFrame16.getContentPane().setLayout(jInternalFrame16Layout);
         jInternalFrame16Layout.setHorizontalGroup(
             jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame16Layout.createSequentialGroup()
-                .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame16Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(botonElegirPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jInternalFrame16Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel84)))
-                .addGap(101, 101, 101)
+                .addGap(89, 89, 89)
+                .addComponent(jLabel84)
+                .addGap(104, 104, 104)
                 .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame16Layout.createSequentialGroup()
                         .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -860,10 +856,14 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                         .addComponent(jLabel86))
                                     .addComponent(textoDescripcionPromocionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(botonModificarPromocion))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 705, Short.MAX_VALUE))
                     .addGroup(jInternalFrame16Layout.createSequentialGroup()
                         .addComponent(jLabel85)
                         .addContainerGap(1149, Short.MAX_VALUE))))
+            .addGroup(jInternalFrame16Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jLabel89)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jInternalFrame16Layout.createSequentialGroup()
                     .addGap(21, 21, 21)
@@ -888,9 +888,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addComponent(jLabel86))
                 .addGap(37, 37, 37)
                 .addComponent(botonModificarPromocion)
-                .addGap(59, 59, 59)
-                .addComponent(botonElegirPromocion)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel89)
+                .addContainerGap(221, Short.MAX_VALUE))
             .addGroup(jInternalFrame16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jInternalFrame16Layout.createSequentialGroup()
                     .addGap(102, 102, 102)
@@ -924,6 +924,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jLabel87.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel87.setText("Seleccione la promocion que desea eliminar");
 
+        jLabel99.setText("(Haga click en la tabla para refrescar)");
+
         javax.swing.GroupLayout jInternalFrame17Layout = new javax.swing.GroupLayout(jInternalFrame17.getContentPane());
         jInternalFrame17.getContentPane().setLayout(jInternalFrame17Layout);
         jInternalFrame17Layout.setHorizontalGroup(
@@ -937,9 +939,12 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGap(382, 382, 382)
                         .addComponent(jLabel87))
                     .addGroup(jInternalFrame17Layout.createSequentialGroup()
-                        .addGap(464, 464, 464)
-                        .addComponent(botonEliminarPromocion)))
-                .addContainerGap(711, Short.MAX_VALUE))
+                        .addGap(463, 463, 463)
+                        .addComponent(botonEliminarPromocion))
+                    .addGroup(jInternalFrame17Layout.createSequentialGroup()
+                        .addGap(418, 418, 418)
+                        .addComponent(jLabel99)))
+                .addContainerGap(773, Short.MAX_VALUE))
         );
         jInternalFrame17Layout.setVerticalGroup(
             jInternalFrame17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -948,9 +953,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 .addComponent(jLabel87)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel99)
+                .addGap(11, 11, 11)
                 .addComponent(botonEliminarPromocion, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Eliminar Promocion", jInternalFrame17);
@@ -2222,7 +2229,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.ButtonGroup GestionAdministrador;
     public javax.swing.JButton botonAniadirPromocion;
     public javax.swing.JButton botonAniadirSala;
-    public javax.swing.JButton botonElegirPromocion;
     public javax.swing.JButton botonElegirSalas;
     public javax.swing.JButton botonEliminarPromocion;
     public javax.swing.JButton botonModificarPromocion;
@@ -2369,6 +2375,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel90;
     public javax.swing.JLabel jLabel91;
@@ -2379,6 +2386,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JList<String> jList12;
     public javax.swing.JList<String> jList13;
     private javax.swing.JList<String> jList9;

@@ -121,180 +121,212 @@ public class MetodosPelicula {
 	
 	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) throws SQLException {
 
-		cargarPeliculas();
-		
-		try {
+		if (agnoProduccion == 0 || tituloDistribucion == null || tituloOriginal == null || genero == null || idioma == null || paisOrigen == null || sitioWeb == null || duracionPelicula == null || calificacionEdades == null || fechaEstrenoEs == null || resumen == null || idPelicula == 0) {
 			
-			if(modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
-				
-				ConexionManager conManager = new ConexionManager();
-				Connection conexion = conManager.crear();
-				PreparedStatement consulta = conexion.prepareStatement("INSERT INTO pelicula (agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula) VALUES (?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-				
-				consulta.setInt(1, agnoProduccion);
-				consulta.setString(2, tituloDistribucion);
-				consulta.setString(3, tituloOriginal);
-				consulta.setString(4, genero);
-				consulta.setString(5, idioma);
-				consulta.setBoolean(6, subtitulosEs);
-				consulta.setString(7, paisOrigen);
-				consulta.setString(8, sitioWeb);
-				consulta.setLong(9, duracionPelicula.toMinutes());
-				consulta.setString(10, calificacionEdades);
-				consulta.setString(11, fechaEstrenoEs.toString());
-				consulta.setString(12, resumen);
-				consulta.setInt(13, idPelicula);
-				
-				consulta.execute();
-				conManager.cerrar();
-				
-				JOptionPane.showMessageDialog(null, "Pelicula creada correctamente");
-				cargarPeliculas();
-				
-			}else{
-				
-				JOptionPane.showMessageDialog(null, "Ya hay una pelicula con el mismo IdPelicula");
-				return false;
-				
-			}
-			
-		}catch(Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Introduce valores validos");
 			return false;
-		}
-		return true;
-	}
-	
-	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen) throws SQLException {
-		
-		cargarPeliculas();
-		
-		if (modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
 			
-			ConexionManager conManager = new ConexionManager();
-			Connection conexion = conManager.crear();
+		}else{
+			
+			cargarPeliculas();
 			
 			try {
 				
-				PreparedStatement consulta = conexion.prepareStatement("UPDATE pelicula SET agnoProduccion = ?,titulo = ?,tituloOriginal = ?,genero = ?,idioma = ?,subtitulos = ?,paisOrigen = ?,sitioWeb = ?,duracionPelicula = ?,calificacionEdades = ?,fechaEstrenoEspagna = ?,resumen = ? WHERE idPelicula = " + idPelicula);
-				
-				consulta.setInt(1, agnoProduccion);
-				consulta.setString(2, tituloDistribucion);
-				consulta.setString(3, tituloOriginal);
-				consulta.setString(4, genero);
-				consulta.setString(5, idioma);
-				consulta.setBoolean(6, subtitulosEs);
-				consulta.setString(7, paisOrigen);
-				consulta.setString(8, sitioWeb);
-				consulta.setLong(9, duracionPelicula.toMinutes());
-				consulta.setString(10, calificacionEdades);
-				consulta.setString(11, fechaEstrenoEs.toString());
-				consulta.setString(12, resumen);
-				
-				consulta.execute();
-				conManager.cerrar();
-				
-				JOptionPane.showMessageDialog(null, "Pelicula modificada correctamente");
-				cargarPeliculas();
-				
-				return true;
+				if(modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
+					
+					ConexionManager conManager = new ConexionManager();
+					Connection conexion = conManager.crear();
+					PreparedStatement consulta = conexion.prepareStatement("INSERT INTO pelicula (agnoProduccion,titulo,tituloOriginal,genero,idioma,subtitulos,paisOrigen,sitioWeb,duracionPelicula,calificacionEdades,fechaEstrenoEspagna,resumen,idPelicula) VALUES (?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+					
+					consulta.setInt(1, agnoProduccion);
+					consulta.setString(2, tituloDistribucion);
+					consulta.setString(3, tituloOriginal);
+					consulta.setString(4, genero);
+					consulta.setString(5, idioma);
+					consulta.setBoolean(6, subtitulosEs);
+					consulta.setString(7, paisOrigen);
+					consulta.setString(8, sitioWeb);
+					consulta.setLong(9, duracionPelicula.toMinutes());
+					consulta.setString(10, calificacionEdades);
+					consulta.setString(11, fechaEstrenoEs.toString());
+					consulta.setString(12, resumen);
+					consulta.setInt(13, idPelicula);
+					
+					consulta.execute();
+					conManager.cerrar();
+					
+					JOptionPane.showMessageDialog(null, "Pelicula creada correctamente");
+					cargarPeliculas();
+					
+				}else{
+					
+					JOptionPane.showMessageDialog(null, "Ya hay una pelicula con el mismo IdPelicula");
+					return false;
+					
+				}
 				
 			}catch(Exception e) {
 				System.out.println("Excepcion no controlada");
 				e.printStackTrace();
 				return false;
 			}
+			return true;
 			
+		}
+		
+	}
+	
+	public boolean modificarPelicula(int idPelicula,int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen) throws SQLException {
+		
+		if (agnoProduccion == 0 || tituloDistribucion == null || tituloOriginal == null || genero == null || idioma == null || paisOrigen == null || sitioWeb == null || duracionPelicula == null || calificacionEdades == null || fechaEstrenoEs == null || resumen == null || idPelicula == 0) {
+			
+			JOptionPane.showMessageDialog(null, "Introduce valores validos");
+			return false;
 			
 		}else{
-			JOptionPane.showMessageDialog(null, "Pelicula no encontrada");
-			return false;
+			
+			cargarPeliculas();
+			
+			if (modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
+				
+				ConexionManager conManager = new ConexionManager();
+				Connection conexion = conManager.crear();
+				
+				try {
+					
+					PreparedStatement consulta = conexion.prepareStatement("UPDATE pelicula SET agnoProduccion = ?,titulo = ?,tituloOriginal = ?,genero = ?,idioma = ?,subtitulos = ?,paisOrigen = ?,sitioWeb = ?,duracionPelicula = ?,calificacionEdades = ?,fechaEstrenoEspagna = ?,resumen = ? WHERE idPelicula = " + idPelicula);
+					
+					consulta.setInt(1, agnoProduccion);
+					consulta.setString(2, tituloDistribucion);
+					consulta.setString(3, tituloOriginal);
+					consulta.setString(4, genero);
+					consulta.setString(5, idioma);
+					consulta.setBoolean(6, subtitulosEs);
+					consulta.setString(7, paisOrigen);
+					consulta.setString(8, sitioWeb);
+					consulta.setLong(9, duracionPelicula.toMinutes());
+					consulta.setString(10, calificacionEdades);
+					consulta.setString(11, fechaEstrenoEs.toString());
+					consulta.setString(12, resumen);
+					
+					consulta.execute();
+					conManager.cerrar();
+					
+					JOptionPane.showMessageDialog(null, "Pelicula modificada correctamente");
+					cargarPeliculas();
+					
+					return true;
+					
+				}catch(Exception e) {
+					System.out.println("Excepcion no controlada");
+					e.printStackTrace();
+					return false;
+				}
+				
+			}else{
+				JOptionPane.showMessageDialog(null, "Pelicula no encontrada");
+				return false;
+			}
 		}
-
 	}
 	
 	public boolean agnadirActor(int idPelicula,String nombreCompleto) throws SQLException {
 		
-		cargarPeliculas();
-		cargarActorDirectorPelicula();
-		
-		MetodosArtistas a = new MetodosArtistas();
-		a.cogerArtistaBBDD();
-		
-		ConexionManager conManager = new ConexionManager();
-		Connection conexion = conManager.crear();
-		
-		try {
-	
-			if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
-				
-				PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
-				consulta.setString(1, nombreCompleto);
-				consulta.setInt(2, idPelicula);
-				consulta.setBoolean(3, false);
-				consulta.setBoolean(4, true);
-				consulta.execute();
-				conManager.cerrar();
-				
-				a.masUnoCantidadPeliculas(nombreCompleto);
-				
-				JOptionPane.showMessageDialog(null, "Actor introducido en reparto");
-				return true;
-				
-			}else{
-				
-				JOptionPane.showMessageDialog(null, "Debe crear previamente el Artista");
-				return false;
-				
-			}
+		if (idPelicula == 0 || nombreCompleto == null) {
 			
-		}catch(Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Introduce valores validos");
 			return false;
+			
+		}else{
+			
+			cargarPeliculas();
+			cargarActorDirectorPelicula();
+			
+			MetodosArtistas a = new MetodosArtistas();
+			a.cogerArtistaBBDD();
+			
+			ConexionManager conManager = new ConexionManager();
+			Connection conexion = conManager.crear();
+			
+			try {
+				
+				if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+					
+					PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
+					consulta.setString(1, nombreCompleto);
+					consulta.setInt(2, idPelicula);
+					consulta.setBoolean(3, false);
+					consulta.setBoolean(4, true);
+					consulta.execute();
+					conManager.cerrar();
+					
+					a.masUnoCantidadPeliculas(nombreCompleto);
+					
+					JOptionPane.showMessageDialog(null, "Actor introducido en reparto");
+					return true;
+					
+				}else{
+					
+					JOptionPane.showMessageDialog(null, "Debe crear previamente el Artista");
+					return false;
+					
+				}
+				
+			}catch(Exception e) {
+				System.out.println("Excepcion no controlada");
+				e.printStackTrace();
+				return false;
+			}
 		}
 	}
 	
 	public boolean agnadirDirector(int idPelicula,String nombreCompleto) throws SQLException {
 		
-		cargarPeliculas();
-		cargarActorDirectorPelicula();
-		
-		MetodosArtistas a = new MetodosArtistas();
-		a.cogerArtistaBBDD();
-		
-		ConexionManager conManager = new ConexionManager();
-		Connection conexion = conManager.crear();
-		
-		try {
-	
-			if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
-				
-				PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
-				consulta.setString(1, nombreCompleto);
-				consulta.setInt(2, idPelicula);
-				consulta.setBoolean(3, true);
-				consulta.setBoolean(4, false);
-				consulta.execute();
-				conManager.cerrar();
-				
-				a.masUnoCantidadPeliculas(nombreCompleto);
-				
-				JOptionPane.showMessageDialog(null, "Director introducido");
-				return true;
-				
-			}else{
-				
-				JOptionPane.showMessageDialog(null, "Debe crear previamente el Artista");
-				return false;
-				
-			}
+		if (idPelicula == 0 || nombreCompleto == null) {
 			
-		}catch(Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Introduce valores validos");
 			return false;
+			
+		}else{
+			
+			cargarPeliculas();
+			cargarActorDirectorPelicula();
+			
+			MetodosArtistas a = new MetodosArtistas();
+			a.cogerArtistaBBDD();
+			
+			ConexionManager conManager = new ConexionManager();
+			Connection conexion = conManager.crear();
+			
+			try {
+				
+				if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+					
+					PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
+					consulta.setString(1, nombreCompleto);
+					consulta.setInt(2, idPelicula);
+					consulta.setBoolean(3, true);
+					consulta.setBoolean(4, false);
+					consulta.execute();
+					conManager.cerrar();
+					
+					a.masUnoCantidadPeliculas(nombreCompleto);
+					
+					JOptionPane.showMessageDialog(null, "Director introducido");
+					return true;
+					
+				}else{
+					
+					JOptionPane.showMessageDialog(null, "Debe crear previamente el Artista");
+					return false;
+					
+				}
+				
+			}catch(Exception e) {
+				System.out.println("Excepcion no controlada");
+				e.printStackTrace();
+				return false;
+			}
 		}
 	}
 	

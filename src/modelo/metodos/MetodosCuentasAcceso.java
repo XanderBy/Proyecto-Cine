@@ -46,45 +46,53 @@ public class MetodosCuentasAcceso {
 	
 	public boolean nuevaCuentaUsuario(String nomUs, String pass1, String pass2) throws SQLException {
 		
-		cargarCuentasAcceso();
-		
-		try {
+		if (nomUs == null || pass1 == null || pass2 == null) {
 			
-			if (pass1.equals(pass2)) {
+			JOptionPane.showMessageDialog(null, "Introduce valores validos");
+			return false;
+			
+		}else{
+			
+			cargarCuentasAcceso();
+			
+			try {
 				
-				if(MetodosGenerales.encuentraKeyStringHashMap(cuentasUsuario, nomUs)) {
+				if (pass1.equals(pass2)) {
 					
-					JOptionPane.showMessageDialog(null, "Nombre de usuario ya registrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
-					return false;
+					if(MetodosGenerales.encuentraKeyStringHashMap(cuentasUsuario, nomUs)) {
+						
+						JOptionPane.showMessageDialog(null, "Nombre de usuario ya registrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+						return false;
+						
+					}else{
+						
+						ConexionManager conManager = new ConexionManager();
+						Connection conexion = conManager.crear();
+						
+						PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contraseñaAdministrador) VALUES (?, ?)");
+						
+						consulta.setString(1, nomUs);
+						consulta.setString(2, pass1);
+						
+						consulta.execute();
+						conManager.cerrar();
+						
+						cargarCuentasAcceso();
+						
+						//cuentasUsuario.put(nomUs, new CuentasAcceso(nomUs,pass1));
+						return true;
+						
+					}
 					
 				}else{
-					
-					ConexionManager conManager = new ConexionManager();
-					Connection conexion = conManager.crear();
-					
-					PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contraseñaAdministrador) VALUES (?, ?)");
-					
-					consulta.setString(1, nomUs);
-					consulta.setString(2, pass1);
-					
-					consulta.execute();
-					conManager.cerrar();
-					
-					cargarCuentasAcceso();
-					
-					//cuentasUsuario.put(nomUs, new CuentasAcceso(nomUs,pass1));
-					return true;
-					
+					JOptionPane.showMessageDialog(null, "Las contraseñas deben coincidir", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+					return false;
 				}
-
-			}else{
-				JOptionPane.showMessageDialog(null, "Las contraseñas deben coincidir", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+			}catch(Exception e) {
+				System.out.println("Excepcion no controlada");
+				e.printStackTrace();
 				return false;
 			}
-		}catch(Exception e) {
-			System.out.println("Excepcion no controlada");
-			e.printStackTrace();
-			return false;
 		}
 	}
 	

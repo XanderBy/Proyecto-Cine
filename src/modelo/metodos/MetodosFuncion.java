@@ -131,7 +131,7 @@ public class MetodosFuncion extends ConexionManager {
         // se arma la consulta
         String q = " UPDATE funcion " + "SET diayHora = '" + diaYHora + "', PeliculaFuncion = "
                 + peliculaFuncion.getIdPelicula() + ", sala_idSalaCine = '" + salaFuncion.getIdSalaCine() + "'"
-                + "WHERE diaYHora= '" + diaYHoraAntiguo + " '";
+                + "WHERE diayHora= '" + diaYHoraAntiguo + " '";
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);

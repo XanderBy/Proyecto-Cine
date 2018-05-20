@@ -166,7 +166,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         jTextField30 = new javax.swing.JTextField();
         jLabel48 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
         jLabel49 = new javax.swing.JLabel();
         jTextField32 = new javax.swing.JTextField();
         jLabel50 = new javax.swing.JLabel();
@@ -198,6 +197,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jButton25 = new javax.swing.JButton();
         jTextField49 = new javax.swing.JTextField();
         jLabel97 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jInternalFrame8 = new javax.swing.JInternalFrame();
         jLabel61 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -1484,7 +1484,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                 .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jInternalFrame1Layout.createSequentialGroup()
                                         .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1513,8 +1512,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                 .addComponent(jTextField34, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(483, 483, 483)
                                 .addComponent(jButton25, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jTextField49, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox1))
+                        .addGap(0, 732, Short.MAX_VALUE))))
             .addGroup(jInternalFrame1Layout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1551,7 +1551,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCheckBox1))
                         .addGap(11, 11, 11)
                         .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2258,7 +2258,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
-    private javax.swing.JButton jButton25;
+    public javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
@@ -2271,6 +2271,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JButton jButton6;
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButton8;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -2453,11 +2454,10 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField25;
     public javax.swing.JTextField jTextField26;
     public javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
+    public javax.swing.JTextField jTextField28;
+    public javax.swing.JTextField jTextField29;
     public javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
+    public javax.swing.JTextField jTextField30;
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField34;

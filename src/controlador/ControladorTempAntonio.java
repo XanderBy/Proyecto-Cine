@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.time.DateTimeException;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -36,6 +38,12 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 	//Variables
 	//TODO AÑADIR VARIABLES PARA MODIFICAR Y ELIMINAR CON TABLAS
 	
+	public enum accionesAdministrador{
+		
+		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR;
+	}
+	
+	// CONSTRUCTOR DE CLASE
 	public ControladorTempAntonio(PantallaAdministrador pantallaAdministrador) {
 		this.pantallaAdministrador= pantallaAdministrador;
 	}
@@ -53,10 +61,37 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 		} catch (IllegalAccessException ex) {
 		}
 		
+		//Crear pelicula
+		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
+		pantallaAdministrador.jButton25.addActionListener(this);
+		pantallaAdministrador.jButton25.addMouseListener(this);
+		
 	}
 	
 	public void actionPerformed (ActionEvent e) {
 		//para presionar botones
+		switch (accionesAdministrador.valueOf(e.getActionCommand())) {
+		
+		case CREAR_PELICULA:
+			try {
+				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField28.getText());
+				String tituloDistribucion = pantallaAdministrador.jTextField29.getText();
+				String tituloOriginal = pantallaAdministrador.jTextField30.getText();
+				String genero;
+				String idioma;
+				boolean subtitulosEs;
+				String paisOrigen;String sitioWeb;
+				Duration duracionPelicula;
+				String calificacionEdades;
+				LocalDate fechaEstrenoEs;
+				String resumen;
+				int idPelicula;
+				
+				
+			} catch (NumberFormatException e1) {
+                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+            }
+		}
 	}
 	
 	public void mouseEntered(MouseEvent e) {

@@ -191,7 +191,7 @@ public class MetodosPromocion {
 					// promoDescription
 					preparedStatement.setString(2, promoDescription);
 					// 2.2.4.Ejecutamos el preparedStatement
-					preparedStatement.execute();// TODO: COMPROBAR
+					preparedStatement.execute();
 					// 2.2.5.Informamos
 					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 					// 2.2.6. Actualizamos map

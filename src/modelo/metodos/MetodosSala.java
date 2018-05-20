@@ -1,6 +1,5 @@
 package modelo.metodos;
 
-import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,8 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.ConexionManager;
-import modelo.POJOs.Cine;
-import modelo.POJOs.Promocion;
+
 
 public class MetodosSala {
 
@@ -163,7 +161,14 @@ public class MetodosSala {
 			e.printStackTrace();
 		}
 	}
-
+	
+	/**
+	 * Modifica la sala si existe en la BBDD
+	 * @param oldAuditoriumCineId
+	 * @param auditoriumCineId
+	 * @param seatsNumber
+	 * @throws SQLException
+	 */
 	public void modificarSala(String oldAuditoriumCineId, String auditoriumCineId, int seatsNumber)
 			throws SQLException {
 		// 0.Igualamos la clave primaria al valor de auditoriumCineId
@@ -177,7 +182,7 @@ public class MetodosSala {
 		if (oldAuditoriumCineId == null || auditoriumCineId == null || seatsNumber == 0 || auditoriumCode == null) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
 		} else {
-			//if (salas.containsKey(oldPromoDiscount)) {//TODO: Aqui me quedo
+			if (salas.containsKey(oldAuditoriumCineId)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -187,37 +192,37 @@ public class MetodosSala {
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
-							"UPDATE PROMOCION SET DESCUENTOPROMO=?, DESCRIPCIONPROMO=? WHERE DESCUENTOPROMO="
-                                        );//+ oldPromoDiscount);
+							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE IDSALACINE="
+									+ oldAuditoriumCineId);
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
-					// promoDiscount
-					//preparedStatement.setInt(1, promoDiscount);
+					// auditoriumCode
+					preparedStatement.setString(1, auditoriumCode);
 					// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
-					// promoDescription
-					//preparedStatement.setString(2, promoDescription);
-					// 2.2.4.Ejecutamos el preparedStatement
-					preparedStatement.execute();// TODO: COMPROBAR
-					// 2.2.5.Informamos
+					// auditoriumCineId
+					preparedStatement.setString(2, auditoriumCineId);
+					// 2.2.4.Decimos que en el valor desconocido 2 inserte el valor del int
+					// auditoriumCineId
+					preparedStatement.setInt(3, seatsNumber);
+					// 2.2.5.Ejecutamos el preparedStatement
+					preparedStatement.execute();
+					// 2.2.6.Informamos
 					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
-					// 2.2.6. Actualizamos map
-					//cargarPromociones();
+					// 2.2.7. Actualizamos map
+					cargarSalas();
 					// 2.2.7.Cerramos la conexion
 					conexionManager.cerrar();
 				} catch (Exception e) {
 					System.err.println("Excepcion no controlada");
 					e.printStackTrace();
 				}
-			//} else {
-				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
-			//}
+			} else {
+				JOptionPane.showMessageDialog(null, "La sala que busca ya no existe");
+			}
 
 		}
 
 	}
-
-	public void eliminarSala(String auditoriumCineId) {
-
-	}
+	
 
 	/**
 	 * Prepara una tabla para refrescar la contenida en modificar cine (salas cine)

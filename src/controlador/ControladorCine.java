@@ -67,13 +67,13 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		// Declaramos las acciones y aniadimos las escuchas al evento producido por el
 		// componente
-		//Funcion
+		// Funcion
 		this.pantallaAdministrador.jTable2.addMouseListener(this);
 		this.pantallaAdministrador.jTable2.setModel(new DefaultTableModel());
-		
+
 		this.pantallaAdministrador.jTable8.addMouseListener(this);
 		this.pantallaAdministrador.jTable8.setModel(new DefaultTableModel());
-		
+
 		// Cine
 		this.pantallaAdministrador.jTable7.addMouseListener(this);
 		this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
@@ -121,11 +121,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
-		
-		//TABLAS ALE
+
+		// TABLAS ALE
 		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 		pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
-		//pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+		// pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 	}
 
@@ -159,7 +159,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case RECARGAR_TABLA:
-			
 
 			break;
 		case MODIFICAR_CINE:
@@ -189,7 +188,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 					MetodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField21.getText())), null,
 					MetodosPromocion.mapPromocionesCreadas
 							.get(Integer.parseInt(pantallaAdministrador.jTextField22.getText())));
-			
+
 			break;
 		case CREAR_PROMOCION:
 			try {
@@ -217,9 +216,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 			try {
 				String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionModificar.getText();
 				int descuentoPromo = Integer.parseInt(pantallaAdministrador.textoDescuentoPromocionModificar.getText());
-				int antiguoDescuentoPromo=Integer.parseInt(oldPromoDiscount);
-				if (descripcionPromo != null && descuentoPromo != 0) {
-					metodosPromocion.modificarPromocion(antiguoDescuentoPromo,descripcionPromo, descuentoPromo);
+				int antiguoDescuentoPromo = Integer.parseInt(oldPromoDiscount);
+				if (descripcionPromo != null && descuentoPromo != 0 && antiguoDescuentoPromo!=0) {
+					metodosPromocion.modificarPromocion(antiguoDescuentoPromo, descripcionPromo, descuentoPromo);
 				} else {
 					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
 				}
@@ -229,6 +228,21 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e1.printStackTrace();
 			}
 			break;
+		case ELIMINAR_PROMOCION:
+			try {
+				int promoDiscount = Integer.parseInt(oldPromoDiscount);
+				if (promoDiscount!= 0) {
+					metodosPromocion.eliminarPromocion(promoDiscount);
+				} else {
+					JOptionPane.showMessageDialog(null, "La promocion ya no existe");
+				}
+			} catch (NumberFormatException | SQLException e1) {
+				System.err.println("Excepcion SQL no controlada");
+				System.err.println("Excepcion NumberFormatException no controlada");
+				e1.printStackTrace();
+			}
+			break;
+
 		default:
 			System.out.println("Entra en default");
 			break;
@@ -264,23 +278,36 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
 				this.pantallaAdministrador.jTextField8
 						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
-				metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+				metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+						.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
 			}
 		}
 	}
 
 	private void presionarTablaModificarPromocion(java.awt.event.MouseEvent e) {
-		if (e.getButton() == 1)
-		{
+		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.tablaModificarPromocion.rowAtPoint(e.getPoint());
 			if (fila > -1) {
-				oldPromoDiscount=String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1));
+				oldPromoDiscount = String
+						.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1));
 				this.pantallaAdministrador.textoDescuentoPromocionModificar.setText(
-						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1)));//TODO:DEBERIA SER AL REVES?
+						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1)));
 				this.pantallaAdministrador.textoDescripcionPromocionModificar.setText(
-						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 0)));//TODO:DEBERIA SER AL REVES?
-				//Recarga la tabla cada vez que se hace click sobre la misma
+						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 0)));
+				// Recarga la tabla cada vez que se hace click sobre la misma
 				pantallaAdministrador.tablaModificarPromocion.setModel(metodosPromocion.generarTablaPromociones());
+			}
+		}
+	}
+
+	private void presionarTablaEliminarPromocion(java.awt.event.MouseEvent e) {
+		if (e.getButton() == 1) {
+			int fila = this.pantallaAdministrador.tablaEliminarPromocion.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				oldPromoDiscount = String
+						.valueOf(this.pantallaAdministrador.tablaEliminarPromocion.getValueAt(fila, 1));
+				// Recarga la tabla cada vez que se hace click sobre la misma
+				pantallaAdministrador.tablaEliminarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 			}
 		}
 	}
@@ -290,6 +317,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		presionarJTable9(e);
 		presionarJTable7(e);
 		presionarTablaModificarPromocion(e);
+		presionarTablaEliminarPromocion(e);
 	}
 
 	@Override

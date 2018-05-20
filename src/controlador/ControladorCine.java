@@ -125,7 +125,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		//TABLAS ALE
 		pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 		pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
-		pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+		//pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 	}
 
@@ -264,6 +264,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
 				this.pantallaAdministrador.jTextField8
 						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
+				metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
 			}
 		}
 	}

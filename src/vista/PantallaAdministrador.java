@@ -1396,8 +1396,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel55.setText("Género:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel56.setText("Idioma:");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

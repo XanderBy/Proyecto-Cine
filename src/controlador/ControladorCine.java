@@ -317,7 +317,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		presionarJTable9(e);
 		presionarJTable7(e);
 		presionarTablaModificarPromocion(e);
-		//presionarTablaEliminarPromocion(e);
+		///presionarTablaEliminarPromocion(e);
 	}
 
 	@Override

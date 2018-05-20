@@ -177,7 +177,7 @@ public class MetodosSala {
 		if (oldAuditoriumCineId == null || auditoriumCineId == null || seatsNumber == 0 || auditoriumCode == null) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
 		} else {
-			if (salas.containsKey(oldPromoDiscount)) {//TODO: Aqui me quedo
+			//if (salas.containsKey(oldPromoDiscount)) {//TODO: Aqui me quedo
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -188,28 +188,28 @@ public class MetodosSala {
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
 							"UPDATE PROMOCION SET DESCUENTOPROMO=?, DESCRIPCIONPROMO=? WHERE DESCUENTOPROMO="
-									+ oldPromoDiscount);
+                                        );//+ oldPromoDiscount);
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// promoDiscount
-					preparedStatement.setInt(1, promoDiscount);
+					//preparedStatement.setInt(1, promoDiscount);
 					// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
 					// promoDescription
-					preparedStatement.setString(2, promoDescription);
+					//preparedStatement.setString(2, promoDescription);
 					// 2.2.4.Ejecutamos el preparedStatement
 					preparedStatement.execute();// TODO: COMPROBAR
 					// 2.2.5.Informamos
 					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 					// 2.2.6. Actualizamos map
-					cargarPromociones();
+					//cargarPromociones();
 					// 2.2.7.Cerramos la conexion
 					conexionManager.cerrar();
 				} catch (Exception e) {
 					System.err.println("Excepcion no controlada");
 					e.printStackTrace();
 				}
-			} else {
+			//} else {
 				JOptionPane.showMessageDialog(null, "La promocion que busca ya no existe");
-			}
+			//}
 
 		}
 

@@ -83,8 +83,7 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 	public void eliminarFuncionBBDD(LocalDateTime diaYHora) {
 		// se arma la consulta
-                System.out.print("prueba eliminarfuncion");
-		String q = " DELETE FROM funcion WHERE  diayHora= '" + diaYHora+"'";
+		String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -312,7 +311,7 @@ public class MetodosFuncion extends ConexionManager {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
         PreparedStatement pstm = null;
-        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento", "nombre compania"};
+        String[] columNames = {"diayHora", "sala_idSalaCine", "peliculaFuncion", "cine_nombreCine", "promocion_descuento"};
         // obtenemos la cantidad de registros existentes en la tabla y se almacena en la
         // variable "registros"
         // para formar la matriz de datos
@@ -331,7 +330,7 @@ public class MetodosFuncion extends ConexionManager {
             System.err.println(e.getMessage());
         }
         // se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][5];
+        Object[][] data = new String[registros][6];
         try {
             // realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
             // data"
@@ -339,11 +338,12 @@ public class MetodosFuncion extends ConexionManager {
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
-                data[i][0] = res.getString("diayHora");
-                data[i][1] = res.getString("sala_idSalaCine");
-                data[i][2] = res.getString("peliculaFuncion");
-                data[i][3] = res.getString("cine_nombreCine");
-                data[i][4] = res.getString("promocion_descuentoPromo");
+               data[i][0] = res.getString("f.diayHora");
+            data[i][1] = res.getString("fp.funcion_diayHora");
+                data[i][2] = res.getString("sala_idSalaCine");
+                data[i][3] = res.getString("peliculaFuncion");
+                data[i][4] = res.getString("cine_nombreCine");
+                data[i][5] = res.getString("promocion_descuentoPromo");
                 i++;
             }
             res.close();

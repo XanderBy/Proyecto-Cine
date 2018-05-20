@@ -79,7 +79,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 
         this.pantallaAdministrador.jTable11.addMouseListener(this);
         this.pantallaAdministrador.jTable11.setModel(new DefaultTableModel());
-
         // Cine
         this.pantallaAdministrador.jTable7.addMouseListener(this);
         this.pantallaAdministrador.jTable7.setModel(new DefaultTableModel());
@@ -135,7 +134,8 @@ public class ControladorCine implements ActionListener, MouseListener {
         // TABLAS ALE
         pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
         pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
-        // pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+         //coger las funciones del cine no todas
+        pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
         pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
         pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
     }
@@ -169,8 +169,8 @@ public class ControladorCine implements ActionListener, MouseListener {
                 pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
                 pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
                 break;
-            case RECARGAR_TABLA:
-
+            case ELEGIR_FUNCION:
+                 
                 break;
             case MODIFICAR_CINE:
 
@@ -299,6 +299,11 @@ public class ControladorCine implements ActionListener, MouseListener {
             if (fila > -1) {
                 this.pantallaAdministrador.jLabel91
                         .setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
+                try{
+                pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines.get(String.valueOf(this.pantallaAdministrador.jTable2.getValueAt(fila, 0)))));
+                }catch(IllegalArgumentException ew){
+                    System.out.print("no tiene funciones");
+                }
                 this.pantallaAdministrador.jTextField11
                         .setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
                 this.pantallaAdministrador.jTextField12

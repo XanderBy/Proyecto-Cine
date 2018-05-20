@@ -63,8 +63,7 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void modificarFuncion(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
             Pelicula peliculaFuncion, Promocion promocionFuncion, Cine cine_nombreCine) {
-        if (diaYHoraAntiguo == null || diaYHora == null || salaFuncion == null || peliculaFuncion == null
-                || promocionFuncion == null || cine_nombreCine == null) {
+        if (diaYHoraAntiguo == null || diaYHora == null ) {
             JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
         } else {
             // Funciones.remove(diaYHoraAntiguo);
@@ -128,10 +127,11 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
             Pelicula peliculaFuncion, Cine cine_nombre) {
+    	System.out.println("AIUDA");
         // se arma la consulta
-        String q = " UPDATE funcion " + "SET diayHora = '" + diaYHora + "', PeliculaFuncion = "
+        String q = " UPDATE funcion SET diayHora = " + diaYHora + ", PeliculaFuncion = "
                 + peliculaFuncion.getIdPelicula() + ", sala_idSalaCine = '" + salaFuncion.getIdSalaCine() + "'"
-                + "WHERE diayHora= '" + diaYHoraAntiguo + " '";
+                + "WHERE diayHora= " + diaYHoraAntiguo;
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);

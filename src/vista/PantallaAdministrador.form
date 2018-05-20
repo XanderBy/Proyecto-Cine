@@ -2070,7 +2070,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane2" alignment="1" pref="1751" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane2" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -2654,8 +2654,9 @@
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                                   <Component id="jLabel98" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                                   <Component id="jTextField50" min="-2" pref="62" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -2760,12 +2761,14 @@
                                                           <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="3" attributes="0">
-                                                          <Component id="jComboBox9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                                               <Component id="jComboBox6" alignment="3" min="-2" max="-2" attributes="0"/>
                                                               <Component id="jLabel71" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="103" groupAlignment="3" attributes="0">
+                                                              <Component id="jComboBox9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel77" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -2815,7 +2818,7 @@
                                                               </Group>
                                                           </Group>
                                                           <Group type="102" attributes="0">
-                                                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                                                              <EmptySpace pref="18" max="32767" attributes="0"/>
                                                               <Group type="103" groupAlignment="3" attributes="0">
                                                                   <Component id="jTextField41" alignment="3" min="-2" max="-2" attributes="0"/>
                                                                   <Component id="jLabel66" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
@@ -2835,7 +2838,6 @@
                                                           <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jComboBox8" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       </Group>
-                                                      <EmptySpace max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -2858,11 +2860,12 @@
                                               <Component id="jButton29" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jTextField50" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel98" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField50" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">

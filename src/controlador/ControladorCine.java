@@ -137,7 +137,8 @@ public class ControladorCine implements ActionListener, MouseListener {
         pantallaAdministrador.botonAniadirSala.addMouseListener(this);
         
         // Modificar sala
-        //TODO: pantallaAdministrador.tablaSalasModificarCine.
+        pantallaAdministrador.tablaSalasmodificarCine.addMouseListener(this);
+        pantallaAdministrador.tablaSalasmodificarCine.setModel(metodosSala.generarTablaSalas());
         pantallaAdministrador.botonAniadirSala.setActionCommand("ANIADIR_SALA");
         pantallaAdministrador.botonAniadirSala.addActionListener(this);
         pantallaAdministrador.botonAniadirSala.addMouseListener(this);
@@ -229,7 +230,6 @@ public class ControladorCine implements ActionListener, MouseListener {
                         System.err.println("Error SQL");
                         e1.printStackTrace();
                     }
-                    System.out.println("Ok controlador");
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
                 }
@@ -271,7 +271,25 @@ public class ControladorCine implements ActionListener, MouseListener {
                     e1.printStackTrace();
                 }
                 break;
-
+            case ANIADIR_SALA:
+            	String nombreSala=pantallaAdministrador.textoIdSalaCineAniadir.getText();
+            	int numeroButacas=Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
+			try {
+				metodosSala.crearSala(nombreSala, numeroButacas);
+			} catch (NumberFormatException | SQLException e1) {
+				System.err.println("Excepcion SQL no controlada");
+				System.err.println("Excepcion NumberFormatException no controlada");
+				e1.printStackTrace();
+			}
+			try {
+				pantallaAdministrador.textoIdSalaCineAniadir.setText("");
+				pantallaAdministrador.textoNumeroButacasAniadir.setText("0");
+            } catch (Exception e1) {
+                System.err.println("Excepcion no controlada");
+                e1.printStackTrace();
+            }
+			break;
+			
             default:
                 System.out.println("Entra en default");
                 break;

@@ -136,7 +136,42 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 			
 		case MODIFICAR_PELICULA:
 			
+			try {
+				
+				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField28.getText());
+				String tituloDistribucion = pantallaAdministrador.jTextField29.getText();
+				String tituloOriginal = pantallaAdministrador.jTextField30.getText();
+				String genero = pantallaAdministrador.jComboBox1.getName();
+				String idioma = pantallaAdministrador.jComboBox2.getName();
+				boolean subtitulosEs = pantallaAdministrador.jCheckBox1.isSelected();
+				String paisOrigen = pantallaAdministrador.jComboBox11.getName();
+				String sitioWeb = pantallaAdministrador.jTextField32.getText();
+				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField33.getText()));
+				String calificacionEdades = pantallaAdministrador.jComboBox3.getName();
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField49.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				String resumen = pantallaAdministrador.jTextField35.getText();
+				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField34.getText());
+				
+				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen);
+				
+				pantallaAdministrador.jTextField28.setText("");
+				pantallaAdministrador.jTextField29.setText("");
+				pantallaAdministrador.jTextField30.setText("");
+				pantallaAdministrador.jTextField32.setText("");
+				pantallaAdministrador.jTextField33.setText("");
+				pantallaAdministrador.jTextField49.setText("");
+				pantallaAdministrador.jTextField35.setText("");
+				pantallaAdministrador.jTextField34.setText("");
+				
+			} catch (NumberFormatException e1) {
+                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+            } catch (SQLException e1) {
+				System.err.println("Error SQL");
+				e1.printStackTrace();
+			}
 			
+			break;
+		
 		}
 	}
 	

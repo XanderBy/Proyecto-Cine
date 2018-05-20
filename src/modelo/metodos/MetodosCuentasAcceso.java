@@ -88,9 +88,12 @@ public class MetodosCuentasAcceso {
 		}
 	}
 	
-	public boolean iniciarSesion(String nombre, String pass) {
+	public boolean iniciarSesion(String nombre, String pass) throws SQLException {
+		
+		cargarCuentasAcceso();
 		
 		try {
+			
 			if (MetodosGenerales.encuentraKeyStringHashMap(cuentasUsuario, nombre)) {
 				if (cuentasUsuario.get(nombre).getContrasegnaAdminUsuario().equals(pass)) {
 					return true;

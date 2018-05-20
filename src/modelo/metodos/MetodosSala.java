@@ -32,7 +32,7 @@ public class MetodosSala {
 	
 	/**
 	 * Carga las salas existentes en el map
-	 * El valor nameHall (codigoSala) vesta anulado (vale lo mismo que idSalaCine)
+	 * El valor nameHall (codigoSala) esta anulado (vale lo mismo que idSalaCine)
 	 * @throws SQLException
 	 */
 	public void cargarSalas() throws SQLException {
@@ -76,7 +76,7 @@ public class MetodosSala {
 	
 	/**
 	 * 
-	 * @return ArrayList<Integer>: Claves primarias promocion
+	 * @return ArrayList<String>: Claves primarias sala
 	 * @throws SQLException
 	 */
 	public ArrayList<String> obtenerClavesPrimariasSala() throws SQLException {
@@ -104,52 +104,73 @@ public class MetodosSala {
 		return clavesPrimariasSala;
 	}
 
-	// METODO: Crear salas recibiendo por parametro su nombre y numero de asientos. Introduce la sala en el map.
-
-	public Sala crearSala(String auditoriumCineId, int seatsNumber) {//TODO: Estoy aqui
-		Sala s = null;
+	/**
+	 * Crea una sala si no hay otra en la BBDD con el mismo nombre
+	 * @param auditoriumCineId
+	 * @param seatsNumber
+	 * @throws SQLException
+	 */
+	public void crearSala(String auditoriumCineId, int seatsNumber) throws SQLException {
+		//0.Igualamos la clave primaria al valor de auditoriumCineId
+		String auditoriumCode=auditoriumCineId;
+		
+		//1.Cargamos salas en el map
+		cargarSalas();
+		
+		// 2.Obtenemos claves primarias
+		ArrayList<String> clavesPrimariasSalas= obtenerClavesPrimariasSala();
+		
+		//3.Comprobamos que auditorimCineId no coincida con ninguna clave primaria e insertamos
+		
 		try {
-			if (auditoriumCineId == null) {
+			if (auditoriumCineId == null || seatsNumber==0 || auditoriumCode==null) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
+			} else if (clavesPrimariasSalas.contains(auditoriumCode)) {
+				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
 			} else {
-				s = new Sala(auditoriumCineId, seatsNumber);
-				salas.put(auditoriumCineId, s);
+				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
+				// el metodo crear()
+				ConexionManager conexionManager = new ConexionManager();
+				Connection conexion = conexionManager.crear();
+
+				// 2.2 Realizamos la insercion
+				// 2.2.1.Creamos el PreparedStatement: Consulta, con valores desconocidos
+				PreparedStatement preparedStatement = conexion
+						.prepareStatement("INSERT INTO SALA (IDSALACINE, NOMBRESALA, NUMEROBUTACAS) VALUES (?, ?, ?)");
+				// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
+				// auditoriumCode
+				preparedStatement.setString(1, auditoriumCode);
+				// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
+				// auditoriumCineId
+				preparedStatement.setString(2, auditoriumCineId);
+				// 2.2.4.Decimos que en el valor desconocido 2 inserte el valor del String
+				// seatsNumber
+				preparedStatement.setInt(3, seatsNumber);
+				// 2.2.5.Ejecutamos el preparedStatement
+				preparedStatement.execute();
+				// 2.2.6.Cerramos la conexion
+				conexionManager.cerrar();
+				// 2.2.7.Informamos
 				JOptionPane.showMessageDialog(null, "Sala creada correctamente");
+				// 2.2.8. Actualizamos map
+				cargarSalas();
 			}
 		} catch (Exception e) {
-			System.out.println("Excepcion no controlada");
+			System.err.println("Excepcion no controlada al crear sala");
 			e.printStackTrace();
 		}
-		return s;
+	}
+	
+	public void modificarSala() {
+
 	}
 	
 	//METODO: Comprueba si existe la sala en el map listaSalas de la clase Cine. Si existe la elimina, sino informa.
 	
 	public void eliminarSala(Cine c, String auditoriumCineId) {
-		
-		try {
-			if(c==null) {
-				JOptionPane.showMessageDialog(null, "Debe seleccionar un cine");
-			}else {
-				if (c.salasCine.containsKey(auditoriumCineId)) {
-					c.salasCine.remove(auditoriumCineId);
-					JOptionPane.showMessageDialog(null, "Sala eliminada correctamente");
-				} else {
-					JOptionPane.showMessageDialog(null, "La sala que intenta eliminar ya no existe");
-				}
-			}
-		} catch (HeadlessException e) {
-			System.err.println("Excepcion no controlada");
-			e.printStackTrace();
-		}
-		
-
-	}
 	
-	//TODO: Implementar
-
-	public void modificarSala() {
-
 	}
+
+
 
 }

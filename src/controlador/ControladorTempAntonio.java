@@ -76,18 +76,22 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 		//para introducir items en los jcombobox
 		for (GeneroPelicula a : GeneroPelicula.values()) {	
 			pantallaAdministrador.jComboBox1.addItem(a.name());
+			pantallaAdministrador.jComboBox6.addItem(a.name());
 		}
 		
 		for (CalificacionEdades a : CalificacionEdades.values()) {
 			pantallaAdministrador.jComboBox3.addItem(a.name());
+			pantallaAdministrador.jComboBox8.addItem(a.name());
 		}
 		for (IdiomaOriginal a : IdiomaOriginal.values()) {
 			pantallaAdministrador.jComboBox2.addItem(a.name());
+			pantallaAdministrador.jComboBox7.addItem(a.name());
 		}
 		for (Pais a : Pais.values()) {
 			pantallaAdministrador.jComboBox11.addItem(a.name());
 			pantallaAdministrador.jComboBox4.addItem(a.name());
 			pantallaAdministrador.jComboBox5.addItem(a.name());
+			pantallaAdministrador.jComboBox12.addItem(a.name());
 		}
 		for (ValoracionPeli a : ValoracionPeli.values()) {
 			
@@ -141,8 +145,21 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 			
 			try {
 				
+				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField38.getText());
+				String tituloDistribucion = nombrePelicula;
+				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
+				String genero = pantallaAdministrador.jComboBox6.getName();
+				String idioma = pantallaAdministrador.jComboBox7.getName();
+				boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
+				String paisOrigen = pantallaAdministrador.jComboBox12.getName();
+				String sitioWeb = pantallaAdministrador.jTextField42.getText();
+				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
+				String calificacionEdades = pantallaAdministrador.jComboBox8.getName();
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				String resumen = pantallaAdministrador.jTextField45.getText();
+				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField50.getText());
 				
-				
+				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen);
 				
 			} catch (NumberFormatException e1) {
                 JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
@@ -175,9 +192,11 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
 			if (fila>-1) {
 				nombrePelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
+				pantallaAdministrador.jTextField39.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
+				pantallaAdministrador.jTextField50.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
+				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 			}
 		}
-		
 	}
 	
 	public void mouseEntered(MouseEvent e) {

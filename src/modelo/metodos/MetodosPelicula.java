@@ -9,6 +9,8 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 import controlador.ConexionManager;
 import modelo.POJOs.Artista;
 import modelo.POJOs.CalificacionEdades;
@@ -363,5 +365,48 @@ public class MetodosPelicula {
 			return resultado;
 		}
 		return resultado;
+	}
+	
+	public DefaultTableModel generarTablaPeliculas() {
+		
+		DefaultTableModel tablaPeliculas = new DefaultTableModel();
+		Object [][] resultado;
+		String [] nombreColumnas = { "Titulo Distribucion Pelicula","Id Pelicula" };
+		
+		try {
+			
+			ConexionManager conManager = new ConexionManager();
+			Connection conexion = conManager.crear();
+		
+			PreparedStatement consulta = conexion.prepareStatement("SELECT COUNT(*) numPeliculas FROM pelicula");
+			ResultSet resultado1 = consulta.executeQuery();
+			resultado1.next();
+			int numFilas = resultado1.getInt("numPeliculas");
+			resultado1.close();
+			
+			resultado = new Object[numFilas][2];
+			
+			PreparedStatement consulta2 = conexion.prepareStatement("SELECT titulo,idPelicula FROM pelicula");
+			ResultSet resultado2 = consulta.executeQuery();
+			
+			int i = 0;
+			
+			while (resultado2.next()) {
+				
+				String titulo = resultado2.getString("titulo");
+				int idPelicula = resultado2.getInt("idPelicula");
+				
+				resultado[i][0] = titulo;
+				resultado[i][1] = idPelicula;
+				i++;
+			}
+			conManager.cerrar();
+			tablaPeliculas.setDataVector(resultado, nombreColumnas);
+			return tablaPeliculas;
+		}catch(SQLException e) {
+			System.err.println("Excepcion SQL no controlada");
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

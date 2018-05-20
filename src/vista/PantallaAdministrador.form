@@ -481,7 +481,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane23" min="-2" pref="200" max="-2" attributes="0"/>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
@@ -510,8 +510,8 @@
                                   <Component id="jLabel91" min="-2" pref="78" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
@@ -524,20 +524,22 @@
                                               <Component id="textoNumeroButacas" min="-2" pref="78" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="531" max="32767" attributes="0"/>
+                                      <EmptySpace pref="534" max="32767" attributes="0"/>
                                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                                      <Component id="jButton10" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="144" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jScrollPane1" min="-2" pref="308" max="-2" attributes="0"/>
                                           <Component id="textoIdSalaCine" min="-2" pref="175" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jScrollPane7" min="-2" pref="505" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
-                              <Component id="jButton10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="141" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
@@ -545,11 +547,8 @@
                               <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane7" min="-2" pref="195" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
@@ -609,7 +608,7 @@
                                               <Component id="jScrollPane1" min="-2" pref="151" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                                      <EmptySpace pref="39" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="textoIdSalaCine" alignment="3" min="-2" max="-2" attributes="0"/>

@@ -130,7 +130,7 @@ public class MetodosCine extends ConexionManager {
     public void cogerTodosLosCineBBDD() {
         // TODO: Aqui se debe coger todos los cines que esten en la bbdd e introducirlos
         // en el hashmap
-
+        System.out.print("prueba al coger todos los cines");
         PreparedStatement pstm = null;
         try {
             pstm = this.getConexion()
@@ -142,18 +142,17 @@ public class MetodosCine extends ConexionManager {
                         Integer.parseInt(res.getString("telefonoConsulta")),
                         Double.parseDouble(res.getString("precioBase")));
                 Compagnia.listaCines.put(res.getString("nombreCine"), cine);
+                System.out.print("prueba al coger todos los cines");
                 i++;
             }
             res.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-
+        System.out.print("prueba al coger todos los cines1  "+ Compagnia.listaCines.size() + "       ");
     }
 
-   
     // ---------------------------------------------------------
-
     public DefaultTableModel cogerCineBBDDNombre() {
         System.out.println("prueba");
         DefaultTableModel tablemodel = new DefaultTableModel();

@@ -24,13 +24,13 @@ public class MetodosCuentasAcceso {
 		
 		try {
 			
-			PreparedStatement consulta = conexion.prepareStatement("SELECT nombreAcceso,contraseñaAdministrador FROM cuenta_administrador");
+			PreparedStatement consulta = conexion.prepareStatement("SELECT nombreAcceso,contrasenaAdministrador FROM cuenta_administrador");
 			ResultSet resultado = consulta.executeQuery();
 			
 			while(resultado.next()) {
 				
 				nomUsuario=resultado.getString("nombreAcceso");
-				pass = resultado.getString("contraseñaAdministrador");
+				pass = resultado.getString("contrasenaAdministrador");
 				
 				cuentasUsuario.put(nomUsuario, new CuentasAcceso(nomUsuario,pass));
 			}
@@ -69,7 +69,7 @@ public class MetodosCuentasAcceso {
 						ConexionManager conManager = new ConexionManager();
 						Connection conexion = conManager.crear();
 						
-						PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contraseñaAdministrador) VALUES (?, ?)");
+						PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contrasenaAdministrador) VALUES (?, ?)");
 						
 						consulta.setString(1, nomUs);
 						consulta.setString(2, pass1);
@@ -85,7 +85,7 @@ public class MetodosCuentasAcceso {
 					}
 					
 				}else{
-					JOptionPane.showMessageDialog(null, "Las contraseñas deben coincidir", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Las contraseï¿½as deben coincidir", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 					return false;
 				}
 			}catch(Exception e) {

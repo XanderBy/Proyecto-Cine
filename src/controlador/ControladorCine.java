@@ -279,7 +279,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1)));//TODO:DEBERIA SER AL REVES?
 				this.pantallaAdministrador.textoDescripcionPromocionModificar.setText(
 						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 0)));//TODO:DEBERIA SER AL REVES?
-				//Recarga la tabla cada vez que se hace click sobre ella
+				//Recarga la tabla cada vez que se hace click sobre la misma
 				pantallaAdministrador.tablaModificarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 			}
 		}

@@ -118,6 +118,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonModificarPromocion.addMouseListener(this);
 
 		// Eliminar promocion
+		pantallaAdministrador.tablaEliminarPromocion.addMouseListener(this);
+		pantallaAdministrador.tablaEliminarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 		pantallaAdministrador.botonEliminarPromocion.setActionCommand("ELIMINAR_PROMOCION");
 		pantallaAdministrador.botonEliminarPromocion.addActionListener(this);
 		pantallaAdministrador.botonEliminarPromocion.addMouseListener(this);
@@ -228,7 +230,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e1.printStackTrace();
 			}
 			break;
-		/*case ELIMINAR_PROMOCION:
+		case ELIMINAR_PROMOCION:
 			try {
 				int promoDiscount = Integer.parseInt(oldPromoDiscount);
 				if (promoDiscount!= 0) {
@@ -241,7 +243,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				System.err.println("Excepcion NumberFormatException no controlada en eliminar promocion");
 				e1.printStackTrace();
 			}
-			break;*/
+			break;
 
 		default:
 			System.out.println("Entra en default");
@@ -300,7 +302,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		}
 	}
 
-	/*private void presionarTablaEliminarPromocion(java.awt.event.MouseEvent e) {
+	private void presionarTablaEliminarPromocion(java.awt.event.MouseEvent e) {
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.tablaEliminarPromocion.rowAtPoint(e.getPoint());
 			if (fila > -1) {
@@ -310,14 +312,14 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.tablaEliminarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 			}
 		}
-	}*/
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		presionarJTable9(e);
 		presionarJTable7(e);
 		presionarTablaModificarPromocion(e);
-		///presionarTablaEliminarPromocion(e);
+		presionarTablaEliminarPromocion(e);
 	}
 
 	@Override

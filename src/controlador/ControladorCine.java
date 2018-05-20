@@ -321,6 +321,20 @@ public class ControladorCine implements ActionListener, MouseListener {
             }
         }
     }
+    private void presionarJTable6(java.awt.event.MouseEvent e) {
+    	System.out.println("Noseeeee");
+        if (e.getButton() == 1)// boton izquierdo
+        {
+            int fila = this.pantallaAdministrador.jTable6.rowAtPoint(e.getPoint());
+            if (fila > -1) {
+                this.pantallaAdministrador.jTextField23.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 0)));
+                this.pantallaAdministrador.jTextField24.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 1)));
+                this.pantallaAdministrador.jTextField25.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 2)));
+                this.pantallaAdministrador.jTextField26.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 3)));
+               
+            }
+        }
+    }
 
     private void presionarJTable9(java.awt.event.MouseEvent e) {
         if (e.getButton() == 1)// boton izquierdo
@@ -385,6 +399,7 @@ public class ControladorCine implements ActionListener, MouseListener {
         presionarJTable9(e);
         presionarJTable7(e);
         presionarJTable11(e);
+        presionarJTable6(e);
         presionarTablaModificarPromocion(e);//Fijate Antonio
         presionarTablaEliminarPromocion(e);
     }

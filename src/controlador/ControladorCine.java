@@ -36,7 +36,7 @@ public class ControladorCine implements ActionListener, MouseListener {
     public MetodosPelicula metodosPelicula = new MetodosPelicula();
     // Declaracion de variables
     private String now = "2016-11-09 10:30";
-    private DateTimeFormatter formatter;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
     private LocalDateTime formatDateTime;
     private String nombreCineA;
     private String oldPromoDiscount;//Fijate Antonio
@@ -106,7 +106,9 @@ public class ControladorCine implements ActionListener, MouseListener {
         // Modificar Cine
         this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
         this.pantallaAdministrador.jButton6.addActionListener(this);
-
+        //ELIMINAR FUNCION
+         this.pantallaAdministrador.jButton22.setActionCommand("ELIMINAR_FUNCION");
+        this.pantallaAdministrador.jButton22.addActionListener(this);
         // Aniadir Funcion
         this.pantallaAdministrador.jButton30.setActionCommand("ANIADIR_FUNCION");
         this.pantallaAdministrador.jButton30.addActionListener(this);
@@ -184,7 +186,7 @@ public class ControladorCine implements ActionListener, MouseListener {
                 
                 now = pantallaAdministrador.jTextField19.getText();
 
-                formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                
 
                 formatDateTime = LocalDateTime.parse(now, formatter);
 
@@ -199,11 +201,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 
                 break;
             case ELIMINAR_FUNCION:
-                now = pantallaAdministrador.jTextField19.getText();
-                formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+                now = pantallaAdministrador.jTextField27.getText();
 
                 formatDateTime = LocalDateTime.parse(now, formatter);
-                metodosFuncion.eliminarFuncion(formatDateTime);
+                System.out.print("pruebaaaaaaaaaa");
+                metodosFuncion.eliminarFuncion(formatDateTime );
                 break;
             case CREAR_PROMOCION:
                 try {

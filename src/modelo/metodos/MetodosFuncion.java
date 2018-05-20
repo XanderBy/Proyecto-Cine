@@ -83,7 +83,8 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 	public void eliminarFuncionBBDD(LocalDateTime diaYHora) {
 		// se arma la consulta
-		String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
+                System.out.print("prueba eliminarfuncion");
+		String q = " DELETE FROM funcion WHERE  diayHora= '" + diaYHora+"'";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

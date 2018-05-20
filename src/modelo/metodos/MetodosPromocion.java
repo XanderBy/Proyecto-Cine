@@ -265,7 +265,7 @@ public class MetodosPromocion {
 		// 1.Declaramos defaultTableModel,matriz tipo Object y string
 		DefaultTableModel tablaPromocion = new DefaultTableModel();
 		Object[][] resultado;
-		String[] columnNames = { "Descuento promocion", "Descripcion promocion" };
+		String[] columnNames = { "Descripcion promocion", "Descuento promocion" };
 		// 2.Abrimos la conexion
 		try {
 			ConexionManager conexionManager = new ConexionManager();

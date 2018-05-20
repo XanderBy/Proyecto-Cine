@@ -270,15 +270,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 	}
 
 	private void presionarTablaModificarPromocion(java.awt.event.MouseEvent e) {
-		if (e.getButton() == 1)// boton izquierdo
+		if (e.getButton() == 1)
 		{
 			int fila = this.pantallaAdministrador.tablaModificarPromocion.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				oldPromoDiscount=String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1));
 				this.pantallaAdministrador.textoDescuentoPromocionModificar.setText(
-						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1)));//TODO:DEBERIA SER AL REVES
+						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 1)));//TODO:DEBERIA SER AL REVES?
 				this.pantallaAdministrador.textoDescripcionPromocionModificar.setText(
-						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 0)));//TODO:DEBERIA SER AL REVES
+						String.valueOf(this.pantallaAdministrador.tablaModificarPromocion.getValueAt(fila, 0)));//TODO:DEBERIA SER AL REVES?
+				//Recarga la tabla cada vez que se hace click sobre ella
+				pantallaAdministrador.tablaModificarPromocion.setModel(metodosPromocion.generarTablaPromociones());
 			}
 		}
 	}

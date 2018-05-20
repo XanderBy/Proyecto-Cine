@@ -78,10 +78,42 @@ public class MetodosPelicula {
 		}
 	}
 	
-	public void cargarActorDirectorPelicula() {
+	public void cargarActorDirectorPelicula() throws SQLException {
 		//TODO hacer metodo
 		
-		peliculas.get(idPelicula).addArtistaReparto(new Artista(nombreCompleto,nacionalidad),roll);
+		int idPelicula;
+		String nombreCompleto;
+		Pais nacionalidad;
+		boolean actor;
+		boolean director;
+		
+		ConexionManager conManager = new ConexionManager();
+		Connection conexion = conManager.crear();
+		
+		try {
+			
+			PreparedStatement consulta = conexion.prepareStatement("SELECT pelicula_idPelicula, artista_nombreCompleto,director,actor,nacionalidad FROM artistapelicula ap JOIN artista a ON ap.artista_nombreCompleto = a.nombreCompleto");
+			ResultSet resultado = consulta.executeQuery();
+			
+			while(resultado.next()) {
+				idPelicula = resultado.getInt("pelicula_idPelicula");
+				nombreCompleto = resultado.getString("artista_nombreCompleto");
+				director = resultado.getBoolean("director");
+				actor = resultado.getBoolean("actor");
+				nacionalidad = Pais.valueOf(resultado.getString("nacionalidad").toUpperCase());
+				
+				if (director) {
+					peliculas.get(idPelicula).addDirector(new Artista (nombreCompleto,nacionalidad));
+				}
+				if (actor) {
+					peliculas.get(idPelicula).addArtistaReparto(new Artista(nombreCompleto,nacionalidad));
+				}
+			}
+			
+		} catch (Exception e) {
+			System.err.println("Excepcion no controlada");
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) throws SQLException {

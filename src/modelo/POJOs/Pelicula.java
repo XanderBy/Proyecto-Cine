@@ -165,9 +165,9 @@ public class Pelicula {
 		this.opiniones = opiniones;
 	}
 	
-	public void addArtistaReparto(Artista a, String roll) {
+	public void addArtistaReparto(Artista a) {
 		
-		repartoPelicula.put(a.getNombreCompleto(), roll);
+		repartoPelicula.put(a.getNombreCompleto(),a.getNacionalidad().name());
 		
 	}
 	

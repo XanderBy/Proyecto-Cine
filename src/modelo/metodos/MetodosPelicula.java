@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import controlador.ConexionManager;
+import modelo.POJOs.Artista;
 import modelo.POJOs.CalificacionEdades;
 import modelo.POJOs.GeneroPelicula;
 import modelo.POJOs.IdiomaOriginal;
@@ -75,6 +76,12 @@ public class MetodosPelicula {
 			System.err.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
+	}
+	
+	public void cargarActorDirectorPelicula() {
+		//TODO hacer metodo
+		
+		peliculas.get(idPelicula).addArtistaReparto(new Artista(nombreCompleto,nacionalidad),roll);
 	}
 	
 	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) throws SQLException {
@@ -172,22 +179,40 @@ public class MetodosPelicula {
 
 	}
 	
-	/*public boolean agnadirActor(int idPelicula,String nombreCompleto, Pais nacionalidad,String roll) throws SQLException {
+	public boolean agnadirActor(int idPelicula,String nombreCompleto) throws SQLException {
 		
-		//cargarPeliculas();
+		cargarPeliculas();
+		cargarActorDirectorPelicula();
 		
-		//MetodosArtistas a = new MetodosArtistas();
-		//a.cogerArtistaBBDD();
+		MetodosArtistas a = new MetodosArtistas();
+		a.cogerArtistaBBDD();
 		
-		
-		//if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
-			
-		//}
+		ConexionManager conManager = new ConexionManager();
+		Connection conexion = conManager.crear();
 		
 		try {
-			
-			peliculas.get(idPelicula).addArtistaReparto(new Artista(nombreCompleto,nacionalidad),roll);
-			return true;
+	
+			if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+				
+				PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
+				consulta.setString(1, nombreCompleto);
+				consulta.setInt(2, idPelicula);
+				consulta.setBoolean(3, false);
+				consulta.setBoolean(4, true);
+				consulta.execute();
+				conManager.cerrar();
+				
+				a.masUnoCantidadPeliculas(nombreCompleto);
+				
+				JOptionPane.showMessageDialog(null, "Actor introducido en reparto");
+				return true;
+				
+			}else{
+				
+				JOptionPane.showMessageDialog(null, "Debe crear previamente el Artista");
+				return false;
+				
+			}
 			
 		}catch(Exception e) {
 			System.out.println("Excepcion no controlada");
@@ -196,18 +221,47 @@ public class MetodosPelicula {
 		}
 	}
 	
-	public boolean agnadirDirector(int idPelicula,String nombreCompleto,Pais nacionalidad) {
+	public boolean agnadirDirector(int idPelicula,String nombreCompleto) throws SQLException {
+		
+		cargarPeliculas();
+		cargarActorDirectorPelicula();
+		
+		MetodosArtistas a = new MetodosArtistas();
+		a.cogerArtistaBBDD();
+		
+		ConexionManager conManager = new ConexionManager();
+		Connection conexion = conManager.crear();
+		
 		try {
-			
-			peliculas.get(idPelicula).addDirector(new Artista(nombreCompleto,nacionalidad));
-			return true;
+	
+			if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+				
+				PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
+				consulta.setString(1, nombreCompleto);
+				consulta.setInt(2, idPelicula);
+				consulta.setBoolean(3, true);
+				consulta.setBoolean(4, false);
+				consulta.execute();
+				conManager.cerrar();
+				
+				a.masUnoCantidadPeliculas(nombreCompleto);
+				
+				JOptionPane.showMessageDialog(null, "Director introducido");
+				return true;
+				
+			}else{
+				
+				JOptionPane.showMessageDialog(null, "Debe crear previamente el Artista");
+				return false;
+				
+			}
 			
 		}catch(Exception e) {
 			System.out.println("Excepcion no controlada");
 			e.printStackTrace();
 			return false;
 		}
-	}*/
+	}
 	
 	public boolean eliminarPelicula(String nombre) throws SQLException {
 		

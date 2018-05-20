@@ -1,12 +1,18 @@
 package modelo.metodos;
 
 import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import modelo.POJOs.Sala;
 
 import javax.swing.JOptionPane;
 
+import controlador.ConexionManager;
 import modelo.POJOs.Cine;
+import modelo.POJOs.Promocion;
 
 public class MetodosSala {
 
@@ -18,6 +24,45 @@ public class MetodosSala {
 
 	public MetodosSala() {
 
+	}
+	
+	public void cargarSalas() throws SQLException {
+		// 1.Declaramos map y variables
+		HashMap<String, Sala> loadHalls = new HashMap<String, Sala>();
+		
+		String idHallCine,nameHall;
+		int seatsNumber;
+		Sala s;
+		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
+		// metodo crear()
+		ConexionManager conexionManager = new ConexionManager();
+		Connection conexion = conexionManager.crear();
+
+		try {
+
+			// 2.1.Creamos statement
+			PreparedStatement consulta = conexion
+					.prepareStatement("SELECT IDSALACINE,NOMBRESALA,NUMEROBUTACAS FROM SALA");
+			// 2.2.Preparamos el ResultSet
+			ResultSet resultado = consulta.executeQuery();
+			// 2.3.Iteramos sobre las tuplas de la base de datos
+			while (resultado.next()) {
+				idHallCine = resultado.getString("IDSALACINE");
+				nameHall = resultado.getString("NOMBRESALA");
+				seatsNumber= resultado.getInt("NUMEROBUTACAS");
+				s = new Sala(idHallCine, seatsNumber);
+				loadHalls.put(idHallCine, s);
+			}
+
+		} catch (Exception e) {
+			System.err.println("Excepcion no controlada");
+			e.printStackTrace();
+		}
+
+		// 3.Actualizamos map
+		salas = loadHalls;
+		// 4.Cerramos la conexion
+		conexionManager.cerrar();
 	}
 
 	// METODO: Crear salas recibiendo por parametro su nombre y numero de asientos. Introduce la sala en el map.

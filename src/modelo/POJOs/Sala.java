@@ -4,20 +4,19 @@ public class Sala {
 	
 	//VARIABLES Y CONSTANTES
 	
-	private String idSalaCine;
+	private String idSalaCine, codigoSala;
 	private int numeroButacas;
-	private static int codigoSala=0;
 	
 	//CONSTRUCTORES
 	
 	public Sala(){
-		codigoSala=codigoSala++;
+
 	}
 	
 	public Sala(String auditoriumCineId, int seatsNumber){
 		idSalaCine=auditoriumCineId;
 		numeroButacas=seatsNumber;
-		codigoSala=codigoSala++;
+		codigoSala=idSalaCine;
 	}
 	
 	//ACCEDENTES Y MUTADORES
@@ -38,19 +37,12 @@ public class Sala {
 		this.numeroButacas = numeroButacas;
 	}
 
-	public static int getCodigoSala() {
-		return codigoSala;
-	}
-	
-	public static void setCodigoSala(int codigoSala) {
-		Sala.codigoSala = codigoSala;
-	}
 	
 	//METODO TOSTRING
 
 	@Override
 	public String toString() {
-		return "La sala "+ getIdSalaCine()+ " con codigo "+ getCodigoSala()+ ", tiene "+getNumeroButacas()+" butacas";
+		return "La sala "+ getIdSalaCine()+ " tiene "+getNumeroButacas()+" butacas";
 	}
 
 }

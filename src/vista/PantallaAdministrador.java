@@ -2423,7 +2423,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTable jTable1;
     public javax.swing.JTable jTable10;
     public javax.swing.JTable jTable11;
-    private javax.swing.JTable jTable13;
+    public javax.swing.JTable jTable13;
     public javax.swing.JTable jTable2;
     public javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;

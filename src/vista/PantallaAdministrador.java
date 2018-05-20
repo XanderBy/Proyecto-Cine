@@ -67,7 +67,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         botonModificarSala = new javax.swing.JButton();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
-        botonElegirSalas = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
@@ -528,8 +527,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        botonElegirSalas.setText("Elegir Sala");
-
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -564,17 +561,17 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         tablaSalasmodificarCine.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID Sala", "Numero butacas"
+                "ID Sala", "Nombre Sala", "Numero butacas"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -594,7 +591,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
             .addGroup(jInternalFrame13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane23, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
@@ -620,20 +617,14 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                     .addGroup(jInternalFrame13Layout.createSequentialGroup()
                         .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(botonModificarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel19)
-                                    .addGroup(jInternalFrame13Layout.createSequentialGroup()
-                                        .addComponent(jLabel17)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
-                                .addComponent(botonElegirSalas)
-                                .addGap(315, 315, 315)))
+                                .addGap(54, 54, 54)
+                                .addComponent(botonModificarSala, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel19)
+                            .addGroup(jInternalFrame13Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(18, 18, 18)
+                                .addComponent(textoNumeroButacas, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 531, Short.MAX_VALUE)
                         .addComponent(jButton5))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createSequentialGroup()
                         .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -642,7 +633,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(98, 98, 98)
                 .addComponent(jButton10)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame13Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(jLabel88)
@@ -675,8 +666,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                 .addGap(33, 33, 33)
                                 .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton5)
-                                    .addComponent(jButton10)
-                                    .addComponent(botonElegirSalas)))
+                                    .addComponent(jButton10)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jInternalFrame13Layout.createSequentialGroup()
                                     .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -699,7 +689,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                         .addComponent(jLabel18)
                                         .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(jInternalFrame13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
                             .addComponent(textoIdSalaCine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2253,7 +2243,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.ButtonGroup GestionAdministrador;
     public javax.swing.JButton botonAniadirPromocion;
     public javax.swing.JButton botonAniadirSala;
-    public javax.swing.JButton botonElegirSalas;
     public javax.swing.JButton botonEliminarPromocion;
     public javax.swing.JButton botonModificarPromocion;
     public javax.swing.JButton botonModificarSala;

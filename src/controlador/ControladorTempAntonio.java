@@ -33,7 +33,8 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 	public MetodosPromocion metodosPromocion = new MetodosPromocion();
 	public MetodosSala metodosSala = new MetodosSala();
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
-	
+	//Variables
+	//TODO AÑADIR VARIABLES PARA MODIFICAR Y ELIMINAR CON TABLAS
 	
 	public ControladorTempAntonio(PantallaAdministrador pantallaAdministrador) {
 		this.pantallaAdministrador= pantallaAdministrador;

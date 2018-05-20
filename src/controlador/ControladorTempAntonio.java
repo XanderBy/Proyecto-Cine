@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -20,6 +21,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
 import modelo.POJOs.Compagnia;
+import modelo.POJOs.GeneroPelicula;
 import modelo.metodos.MetodosCine;
 import modelo.metodos.MetodosFuncion;
 import modelo.metodos.MetodosPelicula;
@@ -37,6 +39,7 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 	public MetodosSala metodosSala = new MetodosSala();
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
 	//Variables
+	
 	//TODO AÑADIR VARIABLES PARA MODIFICAR Y ELIMINAR CON TABLAS
 	
 	public enum accionesAdministrador{
@@ -66,6 +69,12 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
 		pantallaAdministrador.jButton25.addActionListener(this);
 		pantallaAdministrador.jButton25.addMouseListener(this);
+		
+		for (GeneroPelicula a : GeneroPelicula.values()) {
+			
+			pantallaAdministrador.jComboBox1.addItem(a.name());
+			
+		}
 		
 	}
 	

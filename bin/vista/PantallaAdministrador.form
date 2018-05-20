@@ -2210,7 +2210,7 @@
                                           <Component id="jTextField49" min="-2" pref="62" max="-2" attributes="0"/>
                                           <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="732" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="693" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2384,7 +2384,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel52">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Fecha de estreno:"/>
+                        <Property name="text" type="java.lang.String" value="Fecha de estreno: (dd/MM/yyy)"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField34">

@@ -1398,13 +1398,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel56.setText("Idioma:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel54.setText("minutos");
 
         jLabel51.setText("Calificación por edades:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1417,8 +1413,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel57.setText("Nacionalidad:");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton23.setText("Insertar director");
 
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -1428,17 +1422,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel60.setText("Nacionalidad:");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton24.setText("Insertar actor(iz)");
 
         jButton25.setText("INSERTAR PELÍCULA");
 
         jLabel97.setText("Id Pelicula:");
 
-        jLabel100.setText("Idioma Origen");
-
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel100.setText("Pais Origen");
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
         jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
@@ -2289,8 +2279,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jComboBox11;
     public javax.swing.JComboBox<String> jComboBox2;
     public javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
+    public javax.swing.JComboBox<String> jComboBox4;
+    public javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;

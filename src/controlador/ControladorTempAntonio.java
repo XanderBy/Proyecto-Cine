@@ -20,8 +20,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.POJOs.CalificacionEdades;
 import modelo.POJOs.Compagnia;
 import modelo.POJOs.GeneroPelicula;
+import modelo.POJOs.IdiomaOriginal;
+import modelo.POJOs.Pais;
+import modelo.POJOs.ValoracionPeli;
 import modelo.metodos.MetodosCine;
 import modelo.metodos.MetodosFuncion;
 import modelo.metodos.MetodosPelicula;
@@ -68,9 +72,23 @@ public class ControladorTempAntonio implements ActionListener, MouseListener{
 		pantallaAdministrador.jButton25.addActionListener(this);
 		pantallaAdministrador.jButton25.addMouseListener(this);
 		
-		for (GeneroPelicula a : GeneroPelicula.values()) {
-			
+		//para introducir items en los jcombobox
+		for (GeneroPelicula a : GeneroPelicula.values()) {	
 			pantallaAdministrador.jComboBox1.addItem(a.name());
+		}
+		
+		for (CalificacionEdades a : CalificacionEdades.values()) {
+			pantallaAdministrador.jComboBox3.addItem(a.name());
+		}
+		for (IdiomaOriginal a : IdiomaOriginal.values()) {
+			pantallaAdministrador.jComboBox2.addItem(a.name());
+		}
+		for (Pais a : Pais.values()) {
+			pantallaAdministrador.jComboBox11.addItem(a.name());
+			pantallaAdministrador.jComboBox4.addItem(a.name());
+			pantallaAdministrador.jComboBox5.addItem(a.name());
+		}
+		for (ValoracionPeli a : ValoracionPeli.values()) {
 			
 		}
 		

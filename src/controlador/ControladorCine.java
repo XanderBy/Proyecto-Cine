@@ -607,7 +607,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.tablaSalasmodificarCine.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				oldNombreSal = String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1));
-				System.out.println(oldNombreSal+"Comprobando old nombre sala");//TODO: Comprobando el valor nulo
+				System.out.println(oldNombreSal+" presionada tabla");//TODO: Comprobando el valor nulo
 				this.pantallaAdministrador.textoIdSalaCine.setText(String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1)));
 				this.pantallaAdministrador.textoNumeroButacas.setText(String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 2)));
 				// Recarga la tabla cada vez que se hace click sobre la misma

@@ -1728,7 +1728,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Titulo Distribucion Pelicula", "Id Pelicula"
+                "titulo", "idPelicula"
             }
         ));
         jScrollPane3.setViewportView(jTable13);

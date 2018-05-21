@@ -256,7 +256,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case ANIADIR_FUNCION_CINE:
 			
-			//metodosFuncion.actualizarFuncionCineBBDD(diaYHoraAntiguo, diaYHora, salaFuncion, peliculaFuncion, cine_nombre);
+			//metodosFuncion.actualizarFuncionCineBBDD(diaYHoraAntiguo, cine_nombre);
 			
 			break;
 		case CREAR_PROMOCION:

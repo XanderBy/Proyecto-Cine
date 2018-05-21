@@ -10,7 +10,6 @@ public class Main {
 		 */
 
 		new ControladorCine(new PantallaAdministrador()).Iniciar();
-		//new ControladorTempAntonio(new PantallaAdministrador()).Iniciar();
 		
 		/*
 		 * CrearUsuario cu = new CrearUsuario(); cu.setVisible(true);

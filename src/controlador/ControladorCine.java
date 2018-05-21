@@ -166,7 +166,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 	}
 
 	@Override

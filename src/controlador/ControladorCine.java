@@ -46,7 +46,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
 		// ultimo
 		// dudo
-		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA
+		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE
 	}
 
 	// CONSTRUCTOR DE CLASE
@@ -303,6 +303,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e1.printStackTrace();
 			}
 			break;
+		case MODIFICAR_SALA:
 
 		default:
 			System.out.println("Entra en default");

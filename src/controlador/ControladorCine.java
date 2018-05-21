@@ -208,6 +208,13 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jButton29.setActionCommand("MODIFICAR_PELICULA");
 		pantallaAdministrador.jButton29.addActionListener(this);
 		pantallaAdministrador.jButton29.addMouseListener(this);
+		
+		//Eliminar pelicula
+		pantallaAdministrador.jTable3.addMouseListener(this);
+		pantallaAdministrador.jTable3.setModel(metodosPromocion.generarTablaPromociones());
+		pantallaAdministrador.jButton31.setActionCommand("ELIMINAR_PROMOCION");
+		pantallaAdministrador.jButton31.addActionListener(this);
+		pantallaAdministrador.jButton31.addMouseListener(this);
 
 		// para introducir items en los jcombobox
 		for (GeneroPelicula a : GeneroPelicula.values()) {
@@ -527,6 +534,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				int id = Integer.parseInt(idPelicula);
 				if (id != 0) {
 					metodosPelicula.eliminarPelicula(id);
+					pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
 				} else {
 					JOptionPane.showMessageDialog(null, "La pelicula no existe");
 				}

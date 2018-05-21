@@ -610,6 +610,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+	
+	private void clickTablaModificarPelicula(java.awt.event.MouseEvent e) {
+		
+		if (e.getButton() == 1) {
+			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
+			if (fila>-1) {
+				nombrePelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
+				pantallaAdministrador.jTextField39.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
+				pantallaAdministrador.jTextField50.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
+				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
+			}
+		}
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -626,6 +639,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		presionarTablaModificarPromocion(e);// Fijate Antonio
 		presionarTablaEliminarPromocion(e);
 		presionarTablaModificarSala(e);
+		clickTablaModificarPelicula(e);
 	}
 
 	@Override

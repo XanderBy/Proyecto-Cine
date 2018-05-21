@@ -550,6 +550,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+	private void presionarJTable1(java.awt.event.MouseEvent e) {
+
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaAdministrador.jTable12.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				pantallaAdministrador.jLabel106
+						.setText(String.valueOf(this.pantallaAdministrador.jTable1.getValueAt(fila, 0)));
+			}
+		}
+	}
 
 	private void presionarJTable2(java.awt.event.MouseEvent e) {
 
@@ -713,6 +724,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
+		presionarJTable1(e);
 		presionarJTable12(e);
 		presionarJTable7(e);
 		presionarJTable11(e);

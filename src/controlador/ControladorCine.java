@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.time.DateTimeException;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -386,6 +388,78 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e1.printStackTrace();
 			}
 			break;
+		case CREAR_PELICULA:
+			try {
+				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField28.getText());
+				String tituloDistribucion = pantallaAdministrador.jTextField29.getText();
+				String tituloOriginal = pantallaAdministrador.jTextField30.getText();
+				String genero = pantallaAdministrador.jComboBox1.getSelectedItem().toString();
+				String idioma = pantallaAdministrador.jComboBox2.getSelectedItem().toString();
+				boolean subtitulosEs = pantallaAdministrador.jCheckBox1.isSelected();
+				String paisOrigen = pantallaAdministrador.jComboBox11.getSelectedItem().toString();
+				String sitioWeb = pantallaAdministrador.jTextField32.getText();
+				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField33.getText()));
+				String calificacionEdades = pantallaAdministrador.jComboBox3.getSelectedItem().toString();
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField49.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				String resumen = pantallaAdministrador.jTextField35.getText();
+				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField34.getText());
+				
+				metodosPelicula.agnadirPelicula(agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen, idPelicula);
+				
+				pantallaAdministrador.jTextField28.setText("");
+				pantallaAdministrador.jTextField29.setText("");
+				pantallaAdministrador.jTextField30.setText("");
+				pantallaAdministrador.jTextField32.setText("");
+				pantallaAdministrador.jTextField33.setText("");
+				pantallaAdministrador.jTextField49.setText("");
+				pantallaAdministrador.jTextField35.setText("");
+				pantallaAdministrador.jTextField34.setText("");
+				
+			} catch (NumberFormatException e1) {
+                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+            } catch (SQLException e1) {
+				System.err.println("Error SQL");
+				e1.printStackTrace();
+			}
+			break;
+		case MODIFICAR_PELICULA:
+			try {
+				
+				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField38.getText());
+				String tituloDistribucion = nombrePelicula;
+				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
+				String genero = pantallaAdministrador.jComboBox6.getName();
+				String idioma = pantallaAdministrador.jComboBox7.getName();
+				boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
+				String paisOrigen = pantallaAdministrador.jComboBox12.getName();
+				String sitioWeb = pantallaAdministrador.jTextField42.getText();
+				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
+				String calificacionEdades = pantallaAdministrador.jComboBox8.getName();
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				String resumen = pantallaAdministrador.jTextField45.getText();
+				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField50.getText());
+				
+				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen);
+				
+			} catch (NumberFormatException e1) {
+                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+            } catch (SQLException e1) {
+				System.err.println("Error SQL");
+				e1.printStackTrace();
+			}
+			break;
+		case ELIMINAR_PELICULA:
+			
+//			try {
+//				
+//				
+//				
+//			} catch (NumberFormatException e1) {
+//                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+//            } catch (SQLException e1) {
+//				System.err.println("Error SQL");
+//				e1.printStackTrace();
+//			}
 		default:
 			System.out.println("Entra en default");
 			break;

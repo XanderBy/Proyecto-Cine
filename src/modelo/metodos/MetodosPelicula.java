@@ -371,7 +371,7 @@ public class MetodosPelicula {
 		
 		DefaultTableModel tablaPeliculas = new DefaultTableModel();
 		Object [][] resultado;
-		String [] nombreColumnas = { "Titulo Distribucion Pelicula","Id Pelicula" };
+		String [] nombreColumnas = { "titulo","idPelicula" };
 		
 		try {
 			

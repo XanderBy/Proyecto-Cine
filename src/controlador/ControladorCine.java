@@ -156,7 +156,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Modificar sala
 		pantallaAdministrador.tablaSalasmodificarCine.addMouseListener(this);
 		pantallaAdministrador.tablaSalasmodificarCine.setModel(metodosSala.generarTablaSalas());
-		pantallaAdministrador.botonModificarSala.setActionCommand("ANIADIR_SALA");
+		pantallaAdministrador.botonModificarSala.setActionCommand("MODIFICAR_SALA");
 		pantallaAdministrador.botonModificarSala.addActionListener(this);
 		pantallaAdministrador.botonModificarSala.addMouseListener(this);
 

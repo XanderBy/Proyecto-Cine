@@ -36,6 +36,9 @@ public class MetodosSala {
 	 * @throws SQLException
 	 */
 	public void cargarSalas() throws SQLException {
+		//0.Declaramos map
+		HashMap<String,Sala> cargaSalas=new HashMap<String,Sala>();
+		
 		// 1.Variables
 		Cine c = new Cine();// Para acceder a salasCine
 		String idSalCine, nombreSal;
@@ -61,16 +64,18 @@ public class MetodosSala {
 				numButacas = resultado.getInt("NUMEROBUTACAS");
 				s = new Sala(idSalCine, numButacas);
 				s.setIdSalaCine(idSalCine);
-				salas.put(idSalCine, s);
-				c.salasCine.put(idSalCine, s);
+				cargaSalas.put(idSalCine, s);
 			}
 
 		} catch (Exception e) {
 			System.err.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
-
-		// 3.Cerramos la conexion
+		//3.Actualizamos maps
+		salas=cargaSalas;
+		c.salasCine=cargaSalas;
+		
+		// 4.Cerramos la conexion
 		conexionManager.cerrar();
 	}
 
@@ -99,7 +104,6 @@ public class MetodosSala {
 		}
 		// 2.4.Cerramos la conexion
 		conexionManager.cerrar();
-
 		// 2.5.Devolvemos claves primarias promocion
 		return clavesPrimariasSala;
 	}
@@ -176,6 +180,7 @@ public class MetodosSala {
 		//0.Declaramos valor idSalaCine
 		String idSalCine=nombreCin.concat(nombreSal);
 		String oldIdSalaCine=nombreCin.concat(oldNombreSala);
+		System.out.println(oldIdSalaCine);
 
 		// 1.Cargamos salas en el map y generamos la tabla
 		cargarSalas();
@@ -212,13 +217,14 @@ public class MetodosSala {
 					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 					// 2.2.7. Actualizamos map
 					cargarSalas();
-					// 2.2.7.Cerramos la conexion
+					// 2.2.8.Cerramos la conexion
 					conexionManager.cerrar();
 				} catch (Exception e) {
 					System.err.println("Excepcion no controlada");
 					e.printStackTrace();
 				}
 			} else {
+				System.out.println(oldIdSalaCine);
 				JOptionPane.showMessageDialog(null, "La sala que busca ya no existe");
 			}
 

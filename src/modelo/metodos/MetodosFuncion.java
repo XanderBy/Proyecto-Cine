@@ -61,7 +61,7 @@ public class MetodosFuncion extends ConexionManager {
     public void eliminarFuncionCine(LocalDateTime diaYHora) {
         // Funciones.remove(diaYHora);
 
-        eliminarFuncionBBDD(diaYHora);
+        eliminarFuncionCineBBDD(diaYHora);
         // eliminarFuncionesArray();// TODO:Aqui a lo mejor de error
         // cogerTodasLasFuncionesBBDD();
         JOptionPane.showMessageDialog(null, "Funcion Eliminada");
@@ -100,7 +100,8 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void eliminarFuncionBBDD(LocalDateTime diaYHora) {
         // se arma la consulta
-        String q = " DELETE FROM funcion WHERE  diaYHora='" + diaYHora + "' ";
+       // String q = " DELETE FROM funcion  WHERE  diaYHora='" + diaYHora + "' ";
+    	String q= "DELETE FROM FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora WHERE diayHora='"+ diaYHora+"'";
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -377,7 +378,7 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
 
     public DefaultTableModel cogerFuncionBBDDTodo() {
-        System.out.println("prueba");
+        System.out.println("prueba1");
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0;
         PreparedStatement pstm = null;
@@ -386,8 +387,9 @@ public class MetodosFuncion extends ConexionManager {
         // variable "registros"
         // para formar la matriz de datos
         try {
-            System.out.println("pruebass");
+            System.out.println("pruebass1");
             pstm = getConexion().prepareStatement("SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+            System.out.println("pruebas2");
             ResultSet res = pstm.executeQuery();
             res.next();
             registros = res.getInt("total");
@@ -403,20 +405,24 @@ public class MetodosFuncion extends ConexionManager {
             pstm = this.getConexion().prepareStatement("SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
             ResultSet res = pstm.executeQuery();
             int i = 0;
+            
             while (res.next()) {
                 data[i][0] = res.getString("diayHora");
                 data[i][1] = res.getString("sala_idSalaCine");
                 data[i][2] = res.getString("peliculaFuncion");
                 data[i][3] = res.getString("cine_nombreCine");
                 data[i][4] = res.getString("promocion_descuentoPromo");
+                System.out.println(1);
                 i++;
             }
+            System.out.println(i);
             res.close();
             // se anade la matriz de datos en el DefaultTableModel
             tablemodel.setDataVector(data, columNames);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
+        System.out.println("pruebas3");
         return tablemodel;
         
     }

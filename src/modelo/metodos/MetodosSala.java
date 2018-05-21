@@ -126,8 +126,8 @@ public class MetodosSala {
 		// insertamos
 
 		try {
-			if (nombreCin == null || nombreSal==null || seatsNumber == 0) {
-				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
+			if (nombreSal==null || seatsNumber == 0) {
+				JOptionPane.showMessageDialog(null, "Introduzca datos validos. Recuerde que debe introducir el nombre del cine al que desea aniadir una sala");
 			} else if (clavesPrimariasSalas.contains(idSalCine)) {
 				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
 			} else {
@@ -182,7 +182,7 @@ public class MetodosSala {
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos
-		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber == 0 || idSalCine==null || oldIdSalaCine==null) {
+		if (oldNombreSala == null || nombreSal == null || seatsNumber == 0 || idSalCine==null || oldIdSalaCine==null) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
 		} else {
 			if (salas.containsKey(oldIdSalaCine)) {

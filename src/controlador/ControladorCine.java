@@ -148,6 +148,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.botonModificarSala.setActionCommand("ANIADIR_SALA");
         pantallaAdministrador.botonModificarSala.addActionListener(this);
         pantallaAdministrador.botonModificarSala.addMouseListener(this);
+        
+        // Eliminar salas cine (por eliminacion de cine)
 
 		// TABLAS ALE
 		//

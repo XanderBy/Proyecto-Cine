@@ -8,6 +8,8 @@ import java.util.Iterator;
 
 import controlador.ConexionManager;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 import modelo.POJOs.Artista;
 import modelo.POJOs.Cine;
 import modelo.POJOs.Compagnia;
@@ -132,7 +134,47 @@ public class MetodosArtistas extends ConexionManager {
         }
 	}
 	//------------------------------------------------------
-	public void cogerArtistaBBDD() {
+	public DefaultTableModel cogerArtistaBBDDTodo() {
+        System.out.println("pruebaaaaaaaa");
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        PreparedStatement pstm = null;
+        String[] columNames = {"nombre Completo", "nacionalidad", "cantidad Peliculas"};
+        // obtenemos la cantidad de registros existentes en la tabla y se almacena en la
+        // variable "registros"
+        // para formar la matriz de datos
+        try {
+            System.out.println("pruebass");
+            pstm = getConexion().prepareStatement("SELECT count(*) as total FROM artista");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        // se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][3];
+        try {
+            // realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
+            // data"
+            pstm = this.getConexion().prepareStatement("SELECT nombreCompleto, nacionalidad, cantidadPeliculas FROM artista");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("nombreCompleto");
+                data[i][1] = res.getString("nacionalidad");
+                data[i][2] = res.getString("cantidadPeliculas");
+                i++;
+            }
+            res.close();
+            // se anade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
 
-	}
+    }
+
 }

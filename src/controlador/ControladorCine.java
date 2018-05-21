@@ -285,10 +285,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			break;
 		case ANIADIR_SALA:
+			String nombreCin = pantallaAdministrador.jTextField1.getText();
 			String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
 			int numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
 			try {
-				metodosSala.crearSala(nombreSala, numeroButacas);
+				metodosSala.aniadirSala(nombreCin, nombreSala, numeroButacas);
 			} catch (NumberFormatException | SQLException e1) {
 				System.err.println("Excepcion SQL no controlada");
 				System.err.println("Excepcion NumberFormatException no controlada");

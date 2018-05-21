@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import modelo.POJOs.Cine;
 import modelo.POJOs.Sala;
 
 import javax.swing.JOptionPane;
@@ -17,7 +19,7 @@ import controlador.ConexionManager;
 public class MetodosSala {
 
 	/**
-	 * Declaramos map en el que se van a cargar las salas creadas
+	 * Declaramos map en el que se van a cargar las salas creadas sin relacionar con los cines
 	 */
 	public static HashMap<String, Sala> salas = new HashMap<String, Sala>();
 
@@ -29,17 +31,16 @@ public class MetodosSala {
 	}
 
 	/**
-	 * Carga las salas existentes en el map El valor nameHall (codigoSala) esta
-	 * anulado (vale lo mismo que idSalaCine)
+	 * Carga las salas existentes en el map salas y salasCine
 	 * 
 	 * @throws SQLException
 	 */
 	public void cargarSalas() throws SQLException {
 		// 1.Declaramos map y variables
-		HashMap<String, Sala> loadHalls = new HashMap<String, Sala>();
-
-		String idHallCine, nameHall;
-		int seatsNumber;
+		HashMap<String, Sala> cargaSalas = new HashMap<String, Sala>();
+		Cine c = new Cine();// Para acceder a salasCine
+		String idSalCine, nombreSal;
+		int numButacas;
 		Sala s;
 		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
 		// metodo crear()
@@ -55,11 +56,13 @@ public class MetodosSala {
 			ResultSet resultado = consulta.executeQuery();
 			// 2.3.Iteramos sobre las tuplas de la base de datos
 			while (resultado.next()) {
-				idHallCine = resultado.getString("IDSALACINE");
-				nameHall = resultado.getString("NOMBRESALA");
-				seatsNumber = resultado.getInt("NUMEROBUTACAS");
-				s = new Sala(idHallCine, seatsNumber);
-				loadHalls.put(idHallCine, s);
+				idSalCine = resultado.getString("IDSALACINE").concat(resultado.getString("NOMBRESALA"));
+				nombreSal = resultado.getString("NOMBRESALA");
+				numButacas = resultado.getInt("NUMEROBUTACAS");
+				s = new Sala(idSalCine, numButacas);
+				s.setIdSalaCine(idSalCine);
+				salas.put(idSalCine, s);
+				c.salasCine.put(idSalCine, s);
 			}
 
 		} catch (Exception e) {
@@ -67,9 +70,7 @@ public class MetodosSala {
 			e.printStackTrace();
 		}
 
-		// 3.Actualizamos map
-		salas = loadHalls;
-		// 4.Cerramos la conexion
+		// 3.Cerramos la conexion
 		conexionManager.cerrar();
 	}
 

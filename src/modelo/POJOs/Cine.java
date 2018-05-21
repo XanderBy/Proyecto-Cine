@@ -19,6 +19,10 @@ public class Cine implements Cartelera{
 	private double precioBase;
 	private int entradasVendidas;
 	// TODO:Constructores
+	public Cine() {//Alejandro he aniadido un constructor vacio que lo necesito
+		
+	}
+	
 	public Cine(String nombreCine, String direccionCine, int telefonoConsulta, double precioBase) {
 		super();
 		this.nombreCine = nombreCine;

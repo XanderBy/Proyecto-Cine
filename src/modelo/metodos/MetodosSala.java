@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import modelo.POJOs.Cine;
 import modelo.POJOs.Sala;
 
 import javax.swing.JOptionPane;
@@ -19,14 +17,10 @@ import controlador.ConexionManager;
 public class MetodosSala {
 
 	/**
-	 * Declaramos map en el que se van a cargar las salas creadas sin relacion con el cine
-	 * k:nombreSala, v: Sala
+	 * Declaramos map en el que se van a cargar las salas creadas
 	 */
 	public static HashMap<String, Sala> salas = new HashMap<String, Sala>();
-	
-	Cine c;
-	String nombreCineCine;
-	
+
 	/**
 	 * Constructor vacio
 	 */
@@ -35,15 +29,16 @@ public class MetodosSala {
 	}
 
 	/**
-	 * Carga las salas existentes en el map salasCine de clase Cine
+	 * Carga las salas existentes en el map El valor nameHall (codigoSala) esta
+	 * anulado (vale lo mismo que idSalaCine)
 	 * 
 	 * @throws SQLException
 	 */
-	public void cargarSalasEnMapCine() throws SQLException {
+	public void cargarSalas() throws SQLException {
 		// 1.Declaramos map y variables
-		HashMap<String, Sala> auditoriums = new HashMap<String, Sala>();
-		
-		String nombreAuditorium, nombreCineSala;
+		HashMap<String, Sala> loadHalls = new HashMap<String, Sala>();
+
+		String idHallCine, nameHall;
 		int seatsNumber;
 		Sala s;
 		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
@@ -55,17 +50,16 @@ public class MetodosSala {
 
 			// 2.1.Creamos statement
 			PreparedStatement consulta = conexion
-					.prepareStatement("SELECT IDSALACINE,NOMBRESALA,NUMEROBUTACAS FROM SALA,CINE WHERE IDSALACINE=NOMBRECINE");
+					.prepareStatement("SELECT IDSALACINE,NOMBRESALA,NUMEROBUTACAS FROM SALA");
 			// 2.2.Preparamos el ResultSet
 			ResultSet resultado = consulta.executeQuery();
 			// 2.3.Iteramos sobre las tuplas de la base de datos
 			while (resultado.next()) {
-				nombreCineSala = resultado.getString("IDSALACINE");
-				nombreAuditorium = resultado.getString("NOMBRESALA");
+				idHallCine = resultado.getString("IDSALACINE");
+				nameHall = resultado.getString("NOMBRESALA");
 				seatsNumber = resultado.getInt("NUMEROBUTACAS");
-				s = new Sala(nombreAuditorium, seatsNumber);
-				s.setNombreCinePertenece(nombreCineSala);
-				auditoriums.put(nombreAuditorium, s);
+				s = new Sala(idHallCine, seatsNumber);
+				loadHalls.put(idHallCine, s);
 			}
 
 		} catch (Exception e) {
@@ -74,7 +68,7 @@ public class MetodosSala {
 		}
 
 		// 3.Actualizamos map
-		salas = auditoriums;
+		salas = loadHalls;
 		// 4.Cerramos la conexion
 		conexionManager.cerrar();
 	}
@@ -121,7 +115,7 @@ public class MetodosSala {
 		String auditoriumCode = auditoriumCineId;
 
 		// 1.Cargamos salas en el map
-		cargarSalasEnMapCine();
+		cargarSalas();
 
 		// 2.Obtenemos claves primarias
 		ArrayList<String> clavesPrimariasSalas = obtenerClavesPrimariasSala();
@@ -160,7 +154,7 @@ public class MetodosSala {
 				// 2.2.7.Informamos
 				JOptionPane.showMessageDialog(null, "Sala creada correctamente");
 				// 2.2.8. Actualizamos map
-				cargarSalasEnMapCine();
+				cargarSalas();
 			}
 		} catch (Exception e) {
 			System.err.println("Excepcion no controlada al crear sala");
@@ -181,7 +175,7 @@ public class MetodosSala {
 		String auditoriumCode = auditoriumCineId;
 
 		// 1.Cargamos salas en el map y generamos la tabla
-		cargarSalasEnMapCine();
+		cargarSalas();
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos
@@ -214,7 +208,7 @@ public class MetodosSala {
 					// 2.2.6.Informamos
 					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
 					// 2.2.7. Actualizamos map
-					cargarSalasEnMapCine();
+					cargarSalas();
 					// 2.2.7.Cerramos la conexion
 					conexionManager.cerrar();
 				} catch (Exception e) {

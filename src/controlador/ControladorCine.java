@@ -276,13 +276,22 @@ public class ControladorCine implements ActionListener, MouseListener {
 					MetodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField21.getText())), null,
 					MetodosPromocion.mapPromocionesCreadas
 							.get(Integer.parseInt(pantallaAdministrador.jTextField22.getText())));
-
+			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			
 			break;
 		case ELIMINAR_FUNCION:
 			now = pantallaAdministrador.jTextField27.getText();
 
 			formatDateTime = LocalDateTime.parse(now, formatter);
 			metodosFuncion.eliminarFuncion(formatDateTime);
+			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			
 			break;
 		case MODIFICAR_FUNCION:
 			now = pantallaAdministrador.jTextField23.getText();
@@ -298,15 +307,30 @@ public class ControladorCine implements ActionListener, MouseListener {
 					MetodosPromocion.mapPromocionesCreadas
 							.get(Integer.parseInt(pantallaAdministrador.jTextField26.getText())),
 					Compagnia.listaCines.get(pantallaAdministrador.jLabel92.getText()));
+			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			
 			break;
 		case ELIMINAR_FUNCION_CINE:
 			now = pantallaAdministrador.jLabel102.getText();
 			System.out.println(now);
 			formatDateTime = LocalDateTime.parse(now, formatter);
 			metodosFuncion.eliminarFuncionCine(formatDateTime);
+			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			
 			break;
 		case ANIADIR_FUNCION_CINE:
 			metodosFuncion.actualizarFuncionCineBBDD(pantallaAdministrador.jLabel104.getText(), Compagnia.listaCines.get(pantallaAdministrador.jLabel91.getText()));
+			
+			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 			
 			break;
 		case CREAR_PROMOCION:

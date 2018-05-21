@@ -269,8 +269,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jTextField18 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jButton16 = new javax.swing.JButton();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        jList9 = new javax.swing.JList<>();
         jButton18 = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
@@ -279,6 +277,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jLabel107 = new javax.swing.JLabel();
         jLabel108 = new javax.swing.JLabel();
         jLabel109 = new javax.swing.JLabel();
+        jComboBox13 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2114,13 +2113,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jButton16.setText("Modificar Artista");
 
-        jList9.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Pais 1", "Pais 2", "Pais 3", "Pais 4", "Pais 5", "Pais 6" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane12.setViewportView(jList9);
-
         jButton18.setText("Elegir Pais");
 
         jLabel28.setText("Nacionalidad:");
@@ -2146,6 +2138,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel109.setText("nacionalidad");
 
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jInternalFrame11Layout = new javax.swing.GroupLayout(jInternalFrame11.getContentPane());
         jInternalFrame11.getContentPane().setLayout(jInternalFrame11Layout);
         jInternalFrame11Layout.setHorizontalGroup(
@@ -2170,14 +2164,14 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                             .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jInternalFrame11Layout.createSequentialGroup()
                         .addComponent(jLabel28)
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addGap(146, 146, 146)
                                 .addComponent(jButton18))
                             .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(64, 64, 64)
                                 .addComponent(jLabel108)
                                 .addGap(67, 67, 67)
                                 .addComponent(jLabel109)))))
@@ -2206,10 +2200,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                                .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel28)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                                .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(129, 129, 129))
                             .addGroup(jInternalFrame11Layout.createSequentialGroup()
                                 .addGap(93, 93, 93)
                                 .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2217,12 +2212,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                                     .addComponent(jLabel109))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton18)
-                                .addGap(28, 28, 28))))
+                                .addGap(37, 37, 37))))
                     .addGroup(jInternalFrame11Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(9, 9, 9)
+                        .addGap(0, 164, Short.MAX_VALUE)))
                 .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
         );
@@ -2357,6 +2351,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> jComboBox10;
     public javax.swing.JComboBox<String> jComboBox11;
     public javax.swing.JComboBox<String> jComboBox12;
+    public javax.swing.JComboBox<String> jComboBox13;
     public javax.swing.JComboBox<String> jComboBox2;
     public javax.swing.JComboBox<String> jComboBox3;
     public javax.swing.JComboBox<String> jComboBox4;
@@ -2494,11 +2489,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    public javax.swing.JList<String> jList9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;

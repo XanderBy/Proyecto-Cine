@@ -87,7 +87,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		this.pantallaAdministrador.jTable1.addMouseListener(this);
 		this.pantallaAdministrador.jTable1.setModel(new DefaultTableModel());
 		
-		this.pantallaAdministrador.jList9.addMouseListener(this);
+		//this.pantallaAdministrador.jList9.addMouseListener(this);
 		//this.pantallaAdministrador.jList9.setListData(Pais.values());
 		
 		

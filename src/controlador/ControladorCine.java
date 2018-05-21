@@ -294,7 +294,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case ELIMINAR_FUNCION_CINE:
 			now = pantallaAdministrador.jLabel102.getText();
-
+			System.out.println(now);
 			formatDateTime = LocalDateTime.parse(now, formatter);
 			metodosFuncion.eliminarFuncionCine(formatDateTime);
 			break;

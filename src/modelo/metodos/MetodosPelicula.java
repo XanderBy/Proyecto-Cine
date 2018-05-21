@@ -133,7 +133,7 @@ public class MetodosPelicula {
 			
 			try {
 				
-				if(peliculas.containsKey(idPelicula)) {
+				if(peliculas.containsKey(idPelicula) == false) {
 					
 					ConexionManager conManager = new ConexionManager();
 					Connection conexion = conManager.crear();

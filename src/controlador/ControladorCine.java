@@ -17,7 +17,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.POJOs.CalificacionEdades;
 import modelo.POJOs.Compagnia;
+import modelo.POJOs.GeneroPelicula;
+import modelo.POJOs.IdiomaOriginal;
+import modelo.POJOs.Pais;
+import modelo.POJOs.ValoracionPeli;
 import modelo.metodos.MetodosCine;
 import modelo.metodos.MetodosFuncion;
 import modelo.metodos.MetodosPelicula;
@@ -42,13 +47,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 	private String nombreCineA;
 	private String oldPromoDiscount;// Fijate Antonio
 	private String oldNombreSal;
+	private String nombrePelicula;
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
 	public enum accionesAdministrador {// Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
 		// ultimo
 		// dudo
-		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE
+		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
+	
+		
+		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
 
 	// CONSTRUCTOR DE CLASE
@@ -171,6 +180,35 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+		
+		//Crear pelicula
+		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
+		pantallaAdministrador.jButton25.addActionListener(this);
+		pantallaAdministrador.jButton25.addMouseListener(this);
+		
+		//para introducir items en los jcombobox
+		for (GeneroPelicula a : GeneroPelicula.values()) {	
+			pantallaAdministrador.jComboBox1.addItem(a.name());
+			pantallaAdministrador.jComboBox6.addItem(a.name());
+		}
+		
+		for (CalificacionEdades a : CalificacionEdades.values()) {
+			pantallaAdministrador.jComboBox3.addItem(a.name());
+			pantallaAdministrador.jComboBox8.addItem(a.name());
+		}
+		for (IdiomaOriginal a : IdiomaOriginal.values()) {
+			pantallaAdministrador.jComboBox2.addItem(a.name());
+			pantallaAdministrador.jComboBox7.addItem(a.name());
+		}
+		for (Pais a : Pais.values()) {
+			pantallaAdministrador.jComboBox11.addItem(a.name());
+			pantallaAdministrador.jComboBox4.addItem(a.name());
+			pantallaAdministrador.jComboBox5.addItem(a.name());
+			pantallaAdministrador.jComboBox12.addItem(a.name());
+		}
+		for (ValoracionPeli a : ValoracionPeli.values()) {
+			
+		}
 	}
 
 	@Override

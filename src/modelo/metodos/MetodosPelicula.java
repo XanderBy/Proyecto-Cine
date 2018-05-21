@@ -133,7 +133,7 @@ public class MetodosPelicula {
 			
 			try {
 				
-				if(modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
+				if(peliculas.containsKey(idPelicula)) {
 					
 					ConexionManager conManager = new ConexionManager();
 					Connection conexion = conManager.crear();
@@ -188,7 +188,7 @@ public class MetodosPelicula {
 			
 			cargarPeliculas();
 			
-			if (modelo.metodos.MetodosGenerales.encuentraKeyIntHashMap(peliculas, idPelicula)) {
+			if (peliculas.containsKey(idPelicula)) {
 				
 				ConexionManager conManager = new ConexionManager();
 				Connection conexion = conManager.crear();
@@ -251,7 +251,7 @@ public class MetodosPelicula {
 			
 			try {
 				
-				if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+				if (modelo.metodos.MetodosArtistas.Artistas.containsKey(nombreCompleto)) {
 					
 					PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
 					consulta.setString(1, nombreCompleto);
@@ -301,7 +301,7 @@ public class MetodosPelicula {
 			
 			try {
 				
-				if (modelo.metodos.MetodosGenerales.encuentraKeyStringHashMap(modelo.metodos.MetodosArtistas.Artistas, nombreCompleto)) {
+				if (modelo.metodos.MetodosArtistas.Artistas.containsKey(nombreCompleto)) {
 					
 					PreparedStatement consulta = conexion.prepareStatement("INSERT INTO artistapelicula	(artista_nombreCompleto,pelicula_idPelicula,director,actor) VALUES (?, ?, ?, ?)");
 					consulta.setString(1, nombreCompleto);

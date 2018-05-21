@@ -59,7 +59,7 @@ public class MetodosCuentasAcceso {
 				
 				if (pass1.equals(pass2)) {
 					
-					if(MetodosGenerales.encuentraKeyStringHashMap(cuentasUsuario, nomUs)) {
+					if(cuentasUsuario.containsKey(nomUs)) {
 						
 						JOptionPane.showMessageDialog(null, "Nombre de usuario ya registrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 						return false;
@@ -102,7 +102,7 @@ public class MetodosCuentasAcceso {
 		
 		try {
 			
-			if (MetodosGenerales.encuentraKeyStringHashMap(cuentasUsuario, nombre)) {
+			if (cuentasUsuario.containsKey(nombre)) {
 				if (cuentasUsuario.get(nombre).getContrasegnaAdminUsuario().equals(pass)) {
 					return true;
 				}else{

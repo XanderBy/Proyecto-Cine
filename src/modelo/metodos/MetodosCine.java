@@ -144,6 +144,7 @@ public class MetodosCine extends ConexionManager {
                 Compagnia.listaCines.put(res.getString("nombreCine"), cine);
                 i++;
             }
+            System.out.println("holaaaaaaaaaaaaaa" +Compagnia.listaCines.size());
             res.close();
         } catch (SQLException e) {
             System.err.println(e.getMessage());

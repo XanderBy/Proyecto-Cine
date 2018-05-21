@@ -73,6 +73,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Declaramos las acciones y aniadimos las escuchas al evento producido por el
 		// componente
 		// Funcion
+		metodosCine.cogerTodosLosCineBBDD();
 		this.pantallaAdministrador.jTable12.addMouseListener(this);
 		this.pantallaAdministrador.jTable12.setModel(new DefaultTableModel());
 
@@ -116,6 +117,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// ELIMINAR FUNCION CINE
 		this.pantallaAdministrador.jButton10.setActionCommand("ELIMINAR_FUNCION_CINE");
 		this.pantallaAdministrador.jButton10.addActionListener(this);
+		//ANIADIR FUNCION CINE
+		this.pantallaAdministrador.jButton5.setActionCommand("ELIMINAR_FUNCION_CINE");
+		this.pantallaAdministrador.jButton5.addActionListener(this);
 		// ELIMINAR FUNCION
 		this.pantallaAdministrador.jButton22.setActionCommand("ELIMINAR_FUNCION");
 		this.pantallaAdministrador.jButton22.addActionListener(this);

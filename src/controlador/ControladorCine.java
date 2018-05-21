@@ -73,6 +73,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Declaramos las acciones y aniadimos las escuchas al evento producido por el
 		// componente
 		// Funcion
+		this.pantallaAdministrador.jTable12.addMouseListener(this);
+		this.pantallaAdministrador.jTable12.setModel(new DefaultTableModel());
+		
 		this.pantallaAdministrador.jTable2.addMouseListener(this);
 		this.pantallaAdministrador.jTable2.setModel(new DefaultTableModel());
 

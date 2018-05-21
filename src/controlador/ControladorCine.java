@@ -51,7 +51,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	private String nombreCineA;
 	private String oldPromoDiscount;// Fijate Antonio
 	private String oldNombreSal;
-	private String nombrePelicula;
+	private String idPelicula;
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
 	public enum accionesAdministrador {// Fijate Antonio
@@ -476,7 +476,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			try {
 
 				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField38.getText());
-				String tituloDistribucion = nombrePelicula;
+				String tituloDistribucion = pantallaAdministrador.jTextField39.getText();
 				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
 				String genero = pantallaAdministrador.jComboBox6.getSelectedItem().toString();
 				String idioma = pantallaAdministrador.jComboBox7.getSelectedItem().toString();
@@ -489,11 +489,22 @@ public class ControladorCine implements ActionListener, MouseListener {
 				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(),
 						DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				String resumen = pantallaAdministrador.jTextField45.getText();
-				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField50.getText());
+				int id = Integer.parseInt(idPelicula);
 
-				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal,
+				metodosPelicula.modificarPelicula(id, agnoProduccion, tituloDistribucion, tituloOriginal,
 						genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades,
 						fechaEstrenoEs, resumen);
+				
+				pantallaAdministrador.jTextField38.setText("");
+				pantallaAdministrador.jTextField39.setText("");
+				pantallaAdministrador.jTextField40.setText("");
+				pantallaAdministrador.jTextField42.setText("");
+				pantallaAdministrador.jTextField43.setText("");
+				pantallaAdministrador.jTextField44.setText("");
+				pantallaAdministrador.jTextField45.setText("");
+				pantallaAdministrador.jTextField50.setText("");
+				
+				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 
 			} catch (NumberFormatException e1) {
 				JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
@@ -690,7 +701,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
 			if (fila > -1) {
-				nombrePelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
+				idPelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
 				pantallaAdministrador.jTextField39
 						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
 				pantallaAdministrador.jTextField50

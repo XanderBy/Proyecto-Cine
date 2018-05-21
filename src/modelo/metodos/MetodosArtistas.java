@@ -90,12 +90,26 @@ public class MetodosArtistas extends ConexionManager {
 		}
 		devolverArtistasArray();
 	}
-
 	// ------------------------------------------------------
-	public void insertarArtistaBBDD(String nombre, String nacionalidad, int cantidadPeliculas) {
+		public void insertarArtistaBBDD(String nombre, String nacionalidad, int cantidadPeliculas) {
+			// se arma la consulta
+			String q = " INSERT INTO artista (nombreCompleto, nacionalidad, cantidadPeliculas)" + "VALUES ('" + nombre + "','"
+					+ nacionalidad + "'," + cantidadPeliculas + ")";
+			// se ejecuta la consulta
+			try {
+				PreparedStatement pstm = this.getConexion().prepareStatement(q);
+				pstm.execute();
+				pstm.close();
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
+			}
+
+		}
+	// ------------------------------------------------------
+	public void insertarArtistaActorBBDD(String nombre, int pelicula_idPelicula) {
 		// se arma la consulta
-		String q = " INSERT INTO cine (nombreCompleto, nacionalidad, cantidadPeliculas)" + "VALUES ('" + nombre + "','"
-				+ nacionalidad + "'," + cantidadPeliculas + ")";
+		String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, actor)" + "VALUES ('" + nombre + "','"
+				+ pelicula_idPelicula + "'," + 1 + ")";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -106,7 +120,21 @@ public class MetodosArtistas extends ConexionManager {
 		}
 
 	}
+	// ------------------------------------------------------
+		public void insertarArtistaDirectorBBDD(String nombre, int pelicula_idPelicula) {
+			// se arma la consulta
+			String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, director)" + "VALUES ('" + nombre + "','"
+					+ pelicula_idPelicula + "'," + 1 + ")";
+			// se ejecuta la consulta
+			try {
+				PreparedStatement pstm = this.getConexion().prepareStatement(q);
+				pstm.execute();
+				pstm.close();
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
+			}
 
+		}
 	// ------------------------------------------------------
 	public void eliminarArtistasArray() {
 		Iterator it = Artistas.keySet().iterator();
@@ -115,6 +143,7 @@ public class MetodosArtistas extends ConexionManager {
 			Artistas.remove(clave);
 		}
 	}
+	
 
 	// ------------------------------------------------------
 	public void devolverArtistasArray() {

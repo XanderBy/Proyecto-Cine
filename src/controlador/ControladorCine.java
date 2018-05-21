@@ -45,7 +45,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
 	public enum accionesAdministrador {// Fijate Antonio
-		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION,ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
+		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
 		// ultimo
 		// dudo
 		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE
@@ -75,7 +75,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Funcion
 		this.pantallaAdministrador.jTable12.addMouseListener(this);
 		this.pantallaAdministrador.jTable12.setModel(new DefaultTableModel());
-		
+
 		this.pantallaAdministrador.jTable2.addMouseListener(this);
 		this.pantallaAdministrador.jTable2.setModel(new DefaultTableModel());
 
@@ -113,7 +113,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Modificar Cine
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
-		//ELIMINAR FUNCION CINE
+		// ELIMINAR FUNCION CINE
 		this.pantallaAdministrador.jButton10.setActionCommand("ELIMINAR_FUNCION_CINE");
 		this.pantallaAdministrador.jButton10.addActionListener(this);
 		// ELIMINAR FUNCION
@@ -199,7 +199,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case ELEGIR_FUNCION:
-			
+
 			break;
 		case MODIFICAR_CINE:
 
@@ -253,6 +253,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 			formatDateTime = LocalDateTime.parse(now, formatter);
 			metodosFuncion.eliminarFuncionCine(formatDateTime);
+			break;
+		case ANIADIR_FUNCION_CINE:
+			
+			//metodosFuncion.actualizarFuncionCineBBDD(diaYHoraAntiguo, diaYHora, salaFuncion, peliculaFuncion, cine_nombre);
+			
 			break;
 		case CREAR_PROMOCION:
 			try {
@@ -325,21 +330,22 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			break;
 		case MODIFICAR_SALA:
-			String oldNombreSala=oldNombreSal;
-			//String nombreCin=
-			String nombreSal= pantallaAdministrador.textoIdSalaCine.getText();
-			int seatsNumber=Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
-			//try {
-				//if (oldNombreSala != null || nombreCin != null || nombreSal!=null || seatsNumber!=0) {
-					//metodosSala.modificarSala(oldNombreSala, nombreCin, nombreSal, seatsNumber);
-				//} else {
-					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
-			//	}
-			//} catch (HeadlessException | SQLException e1) {
-			//	System.err.println("Excepcion no controlada en modificar sala");
-				//e1.printStackTrace();
-			//}
-			
+			String oldNombreSala = oldNombreSal;
+			// String nombreCin=
+			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
+			int seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+			// try {
+			// if (oldNombreSala != null || nombreCin != null || nombreSal!=null ||
+			// seatsNumber!=0) {
+			// metodosSala.modificarSala(oldNombreSala, nombreCin, nombreSal, seatsNumber);
+			// } else {
+			JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
+			// }
+			// } catch (HeadlessException | SQLException e1) {
+			// System.err.println("Excepcion no controlada en modificar sala");
+			// e1.printStackTrace();
+			// }
+
 		default:
 			System.out.println("Entra en default");
 			break;
@@ -359,7 +365,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
-	
+
 	private void presionarJTable12(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo
@@ -367,11 +373,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.jTable12.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				pantallaAdministrador.jLabel104
-				.setText(String.valueOf(this.pantallaAdministrador.jTable12.getValueAt(fila, 0)));
+						.setText(String.valueOf(this.pantallaAdministrador.jTable12.getValueAt(fila, 0)));
 			}
 		}
 	}
-	
+
 	private void presionarJTable2(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo
@@ -477,13 +483,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
-	
+
 	private void presionarTablaModificarSala(java.awt.event.MouseEvent e) {
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.tablaSalasmodificarCine.rowAtPoint(e.getPoint());
 			if (fila > -1) {
-				oldNombreSal = String
-						.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1));
+				oldNombreSal = String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1));
 				// Recarga la tabla cada vez que se hace click sobre la misma
 				pantallaAdministrador.tablaSalasmodificarCine.setModel(metodosSala.generarTablaSalas());
 			}

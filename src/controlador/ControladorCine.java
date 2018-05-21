@@ -25,6 +25,7 @@ import modelo.POJOs.GeneroPelicula;
 import modelo.POJOs.IdiomaOriginal;
 import modelo.POJOs.Pais;
 import modelo.POJOs.ValoracionPeli;
+import modelo.metodos.MetodosArtistas;
 import modelo.metodos.MetodosCine;
 import modelo.metodos.MetodosFuncion;
 import modelo.metodos.MetodosPelicula;
@@ -42,6 +43,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public MetodosPromocion metodosPromocion = new MetodosPromocion();
 	public MetodosSala metodosSala = new MetodosSala();
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
+	public MetodosArtistas metodosArtistas=new MetodosArtistas();
 	// Declaracion de variables
 	private String now = "2016-11-09 10:30";
 	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
@@ -185,7 +187,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-
+		
+		//Artistas
+		pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 		// Crear pelicula
 		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
 		pantallaAdministrador.jButton25.addActionListener(this);

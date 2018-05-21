@@ -87,7 +87,7 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void eliminarFuncionCineBBDD(LocalDateTime diaYHora) {
         // se arma la consulta
-        String q = " UPDATE FROM funcion WHERE cine_nombreCine= ' ' ";
+        String q = " UPDATE FROM funcion WHERE cine_nombreCine= 'null' ";
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -165,7 +165,10 @@ public class MetodosFuncion extends ConexionManager {
         // se arma la consulta
         String q = " UPDATE funcion " + "SET cine_nombreCine = '" + cine_nombre.getNombreCine() + "'"
                 + " WHERE diayHora= '" + diaYHoraAntiguo + " '";
+        
+        System.out.println("dawwwwwwwwwwww" + Compagnia.listaCines.get(cine_nombre.getNombreCine()).funcionesSemana.size());
         // se ejecuta la consulta
+        cogerTodasLasFuncionesBBDD();
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
@@ -257,7 +260,7 @@ public class MetodosFuncion extends ConexionManager {
         PreparedStatement pstm = null;
         try {
             pstm = this.getConexion().prepareStatement(
-                    "SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
+                    "SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, fp.promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             eliminarFuncionesSemanasArray(res.getString("cine_nombreCine"));
@@ -267,7 +270,7 @@ public class MetodosFuncion extends ConexionManager {
                 Pelicula peliculaPromocion1 = encuentraKeyStringHashMapPelicula(
                         Integer.parseInt(res.getString("peliculaFuncion")));
                 Promocion promocionFuncion1 = encuentraKeyStringHashMapPromocion(
-                        Integer.parseInt(res.getString("promocion_descuentoPromo")));
+                        Integer.parseInt(res.getString("fp.promocion_descuentoPromo")));
                 // localizar la sala pelicula etc.. buscando con un iterator en los hashmap
                 Funcion funcion = new Funcion(tiempo, sala, peliculaPromocion1, promocionFuncion1);
                 Funciones.put(tiempo, funcion);

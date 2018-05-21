@@ -251,6 +251,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
+		case ANIADIR_ARTISTA:
+			break;
+		case MODIFICAR_ARTISTA:
+			break;
+		case ELIMINAR_ARTISTA:
+			break;
 		case MODIFICAR_CINE:
 
 			metodosCine.actualizarCineBBDD(pantallaAdministrador.jLabel91.getText(),

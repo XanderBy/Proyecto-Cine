@@ -341,7 +341,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 					JOptionPane.showMessageDialog(null, "Seleccione el cine del que desea modificar la sala e introduzca nuevos datos");
 				}
 			} catch (HeadlessException | SQLException e1) {
-				System.err.println("Excepcion no controlada en modificar sala");
+				System.err.println("Excepcion no controlada en modificar salas");
 				e1.printStackTrace();
 			}
 			break;

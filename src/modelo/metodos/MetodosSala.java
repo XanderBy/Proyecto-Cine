@@ -59,10 +59,11 @@ public class MetodosSala {
 			ResultSet resultado = consulta.executeQuery();
 			// 2.3.Iteramos sobre las tuplas de la base de datos
 			while (resultado.next()) {
-				idSalCine = resultado.getString("IDSALACINE").concat(resultado.getString("NOMBRESALA"));
+				idSalCine = resultado.getString("IDSALACINE");
+				System.out.println(idSalCine+"en el while");
 				nombreSal = resultado.getString("NOMBRESALA");
 				numButacas = resultado.getInt("NUMEROBUTACAS");
-				s = new Sala(idSalCine, numButacas);
+				s = new Sala(nombreSal, numButacas);
 				s.setIdSalaCine(idSalCine);
 				cargaSalas.put(idSalCine, s);
 			}
@@ -182,16 +183,20 @@ public class MetodosSala {
 		String oldIdSalaCine=nombreCin.concat(oldNombreSala);
 
 		// 1.Cargamos salas en el map y generamos la tabla
+		System.out.println("En el metodo");
 		cargarSalas();
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos
-		if (oldNombreSala == null || nombreSal == null || seatsNumber == 0 || idSalCine==null || oldIdSalaCine==null) {
-			//TODO: No pasa por aqui
+		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber==0) {
+			JOptionPane.showMessageDialog(null, "Hay algun valor nulo en modificar sala");
+			System.out.println(idSalCine+","+oldIdSalaCine);
 		} else {
+			System.out.println(idSalCine+","+oldIdSalaCine);
 			if (salas.containsKey(oldIdSalaCine)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
+				System.out.println("Entra en if");
 				ConexionManager conexionManager = new ConexionManager();
 				Connection conexion = conexionManager.crear();
 
@@ -223,7 +228,7 @@ public class MetodosSala {
 					e.printStackTrace();
 				}
 			} else {
-				System.out.println("Entra algun valor nulo en modificar sala");
+				System.out.println("El map salas no contiene la clave primaria");
 				JOptionPane.showMessageDialog(null, "La sala que busca ya no existe");
 			}
 

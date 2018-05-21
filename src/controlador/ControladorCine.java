@@ -563,7 +563,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+	private void presionarJTable4(java.awt.event.MouseEvent e) {
 
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaAdministrador.jTable4.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				nombreCineA = String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0));
+
+			}
+		}
+	}
 	private void presionarJTable12(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo

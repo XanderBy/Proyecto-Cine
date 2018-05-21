@@ -255,8 +255,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 			metodosFuncion.eliminarFuncionCine(formatDateTime);
 			break;
 		case ANIADIR_FUNCION_CINE:
-			
-			//metodosFuncion.actualizarFuncionCineBBDD(diaYHoraAntiguo, cine_nombre);
+			now = pantallaAdministrador.jLabel104.getText();
+
+			formatDateTime = LocalDateTime.parse(now, formatter);
+			metodosFuncion.actualizarFuncionCineBBDD(formatDateTime, Compagnia.listaCines.get(pantallaAdministrador.jLabel91.getText()));
 			
 			break;
 		case CREAR_PROMOCION:

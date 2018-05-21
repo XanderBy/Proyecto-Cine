@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -40,6 +41,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	private LocalDateTime formatDateTime;
 	private String nombreCineA;
 	private String oldPromoDiscount;// Fijate Antonio
+	private String oldNombreSal;
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
 	public enum accionesAdministrador {// Fijate Antonio
@@ -306,7 +308,21 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			break;
 		case MODIFICAR_SALA:
-
+			String oldNombreSala=oldNombreSal;
+			//String nombreCin=
+			String nombreSal= pantallaAdministrador.textoIdSalaCine.getText();
+			int seatsNumber=Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+			try {
+				if (oldNombreSala != null || nombreCin != null || nombreSal!=null || seatsNumber!=0) {
+					metodosSala.modificarSala(oldNombreSala, nombreCin, nombreSal, seatsNumber);
+				} else {
+					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
+				}
+			} catch (HeadlessException | SQLException e1) {
+				System.err.println("Excepcion no controlada al modificar sala");
+				e1.printStackTrace();
+			}
+			
 		default:
 			System.out.println("Entra en default");
 			break;
@@ -416,6 +432,18 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.valueOf(this.pantallaAdministrador.tablaEliminarPromocion.getValueAt(fila, 1));
 				// Recarga la tabla cada vez que se hace click sobre la misma
 				pantallaAdministrador.tablaEliminarPromocion.setModel(metodosPromocion.generarTablaPromociones());
+			}
+		}
+	}
+	
+	private void presionarTablaModificarSala(java.awt.event.MouseEvent e) {
+		if (e.getButton() == 1) {
+			int fila = this.pantallaAdministrador.tablaSalasmodificarCine.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				oldNombreSal = String
+						.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1));
+				// Recarga la tabla cada vez que se hace click sobre la misma
+				pantallaAdministrador.tablaSalasmodificarCine.setModel(metodosSala.generarTablaSalas());
 			}
 		}
 	}

@@ -323,21 +323,21 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e1.printStackTrace();
 			}
 			break;
-		case MODIFICAR_SALA:
+		/*case MODIFICAR_SALA:
 			String oldNombreSala=oldNombreSal;
 			//String nombreCin=
 			String nombreSal= pantallaAdministrador.textoIdSalaCine.getText();
 			int seatsNumber=Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
-			//try {
-				//if (oldNombreSala != null || nombreCin != null || nombreSal!=null || seatsNumber!=0) {
-					//metodosSala.modificarSala(oldNombreSala, nombreCin, nombreSal, seatsNumber);
-				//} else {
+			try {
+				if (oldNombreSala != null || nombreCin != null || nombreSal!=null || seatsNumber!=0) {
+					metodosSala.modificarSala(oldNombreSala, nombreCin, nombreSal, seatsNumber);
+				} else {
 					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
-			//	}
-			//} catch (HeadlessException | SQLException e1) {
-			//	System.err.println("Excepcion no controlada en modificar sala");
+				}
+			} catch (HeadlessException | SQLException e1) {
+				System.err.println("Excepcion no controlada en modificar sala");
 				//e1.printStackTrace();
-			//}
+			}*/
 			
 		default:
 			System.out.println("Entra en default");

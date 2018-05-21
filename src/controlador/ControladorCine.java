@@ -189,6 +189,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		
 		//Artistas
 		pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+		pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+		
 		// Crear pelicula
 		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
 		pantallaAdministrador.jButton25.addActionListener(this);

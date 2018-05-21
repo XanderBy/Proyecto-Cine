@@ -87,7 +87,7 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void eliminarFuncionCineBBDD(LocalDateTime diaYHora) {
         // se arma la consulta
-        String q = " UPDATE FROM funcion WHERE cine_nombreCine= 'null' ";
+        String q = " UPDATE FROM funcion SET cine_nombreCine= 'null' WHERE diayHora='"+ diaYHora +"'";
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);

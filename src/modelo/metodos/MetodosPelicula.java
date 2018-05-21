@@ -244,7 +244,7 @@ public class MetodosPelicula {
 			cargarActorDirectorPelicula();
 			
 			MetodosArtistas a = new MetodosArtistas();
-			a.cogerArtistaBBDD();
+			//a.cogerArtistaBBDD();
 			
 			ConexionManager conManager = new ConexionManager();
 			Connection conexion = conManager.crear();
@@ -294,7 +294,7 @@ public class MetodosPelicula {
 			cargarActorDirectorPelicula();
 			
 			MetodosArtistas a = new MetodosArtistas();
-			a.cogerArtistaBBDD();
+			//a.cogerArtistaBBDD();
 			
 			ConexionManager conManager = new ConexionManager();
 			Connection conexion = conManager.crear();

@@ -188,7 +188,7 @@ public class MetodosSala {
 		} else {
 			if (salas.containsKey(oldIdSalaCine)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
-				// el metodo crear()
+				// el metodo crear().
 				ConexionManager conexionManager = new ConexionManager();
 				Connection conexion = conexionManager.crear();
 

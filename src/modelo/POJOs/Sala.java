@@ -4,7 +4,7 @@ public class Sala {
 	
 	//VARIABLES Y CONSTANTES
 	
-	private String idSalaCine, codigoSala;
+	private String idSalaCine, nombreSala;
 	private int numeroButacas;
 	
 	//CONSTRUCTORES
@@ -13,10 +13,10 @@ public class Sala {
 
 	}
 	
-	public Sala(String auditoriumCineId, int seatsNumber){
-		idSalaCine=auditoriumCineId;
+	public Sala(String nameSala, int seatsNumber){
+		idSalaCine="";
+		nombreSala=nameSala;
 		numeroButacas=seatsNumber;
-		codigoSala=idSalaCine;
 	}
 	
 	//ACCEDENTES Y MUTADORES
@@ -29,6 +29,14 @@ public class Sala {
 		this.idSalaCine = idSalaCine;
 	}
 
+	public String getNombreSala() {
+		return nombreSala;
+	}
+
+	public void setNombreSala(String nombreSala) {
+		this.nombreSala = nombreSala;
+	}
+
 	public int getNumeroButacas() {
 		return numeroButacas;
 	}
@@ -37,12 +45,13 @@ public class Sala {
 		this.numeroButacas = numeroButacas;
 	}
 
-	
 	//METODO TOSTRING
 
 	@Override
 	public String toString() {
-		return "La sala "+ getIdSalaCine()+ " tiene "+getNumeroButacas()+" butacas";
+		return "La sala que pertenece al cine "+getIdSalaCine()+" con nombre"+getNombreSala()+" tiene "+getNumeroButacas();
 	}
+
+	
 
 }

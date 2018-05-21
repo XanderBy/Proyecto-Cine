@@ -387,7 +387,7 @@ public class MetodosPelicula {
 			resultado = new Object[numFilas][2];
 			
 			PreparedStatement consulta2 = conexion.prepareStatement("SELECT titulo,idPelicula FROM pelicula");
-			ResultSet resultado2 = consulta.executeQuery();
+			ResultSet resultado2 = consulta2.executeQuery();
 			
 			int i = 0;
 			

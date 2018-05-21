@@ -55,7 +55,7 @@ public class MetodosSala {
 
 			// 2.1.Creamos statement
 			PreparedStatement consulta = conexion
-					.prepareStatement("SELECT IDSALACINE,NOMBRESALA,NUMEROBUTACAS FROM SALA S,CINE C WHERE S.IDSALACINE=C.NOMBRECINE");
+					.prepareStatement("SELECT IDSALACINE,NOMBRESALA,NUMEROBUTACAS FROM SALA,CINE WHERE IDSALACINE=NOMBRECINE");
 			// 2.2.Preparamos el ResultSet
 			ResultSet resultado = consulta.executeQuery();
 			// 2.3.Iteramos sobre las tuplas de la base de datos

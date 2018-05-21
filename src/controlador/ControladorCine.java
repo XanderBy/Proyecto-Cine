@@ -118,7 +118,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		this.pantallaAdministrador.jButton10.setActionCommand("ELIMINAR_FUNCION_CINE");
 		this.pantallaAdministrador.jButton10.addActionListener(this);
 		//ANIADIR FUNCION CINE
-		this.pantallaAdministrador.jButton5.setActionCommand("ELIMINAR_FUNCION_CINE");
+		this.pantallaAdministrador.jButton5.setActionCommand("ANIADIR_FUNCION_CINE");
 		this.pantallaAdministrador.jButton5.addActionListener(this);
 		// ELIMINAR FUNCION
 		this.pantallaAdministrador.jButton22.setActionCommand("ELIMINAR_FUNCION");

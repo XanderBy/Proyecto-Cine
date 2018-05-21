@@ -57,8 +57,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// ultimo
 		// dudo
 		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
-	
-		
+
 		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
 
@@ -83,7 +82,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		// Declaramos las acciones y aniadimos las escuchas al evento producido por el
 		// componente
-		//Artistas
+		// Artistas
 		this.pantallaAdministrador.jTable1.addMouseListener(this);
 		this.pantallaAdministrador.jTable1.setModel(new DefaultTableModel());
 
@@ -132,7 +131,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// ELIMINAR FUNCION CINE
 		this.pantallaAdministrador.jButton10.setActionCommand("ELIMINAR_FUNCION_CINE");
 		this.pantallaAdministrador.jButton10.addActionListener(this);
-		//ANIADIR FUNCION CINE
+		// ANIADIR FUNCION CINE
 		this.pantallaAdministrador.jButton5.setActionCommand("ANIADIR_FUNCION_CINE");
 		this.pantallaAdministrador.jButton5.addActionListener(this);
 		// ELIMINAR FUNCION
@@ -186,21 +185,21 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-		
-		//Crear pelicula
+
+		// Crear pelicula
 		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
 		pantallaAdministrador.jButton25.addActionListener(this);
 		pantallaAdministrador.jButton25.addMouseListener(this);
-		
-		//Modificar pelicula
+
+		// Modificar pelicula
 		pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
-		
-		//para introducir items en los jcombobox
-		for (GeneroPelicula a : GeneroPelicula.values()) {	
+
+		// para introducir items en los jcombobox
+		for (GeneroPelicula a : GeneroPelicula.values()) {
 			pantallaAdministrador.jComboBox1.addItem(a.name());
 			pantallaAdministrador.jComboBox6.addItem(a.name());
 		}
-		
+
 		for (CalificacionEdades a : CalificacionEdades.values()) {
 			pantallaAdministrador.jComboBox3.addItem(a.name());
 			pantallaAdministrador.jComboBox8.addItem(a.name());
@@ -216,7 +215,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox12.addItem(a.name());
 		}
 		for (ValoracionPeli a : ValoracionPeli.values()) {
-			
+
 		}
 	}
 
@@ -280,7 +279,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			
+
 			break;
 		case ELIMINAR_FUNCION:
 			now = pantallaAdministrador.jTextField27.getText();
@@ -291,7 +290,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			
+
 			break;
 		case MODIFICAR_FUNCION:
 			now = pantallaAdministrador.jTextField23.getText();
@@ -311,7 +310,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			
+
 			break;
 		case ELIMINAR_FUNCION_CINE:
 			now = pantallaAdministrador.jLabel102.getText();
@@ -322,16 +321,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			
+
 			break;
 		case ANIADIR_FUNCION_CINE:
-			metodosFuncion.actualizarFuncionCineBBDD(pantallaAdministrador.jLabel104.getText(), Compagnia.listaCines.get(pantallaAdministrador.jLabel91.getText()));
-			
+			metodosFuncion.actualizarFuncionCineBBDD(pantallaAdministrador.jLabel104.getText(),
+					Compagnia.listaCines.get(pantallaAdministrador.jLabel91.getText()));
+
 			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			
+
 			break;
 		case CREAR_PROMOCION:
 			try {
@@ -405,18 +405,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case MODIFICAR_SALA:
 			String oldNombreSala = oldNombreSal;
-			System.out.println(oldNombreSala+"oldNombreSala 376");
+			System.out.println(oldNombreSala + "oldNombreSala 376");
 			String nombreCinema = pantallaAdministrador.jTextField11.getText();
-			System.out.println(nombreCinema+"nombreCine378");
+			System.out.println(nombreCinema + "nombreCine378");
 			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
-			System.out.println(nombreSal+"Nombre sala 380");
-			int	seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
-			System.out.println(seatsNumber+"seatsNumber382");
+			System.out.println(nombreSal + "Nombre sala 380");
+			int seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+			System.out.println(seatsNumber + "seatsNumber382");
 			try {
-				if (oldNombreSala != null || nombreCinema != null || nombreSal!=null || seatsNumber!=0) {
+				if (oldNombreSala != null || nombreCinema != null || nombreSal != null || seatsNumber != 0) {
 					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);
 				} else {
-					JOptionPane.showMessageDialog(null, "Seleccione el cine del que desea modificar la sala e introduzca nuevos datos");
+					JOptionPane.showMessageDialog(null,
+							"Seleccione el cine del que desea modificar la sala e introduzca nuevos datos");
 				}
 			} catch (HeadlessException | SQLException e1) {
 				System.err.println("Excepcion no controlada en modificar salas");
@@ -433,14 +434,18 @@ public class ControladorCine implements ActionListener, MouseListener {
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox1.isSelected();
 				String paisOrigen = pantallaAdministrador.jComboBox11.getSelectedItem().toString();
 				String sitioWeb = pantallaAdministrador.jTextField32.getText();
-				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField33.getText()));
+				Duration duracionPelicula = Duration
+						.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField33.getText()));
 				String calificacionEdades = pantallaAdministrador.jComboBox3.getSelectedItem().toString();
-				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField49.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField49.getText(),
+						DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				String resumen = pantallaAdministrador.jTextField35.getText();
 				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField34.getText());
-				
-				metodosPelicula.agnadirPelicula(agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen, idPelicula);
-				
+
+				metodosPelicula.agnadirPelicula(agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma,
+						subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs,
+						resumen, idPelicula);
+
 				pantallaAdministrador.jTextField28.setText("");
 				pantallaAdministrador.jTextField29.setText("");
 				pantallaAdministrador.jTextField30.setText("");
@@ -449,17 +454,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField49.setText("");
 				pantallaAdministrador.jTextField35.setText("");
 				pantallaAdministrador.jTextField34.setText("");
-				
+
 			} catch (NumberFormatException e1) {
-                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
-            } catch (SQLException e1) {
+				JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+			} catch (SQLException e1) {
 				System.err.println("Error SQL");
 				e1.printStackTrace();
 			}
 			break;
 		case MODIFICAR_PELICULA:
 			try {
-				
+
 				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField38.getText());
 				String tituloDistribucion = nombrePelicula;
 				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
@@ -468,33 +473,37 @@ public class ControladorCine implements ActionListener, MouseListener {
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
 				String paisOrigen = pantallaAdministrador.jComboBox12.getName();
 				String sitioWeb = pantallaAdministrador.jTextField42.getText();
-				Duration duracionPelicula = Duration.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
+				Duration duracionPelicula = Duration
+						.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
 				String calificacionEdades = pantallaAdministrador.jComboBox8.getName();
-				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(),
+						DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				String resumen = pantallaAdministrador.jTextField45.getText();
 				int idPelicula = Integer.parseInt(pantallaAdministrador.jTextField50.getText());
-				
-				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal, genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs, resumen);
-				
+
+				metodosPelicula.modificarPelicula(idPelicula, agnoProduccion, tituloDistribucion, tituloOriginal,
+						genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades,
+						fechaEstrenoEs, resumen);
+
 			} catch (NumberFormatException e1) {
-                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
-            } catch (SQLException e1) {
+				JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+			} catch (SQLException e1) {
 				System.err.println("Error SQL");
 				e1.printStackTrace();
 			}
 			break;
 		case ELIMINAR_PELICULA:
-			
-//			try {
-//				
-//				
-//				
-//			} catch (NumberFormatException e1) {
-//                JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
-//            } catch (SQLException e1) {
-//				System.err.println("Error SQL");
-//				e1.printStackTrace();
-//			}
+
+			// try {
+			//
+			//
+			//
+			// } catch (NumberFormatException e1) {
+			// JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
+			// } catch (SQLException e1) {
+			// System.err.println("Error SQL");
+			// e1.printStackTrace();
+			// }
 		default:
 			System.out.println("Entra en default");
 			break;
@@ -552,7 +561,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 				pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 				pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-				
+
 			}
 		}
 	}
@@ -573,12 +582,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 2)));
 				this.pantallaAdministrador.jTextField26
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 4)));
-				
+
 				pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 				pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 				pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 				pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-				
 
 			}
 		}
@@ -595,30 +603,30 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 					metodosCine.cogerTodosLosCineBBDD();
 					// El error esta aqui
-					
+
 					this.pantallaAdministrador.jTextField11
-					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
-			this.pantallaAdministrador.jTextField12
-					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 1)));
-			this.pantallaAdministrador.jTextField5
-					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
-			this.pantallaAdministrador.jTextField8
-					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
-			metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-					.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
-			pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-					.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
-			
-			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-			
+							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
+					this.pantallaAdministrador.jTextField12
+							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 1)));
+					this.pantallaAdministrador.jTextField5
+							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
+					this.pantallaAdministrador.jTextField8
+							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
+					metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
+
+					pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+					pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+					pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+					pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
-					
+
 				}
-				
+
 			}
 		}
 	}
@@ -656,23 +664,27 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.tablaSalasmodificarCine.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				oldNombreSal = String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1));
-				System.out.println(oldNombreSal+" presionada tabla");//TODO: Comprobando el valor nulo
-				this.pantallaAdministrador.textoIdSalaCine.setText(String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1)));
-				this.pantallaAdministrador.textoNumeroButacas.setText(String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 2)));
+				System.out.println(oldNombreSal + " presionada tabla");// TODO: Comprobando el valor nulo
+				this.pantallaAdministrador.textoIdSalaCine.setText(
+						String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1)));
+				this.pantallaAdministrador.textoNumeroButacas.setText(
+						String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 2)));
 				// Recarga la tabla cada vez que se hace click sobre la misma
 				pantallaAdministrador.tablaSalasmodificarCine.setModel(metodosSala.generarTablaSalas());
 			}
 		}
 	}
-	
+
 	private void clickTablaModificarPelicula(java.awt.event.MouseEvent e) {
-		
+
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
-			if (fila>-1) {
+			if (fila > -1) {
 				nombrePelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
-				pantallaAdministrador.jTextField39.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
-				pantallaAdministrador.jTextField50.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
+				pantallaAdministrador.jTextField39
+						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
+				pantallaAdministrador.jTextField50
+						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 			}
 		}

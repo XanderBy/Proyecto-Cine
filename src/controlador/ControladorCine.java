@@ -195,7 +195,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jButton25.addMouseListener(this);
 
 		// Modificar pelicula
+		pantallaAdministrador.jTable13.addMouseListener(this);
 		pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
+		pantallaAdministrador.jButton29.setActionCommand("MODIFICAR_PELICULA");
+		pantallaAdministrador.jButton29.addActionListener(this);
+		pantallaAdministrador.jButton29.addMouseListener(this);
 
 		// para introducir items en los jcombobox
 		for (GeneroPelicula a : GeneroPelicula.values()) {

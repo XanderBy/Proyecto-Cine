@@ -252,11 +252,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jCheckBox2 = new javax.swing.JCheckBox();
         jInternalFrame9 = new javax.swing.JInternalFrame();
         jLabel81 = new javax.swing.JLabel();
-        jScrollPane16 = new javax.swing.JScrollPane();
-        jList13 = new javax.swing.JList<>();
-        jLabel82 = new javax.swing.JLabel();
-        jTextField48 = new javax.swing.JTextField();
         jButton31 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         jInternalFrame3 = new javax.swing.JInternalFrame();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jInternalFrame10 = new javax.swing.JInternalFrame();
@@ -1972,50 +1970,50 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jLabel81.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel81.setText("Películas insertadas");
 
-        jScrollPane16.setViewportView(jList13);
-
-        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel82.setText("Introduzca el nombre de la película que desea eliminar:");
-
         jButton31.setText("Eliminar película");
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "titulo", "idPelicula"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable3);
 
         javax.swing.GroupLayout jInternalFrame9Layout = new javax.swing.GroupLayout(jInternalFrame9.getContentPane());
         jInternalFrame9.getContentPane().setLayout(jInternalFrame9Layout);
         jInternalFrame9Layout.setHorizontalGroup(
             jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame9Layout.createSequentialGroup()
-                .addGap(84, 84, 84)
-                .addGroup(jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane16))
                 .addGroup(jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame9Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel82, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(52, 52, 52)
-                        .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(303, 303, 303))
+                        .addGap(101, 101, 101)
+                        .addComponent(jLabel81, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jInternalFrame9Layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jButton31)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(61, 61, 61)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(jButton31)))
+                .addContainerGap(1133, Short.MAX_VALUE))
         );
         jInternalFrame9Layout.setVerticalGroup(
             jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame9Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel81)
-                    .addComponent(jLabel82)
-                    .addComponent(jTextField48, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(jLabel81)
                 .addGroup(jInternalFrame9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame9Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jInternalFrame9Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(155, 155, 155)
                         .addComponent(jButton31)))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Eliminar Pelicula", jInternalFrame9);
@@ -2449,7 +2447,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
@@ -2468,15 +2465,14 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
-    public javax.swing.JList<String> jList13;
     private javax.swing.JList<String> jList9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
@@ -2500,6 +2496,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTable jTable12;
     public javax.swing.JTable jTable13;
     public javax.swing.JTable jTable2;
+    public javax.swing.JTable jTable3;
     public javax.swing.JTable jTable4;
     public javax.swing.JTable jTable5;
     public javax.swing.JTable jTable6;
@@ -2541,7 +2538,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField45;
     public javax.swing.JTextField jTextField46;
     public javax.swing.JTextField jTextField47;
-    public javax.swing.JTextField jTextField48;
     public javax.swing.JTextField jTextField49;
     public javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextField50;

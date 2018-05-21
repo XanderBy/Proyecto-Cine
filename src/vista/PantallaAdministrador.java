@@ -2317,7 +2317,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     public javax.swing.JButton jButton25;
-    public javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
     public javax.swing.JButton jButton29;
@@ -2356,7 +2355,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame19;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame20;
-    private javax.swing.JInternalFrame jInternalFrame21;
     private javax.swing.JInternalFrame jInternalFrame3;
     private javax.swing.JInternalFrame jInternalFrame4;
     private javax.swing.JInternalFrame jInternalFrame5;
@@ -2487,7 +2485,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane25;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
@@ -2497,15 +2494,13 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTabbedPane jTabbedPane7;
     public javax.swing.JTable jTable1;
     public javax.swing.JTable jTable10;
     public javax.swing.JTable jTable11;
     public javax.swing.JTable jTable12;
     public javax.swing.JTable jTable13;
-    public javax.swing.JTable jTable14;
     public javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
+    public javax.swing.JTable jTable4;
     public javax.swing.JTable jTable5;
     public javax.swing.JTable jTable6;
     public javax.swing.JTable jTable7;

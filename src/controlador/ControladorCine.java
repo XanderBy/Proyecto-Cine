@@ -86,6 +86,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Artistas
 		this.pantallaAdministrador.jTable1.addMouseListener(this);
 		this.pantallaAdministrador.jTable1.setModel(new DefaultTableModel());
+		
+		this.pantallaAdministrador.jTable4.addMouseListener(this);
+		this.pantallaAdministrador.jTable4.setModel(new DefaultTableModel());
 
 		// Funcion
 		metodosCine.cogerTodosLosCineBBDD();
@@ -189,13 +192,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 		
 		//Artistas
 		pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+		pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+		
 		// Crear pelicula
 		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
 		pantallaAdministrador.jButton25.addActionListener(this);
 		pantallaAdministrador.jButton25.addMouseListener(this);
 
 		// Modificar pelicula
+		pantallaAdministrador.jTable13.addMouseListener(this);
 		pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
+		pantallaAdministrador.jButton29.setActionCommand("MODIFICAR_PELICULA");
+		pantallaAdministrador.jButton29.addActionListener(this);
+		pantallaAdministrador.jButton29.addMouseListener(this);
 
 		// para introducir items en los jcombobox
 		for (GeneroPelicula a : GeneroPelicula.values()) {
@@ -474,14 +483,14 @@ public class ControladorCine implements ActionListener, MouseListener {
 				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField38.getText());
 				String tituloDistribucion = nombrePelicula;
 				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
-				String genero = pantallaAdministrador.jComboBox6.getName();
-				String idioma = pantallaAdministrador.jComboBox7.getName();
+				String genero = pantallaAdministrador.jComboBox6.getSelectedItem().toString();
+				String idioma = pantallaAdministrador.jComboBox7.getSelectedItem().toString();
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
-				String paisOrigen = pantallaAdministrador.jComboBox12.getName();
+				String paisOrigen = pantallaAdministrador.jComboBox12.getSelectedItem().toString();
 				String sitioWeb = pantallaAdministrador.jTextField42.getText();
 				Duration duracionPelicula = Duration
 						.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
-				String calificacionEdades = pantallaAdministrador.jComboBox8.getName();
+				String calificacionEdades = pantallaAdministrador.jComboBox8.getSelectedItem().toString();
 				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(),
 						DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				String resumen = pantallaAdministrador.jTextField45.getText();
@@ -538,6 +547,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 			if (fila > -1) {
 				pantallaAdministrador.jLabel104
 						.setText(String.valueOf(this.pantallaAdministrador.jTable12.getValueAt(fila, 0)));
+			}
+		}
+	}
+	private void presionarJTable1(java.awt.event.MouseEvent e) {
+
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaAdministrador.jTable12.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				pantallaAdministrador.jLabel106
+						.setText(String.valueOf(this.pantallaAdministrador.jTable1.getValueAt(fila, 0)));
 			}
 		}
 	}
@@ -704,6 +724,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
+		presionarJTable1(e);
 		presionarJTable12(e);
 		presionarJTable7(e);
 		presionarJTable11(e);

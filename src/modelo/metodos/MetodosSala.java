@@ -223,7 +223,7 @@ public class MetodosSala {
 					e.printStackTrace();
 				}
 			} else {
-				System.out.println(oldIdSalaCine);
+				System.out.println("Entra algun valor nulo en modificar sala");
 				JOptionPane.showMessageDialog(null, "La sala que busca ya no existe");
 			}
 

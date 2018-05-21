@@ -45,7 +45,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	// Declaramos en un enum las acciones relacionadas con el Administrador
 
 	public enum accionesAdministrador {// Fijate Antonio
-		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
+		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, RECARGAR_TABLA, ELIMINAR_FUNCION,ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, MODIFICAR_FUNCION, ELEGIR_FUNCION, // Este
 		// ultimo
 		// dudo
 		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE
@@ -78,11 +78,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jTable8.addMouseListener(this);
 		this.pantallaAdministrador.jTable8.setModel(new DefaultTableModel());
-		
+
 		this.pantallaAdministrador.jTable6.addMouseListener(this);
 		this.pantallaAdministrador.jTable6.setModel(new DefaultTableModel());
 
-		
 		this.pantallaAdministrador.jTable11.addMouseListener(this);
 		this.pantallaAdministrador.jTable11.setModel(new DefaultTableModel());
 		// Cine
@@ -111,13 +110,16 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Modificar Cine
 		this.pantallaAdministrador.jButton6.setActionCommand("MODIFICAR_CINE");
 		this.pantallaAdministrador.jButton6.addActionListener(this);
+		//ELIMINAR FUNCION CINE
+		this.pantallaAdministrador.jButton10.setActionCommand("ELIMINAR_FUNCION_CINE");
+		this.pantallaAdministrador.jButton10.addActionListener(this);
 		// ELIMINAR FUNCION
 		this.pantallaAdministrador.jButton22.setActionCommand("ELIMINAR_FUNCION");
 		this.pantallaAdministrador.jButton22.addActionListener(this);
 		// Aniadir Funcion
 		this.pantallaAdministrador.jButton30.setActionCommand("ANIADIR_FUNCION");
 		this.pantallaAdministrador.jButton30.addActionListener(this);
-		//modificar funcion
+		// modificar funcion
 		this.pantallaAdministrador.jButton21.setActionCommand("MODIFICAR_FUNCION");
 		this.pantallaAdministrador.jButton21.addActionListener(this);
 		// Crear promocion
@@ -148,10 +150,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.tablaSalasmodificarCine.addMouseListener(this);
 		pantallaAdministrador.tablaSalasmodificarCine.setModel(metodosSala.generarTablaSalas());
 		pantallaAdministrador.botonModificarSala.setActionCommand("ANIADIR_SALA");
-        pantallaAdministrador.botonModificarSala.addActionListener(this);
-        pantallaAdministrador.botonModificarSala.addMouseListener(this);
-        
-        // Eliminar salas cine (por eliminacion de cine)
+		pantallaAdministrador.botonModificarSala.addActionListener(this);
+		pantallaAdministrador.botonModificarSala.addMouseListener(this);
+
+		// Eliminar salas cine (por eliminacion de cine)
 
 		// TABLAS ALE
 		//
@@ -193,7 +195,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case ELEGIR_FUNCION:
-
+			
 			break;
 		case MODIFICAR_CINE:
 
@@ -231,12 +233,23 @@ public class ControladorCine implements ActionListener, MouseListener {
 			now = pantallaAdministrador.jTextField23.getText();
 
 			formatDateTime = LocalDateTime.parse(now, formatter);
-			
+
 			String antiguo = pantallaAdministrador.jLabel92.getText();
 
 			LocalDateTime formatDateTimeAntiguo = LocalDateTime.parse(antiguo, formatter);
-			metodosFuncion.modificarFuncion(formatDateTimeAntiguo, formatDateTime, metodosSala.salas.get(pantallaAdministrador.jTextField24.getText()), metodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField25.getText())), MetodosPromocion.mapPromocionesCreadas.get(Integer.parseInt(pantallaAdministrador.jTextField26.getText())), Compagnia.listaCines.get(pantallaAdministrador.jLabel92.getText()));
-			 break;
+			metodosFuncion.modificarFuncion(formatDateTimeAntiguo, formatDateTime,
+					metodosSala.salas.get(pantallaAdministrador.jTextField24.getText()),
+					metodosPelicula.peliculas.get(Integer.parseInt(pantallaAdministrador.jTextField25.getText())),
+					MetodosPromocion.mapPromocionesCreadas
+							.get(Integer.parseInt(pantallaAdministrador.jTextField26.getText())),
+					Compagnia.listaCines.get(pantallaAdministrador.jLabel92.getText()));
+			break;
+		case ELIMINAR_FUNCION_CINE:
+			now = pantallaAdministrador.jLabel102.getText();
+
+			formatDateTime = LocalDateTime.parse(now, formatter);
+			metodosFuncion.eliminarFuncionCine(formatDateTime);
+			break;
 		case CREAR_PROMOCION:
 			try {
 				String descripcionPromo = pantallaAdministrador.textoDescripcionPromocionAniadir.getText();
@@ -343,6 +356,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 		}
 	}
 
+	private void presionarJTable2(java.awt.event.MouseEvent e) {
+
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaAdministrador.jTable2.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				pantallaAdministrador.jLabel102
+						.setText(String.valueOf(this.pantallaAdministrador.jTable2.getValueAt(fila, 0)));
+
+			}
+		}
+	}
+
 	private void presionarJTable11(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo
@@ -363,7 +389,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.jTable6.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				this.pantallaAdministrador.jLabel92
-				.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 0)));
+						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 0)));
 				this.pantallaAdministrador.jTextField23
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 0)));
 				this.pantallaAdministrador.jTextField24
@@ -450,9 +476,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		try{
-		presionarJTable9(e);
-		}catch(ArrayIndexOutOfBoundsException we) {
+		try {
+			presionarJTable2(e);
+			presionarJTable9(e);
+		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
 		presionarJTable7(e);

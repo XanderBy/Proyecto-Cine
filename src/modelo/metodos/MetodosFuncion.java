@@ -57,7 +57,15 @@ public class MetodosFuncion extends ConexionManager {
         // cogerTodasLasFuncionesBBDD();
         JOptionPane.showMessageDialog(null, "Funcion Eliminada");
     }
+ // ---------------------------------------------------------
+    public void eliminarFuncionCine(LocalDateTime diaYHora) {
+        // Funciones.remove(diaYHora);
 
+        eliminarFuncionBBDD(diaYHora);
+        // eliminarFuncionesArray();// TODO:Aqui a lo mejor de error
+        // cogerTodasLasFuncionesBBDD();
+        JOptionPane.showMessageDialog(null, "Funcion Eliminada");
+    }
     // TODO: TENGO QUE COMPROBAR ESTO ME QUEDA HACER METODO MODIFICAR
     // FUNCIONPROMOCION
     // ---------------------------------------------------------
@@ -76,9 +84,19 @@ public class MetodosFuncion extends ConexionManager {
             JOptionPane.showMessageDialog(null, "Funcion modificada");
         }
     }
-    // -----------------------------------------------------------------------------------------------hasta
-    // aqui
-
+    // ---------------------------------------------------------
+    public void eliminarFuncionCineBBDD(LocalDateTime diaYHora) {
+        // se arma la consulta
+        String q = " UPDATE FROM funcion WHERE cine_nombreCine= ' ' ";
+        // se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+    }
     // ---------------------------------------------------------
     public void eliminarFuncionBBDD(LocalDateTime diaYHora) {
         // se arma la consulta

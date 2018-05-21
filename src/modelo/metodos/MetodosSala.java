@@ -36,12 +36,12 @@ public class MetodosSala {
 	 * @throws SQLException
 	 */
 	public void cargarSalas() throws SQLException {
-		// 1.Declaramos map y variables
-		HashMap<String, Sala> cargaSalas = new HashMap<String, Sala>();
+		// 1.Variables
 		Cine c = new Cine();// Para acceder a salasCine
 		String idSalCine, nombreSal;
 		int numButacas;
 		Sala s;
+		
 		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
 		// metodo crear()
 		ConexionManager conexionManager = new ConexionManager();
@@ -105,16 +105,17 @@ public class MetodosSala {
 	}
 
 	/**
-	 * Crea una sala si no hay otra en la BBDD con el mismo nombre
+	 * Crea una sala si no hay otra en la BBDD con la misma PK
 	 * 
 	 * @param auditoriumCineId
 	 * @param seatsNumber
 	 * @throws SQLException
 	 */
-	public void crearSala(String auditoriumCineId, int seatsNumber) throws SQLException {
-		// 0.Igualamos la clave primaria al valor de auditoriumCineId
-		String auditoriumCode = auditoriumCineId;
-
+	public void aniadirSala(String nombreCin, String nombreSal, int seatsNumber) throws SQLException {
+		
+		//0.Declaramos valor idSalaCine
+		String idSalCine=nombreCin.concat(nombreSal);
+		
 		// 1.Cargamos salas en el map
 		cargarSalas();
 
@@ -125,9 +126,9 @@ public class MetodosSala {
 		// insertamos
 
 		try {
-			if (auditoriumCineId == null || seatsNumber == 0 || auditoriumCode == null) {
+			if (nombreCin == null || nombreSal==null || seatsNumber == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos");
-			} else if (clavesPrimariasSalas.contains(auditoriumCode)) {
+			} else if (clavesPrimariasSalas.contains(idSalCine)) {
 				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
 			} else {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
@@ -141,10 +142,10 @@ public class MetodosSala {
 						.prepareStatement("INSERT INTO SALA (IDSALACINE, NOMBRESALA, NUMEROBUTACAS) VALUES (?, ?, ?)");
 				// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 				// auditoriumCode
-				preparedStatement.setString(1, auditoriumCode);
+				preparedStatement.setString(1, idSalCine);
 				// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
 				// auditoriumCineId
-				preparedStatement.setString(2, auditoriumCineId);
+				preparedStatement.setString(2, nombreSal);
 				// 2.2.4.Decimos que en el valor desconocido 2 inserte el valor del String
 				// seatsNumber
 				preparedStatement.setInt(3, seatsNumber);
@@ -170,20 +171,21 @@ public class MetodosSala {
 	 * @param seatsNumber
 	 * @throws SQLException
 	 */
-	public void modificarSala(String oldAuditoriumCineId, String auditoriumCineId, int seatsNumber)
+	public void modificarSala(String oldNombreSala, String nombreCin, String nombreSal, int seatsNumber)
 			throws SQLException {
-		// 0.Igualamos la clave primaria al valor de auditoriumCineId
-		String auditoriumCode = auditoriumCineId;
+		//0.Declaramos valor idSalaCine
+		String idSalCine=nombreCin.concat(nombreSal);
+		String oldIdSalaCine=nombreCin.concat(oldNombreSala);
 
 		// 1.Cargamos salas en el map y generamos la tabla
 		cargarSalas();
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos
-		if (oldAuditoriumCineId == null || auditoriumCineId == null || seatsNumber == 0 || auditoriumCode == null) {
+		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber == 0 || idSalCine==null || oldIdSalaCine==null) {
 			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
 		} else {
-			if (salas.containsKey(oldAuditoriumCineId)) {
+			if (salas.containsKey(oldIdSalaCine)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
 				ConexionManager conexionManager = new ConexionManager();
@@ -194,13 +196,13 @@ public class MetodosSala {
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
 							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE IDSALACINE="
-									+ oldAuditoriumCineId);
+									+ oldIdSalaCine);
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// auditoriumCode
-					preparedStatement.setString(1, auditoriumCode);
+					preparedStatement.setString(1, idSalCine);
 					// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
 					// auditoriumCineId
-					preparedStatement.setString(2, auditoriumCineId);
+					preparedStatement.setString(2, nombreSal);
 					// 2.2.4.Decimos que en el valor desconocido 2 inserte el valor del int
 					// auditoriumCineId
 					preparedStatement.setInt(3, seatsNumber);

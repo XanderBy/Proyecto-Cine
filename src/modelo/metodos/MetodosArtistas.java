@@ -68,8 +68,17 @@ public class MetodosArtistas extends ConexionManager {
 		}
 	}
 	//------------------------------------------------------
-	public void eliminarArtistaBBDD() {
-
+	public void eliminarArtistaBBDD(String nombreCompleto) {
+		String q = " DELETE FROM artista where nombreCompleto='"+ nombreCompleto +"')";
+        // se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        devolverArtistasArray();
 	}
 	//------------------------------------------------------
 	public void insertarArtistaBBDD(String nombre, String nacionalidad, int cantidadPeliculas) {

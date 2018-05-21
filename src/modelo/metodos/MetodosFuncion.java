@@ -161,7 +161,7 @@ public class MetodosFuncion extends ConexionManager {
     }
 
     // ---------------------------------------------------------
-    public void actualizarFuncionCineBBDD(LocalDateTime diaYHoraAntiguo, Cine cine_nombre) {
+    public void actualizarFuncionCineBBDD(String diaYHoraAntiguo, Cine cine_nombre) {
         // se arma la consulta
         String q = " UPDATE funcion " + "SET cine_nombreCine = '" + cine_nombre.getNombreCine() + "'"
                 + " WHERE diayHora= '" + diaYHoraAntiguo + " '";

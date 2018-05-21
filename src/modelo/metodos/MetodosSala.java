@@ -38,6 +38,7 @@ public class MetodosSala {
 	public void cargarSalas() throws SQLException {
 		//0.Declaramos map
 		HashMap<String,Sala> cargaSalas=new HashMap<String,Sala>();
+		HashMap<String,Sala> cargaSalasConCine=new HashMap<String,Sala>();
 		
 		// 1.Variables
 		Cine c = new Cine();// Para acceder a salasCine
@@ -60,12 +61,12 @@ public class MetodosSala {
 			// 2.3.Iteramos sobre las tuplas de la base de datos
 			while (resultado.next()) {
 				idSalCine = resultado.getString("IDSALACINE");
-				System.out.println(idSalCine+"en el while");
 				nombreSal = resultado.getString("NOMBRESALA");
 				numButacas = resultado.getInt("NUMEROBUTACAS");
 				s = new Sala(nombreSal, numButacas);
 				s.setIdSalaCine(idSalCine);
-				cargaSalas.put(idSalCine, s);
+				cargaSalas.put(idSalCine.concat(nombreSal), s);
+				cargaSalasConCine.put(idSalCine, s);
 			}
 
 		} catch (Exception e) {
@@ -73,7 +74,7 @@ public class MetodosSala {
 			e.printStackTrace();
 		}
 		//3.Actualizamos maps
-		salas=cargaSalas;
+		salas=cargaSalasConCine;
 		c.salasCine=cargaSalas;
 		
 		// 4.Cerramos la conexion
@@ -119,13 +120,10 @@ public class MetodosSala {
 	public void aniadirSala(String nombreCin, String nombreSal, int seatsNumber) throws SQLException {
 		
 		//0.Declaramos valor idSalaCine
-		String idSalCine=nombreCin.concat(nombreSal);
+		//String idSalCine=nombreCin.concat(nombreSal);
 		
 		// 1.Cargamos salas en el map
 		cargarSalas();
-
-		// 2.Obtenemos claves primarias
-		ArrayList<String> clavesPrimariasSalas = obtenerClavesPrimariasSala();
 
 		// 3.Comprobamos que auditorimCineId no coincida con ninguna clave primaria e
 		// insertamos
@@ -133,8 +131,6 @@ public class MetodosSala {
 		try {
 			if (nombreCin==null || nombreSal==null || seatsNumber == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos. Recuerde que debe introducir el nombre del cine al que desea aniadir una sala");
-			} else if (clavesPrimariasSalas.contains(idSalCine)) {
-				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
 			} else {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
@@ -147,7 +143,7 @@ public class MetodosSala {
 						.prepareStatement("INSERT INTO SALA (IDSALACINE, NOMBRESALA, NUMEROBUTACAS) VALUES (?, ?, ?)");
 				// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 				// auditoriumCode
-				preparedStatement.setString(1, idSalCine);
+				preparedStatement.setString(1, nombreCin);
 				// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
 				// auditoriumCineId
 				preparedStatement.setString(2, nombreSal);
@@ -179,7 +175,6 @@ public class MetodosSala {
 	public void modificarSala(String oldNombreSala, String nombreCin, String nombreSal, int seatsNumber)
 			throws SQLException {
 		//0.Declaramos valor idSalaCine
-		String idSalCine=nombreCin.concat(nombreSal);
 		String oldIdSalaCine=nombreCin.concat(oldNombreSala);
 
 		// 1.Cargamos salas en el map y generamos la tabla
@@ -190,13 +185,10 @@ public class MetodosSala {
 		// 2.Comprobamos que no haya valores nulos
 		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber==0) {
 			JOptionPane.showMessageDialog(null, "Hay algun valor nulo en modificar sala");
-			System.out.println(idSalCine+","+oldIdSalaCine);
 		} else {
-			System.out.println(idSalCine+","+oldIdSalaCine);
 			if (salas.containsKey(oldIdSalaCine)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
-				// el metodo crear()
-				System.out.println("Entra en if");
+				// el metodo crear().
 				ConexionManager conexionManager = new ConexionManager();
 				Connection conexion = conexionManager.crear();
 
@@ -204,11 +196,11 @@ public class MetodosSala {
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
-							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE IDSALACINE='"
-									+ oldIdSalaCine+"'");
+							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE NOMBRESALA='"+oldNombreSala+"' AND IDSALACINE='"
+									+ nombreCin+"'");
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// auditoriumCode
-					preparedStatement.setString(1, idSalCine);
+					preparedStatement.setString(1, nombreCin);
 					// 2.2.3.Decimos que en el valor desconocido 2 inserte el valor del String
 					// auditoriumCineId
 					preparedStatement.setString(2, nombreSal);
@@ -228,7 +220,6 @@ public class MetodosSala {
 					e.printStackTrace();
 				}
 			} else {
-				System.out.println("El map salas no contiene la clave primaria");
 				JOptionPane.showMessageDialog(null, "La sala que busca ya no existe");
 			}
 

@@ -211,8 +211,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		
 		//Eliminar pelicula
 		pantallaAdministrador.jTable3.addMouseListener(this);
-		pantallaAdministrador.jTable3.setModel(metodosPromocion.generarTablaPromociones());
-		pantallaAdministrador.jButton31.setActionCommand("ELIMINAR_PROMOCION");
+		pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
+		pantallaAdministrador.jButton31.setActionCommand("ELIMINAR_PELICULA");
 		pantallaAdministrador.jButton31.addActionListener(this);
 		pantallaAdministrador.jButton31.addMouseListener(this);
 

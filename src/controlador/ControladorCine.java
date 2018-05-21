@@ -750,6 +750,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+	
+	private void clickTablaEliminarPelicula(java.awt.event.MouseEvent e) {
+
+		if (e.getButton() == 1) {
+			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				idPelicula = String.valueOf(this.pantallaAdministrador.jTable3.getValueAt(fila, 1));
+				pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
+			}
+		}
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -768,6 +779,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		presionarTablaEliminarPromocion(e);
 		presionarTablaModificarSala(e);
 		clickTablaModificarPelicula(e);
+		clickTablaEliminarPelicula(e);
 	}
 
 	@Override

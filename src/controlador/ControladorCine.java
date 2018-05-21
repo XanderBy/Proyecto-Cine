@@ -571,12 +571,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 			if (fila > -1) {
 				pantallaAdministrador.jLabel107
 				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
-				pantallaAdministrador.jLabel107
+				pantallaAdministrador.jTextField17
 				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
-				pantallaAdministrador.jLabel107
-				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
-				pantallaAdministrador.jLabel107
-				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
+				pantallaAdministrador.jTextField18
+				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 2)));
+				pantallaAdministrador.jLabel109
+				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)));
 	
 			}
 		}

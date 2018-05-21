@@ -86,6 +86,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Artistas
 		this.pantallaAdministrador.jTable1.addMouseListener(this);
 		this.pantallaAdministrador.jTable1.setModel(new DefaultTableModel());
+		
+		this.pantallaAdministrador.jTable4.addMouseListener(this);
+		this.pantallaAdministrador.jTable4.setModel(new DefaultTableModel());
 
 		// Funcion
 		metodosCine.cogerTodosLosCineBBDD();

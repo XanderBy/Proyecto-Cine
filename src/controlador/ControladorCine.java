@@ -374,9 +374,13 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case MODIFICAR_SALA:
 			String oldNombreSala = oldNombreSal;
+			System.out.println(oldNombreSala+"oldNombreSala 376");
 			String nombreCinema = pantallaAdministrador.jTextField11.getText();
+			System.out.println(nombreCinema+"nombreCine378");
 			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
+			System.out.println(nombreSal+"Nombre sala 380");
 			int	seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+			System.out.println(seatsNumber+"seatsNumber382");
 			try {
 				if (oldNombreSala != null || nombreCinema != null || nombreSal!=null || seatsNumber!=0) {
 					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);

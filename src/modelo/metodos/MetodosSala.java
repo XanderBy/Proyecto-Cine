@@ -204,8 +204,8 @@ public class MetodosSala {
 				// 2.2.1.Creamos el PreparedStatement: Update
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
-							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE IDSALACINE="
-									+ oldIdSalaCine);
+							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE IDSALACINE='"
+									+ oldIdSalaCine+"'");
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// auditoriumCode
 					preparedStatement.setString(1, idSalCine);

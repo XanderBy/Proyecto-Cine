@@ -180,7 +180,6 @@ public class MetodosSala {
 		//0.Declaramos valor idSalaCine
 		String idSalCine=nombreCin.concat(nombreSal);
 		String oldIdSalaCine=nombreCin.concat(oldNombreSala);
-		System.out.println(oldIdSalaCine);
 
 		// 1.Cargamos salas en el map y generamos la tabla
 		cargarSalas();
@@ -188,7 +187,7 @@ public class MetodosSala {
 
 		// 2.Comprobamos que no haya valores nulos
 		if (oldNombreSala == null || nombreSal == null || seatsNumber == 0 || idSalCine==null || oldIdSalaCine==null) {
-			JOptionPane.showMessageDialog(null, "Debe introducir valores validos");
+			//TODO: No pasa por aqui
 		} else {
 			if (salas.containsKey(oldIdSalaCine)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos

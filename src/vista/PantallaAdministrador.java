@@ -269,13 +269,16 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         jTextField18 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
         jList9 = new javax.swing.JList<>();
         jButton18 = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        jLabel108 = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -2109,8 +2112,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jButton16.setText("Modificar Artista");
 
-        jButton17.setText("Elegir Artista");
-
         jList9.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pais 1", "Pais 2", "Pais 3", "Pais 4", "Pais 5", "Pais 6" };
             public int getSize() { return strings.length; }
@@ -2135,21 +2136,28 @@ public class PantallaAdministrador extends javax.swing.JFrame {
         ));
         jScrollPane18.setViewportView(jTable4);
 
+        jLabel82.setText("Nombre Completo:");
+
+        jLabel107.setText("Nombre Completo");
+
+        jLabel108.setText("Nacionalidad:");
+
+        jLabel109.setText("nacionalidad");
+
         javax.swing.GroupLayout jInternalFrame11Layout = new javax.swing.GroupLayout(jInternalFrame11.getContentPane());
         jInternalFrame11.getContentPane().setLayout(jInternalFrame11Layout);
         jInternalFrame11Layout.setHorizontalGroup(
             jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jButton17))
-                    .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 868, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1014, Short.MAX_VALUE)
                 .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jInternalFrame11Layout.createSequentialGroup()
+                            .addComponent(jLabel82)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel107))
                         .addGroup(jInternalFrame11Layout.createSequentialGroup()
                             .addComponent(jLabel27)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2162,9 +2170,16 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addComponent(jLabel28)
                         .addGap(47, 47, 47)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton18)))
-                .addGap(305, 305, 305))
+                        .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrame11Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton18))
+                            .addGroup(jInternalFrame11Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel108)
+                                .addGap(67, 67, 67)
+                                .addComponent(jLabel109)))))
+                .addContainerGap(144, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame11Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton16)
@@ -2175,7 +2190,11 @@ public class PantallaAdministrador extends javax.swing.JFrame {
             .addGroup(jInternalFrame11Layout.createSequentialGroup()
                 .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jInternalFrame11Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
+                        .addGap(73, 73, 73)
+                        .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel82)
+                            .addComponent(jLabel107))
+                        .addGap(18, 18, 18)
                         .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
                             .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2183,19 +2202,24 @@ public class PantallaAdministrador extends javax.swing.JFrame {
                         .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27)
                             .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                        .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jInternalFrame11Layout.createSequentialGroup()
-                                    .addComponent(jButton18)
-                                    .addGap(28, 28, 28)))
-                            .addComponent(jLabel28)))
+                        .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jInternalFrame11Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                                .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel28)))
+                            .addGroup(jInternalFrame11Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addGroup(jInternalFrame11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel108)
+                                    .addComponent(jLabel109))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton18)
+                                .addGap(28, 28, 28))))
                     .addGroup(jInternalFrame11Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton17)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(9, 9, 9)
                 .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
@@ -2305,7 +2329,6 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JButton jButton10;
     public javax.swing.JButton jButton11;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     public javax.swing.JButton jButton19;
     public javax.swing.JButton jButton2;
@@ -2369,6 +2392,9 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
     public javax.swing.JLabel jLabel106;
+    public javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    public javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2447,6 +2473,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;

@@ -777,6 +777,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
+		presionarJTable4(e);
 		presionarJTable1(e);
 		presionarJTable12(e);
 		presionarJTable7(e);

@@ -112,6 +112,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jTable9.addMouseListener(this);
 		this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
+		//Eliminar Artista
+				this.pantallaAdministrador.jButton19.setActionCommand("ELIMINAR_ARTISTA");
+				this.pantallaAdministrador.jButton19.addActionListener(this);
 
 		// Recargar tabla cine
 		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
@@ -265,6 +268,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		case MODIFICAR_ARTISTA:
 			break;
 		case ELIMINAR_ARTISTA:
+			metodosArtistas.eliminarArtista(pantallaAdministrador.jLabel106.getText());
 			break;
 		case MODIFICAR_CINE:
 

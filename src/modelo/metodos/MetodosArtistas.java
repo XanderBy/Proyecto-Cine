@@ -33,7 +33,12 @@ public class MetodosArtistas extends ConexionManager {
 
 	// ------------------------------------------------------
 	public void eliminarArtista(String nombreCompleto) {
-
+		if(nombreCompleto.length()==0 || nombreCompleto.equals("Nombre Completo")) {
+			JOptionPane.showMessageDialog(null, "No has elegido ningun artista");
+		}else {
+		eliminarArtistaBBDD(nombreCompleto);
+		JOptionPane.showMessageDialog(null, "Artista eliminado con exito");
+		}
 	}
 
 	// ------------------------------------------------------
@@ -41,7 +46,7 @@ public class MetodosArtistas extends ConexionManager {
 	public void AnadirADirector(String nombreCompleto, Pelicula pelicula) {
 		Artistas.get(nombreCompleto).PeliculasParticipaActor.put(nombreCompleto, pelicula);
 		masUnoCantidadPeliculas(nombreCompleto);
-		JOptionPane.showMessageDialog(null, "Artista Añadido ha director");
+		JOptionPane.showMessageDialog(null, "Artista Aniadido ha director");
 	}
 
 	// ------------------------------------------------------
@@ -74,7 +79,7 @@ public class MetodosArtistas extends ConexionManager {
 
 	// ------------------------------------------------------
 	public void eliminarArtistaBBDD(String nombreCompleto) {
-		String q = " DELETE FROM artista where nombreCompleto='" + nombreCompleto + "')";
+		String q = " DELETE FROM artista where nombreCompleto='" + nombreCompleto + "'";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

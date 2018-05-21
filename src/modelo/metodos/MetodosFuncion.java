@@ -95,12 +95,14 @@ public class MetodosFuncion extends ConexionManager {
 
     // ---------------------------------------------------------(tiene la tabla
     // funcionpromocion tambien)
+    
+    //TODO: Sustituido salaFuncion.getIdSalaCine por salaFuncion.getNombreCinePertenece
     public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
             Cine cine_nombreCine, Promocion promocionFuncion) {
 
         // se arma la consulta
         String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ("
-                + diaYHora + "," + salaFuncion.getIdSalaCine() + "," + peliculaFuncion.getIdPelicula() + ","
+                + diaYHora + "," + salaFuncion.getNombreCinePertenece() + "," + peliculaFuncion.getIdPelicula() + ","
                 + cine_nombreCine.getNombreCine() + ")";
         // se ejecuta la consulta
         try {
@@ -125,11 +127,13 @@ public class MetodosFuncion extends ConexionManager {
     }
 
     // ---------------------------------------------------------
+    
+    //TODO: Sustituido salaFuncion.getIdSalaCine por salaFuncion.getNombreCinePertenece
     public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
             Pelicula peliculaFuncion, Cine cine_nombre) {
         // se arma la consulta
         String q = " UPDATE funcion SET diayHora = " + diaYHora + ", PeliculaFuncion = "
-                + peliculaFuncion.getIdPelicula() + ", sala_idSalaCine = '" + salaFuncion.getIdSalaCine() + "'"
+                + peliculaFuncion.getIdPelicula() + ", sala_idSalaCine = '" + salaFuncion.getNombreCinePertenece() + "'"
                 + "WHERE diayHora= " + diaYHoraAntiguo;
         // se ejecuta la consulta
         try {

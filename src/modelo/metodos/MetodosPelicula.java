@@ -333,7 +333,7 @@ public class MetodosPelicula {
 		}
 	}
 	
-	public boolean eliminarPelicula(String nombre) throws SQLException {
+	public boolean eliminarPelicula(int id) throws SQLException {
 		
 		cargarPeliculas();
 		boolean resultado=false;
@@ -348,7 +348,7 @@ public class MetodosPelicula {
 				
 				int key = (int) it.next();
 				
-				if (peliculas.get(key).getTituloDistribucion().equalsIgnoreCase(nombre)) {
+				if (key == id) {
 					PreparedStatement consulta = conexion.prepareStatement("DELETE FROM pelicula WHERE idPelicula = " + key);
 					consulta.execute();
 					conManager.cerrar();

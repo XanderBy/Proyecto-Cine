@@ -519,17 +519,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			break;
 		case ELIMINAR_PELICULA:
-
-			// try {
-			//
-			//
-			//
-			// } catch (NumberFormatException e1) {
-			// JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
-			// } catch (SQLException e1) {
-			// System.err.println("Error SQL");
-			// e1.printStackTrace();
-			// }
+			try {
+				int id = Integer.parseInt(idPelicula);
+				if (id != 0) {
+					metodosPelicula.eliminarPelicula(id);
+				} else {
+					JOptionPane.showMessageDialog(null, "La pelicula no existe");
+				}
+			} catch (NumberFormatException | SQLException e1) {
+				System.err.println("Excepcion SQL no controlada");
+				System.err.println("Excepcion NumberFormatException no controlada en eliminar pelicula");
+				e1.printStackTrace();
+			}
+			break;
 		default:
 			System.out.println("Entra en default");
 			break;

@@ -166,6 +166,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 	}
 
 	@Override
@@ -497,6 +498,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
+		presionarJTable12(e);
 		presionarJTable7(e);
 		presionarJTable11(e);
 		presionarJTable6(e);

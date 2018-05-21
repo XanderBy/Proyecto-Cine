@@ -554,22 +554,24 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 					metodosCine.cogerTodosLosCineBBDD();
 					// El error esta aqui
-					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
-					System.out.print("error al coger la tabla");
+					
+					this.pantallaAdministrador.jTextField11
+					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
+			this.pantallaAdministrador.jTextField12
+					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 1)));
+			this.pantallaAdministrador.jTextField5
+					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
+			this.pantallaAdministrador.jTextField8
+					.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
+			metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+					.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+			pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+					.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
+					
 				}
-				this.pantallaAdministrador.jTextField11
-						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
-				this.pantallaAdministrador.jTextField12
-						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 1)));
-				this.pantallaAdministrador.jTextField5
-						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
-				this.pantallaAdministrador.jTextField8
-						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
-				metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-						.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+				
 			}
 		}
 	}

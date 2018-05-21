@@ -87,7 +87,7 @@ public class MetodosFuncion extends ConexionManager {
     // ---------------------------------------------------------
     public void eliminarFuncionCineBBDD(LocalDateTime diaYHora) {
         // se arma la consulta
-        String q = " UPDATE FROM funcion SET cine_nombreCine= 'null' WHERE diayHora='"+ diaYHora +"'";
+        String q = " UPDATE funcion SET cine_nombreCine= 'null' WHERE diayHora="+ diaYHora;
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -101,7 +101,7 @@ public class MetodosFuncion extends ConexionManager {
     public void eliminarFuncionBBDD(LocalDateTime diaYHora) {
         // se arma la consulta
        // String q = " DELETE FROM funcion  WHERE  diaYHora='" + diaYHora + "' ";
-    	String q= "DELETE FROM FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora WHERE diayHora='"+ diaYHora+"'";
+    	String q= "DELETE FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora WHERE diayHora='"+ diaYHora+"'";
         // se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);

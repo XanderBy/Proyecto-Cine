@@ -319,7 +319,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
 				}
 			} catch (HeadlessException | SQLException e1) {
-				System.err.println("Excepcion no controlada al modificar sala");
+				System.err.println("Excepcion no controlada en modificar sala");
 				e1.printStackTrace();
 			}
 			

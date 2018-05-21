@@ -131,7 +131,7 @@ public class MetodosSala {
 		// insertamos
 
 		try {
-			if (nombreSal==null || seatsNumber == 0) {
+			if (nombreCin==null || nombreSal==null || seatsNumber == 0) {
 				JOptionPane.showMessageDialog(null, "Introduzca datos validos. Recuerde que debe introducir el nombre del cine al que desea aniadir una sala");
 			} else if (clavesPrimariasSalas.contains(idSalCine)) {
 				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
@@ -234,6 +234,10 @@ public class MetodosSala {
 
 		}
 
+	}
+	
+	public void eliminarSalas(String nombreCine) {
+		
 	}
 	
 

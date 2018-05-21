@@ -548,7 +548,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 			if (fila > -1) {
 				this.pantallaAdministrador.jTextField27
 						.setText(String.valueOf(this.pantallaAdministrador.jTable11.getValueAt(fila, 0)));
-
+				pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+				pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+				pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+				pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+				
 			}
 		}
 	}
@@ -569,6 +573,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 2)));
 				this.pantallaAdministrador.jTextField26
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 4)));
+				
+				pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+				pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+				pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+				pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+				
 
 			}
 		}
@@ -598,6 +608,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 					.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
 			pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 					.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
+			
+			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
+			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
+			
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
 					

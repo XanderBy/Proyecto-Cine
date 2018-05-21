@@ -478,14 +478,14 @@ public class ControladorCine implements ActionListener, MouseListener {
 				int agnoProduccion = Integer.parseInt(pantallaAdministrador.jTextField38.getText());
 				String tituloDistribucion = nombrePelicula;
 				String tituloOriginal = pantallaAdministrador.jTextField40.getText();
-				String genero = pantallaAdministrador.jComboBox6.getName();
-				String idioma = pantallaAdministrador.jComboBox7.getName();
+				String genero = pantallaAdministrador.jComboBox6.getSelectedItem().toString();
+				String idioma = pantallaAdministrador.jComboBox7.getSelectedItem().toString();
 				boolean subtitulosEs = pantallaAdministrador.jCheckBox2.isSelected();
-				String paisOrigen = pantallaAdministrador.jComboBox12.getName();
+				String paisOrigen = pantallaAdministrador.jComboBox12.getSelectedItem().toString();
 				String sitioWeb = pantallaAdministrador.jTextField42.getText();
 				Duration duracionPelicula = Duration
 						.ofMinutes(Integer.parseInt(pantallaAdministrador.jTextField43.getText()));
-				String calificacionEdades = pantallaAdministrador.jComboBox8.getName();
+				String calificacionEdades = pantallaAdministrador.jComboBox8.getSelectedItem().toString();
 				LocalDate fechaEstrenoEs = LocalDate.parse(pantallaAdministrador.jTextField44.getText(),
 						DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 				String resumen = pantallaAdministrador.jTextField45.getText();

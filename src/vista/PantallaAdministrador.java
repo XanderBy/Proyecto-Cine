@@ -1721,6 +1721,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel98.setText("Id Pelicula:");
 
+        jTextField50.setEditable(false);
+
         jTable13.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},

@@ -10,8 +10,8 @@ public class Main {
 		/*
 		 * IniciarSesion is=new IniciarSesion(); is.setVisible(true);
 		 */
-		new ControladorAcceso(new IniciarSesion()).Iniciar();
-		//new ControladorCine(new PantallaAdministrador()).Iniciar();
+		//new ControladorAcceso(new IniciarSesion()).Iniciar();
+		new ControladorCine(new PantallaAdministrador()).Iniciar();
 		//new Funcion().start();
 		/*
 		 * CrearUsuario cu = new CrearUsuario(); cu.setVisible(true);

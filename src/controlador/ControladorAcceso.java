@@ -24,7 +24,7 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 	//Declaracion enum de acciones
 	public enum accionesAcceso {
 		
-		INICIAR_SESION, CREAR_USUARIO, NUEVA_CUENTA,
+		INICIAR_SESION, CREAR_USUARIO, NUEVA_CUENTA, CANCELAR,
 		
 	}
 	
@@ -56,6 +56,8 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 		iniciarSesion.jButton2.addActionListener(this);
 		iniciarSesion.jButton3.setActionCommand("NUEVA_CUENTA");
 		iniciarSesion.jButton3.addActionListener(this);
+		iniciarSesion.jButton4.setActionCommand("CANCELAR");
+		iniciarSesion.jButton4.addActionListener(this);
 
 	}
 	
@@ -92,6 +94,20 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 			
 			iniciarSesion.setVisible(false);//TODO
 			iniciarSesion.jDialog1.setVisible(true);
+			
+			String nom = iniciarSesion.jTextField2.getText();
+			String passw = new String(iniciarSesion.jPasswordField2.getPassword());
+			String passw2 = new String(iniciarSesion.jPasswordField3.getPassword());
+			
+			try {
+				
+				metodosCuentasAcceso.nuevaCuentaUsuario(nom, passw, passw2);
+				
+				
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 			break;
 		case NUEVA_CUENTA:

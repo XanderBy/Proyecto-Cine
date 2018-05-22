@@ -57,7 +57,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public enum accionesAdministrador {// Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, // Este
 		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
-
+		INSERTAR_DIRECTOR, INSERTAR_ACTOR,
 		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
 
@@ -115,6 +115,14 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jTable9.addMouseListener(this);
 		this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
+		//INSERTAR ACTOR
+		this.pantallaAdministrador.jButton24.setActionCommand("INSERTAR_ACTOR");
+		this.pantallaAdministrador.jButton24.addActionListener(this);
+
+		//INSERTAR DIRECTOR
+		this.pantallaAdministrador.jButton23.setActionCommand("INSERTAR_DIRECTOR");
+		this.pantallaAdministrador.jButton23.addActionListener(this);
+
 		// MDOFICAR ARTISTA
 		this.pantallaAdministrador.jButton16.setActionCommand("MODIFICAR_ARTISTA");
 		this.pantallaAdministrador.jButton16.addActionListener(this);
@@ -278,6 +286,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 			metodosCine.eliminarCine(nombreCineA);
 			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
+			break;
+		case INSERTAR_ACTOR:
+			//metodosArtistas.insertarArtistaActorBBDD(nombre, pelicula_idPelicula);
+			break;
+		case INSERTAR_DIRECTOR:
 			break;
 		case ANIADIR_ARTISTA:
 			

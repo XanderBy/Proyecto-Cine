@@ -24,6 +24,7 @@ import modelo.POJOs.Compagnia;
 import modelo.POJOs.GeneroPelicula;
 import modelo.POJOs.IdiomaOriginal;
 import modelo.POJOs.Pais;
+import modelo.POJOs.Pelicula;
 import modelo.POJOs.ValoracionPeli;
 import modelo.metodos.MetodosArtistas;
 import modelo.metodos.MetodosCine;
@@ -826,11 +827,22 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				idPelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
-				pantallaAdministrador.jTextField39
-						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
-				pantallaAdministrador.jTextField50
-						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
+				pantallaAdministrador.jTextField39.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
+				pantallaAdministrador.jTextField50.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
+				
+				Pelicula peli = modelo.metodos.MetodosPelicula.peliculas.get(idPelicula);
+				pantallaAdministrador.jTextField38.setText(String.valueOf(peli.getAgnoProduccion()));
+				pantallaAdministrador.jTextField40.setText(peli.getTituloOriginal());
+				pantallaAdministrador.jComboBox6.setSelectedItem(peli.getGenero().name());
+				pantallaAdministrador.jComboBox7.setSelectedItem(peli.getIdioma().name());
+				pantallaAdministrador.jCheckBox2.setSelected(peli.isSubtitulosEs());
+				pantallaAdministrador.jComboBox12.setSelectedItem(peli.getPaisOrigen().name());
+				pantallaAdministrador.jTextField42.setText(peli.getSitioWeb());
+				pantallaAdministrador.jTextField43.setText(String.valueOf(peli.getDuracionPelicula().toMinutes()));
+				pantallaAdministrador.jComboBox8.setSelectedItem(peli.getCalificacionEdades().name());
+				pantallaAdministrador.jTextField44.setText(peli.getFechaEstrenoEs().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+				pantallaAdministrador.jTextField45.setText(peli.getResumen());
 			}
 		}
 	}

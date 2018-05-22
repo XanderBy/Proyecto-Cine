@@ -548,7 +548,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				try {
 					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);
 				} catch (HeadlessException | SQLException e1) {
-					System.err.println("Excepcion no controlada en modificar salas");
+					System.err.println("Excepcion no controlada en modifica sala");
 					e1.printStackTrace();
 				}
 			}

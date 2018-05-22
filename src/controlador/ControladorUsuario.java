@@ -8,8 +8,10 @@ import java.awt.event.MouseListener;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.DefaultTableModel;
 
 import modelo.POJOs.ValoracionPeli;
+import modelo.metodos.MetodosCine;
 import modelo.metodos.MetodosCuentasAcceso;
 import modelo.metodos.MetodosEntrada;
 import modelo.metodos.MetodosOpinion;
@@ -23,6 +25,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	public MetodosCuentasAcceso metodosCuentasAcceso = new MetodosCuentasAcceso();
 	public MetodosOpinion metodosOpinion = new MetodosOpinion();
 	public MetodosEntrada metodosEntrada = new MetodosEntrada();
+	public MetodosCine metodosCine;
 	//TODO
 	//Declaracion de variables
 	
@@ -49,6 +52,12 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		} catch (InstantiationException ex) {
 		} catch (IllegalAccessException ex) {
 		}
+		//CARTELERA
+		this.pantallaUsuario.jTable1.addMouseListener(this);
+		this.pantallaUsuario.jTable1.setModel(new DefaultTableModel());
+		
+		this.pantallaUsuario.jTable3.addMouseListener(this);
+		this.pantallaUsuario.jTable3.setModel(new DefaultTableModel());
 		
 		//Declaramos las acciones y escuchas al evento producido por el
 		//componente

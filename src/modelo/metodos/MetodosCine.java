@@ -19,6 +19,7 @@ import modelo.POJOs.Sala;
 import static modelo.metodos.MetodosFuncion.Funciones;
 
 public class MetodosCine extends ConexionManager {
+	MetodosSala metodossala=new MetodosSala();
 	// Crear Cine
 	// ---------------------------------------------------------
 
@@ -44,6 +45,7 @@ public class MetodosCine extends ConexionManager {
 		eliminarCineBBDD(nombreCine);
 		eliminarCineArray();
 		cogerTodosLosCineBBDD();
+		metodossala.eliminarSalas(nombreCine);
 		JOptionPane.showMessageDialog(null, "Cine eliminado");
 
 	}

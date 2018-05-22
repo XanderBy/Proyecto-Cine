@@ -3,6 +3,7 @@ package modelo.metodos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 import javax.swing.table.DefaultTableModel;
@@ -29,8 +30,8 @@ public class MetodosCine extends ConexionManager {
 		} else {
 			crearCineBBDD(nombreCine, direccionCine, telefonoConsulta, precioBase);
 			try {
-			eliminarCineArray();
-			}catch(Exception e) {
+				eliminarCineArray();
+			} catch (Exception e) {
 				System.err.println("No existen cines y se ha intentado borrar todo el array");
 			}
 			cogerTodosLosCineBBDD();
@@ -72,9 +73,14 @@ public class MetodosCine extends ConexionManager {
 	// ---------------------------------------------------------
 	public void eliminarCineArray() {
 		Iterator it = Compagnia.listaCines.keySet().iterator();
-		while (it.hasNext()) {
-			String clave = (String) it.next();
-			Compagnia.listaCines.remove(clave);
+		try {
+			while (it.hasNext()) {
+
+				String clave = (String) it.next();
+				Compagnia.listaCines.remove(clave);
+
+			}
+		} catch (ConcurrentModificationException e) {
 		}
 	}
 

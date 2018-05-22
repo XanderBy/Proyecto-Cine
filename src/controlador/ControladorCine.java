@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ConcurrentModificationException;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -85,8 +86,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 		this.pantallaAdministrador.jTable1.addMouseListener(this);
 		this.pantallaAdministrador.jTable1.setModel(new DefaultTableModel());
 
-		// this.pantallaAdministrador.jList9.addMouseListener(this);
-		// this.pantallaAdministrador.jList9.setListData(Pais.values());
 		pantallaAdministrador.jComboBox13.removeAllItems();
 
 		this.pantallaAdministrador.jTable4.addMouseListener(this);
@@ -95,8 +94,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Funcion
 		metodosCine.cogerTodosLosCineBBDD();
 		metodosFuncion.cogerTodasLasFuncionesBBDD();
+
 		metodosArtistas.devolverArtistasArray();
-		
+
 		this.pantallaAdministrador.jTable12.addMouseListener(this);
 		this.pantallaAdministrador.jTable12.setModel(new DefaultTableModel());
 
@@ -148,10 +148,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jButton23.setActionCommand("INSERTAR_DIRECTOR_ANIADIR");
 		this.pantallaAdministrador.jButton23.addActionListener(this);
-
-		// Recargar tabla cine
-		//this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
-		//this.pantallaAdministrador.jButton7.addActionListener(this);
 
 		// Eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");
@@ -331,7 +327,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),
 					Integer.parseInt(pantallaAdministrador.jTextField48.getText()));
 
-			
 			break;
 		case ANIADIR_ARTISTA:
 			metodosArtistas.CrearArtista(pantallaAdministrador.jTextField41.getText(),
@@ -513,7 +508,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 			String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
 			int numeroButacas = 0;
 			if (nombreCin == null || nombreSala == null || numeroButacas == 0) {
-				JOptionPane.showMessageDialog(null, "Debe introducir datos validos. Recuerde escribir el nombre del cine al que desea aniadir la sala.");
+				JOptionPane.showMessageDialog(null,
+						"Debe introducir datos validos. Recuerde escribir el nombre del cine al que desea aniadir la sala.");
 			} else {
 				try {
 					numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
@@ -541,9 +537,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 			String nombreCinema = pantallaAdministrador.jTextField11.getText();
 			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
 			int seatsNumber = 0;
-			if(oldNombreSala==null || nombreCinema==null || nombreSal==null || seatsNumber==0) {
+			if (oldNombreSala == null || nombreCinema == null || nombreSal == null || seatsNumber == 0) {
 				JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
-			}else {
+			} else {
 				try {
 					seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
 				} catch (NumberFormatException e2) {
@@ -587,7 +583,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField49.setText("");
 				pantallaAdministrador.jTextField35.setText("");
 				pantallaAdministrador.jTextField34.setText("");
-				
+
 				pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 
@@ -795,7 +791,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
 					this.pantallaAdministrador.jTextField8
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
-					
+
 					metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
 
@@ -861,15 +857,17 @@ public class ControladorCine implements ActionListener, MouseListener {
 	private void clickTablaModificarPelicula(java.awt.event.MouseEvent e) throws SQLException {
 
 		metodosPelicula.cargarPeliculas();
-		
+
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				idPelicula = String.valueOf(this.pantallaAdministrador.jTable13.getValueAt(fila, 1));
-				pantallaAdministrador.jTextField39.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
-				pantallaAdministrador.jTextField50.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
+				pantallaAdministrador.jTextField39
+						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 0)));
+				pantallaAdministrador.jTextField50
+						.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
-				
+
 				Pelicula peli = modelo.metodos.MetodosPelicula.peliculas.get(Integer.parseInt(idPelicula));
 				pantallaAdministrador.jTextField38.setText(String.valueOf(peli.getAgnoProduccion()));
 				pantallaAdministrador.jTextField40.setText(peli.getTituloOriginal());
@@ -880,7 +878,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField42.setText(peli.getSitioWeb());
 				pantallaAdministrador.jTextField43.setText(String.valueOf(peli.getDuracionPelicula().toMinutes()));
 				pantallaAdministrador.jComboBox8.setSelectedItem(peli.getCalificacionEdades().name());
-				pantallaAdministrador.jTextField44.setText(peli.getFechaEstrenoEs().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+				pantallaAdministrador.jTextField44
+						.setText(peli.getFechaEstrenoEs().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 				pantallaAdministrador.jTextField45.setText(peli.getResumen());
 			}
 		}

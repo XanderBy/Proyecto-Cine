@@ -19,8 +19,8 @@ public class Entrada {
 	}
 	
 	//CONSTRUCTOR DEFINIDO
-	public Entrada(String idHall, double ticketPrice, int idMovie, String idCin, String idUser) {
-		idEntrada=contador++;
+	public Entrada(int idTicket,String idHall, double ticketPrice, int idMovie, String idCin, String idUser) {
+		idEntrada=idTicket;
 		idSala=idHall;
 		precioEntrada=ticketPrice;
 		idPelicula=idMovie;

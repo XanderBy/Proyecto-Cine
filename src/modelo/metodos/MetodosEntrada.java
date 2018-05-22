@@ -6,9 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 import controlador.ConexionManager;
 import modelo.POJOs.Entrada;
-import modelo.POJOs.Promocion;
 
 public class MetodosEntrada {
 
@@ -49,7 +50,7 @@ public class MetodosEntrada {
 				idCine=resultado.getString("CINE_NOMBRECINE");
 				idCompania=resultado.getString("CINE_COMPANIA_NOMBRECOMPAGNIA");
 				idUsuario=resultado.getString("CUENTA_USUARIO_NOMBREACCESO");
-				e=new Entrada(idSala, precioEntrada, idPelicula, idCine, idUsuario);
+				e=new Entrada(idEntrada, idSala, precioEntrada, idPelicula, idCine, idUsuario);
 				mapSoldTickets.put(idEntrada,e);
 			}
 		} catch (Exception e1) {
@@ -61,5 +62,17 @@ public class MetodosEntrada {
 		mapEntradasVendidas = mapSoldTickets;
 		// 4.Cerramos la conexion
 		conexionManager.cerrar();
+	}
+	
+	public void crearEntrada(int idTicket, String idHall, double ticketPrice, int idMovie, String idCin, String idUser) throws SQLException {
+		cargarEntradas();
+		
+		if (idHall==null || ticketPrice==0 || idMovie==0 || idCin==null || idUser==null) {
+			JOptionPane.showMessageDialog(null, "Introduzca datos validos");
+		}else if(mapEntradasVendidas.containsKey(idTicket)) {
+			JOptionPane.showMessageDialog(null, "Ya existe una entrada con ese identificador");
+		}
+		
+		
 	}
 }

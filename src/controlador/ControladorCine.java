@@ -442,7 +442,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			formatDateTime = LocalDateTime.parse(now, formatter);
 			metodosFuncion.actualizarFuncionCineBBDD(formatDateTime,
 					Compagnia.listaCines.get(pantallaAdministrador.jLabel91.getText()));
-
 			pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 			pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
@@ -729,7 +728,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			if (fila > -1) {
 				this.pantallaAdministrador.jTextField27
 						.setText(String.valueOf(this.pantallaAdministrador.jTable11.getValueAt(fila, 0)));
-				
+
 			}
 		}
 	}
@@ -751,7 +750,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 				this.pantallaAdministrador.jTextField26
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 4)));
 
-				
 			}
 		}
 	}
@@ -765,7 +763,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
 				try {
 
-					//metodosCine.cogerTodosLosCineBBDD();
+					// metodosCine.cogerTodosLosCineBBDD();
 					// El error esta aqui
 
 					this.pantallaAdministrador.jTextField11
@@ -777,11 +775,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 					this.pantallaAdministrador.jTextField8
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
 
-					
 					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
 
-					
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
 				}

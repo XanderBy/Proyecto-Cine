@@ -176,7 +176,7 @@ public class MetodosFuncion extends ConexionManager {
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
-		System.out.println("Holaaaaaaaaaaaaaaaaaaaaaa");
+		
 	}
 
 	// ---------------------------------------------------------

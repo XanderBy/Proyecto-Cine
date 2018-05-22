@@ -43,9 +43,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
 
-        jDialog1.setAlwaysOnTop(true);
         jDialog1.setMinimumSize(new java.awt.Dimension(400, 350));
-        jDialog1.setModal(true);
 
         jLabel3.setText("Contrasena");
 

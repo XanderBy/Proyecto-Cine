@@ -44,9 +44,10 @@ public class IniciarSesion extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         jDialog1.setAlwaysOnTop(true);
+        jDialog1.setMinimumSize(new java.awt.Dimension(400, 350));
         jDialog1.setModal(true);
 
-        jLabel3.setText("Contraseña");
+        jLabel3.setText("Contrasena");
 
         jButton3.setText("Crear Cuenta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -55,7 +56,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Repetir Contraseña");
+        jLabel4.setText("Repetir Contrasena");
 
         jLabel5.setText("Usuario");
 

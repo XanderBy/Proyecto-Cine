@@ -34,7 +34,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	
 	//Declaramos en un enum las acciones relacionadas con los usuarios
 	public enum accionesUsuario{
-		ENTRAR,VOLVER,
+		ENTRAR,VOLVER1,VOLVER2,SALIR,CANCELAR,ENVIAR,COMPRAR,
 		//TODO
 	}
 	
@@ -68,6 +68,22 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		//TODO añadir acciones y escuchas
 		pantallaUsuario.jButton1.setActionCommand("ENTRAR");
 		pantallaUsuario.jButton1.addActionListener(this);
+		pantallaUsuario.jButton6.setActionCommand("VOLVER1");
+		pantallaUsuario.jButton6.addActionListener(this);
+		pantallaUsuario.jButton2.setActionCommand("ENVIAR");
+		pantallaUsuario.jButton2.addActionListener(this);
+		pantallaUsuario.jButton7.setActionCommand("CANCELAR");
+		pantallaUsuario.jButton7.addActionListener(this);
+		pantallaUsuario.jButton8.setActionCommand("SALIR");
+		pantallaUsuario.jButton8.addActionListener(this);
+		pantallaUsuario.jButton4.setActionCommand("COMPRAR");
+		pantallaUsuario.jButton4.addActionListener(this);
+		pantallaUsuario.jButton5.setActionCommand("VOLVER2");
+		pantallaUsuario.jButton5.addActionListener(this);
+		pantallaUsuario.ComprarEntrada.setLocationRelativeTo(null);
+		pantallaUsuario.ConsultarCompras.setLocationRelativeTo(null);
+		pantallaUsuario.AgnadirOpinion.setLocationRelativeTo(null);
+		pantallaUsuario.ConsultarCartelera.setLocationRelativeTo(null);
 		
 		pantallaUsuario.jTable1.setModel(metodosCine.cogerCineBBDDTodo());
 		//para introducir items en los jcombobox
@@ -100,6 +116,40 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 				pantallaUsuario.setVisible(false);
 				pantallaUsuario.ConsultarCompras.setVisible(true);
 			}
+			break;
+		case VOLVER1:
+			pantallaUsuario.setVisible(true);
+			pantallaUsuario.ConsultarCartelera.setVisible(false);
+			break;
+		case ENVIAR:
+			//TODO
+			
+			
+			
+			pantallaUsuario.setVisible(true);
+			pantallaUsuario.AgnadirOpinion.setVisible(false);
+			break;
+			
+		case CANCELAR:
+			pantallaUsuario.setVisible(true);
+			pantallaUsuario.AgnadirOpinion.setVisible(false);
+			break;
+			
+		case SALIR:
+			pantallaUsuario.setVisible(true);
+			pantallaUsuario.ComprarEntrada.setVisible(false);
+			break;
+			
+		case COMPRAR:
+			//TODO
+			
+			pantallaUsuario.setVisible(true);
+			pantallaUsuario.ComprarEntrada.setVisible(false);
+			break;
+			
+		case VOLVER2:
+			pantallaUsuario.setVisible(true);
+			pantallaUsuario.ConsultarCompras.setVisible(false);
 			break;
 		default:
 			break;

@@ -17,7 +17,7 @@ public class MetodosEntrada {
 	 */
 	HashMap <Integer, Entrada> mapEntradasVendidas=new HashMap <Integer, Entrada>();
 	
-	public void cargarPromociones() throws SQLException {
+	public void cargarEntradas() throws SQLException {
 		
 		// 1.Declaramos map y variables
 		HashMap <Integer, Entrada> mapSoldTickets=new HashMap<Integer, Entrada>();
@@ -35,21 +35,31 @@ public class MetodosEntrada {
 		Connection conexion = conexionManager.crear();
 		
 		//3. Creamos el statement
-		PreparedStatement consulta = conexion
-				.prepareStatement("SELECT IDENTRADA, ENTRADA_IDSALA, PRECIOENTRADA, ENTRADA_IDPELICULA, CINE_NOMBRECINE, CINE_COMPANIA_NOMBRECOMPAGNIA, CUENTA_USUARIO_NOMBREACCESO FROM ENTRADA");
-		// 2.2.Preparamos el ResultSet
-		ResultSet resultado = consulta.executeQuery();
-		// 2.3.Iteramos sobre las tuplas de la base de datos
-		while (resultado.next()) {
-			idEntrada = resultado.getInt("IDENTRADA");
-			idSala=resultado.getString("ENTRADA_IDSALA");
-			precioEntrada=resultado.getDouble("PRECIOENTRADA");
-			idPelicula=resultado.getInt("ENTRADA_IDPELICULA");
-			idCine=resultado.getString("CINE_NOMBRECINE");
-			idCompania=resultado.getString("CINE_COMPANIA_NOMBRECOMPAGNIA");
-			idUsuario=resultado.getString("CUENTA_USUARIO_NOMBREACCESO");
-			e=new Entrada(idSala, precioEntrada, idPelicula, idCine, idUsuario);
-			mapSoldTickets.put(idEntrada,e);
+		try {
+			PreparedStatement consulta = conexion
+					.prepareStatement("SELECT IDENTRADA, ENTRADA_IDSALA, PRECIOENTRADA, ENTRADA_IDPELICULA, CINE_NOMBRECINE, CINE_COMPANIA_NOMBRECOMPAGNIA, CUENTA_USUARIO_NOMBREACCESO FROM ENTRADA");
+			// 2.2.Preparamos el ResultSet
+			ResultSet resultado = consulta.executeQuery();
+			// 2.3.Iteramos sobre las tuplas de la base de datos
+			while (resultado.next()) {
+				idEntrada = resultado.getInt("IDENTRADA");
+				idSala=resultado.getString("ENTRADA_IDSALA");
+				precioEntrada=resultado.getDouble("PRECIOENTRADA");
+				idPelicula=resultado.getInt("ENTRADA_IDPELICULA");
+				idCine=resultado.getString("CINE_NOMBRECINE");
+				idCompania=resultado.getString("CINE_COMPANIA_NOMBRECOMPAGNIA");
+				idUsuario=resultado.getString("CUENTA_USUARIO_NOMBREACCESO");
+				e=new Entrada(idSala, precioEntrada, idPelicula, idCine, idUsuario);
+				mapSoldTickets.put(idEntrada,e);
+			}
+		} catch (Exception e1) {
+			System.err.println("Excepcion no controlada en cargarEntradas");
+			e1.printStackTrace();
 		}
+		
+		// 3.Actualizamos map
+		mapEntradasVendidas = mapSoldTickets;
+		// 4.Cerramos la conexion
+		conexionManager.cerrar();
 	}
 }

@@ -546,6 +546,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 						subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades, fechaEstrenoEs,
 						resumen, idPelicula);
 
+				pantallaAdministrador.jTextField48.setText(String.valueOf(idPelicula));
 				pantallaAdministrador.jTextField28.setText("");
 				pantallaAdministrador.jTextField29.setText("");
 				pantallaAdministrador.jTextField30.setText("");

@@ -61,7 +61,7 @@ public class MetodosFuncion extends ConexionManager {
 		if (diaYHoraAntiguo == null || diaYHora == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			actualizarFuncionBBDD(diaYHoraAntiguo, diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine);
+			actualizarFuncionBBDD(diaYHoraAntiguo, diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
 			eliminarFuncionesArray();
 			cogerTodasLasFuncionesBBDD();
 			JOptionPane.showMessageDialog(null, "Funcion modificada");
@@ -133,7 +133,7 @@ public class MetodosFuncion extends ConexionManager {
 
 	// ---------------------------------------------------------
 	public void actualizarFuncionBBDD(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
-			Pelicula peliculaFuncion, Cine cine_nombre) {
+			Pelicula peliculaFuncion, Cine cine_nombre, Promocion promocion) {
 		// se arma la consulta
 		String q = " UPDATE funcion SET diayHora = " + diaYHora + ", PeliculaFuncion = "
 				+ peliculaFuncion.getIdPelicula() + ", sala_idSalaCine = '" + salaFuncion.getIdSalaCine() + "'"
@@ -147,8 +147,7 @@ public class MetodosFuncion extends ConexionManager {
 			System.err.println(e.getMessage());
 		}
 		
-		String qq = " UPDATE funcionpromocion SET funcion_diayHora = " + diaYHora + ", promocion_descuentoPromo=" 
-				+ "WHERE diayHora= " + diaYHoraAntiguo;
+		String qq = " UPDATE funcionpromocion SET funcion_diayHora = " + diaYHora + ", promocion_descuentoPromo= "+ promocion.getDescuentoPromo()+ "WHERE funcion_diayHora= " + diaYHoraAntiguo;
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(qq);

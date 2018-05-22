@@ -82,6 +82,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
 
+        ConsultarCartelera.setMinimumSize(new java.awt.Dimension(600, 550));
+
         jLabel1.setText("Cines:");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -197,6 +199,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addContainerGap(177, Short.MAX_VALUE)))
         );
 
+        AgnadirOpinion.setMinimumSize(new java.awt.Dimension(400, 300));
+
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pelicula 1", "Pelicula 2", "Pelicula 3", "Pelicula 4", "Pelicula 5", "Pelicula 6", "Pelicula 7", "Pelicula 8" }));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -274,6 +278,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addComponent(jButton7))
                 .addGap(23, 23, 23))
         );
+
+        ComprarEntrada.setMinimumSize(new java.awt.Dimension(500, 400));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Comprar Entrada");

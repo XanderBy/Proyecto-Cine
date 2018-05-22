@@ -31,7 +31,7 @@ public class MetodosFuncion extends ConexionManager {
 		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
 			JOptionPane.showMessageDialog(null, "Funcion no Aniadida");
 		} else {
-			crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
+			crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, promocionFuncion);
 			eliminarFuncionesArray();
 			cogerTodasLasFuncionesBBDD();
 
@@ -100,8 +100,7 @@ public class MetodosFuncion extends ConexionManager {
 
 	// ---------------------------------------------------------(tiene la tabla
 	// funcionpromocion tambien)
-	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
-			Cine cine_nombreCine, Promocion promocionFuncion) {
+	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion) {
 		LocalDateTime localDate = diaYHora;// For reference
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
 		String formattedString = localDate.format(formatter);
@@ -142,6 +141,17 @@ public class MetodosFuncion extends ConexionManager {
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
+			pstm.execute();
+			pstm.close();
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+		}
+		
+		String qq = " UPDATE funcionpromocion SET funcion_diayHora = " + diaYHora + ", promocion_descuentoPromo=" 
+				+ "WHERE diayHora= " + diaYHoraAntiguo;
+		// se ejecuta la consulta
+		try {
+			PreparedStatement pstm = this.getConexion().prepareStatement(qq);
 			pstm.execute();
 			pstm.close();
 		} catch (SQLException e) {
@@ -336,7 +346,7 @@ public class MetodosFuncion extends ConexionManager {
 		// variable "registros"
 		// para formar la matriz de datos
 		try {
-			System.out.println("pruebass");
+			System.out.println("pruebas1");
 			//System.out.print(nombreCine.getNombreCine());
 			try {
 				pstm = getConexion().prepareStatement(

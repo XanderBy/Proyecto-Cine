@@ -112,7 +112,7 @@ public class MetodosArtistas extends ConexionManager {
 
 		}
 	// ------------------------------------------------------
-	public void insertarArtistaActorBBDD(String nombre, String nacionalidad, int pelicula_idPelicula) {
+	public void insertarArtistaActorBBDD(String nombre, int pelicula_idPelicula) {
 		// se arma la consulta
 		String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, actor)" + "VALUES ('" + nombre + "',"
 				+ pelicula_idPelicula + "," + 1 + ")";

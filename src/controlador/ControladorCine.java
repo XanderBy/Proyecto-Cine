@@ -57,7 +57,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public enum accionesAdministrador {// Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, // Este
 		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
-		INSERTAR_DIRECTOR, INSERTAR_ACTOR, 
+		INSERTAR_DIRECTOR, INSERTAR_ACTOR_MODIFICAR, 
 		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
 
@@ -134,8 +134,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		this.pantallaAdministrador.jButton26.setActionCommand("ANIADIR_ARTISTA");
 		this.pantallaAdministrador.jButton26.addActionListener(this);
 		
-		//this.pantallaAdministrador.jButton28.setActionCommand("ANIADIR_ARTISTA");
-		//this.pantallaAdministrador.jButton28.addActionListener(this);
+		this.pantallaAdministrador.jButton28.setActionCommand("INSERTAR_ACTOR");
+		this.pantallaAdministrador.jButton28.addActionListener(this);
 		
 		// Recargar tabla cine
 		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
@@ -300,10 +300,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable7.setModel(metodosCine.cogerCineBBDDTodo());
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
-		case INSERTAR_ACTOR:
+		case INSERTAR_ACTOR_MODIFICAR:
 			
 			System.out.println("awddwajiawdddddddddddddddddddddd");
-			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),pantallaAdministrador.jComboBox5.getSelectedItem().toString() ,Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
+			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField47.getText() ,Integer.parseInt(pantallaAdministrador.jTextField50.getText()));
 			
 			break;
 		case INSERTAR_DIRECTOR:

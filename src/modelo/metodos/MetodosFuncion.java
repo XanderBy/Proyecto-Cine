@@ -106,8 +106,8 @@ public class MetodosFuncion extends ConexionManager {
 		String formattedString = localDate.format(formatter);
 		System.out.println(formattedString);
 		// se arma la consulta
-		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ('"
-				+ formattedString + "','" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ",'"
+		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ("
+				+ formattedString + ",'" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ",'"
 				+ "nop" + "')";
 		// se ejecuta la consulta
 		try {
@@ -119,7 +119,7 @@ public class MetodosFuncion extends ConexionManager {
 		}
 
 		// se arma la consulta
-		String qq = " INSERT INTO funcionPromocion (funcion_diayHora, promocion_descuentoPromo)" + "VALUES (" + diaYHora
+		String qq = " INSERT INTO funcionPromocion (funcion_diayHora, promocion_descuentoPromo)" + "VALUES (" + formattedString
 				+ "," + promocionFuncion.getDescuentoPromo() + ")";
 		// se ejecuta la consulta
 		try {
@@ -285,14 +285,14 @@ public class MetodosFuncion extends ConexionManager {
 				// localizar la sala pelicula etc.. buscando con un iterator en los hashmap
 				Funcion funcion = new Funcion(tiempo, sala, peliculaPromocion1, promocionFuncion1);
 				Funciones.put(tiempo, funcion);
-				Compagnia.listaCines.get(res.getString("cine_nombreCine")).funcionesSemana.put(tiempo, funcion);
+				//Compagnia.listaCines.get(res.getString("cine_nombreCine")).funcionesSemana.put(tiempo, funcion);
 				i++;
 			}
 			res.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
-
+		System.out.println("Hola1"+Funciones.size());
 	}
 	
 	// ---------------------------------------------------------

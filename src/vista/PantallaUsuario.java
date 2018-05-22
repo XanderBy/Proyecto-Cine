@@ -517,10 +517,10 @@ public class PantallaUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDialog AgnadirOpinion;
-    private javax.swing.JDialog ComprarEntrada;
-    private javax.swing.JDialog ConsultarCartelera;
-    private javax.swing.JDialog ConsultarCompras;
+    public javax.swing.JDialog AgnadirOpinion;
+    public javax.swing.JDialog ComprarEntrada;
+    public javax.swing.JDialog ConsultarCartelera;
+    public javax.swing.JDialog ConsultarCompras;
     private javax.swing.ButtonGroup gestionUsuario;
     public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

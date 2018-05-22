@@ -83,18 +83,22 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 			if (pantallaUsuario.jRadioButton1.isSelected()) {
 				
 				pantallaUsuario.setVisible(false);
+				pantallaUsuario.ConsultarCartelera.setVisible(true);
 				
 			}else if (pantallaUsuario.jRadioButton2.isSelected()) {
 				
 				pantallaUsuario.setVisible(false);
+				pantallaUsuario.AgnadirOpinion.setVisible(true);
 				
 			}else if (pantallaUsuario.jRadioButton3.isSelected()) {
 				
 				pantallaUsuario.setVisible(false);
+				pantallaUsuario.ComprarEntrada.setVisible(true);
 				
 			}else if (pantallaUsuario.jRadioButton4.isSelected()) {
 				
 				pantallaUsuario.setVisible(false);
+				pantallaUsuario.ConsultarCompras.setVisible(true);
 				
 			}
 			break;

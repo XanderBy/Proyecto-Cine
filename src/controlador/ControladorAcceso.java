@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
@@ -60,15 +61,43 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(accionesAcceso.valueOf(e.getActionCommand())) {
+		
 		case INICIAR_SESION:
-			
 			String nombreUsuario = iniciarSesion.jTextField1.getText();
-			String pass = iniciarSesion.jPasswordField1.getText();
+			String pass = new String(iniciarSesion.jPasswordField1.getPassword());
 			
+			try {
+
+				if (metodosCuentasAcceso.iniciarSesion(nombreUsuario, pass)) {
+					
+//					if (pass.startsWith("ADMIN")) {
+//						
+//						iniciarSesion.setVisible(false);
+//						new ControladorCine(new PantallaAdministrador()).Iniciar();
+//						
+//					}else{
+//						
+//						new ControladorUsuario(new PantallaUsuario()).Iniciar();
+//						
+//					}
+				}
+				
+			} catch (SQLException e1) {
+				System.err.println("Excepcion no controlada");
+				e1.printStackTrace();
+			}
+			break;
+		case CREAR_USUARIO:
 			
-		
-		}
-		
+			//iniciarSesion.setVisible(false);
+			//new ControladorCrearUsuario(new CrearUsuario()).Iniciar();
+			
+			break;
+		default:
+			System.out.println("Entra en default");
+			break;
+		}	
+				
 	}
 	
 	@Override

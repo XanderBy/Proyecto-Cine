@@ -1,5 +1,6 @@
 package controlador;
 
+import vista.IniciarSesion;
 import vista.PantallaAdministrador;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
 		/*
 		 * IniciarSesion is=new IniciarSesion(); is.setVisible(true);
 		 */
-
+		//new ControladorAcceso(new IniciarSesion()).Iniciar();
 		new ControladorCine(new PantallaAdministrador()).Iniciar();
 		
 		/*

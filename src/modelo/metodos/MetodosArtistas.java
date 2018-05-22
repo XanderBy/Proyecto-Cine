@@ -59,7 +59,7 @@ public class MetodosArtistas extends ConexionManager {
 	public void AnadirAActor(String nombreCompleto, Pelicula pelicula) {
 		Artistas.get(nombreCompleto).PeliculasParticipaDirector.put(nombreCompleto, pelicula);
 		masUnoCantidadPeliculas(nombreCompleto);
-		JOptionPane.showMessageDialog(null, "Artista Añadido ha Actor");
+		JOptionPane.showMessageDialog(null, "Artista Aniadido ha Actor");
 	}
 
 	// ------------------------------------------------------
@@ -114,8 +114,9 @@ public class MetodosArtistas extends ConexionManager {
 	// ------------------------------------------------------
 	public void insertarArtistaActorBBDD(String nombre, String nacionalidad, int pelicula_idPelicula) {
 		// se arma la consulta
-		String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, actor)" + "VALUES ('" + nombre + "','"
-				+ pelicula_idPelicula + "'," + 1 + ")";
+		String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, actor)" + "VALUES ('" + nombre + "',"
+				+ pelicula_idPelicula + "," + 1 + ")";
+		JOptionPane.showMessageDialog(null, "Artista Aniadido ha Actor");
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

@@ -300,6 +300,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			
 			
 			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),pantallaAdministrador.jComboBox5.getSelectedItem().toString() ,Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
+			
 			break;
 		case INSERTAR_DIRECTOR:
 			break;

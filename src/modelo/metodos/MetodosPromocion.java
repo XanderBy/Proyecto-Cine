@@ -233,11 +233,11 @@ public class MetodosPromocion {
 				Connection conexion = conexionManager.crear();
 
 				// 2.2 Realizamos la eliminacion
-				// 2.2.1.Creamos el PreparedStatement: Update
+				// 2.2.1.Creamos el PreparedStatement: Delete
 				try {
 					PreparedStatement preparedStatement = conexion
-							.prepareStatement("DELETE FROM PROMOCION WHERE DESCUENTOPROMO=" + promoDiscount);// TODO:
-																												// COMPROBAR
+							.prepareStatement("DELETE FROM PROMOCION WHERE DESCUENTOPROMO=" + promoDiscount);
+																												
 					// 2.2.2.Ejecutamos el preparedStatement
 					preparedStatement.execute();
 					// 2.2.3.Cerramos la conexion

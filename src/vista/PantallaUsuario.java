@@ -522,7 +522,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JDialog ConsultarCartelera;
     private javax.swing.JDialog ConsultarCompras;
     private javax.swing.ButtonGroup gestionUsuario;
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -550,10 +550,10 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    public javax.swing.JRadioButton jRadioButton1;
+    public javax.swing.JRadioButton jRadioButton2;
+    public javax.swing.JRadioButton jRadioButton3;
+    public javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;

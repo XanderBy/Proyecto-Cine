@@ -191,8 +191,7 @@ public class MetodosSala {
 
 		// 2.Comprobamos que no haya valores nulos
 		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber == 0) {
-			JOptionPane.showMessageDialog(null, "Hay algun valor nulo en modificar sala");
-			System.out.println(idSalCine + "," + oldIdSalaCine);
+			JOptionPane.showMessageDialog(null, "No puede dejar los campos vacios");
 		} else {
 			System.out.println(idSalCine + "," + oldIdSalaCine);
 			if (salas.containsKey(oldIdSalaCine)) {

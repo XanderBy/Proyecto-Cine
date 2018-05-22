@@ -514,7 +514,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 			String oldNombreSala = oldNombreSal;
 			String nombreCinema = pantallaAdministrador.jTextField11.getText();
 			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
-			int seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+			int seatsNumber = 0;
+			try {
+				seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+			} catch (NumberFormatException e2) {
+
+			}
 			try {
 				if (oldNombreSala != null || nombreCinema != null || nombreSal != null || seatsNumber != 0) {
 					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);

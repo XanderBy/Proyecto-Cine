@@ -20,7 +20,6 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 	public IniciarSesion iniciarSesion = new IniciarSesion();
 	//Instanciamos metodos
 	public MetodosCuentasAcceso metodosCuentasAcceso = new MetodosCuentasAcceso();
-	//Declaracion de variables
 	
 	//Declaracion enum de acciones
 	public enum accionesAcceso {
@@ -53,9 +52,9 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 		
 		//
 		
-		iniciarSesion.jButton1.setActionCommand("CREAR_USUARIO");
+		iniciarSesion.jButton1.setActionCommand("INICIAR_SESION");
 		iniciarSesion.jButton1.addActionListener(this);
-		iniciarSesion.jButton2.setActionCommand("INICIAR_SESION");
+		iniciarSesion.jButton2.setActionCommand("CREAR_USUARIO");
 		iniciarSesion.jButton2.addActionListener(this);
 
 	}

@@ -12,7 +12,7 @@ import modelo.POJOs.CuentasAcceso;
 
 public class MetodosCuentasAcceso {
 	
-	public static HashMap<String,CuentasAcceso> cuentasUsuario= new HashMap<String,CuentasAcceso>();
+	public static HashMap<String,CuentasAcceso> cuentasAcceso= new HashMap<String,CuentasAcceso>();
 	
 	public void cargarCuentasAcceso() throws SQLException {
 		
@@ -24,15 +24,26 @@ public class MetodosCuentasAcceso {
 		
 		try {
 			
-			PreparedStatement consulta = conexion.prepareStatement("SELECT nombreAcceso,contrasenaAdministrador FROM cuenta_administrador");
+			PreparedStatement consulta = conexion.prepareStatement("SELECT nombreAcceso,contraseñaAdministrador FROM cuenta_administrador");
 			ResultSet resultado = consulta.executeQuery();
 			
 			while(resultado.next()) {
 				
 				nomUsuario=resultado.getString("nombreAcceso");
-				pass = resultado.getString("contrasenaAdministrador");
+				pass = resultado.getString("contraseñaAdministrador");
 				
-				cuentasUsuario.put(nomUsuario, new CuentasAcceso(nomUsuario,pass));
+				cuentasAcceso.put(nomUsuario, new CuentasAcceso(nomUsuario,pass));
+			}
+			
+			PreparedStatement consulta2 = conexion.prepareStatement("SELECT nombreAcceso,contraseñaUsuario FROM cuenta_usuario");
+			ResultSet resultado2 = consulta2.executeQuery();
+			
+			while(resultado2.next()) {
+				
+				nomUsuario=resultado2.getString("nombreAcceso");
+				pass=resultado2.getString("contraseñaUsuario");
+				
+				cuentasAcceso.put(nomUsuario, new CuentasAcceso(nomUsuario,pass));
 			}
 			
 			conManager.cerrar();
@@ -59,7 +70,7 @@ public class MetodosCuentasAcceso {
 				
 				if (pass1.equals(pass2)) {
 					
-					if(cuentasUsuario.containsKey(nomUs)) {
+					if(cuentasAcceso.containsKey(nomUs)) {
 						
 						JOptionPane.showMessageDialog(null, "Nombre de usuario ya registrado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 						return false;
@@ -102,8 +113,8 @@ public class MetodosCuentasAcceso {
 		
 		try {
 			
-			if (cuentasUsuario.containsKey(nombre)) {
-				if (cuentasUsuario.get(nombre).getContrasegnaAdminUsuario().equals(pass)) {
+			if (cuentasAcceso.containsKey(nombre)) {
+				if (cuentasAcceso.get(nombre).getContrasegnaAdminUsuario().equals(pass)) {
 					return true;
 				}else{
 					JOptionPane.showMessageDialog(null, "Contrasegna Incorrecta", "Informacion", JOptionPane.INFORMATION_MESSAGE);

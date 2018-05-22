@@ -39,8 +39,6 @@ public class CrearUsuario extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario");
 
-        jTextField1.setText("Usuario");
-
         jLabel2.setText("Contraseña");
 
         jButton2.setText("Crear Cuenta");
@@ -51,10 +49,6 @@ public class CrearUsuario extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Repetir Contraseña");
-
-        jPasswordField1.setText("jPasswordField1");
-
-        jPasswordField2.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,12 +141,12 @@ public class CrearUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JPasswordField jPasswordField1;
+    public javax.swing.JPasswordField jPasswordField2;
+    public javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

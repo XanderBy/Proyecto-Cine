@@ -280,12 +280,22 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case ANIADIR_ARTISTA:
+			
+			pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+			pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+
 			break;
 		case MODIFICAR_ARTISTA:
 			metodosArtistas.modificarArtista(pantallaAdministrador.jLabel107.getText(), pantallaAdministrador.jTextField17.getText(), pantallaAdministrador.jLabel109.getText(), Integer.parseInt(pantallaAdministrador.jTextField18.getText()));
+			pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+			pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+
 			break;
 		case ELIMINAR_ARTISTA:
 			metodosArtistas.eliminarArtista(pantallaAdministrador.jLabel106.getText());
+			pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+			pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
+
 			break;
 		case MODIFICAR_CINE:
 

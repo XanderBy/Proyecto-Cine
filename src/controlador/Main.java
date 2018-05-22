@@ -1,5 +1,6 @@
 package controlador;
 
+import modelo.POJOs.Funcion;
 import vista.IniciarSesion;
 import vista.PantallaAdministrador;
 
@@ -11,7 +12,7 @@ public class Main {
 		 */
 		//new ControladorAcceso(new IniciarSesion()).Iniciar();
 		new ControladorCine(new PantallaAdministrador()).Iniciar();
-		
+		new Funcion().start();
 		/*
 		 * CrearUsuario cu = new CrearUsuario(); cu.setVisible(true);
 		 * cu.setLocationRelativeTo(null);

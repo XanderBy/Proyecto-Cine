@@ -20,7 +20,7 @@ import modelo.POJOs.Promocion;
 import modelo.POJOs.Sala;
 
 public class MetodosFuncion extends ConexionManager {
-
+	
 	public static HashMap<LocalDateTime, Funcion> Funciones = new HashMap<LocalDateTime, Funcion>();
 
 	/*
@@ -388,6 +388,7 @@ public class MetodosFuncion extends ConexionManager {
 		return tablemodel;
 
 	}
+	
 	// ---------------------------------------------------------
 
 	public DefaultTableModel cogerFuncionBBDDTodo() {

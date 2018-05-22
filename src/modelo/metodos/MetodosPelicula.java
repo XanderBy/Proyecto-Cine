@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -149,7 +150,8 @@ public class MetodosPelicula {
 					consulta.setString(8, sitioWeb);
 					consulta.setLong(9, duracionPelicula.toMinutes());
 					consulta.setString(10, calificacionEdades);
-					consulta.setString(11, fechaEstrenoEs.toString());
+					consulta.setDate(11, java.sql.Date.valueOf(fechaEstrenoEs));
+					//consulta.setString(11, fechaEstrenoEs.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));
 					consulta.setString(12, resumen);
 					consulta.setInt(13, idPelicula);
 					

@@ -510,7 +510,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
 			int numeroButacas = 0;
 			if (nombreCin == null || nombreSala == null || numeroButacas == 0) {
-				JOptionPane.showMessageDialog(null, "Debe introducir datos validos. Recuerde escribir el nombre del cine.");
+				JOptionPane.showMessageDialog(null, "Debe introducir datos validos. Recuerde escribir el nombre del cine al que desea aniadir la sala.");
 			} else {
 				try {
 					numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());

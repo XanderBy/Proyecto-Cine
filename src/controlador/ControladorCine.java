@@ -538,21 +538,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 			String nombreCinema = pantallaAdministrador.jTextField11.getText();
 			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
 			int seatsNumber = 0;
-			try {
-				seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
-			} catch (NumberFormatException e2) {
-
-			}
-			try {
-				if (oldNombreSala != null || nombreCinema != null || nombreSal != null || seatsNumber != 0) {
-					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);
-				} else {
-					JOptionPane.showMessageDialog(null,
-							"Seleccione el cine del que desea modificar la sala e introduzca nuevos datos");
+			if(oldNombreSala==null || nombreCinema==null || nombreSal==null || seatsNumber==0) {
+				JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
+			}else {
+				try {
+					seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+				} catch (NumberFormatException e2) {
 				}
-			} catch (HeadlessException | SQLException e1) {
-				System.err.println("Excepcion no controlada en modificar salas");
-				e1.printStackTrace();
+				try {
+					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);
+				} catch (HeadlessException | SQLException e1) {
+					System.err.println("Excepcion no controlada en modificar salas");
+					e1.printStackTrace();
+				}
 			}
 			break;
 		case CREAR_PELICULA:

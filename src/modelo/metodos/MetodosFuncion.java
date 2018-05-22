@@ -159,13 +159,14 @@ public class MetodosFuncion extends ConexionManager {
 	}
 
 	// ---------------------------------------------------------
-	public void actualizarFuncionCineBBDD(String diaYHoraAntiguo, Cine cine_nombre) {
+	public void actualizarFuncionCineBBDD(LocalDateTime diaYHoraAntiguo, Cine cine_nombre) {
 		// se arma la consulta
+		LocalDateTime localDate = diaYHoraAntiguo;// For reference
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
+		String formattedString = localDate.format(formatter);
 		String q = " UPDATE funcion " + "SET cine_nombreCine = '" + cine_nombre.getNombreCine() + "'"
-				+ " WHERE diayHora= '" + diaYHoraAntiguo + " '";
+				+ " WHERE diayHora= " + formattedString ;
 
-		System.out.println(
-				"dawwwwwwwwwwww" + Compagnia.listaCines.get(cine_nombre.getNombreCine()).funcionesSemana.size());
 		// se ejecuta la consulta
 		cogerTodasLasFuncionesBBDD();
 		try {
@@ -175,6 +176,7 @@ public class MetodosFuncion extends ConexionManager {
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 		}
+		System.out.println("Holaaaaaaaaaaaaaaaaaaaaaa");
 	}
 
 	// ---------------------------------------------------------

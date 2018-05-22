@@ -95,7 +95,7 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 			break;
 		case CREAR_USUARIO:
 			
-			iniciarSesion.setVisible(false);//TODO
+			iniciarSesion.setVisible(false);
 			iniciarSesion.jDialog1.setVisible(true);
 			
 			break;

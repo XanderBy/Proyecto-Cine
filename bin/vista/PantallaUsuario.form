@@ -731,7 +731,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="gestionUsuario"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="A&#xf1;adir Opinion"/>
+        <Property name="text" type="java.lang.String" value="Anadir Opinion"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButton3">

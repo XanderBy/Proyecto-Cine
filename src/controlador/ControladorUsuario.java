@@ -27,8 +27,8 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	public MetodosCuentasAcceso metodosCuentasAcceso = new MetodosCuentasAcceso();
 	public MetodosOpinion metodosOpinion = new MetodosOpinion();
 	public MetodosEntrada metodosEntrada = new MetodosEntrada();
-	public MetodosCine metodosCine;
-	public MetodosFuncion metodosFuncion;
+	public MetodosCine metodosCine = new MetodosCine();
+	public MetodosFuncion metodosFuncion = new MetodosFuncion();
 	//TODO
 	//Declaracion de variables
 	

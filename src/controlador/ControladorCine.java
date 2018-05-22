@@ -821,8 +821,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 		}
 	}
 
-	private void clickTablaModificarPelicula(java.awt.event.MouseEvent e) {
+	private void clickTablaModificarPelicula(java.awt.event.MouseEvent e) throws SQLException {
 
+		metodosPelicula.cargarPeliculas();
+		
 		if (e.getButton() == 1) {
 			int fila = this.pantallaAdministrador.jTable13.rowAtPoint(e.getPoint());
 			if (fila > -1) {
@@ -831,7 +833,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField50.setText(String.valueOf(pantallaAdministrador.jTable13.getValueAt(fila, 1)));
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 				
-				Pelicula peli = modelo.metodos.MetodosPelicula.peliculas.get(idPelicula);
+				Pelicula peli = modelo.metodos.MetodosPelicula.peliculas.get(Integer.parseInt(idPelicula));
 				pantallaAdministrador.jTextField38.setText(String.valueOf(peli.getAgnoProduccion()));
 				pantallaAdministrador.jTextField40.setText(peli.getTituloOriginal());
 				pantallaAdministrador.jComboBox6.setSelectedItem(peli.getGenero().name());
@@ -875,7 +877,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 		presionarTablaModificarPromocion(e);// Fijate Antonio
 		presionarTablaEliminarPromocion(e);
 		presionarTablaModificarSala(e);
-		clickTablaModificarPelicula(e);
+		try {
+			clickTablaModificarPelicula(e);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		clickTablaEliminarPelicula(e);
 	}
 

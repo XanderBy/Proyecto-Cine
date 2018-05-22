@@ -20,7 +20,7 @@ import modelo.POJOs.Promocion;
 import modelo.POJOs.Sala;
 
 public class MetodosFuncion extends ConexionManager {
-	
+
 	public static HashMap<LocalDateTime, Funcion> Funciones = new HashMap<LocalDateTime, Funcion>();
 
 	/*
@@ -33,17 +33,18 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 	public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Cine cine_nombreCine,
 			Promocion promocionFuncion) {
-		
+		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion==null) {
+			JOptionPane.showMessageDialog(null, "Funcion NO Aniadida");
 			// Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
 			// promocionFuncion);
 			// Funciones.put(diaYHora, funcion);
-
+		} else {
 			crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
 			eliminarFuncionesArray();
 			cogerTodasLasFuncionesBBDD();
 
 			JOptionPane.showMessageDialog(null, "Funcion Aniadida");
-		
+		}
 	}
 
 	// ---------------------------------------------------------
@@ -119,10 +120,10 @@ public class MetodosFuncion extends ConexionManager {
 	// funcionpromocion tambien)
 	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			Cine cine_nombreCine, Promocion promocionFuncion) {
-		
+
 		// se arma la consulta
-		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion)" + "VALUES ('"
-				+ diaYHora + "','" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ")";
+		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion)" + "VALUES ('" + diaYHora + "','"
+				+ salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ")";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -385,7 +386,7 @@ public class MetodosFuncion extends ConexionManager {
 		return tablemodel;
 
 	}
-	
+
 	// ---------------------------------------------------------
 
 	public DefaultTableModel cogerFuncionBBDDTodo() {

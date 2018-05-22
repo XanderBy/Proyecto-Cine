@@ -38,8 +38,6 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario");
 
-        jTextField1.setText("Usuario");
-
         jLabel2.setText("Contraseña");
 
         jButton1.setText("Iniciar Sesion");
@@ -50,8 +48,6 @@ public class IniciarSesion extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        jPasswordField1.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

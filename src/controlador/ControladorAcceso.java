@@ -12,6 +12,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 import modelo.metodos.MetodosCuentasAcceso;
 import vista.IniciarSesion;
+import vista.PantallaAdministrador;
+import vista.PantallaUsuario;
 
 public class ControladorAcceso implements ActionListener, MouseListener {
 
@@ -70,16 +72,16 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 
 				if (metodosCuentasAcceso.iniciarSesion(nombreUsuario, pass)) {
 					
-//					if (pass.startsWith("6xd")) {
-//						
-//						iniciarSesion.setVisible(false);
-//						new ControladorCine(new PantallaAdministrador()).Iniciar();
-//						
-//					}else{
-//						
-//						new ControladorUsuario(new PantallaUsuario()).Iniciar();
-//						
-//					}
+					if (pass.startsWith("6xd")) {
+						
+						iniciarSesion.setVisible(false);
+						new ControladorCine(new PantallaAdministrador()).Iniciar();
+						
+					}else{
+						
+						new ControladorUsuario(new PantallaUsuario()).Iniciar();
+						
+					}
 				}
 				
 			} catch (SQLException e1) {

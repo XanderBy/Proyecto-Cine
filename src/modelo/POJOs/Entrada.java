@@ -1,92 +1,86 @@
 package modelo.POJOs;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-
 public class Entrada {
-	// TODO: Atributos
-	private Sala sala;
-	private Cine cine;
-	private Promocion promocion;
-	private Pelicula pelicula;
-	private static Double precioEntrada;
-	public HashMap<Cine, Integer> EntradasVendidasCine = new HashMap<Cine, Integer>();
-
-	// TODO: Constructores
-	public Entrada(Sala sala, Cine cine, Promocion promocion, Pelicula pelicula) {
-		super();
-		this.sala = sala;
-		this.cine = cine;
-		this.promocion = promocion;
-		this.pelicula = pelicula;
-		this.setPrecioEntrada((double) cine.getPrecioBase() - promocion.getDescuentoPromo());
-		aumentarEntradaVendida(cine);
-	}
-
-	// TODO: metodos simples
-	public void aumentarEntradaVendida(Cine cine) {
-		if (EntradasVendidasCine.containsKey(cine)) {
-			EntradasVendidasCine.remove(cine);
-			volverCeroEntradaVendidas(cine);
-			cine.setEntradasVendidas(cine.getEntradasVendidas()+1);
-			EntradasVendidasCine.put(cine, cine.getEntradasVendidas());
-		} else {
-			volverCeroEntradaVendidas(cine);
-			cine.setEntradasVendidas(cine.getEntradasVendidas() + 1);
-			EntradasVendidasCine.put(cine, cine.getEntradasVendidas());
-		}
-	}
-	//metodo volver ha cero entradas vendidas cada principio de mes
-	public void volverCeroEntradaVendidas(Cine cine) {
-		Calendar c2 = new GregorianCalendar();
-		if(c2.get(Calendar.DATE)==1) {
-			cine.setEntradasVendidas(0);
-		}else {
-			System.out.println("Aun no es la fecha");
-		}
+	
+	//ATRIBUTOS
+	private int idEntrada;
+	private String idSala;
+	private double precioEntrada;
+	private int idPelicula;
+	private String idCine;
+	private String idCompania;
+	private String idUsuario;
+	private static int contador=1;
+	
+	//CONSTRUCTOR VACIO
+	public Entrada() {
+		
 	}
 	
-	// TODO: Metodos Get/Set
-	public Sala getSala() {
-		return sala;
+	//CONSTRUCTOR DEFINIDO
+	public Entrada(String idHall, double ticketPrice, int idMovie, String idCin, String idUser) {
+		idEntrada=contador++;
+		idSala=idHall;
+		precioEntrada=ticketPrice;
+		idPelicula=idMovie;
+		idCine=idCin;
+		idCompania=idCin;
+		idUsuario=idUser;
+	}
+	
+	//ACCEDENTES Y MUTADORES
+	public int getIdEntrada() {
+		return idEntrada;
 	}
 
-	public void setSala(Sala sala) {
-		this.sala = sala;
+	public void setIdEntrada(int idEntrada) {
+		this.idEntrada = idEntrada;
 	}
 
-	public Cine getCine() {
-		return cine;
+	public String getIdSala() {
+		return idSala;
 	}
 
-	public void setCine(Cine cine) {
-		this.cine = cine;
+	public void setIdSala(String idSala) {
+		this.idSala = idSala;
 	}
 
-	public Promocion getPromocion() {
-		return promocion;
-	}
-
-	public void setPromocion(Promocion promocion) {
-		this.promocion = promocion;
-	}
-
-	public Pelicula getPelicula() {
-		return pelicula;
-	}
-
-	public void setPelicula(Pelicula pelicula) {
-		this.pelicula = pelicula;
-	}
-
-	public static Double getPrecioEntrada() {
+	public double getPrecioEntrada() {
 		return precioEntrada;
 	}
 
-	public static void setPrecioEntrada(Double precioEntrada) {
-		Entrada.precioEntrada = precioEntrada;
+	public void setPrecioEntrada(double precioEntrada) {
+		this.precioEntrada = precioEntrada;
 	}
 
+	public int getIdPelicula() {
+		return idPelicula;
+	}
+
+	public void setIdPelicula(int idPelicula) {
+		this.idPelicula = idPelicula;
+	}
+
+	public String getIdCine() {
+		return idCine;
+	}
+
+	public void setIdCine(String idCine) {
+		this.idCine = idCine;
+	}
+
+	public String getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(String idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public String getIdCompania() {
+		return idCompania;
+	}
+	
+	
+	
 }

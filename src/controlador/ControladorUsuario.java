@@ -109,6 +109,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 				
 				pantallaUsuario.setVisible(false);
 				pantallaUsuario.ComprarEntrada.setVisible(true);
+				pantallaUsuario.jTable4.setModel(metodosEntrada.generarTablaEntradas());
 				
 			}else if (pantallaUsuario.jRadioButton4.isSelected()) {
 				

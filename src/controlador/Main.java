@@ -3,6 +3,7 @@ package controlador;
 import modelo.POJOs.Funcion;
 import vista.IniciarSesion;
 import vista.PantallaAdministrador;
+import vista.PantallaUsuario;
 
 public class Main {
 
@@ -11,7 +12,8 @@ public class Main {
 		 * IniciarSesion is=new IniciarSesion(); is.setVisible(true);
 		 */
 		//new ControladorAcceso(new IniciarSesion()).Iniciar();
-		new ControladorCine(new PantallaAdministrador()).Iniciar();
+		//new ControladorCine(new PantallaAdministrador()).Iniciar();
+		new ControladorUsuario(new PantallaUsuario()).Iniciar();
 		new Funcion().start();
 		/*
 		 * CrearUsuario cu = new CrearUsuario(); cu.setVisible(true);

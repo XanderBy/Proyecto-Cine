@@ -1,14 +1,17 @@
 package modelo.POJOs;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 
+import controlador.ConexionManager;
 import modelo.metodos.MetodosFuncion;
 
-public class Funcion implements Cartelera, Runnable {
+public class Funcion extends ConexionManager implements Cartelera, Runnable {
 	// TODO: Atributos
 	private Thread thread;
 	private LocalDateTime diaYHora;
@@ -81,6 +84,15 @@ public class Funcion implements Cartelera, Runnable {
 			while (it.hasNext()) {
 				Integer key = (Integer) it.next();
 				MetodosFuncion.Funciones.remove(key);
+			}
+			String q = "DELETE FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora";
+			// se ejecuta la consulta
+			try {
+				PreparedStatement pstm = this.getConexion().prepareStatement(q);
+				pstm.execute();
+				pstm.close();
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
 			}
 		} else {
 			if (c2.get(Calendar.DAY_OF_WEEK) == 3) {

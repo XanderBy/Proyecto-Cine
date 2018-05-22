@@ -25,21 +25,11 @@ public class MetodosFuncion extends ConexionManager {
 
 	public static HashMap<LocalDateTime, Funcion> Funciones = new HashMap<LocalDateTime, Funcion>();
 
-	/*
-	 * Falta-----
-	 * 
-	 * falta coger las funcionesSemana linea 81 falta implementar coger funciones
-	 * 
-	 * Cambiar los constructores de objeto a strings
-	 */
 	// ---------------------------------------------------------
 	public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Cine cine_nombreCine,
 			Promocion promocionFuncion) {
-		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion==null) {
-			JOptionPane.showMessageDialog(null, "Funcion NO Aniadida");
-			// Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
-			// promocionFuncion);
-			// Funciones.put(diaYHora, funcion);
+		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
+			JOptionPane.showMessageDialog(null, "Funcion no Aniadida");
 		} else {
 			crearFuncionBBDD(diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine, promocionFuncion);
 			eliminarFuncionesArray();
@@ -51,26 +41,20 @@ public class MetodosFuncion extends ConexionManager {
 
 	// ---------------------------------------------------------
 	public void eliminarFuncion(LocalDateTime diaYHora) {
-		// Funciones.remove(diaYHora);
 
 		eliminarFuncionBBDD(diaYHora);
-		// eliminarFuncionesArray();// TODO:Aqui a lo mejor de error
-		// cogerTodasLasFuncionesBBDD();
+		cogerTodasLasFuncionesBBDD();
 		JOptionPane.showMessageDialog(null, "Funcion Eliminada");
 	}
 
 	// ---------------------------------------------------------
 	public void eliminarFuncionCine(LocalDateTime diaYHora) {
-		// Funciones.remove(diaYHora);
 
 		eliminarFuncionCineBBDD(diaYHora);
-		// eliminarFuncionesArray();// TODO:Aqui a lo mejor de error
-		// cogerTodasLasFuncionesBBDD();
+		cogerTodasLasFuncionesBBDD();
 		JOptionPane.showMessageDialog(null, "Funcion Eliminada");
 	}
 
-	// TODO: TENGO QUE COMPROBAR ESTO ME QUEDA HACER METODO MODIFICAR
-	// FUNCIONPROMOCION
 	// ---------------------------------------------------------
 	public void modificarFuncion(LocalDateTime diaYHoraAntiguo, LocalDateTime diaYHora, Sala salaFuncion,
 			Pelicula peliculaFuncion, Promocion promocionFuncion, Cine cine_nombreCine) {
@@ -122,13 +106,14 @@ public class MetodosFuncion extends ConexionManager {
 	// funcionpromocion tambien)
 	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			Cine cine_nombreCine, Promocion promocionFuncion) {
-		LocalDateTime localDate =diaYHora;//For reference
+		LocalDateTime localDate = diaYHora;// For reference
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
 		String formattedString = localDate.format(formatter);
 		System.out.println(formattedString);
 		// se arma la consulta
-		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ('" + formattedString + "','"
-				+ salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula()+ ",'"+ "nop" +"')";
+		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ('"
+				+ formattedString + "','" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ",'"
+				+ "nop" + "')";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

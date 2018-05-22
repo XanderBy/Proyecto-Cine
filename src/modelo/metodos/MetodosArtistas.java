@@ -100,7 +100,7 @@ public class MetodosArtistas extends ConexionManager {
 		public void insertarArtistaBBDD(String nombre, String nacionalidad) {
 			// se arma la consulta
 			String q = " INSERT INTO artista (nombreCompleto, nacionalidad, cantidadPeliculas)" + "VALUES ('" + nombre + "','"
-					+ nacionalidad + "')";
+					+ nacionalidad + "', 0)";
 			// se ejecuta la consulta
 			try {
 				PreparedStatement pstm = this.getConexion().prepareStatement(q);

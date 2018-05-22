@@ -55,7 +55,7 @@ public class MetodosCuentasAcceso {
 	}
 	
 	
-	public boolean nuevaCuentaUsuario(String nomUs, String pass1, String pass2) throws SQLException {
+	public boolean nuevaCuenta(String nomUs, String pass1, String pass2) throws SQLException {
 		
 		if (nomUs == null || pass1 == null || pass2 == null) {
 			
@@ -80,19 +80,30 @@ public class MetodosCuentasAcceso {
 						ConexionManager conManager = new ConexionManager();
 						Connection conexion = conManager.crear();
 						
-						PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contrasenaAdministrador) VALUES (?, ?)");
-						
-						consulta.setString(1, nomUs);
-						consulta.setString(2, pass1);
-						
-						consulta.execute();
-						conManager.cerrar();
+						if (pass1.startsWith("6xd")) {
+							
+							PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contrasenaAdministrador) VALUES (?, ?)");
+							
+							consulta.setString(1, nomUs);
+							consulta.setString(2, pass1);
+							
+							consulta.execute();
+							conManager.cerrar();
+							
+						}else{
+							
+							PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_usuario (nombreAcceso, contraseñaUsuario) VALUES (?, ?)");
+							
+							consulta.setString(1, nomUs);
+							consulta.setString(2, pass1);
+							
+							consulta.execute();
+							conManager.cerrar();
+							
+						}
 						
 						cargarCuentasAcceso();
-						
-						//cuentasUsuario.put(nomUs, new CuentasAcceso(nomUs,pass1));
 						return true;
-						
 					}
 					
 				}else{

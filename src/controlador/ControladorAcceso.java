@@ -95,25 +95,26 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 			iniciarSesion.setVisible(false);//TODO
 			iniciarSesion.jDialog1.setVisible(true);
 			
+			break;
+		case NUEVA_CUENTA:
+			
 			String nom = iniciarSesion.jTextField2.getText();
 			String passw = new String(iniciarSesion.jPasswordField2.getPassword());
 			String passw2 = new String(iniciarSesion.jPasswordField3.getPassword());
 			
 			try {
 				
-				metodosCuentasAcceso.nuevaCuentaUsuario(nom, passw, passw2);
-				
+				if (metodosCuentasAcceso.nuevaCuenta(nom, passw, passw2)) {
+					
+					iniciarSesion.setVisible(true);
+					iniciarSesion.jDialog1.setVisible(false);
+				}
 				
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
+				System.err.println("Excepcion no controlada");
 				e1.printStackTrace();
 			}
-			
-			break;
-		case NUEVA_CUENTA:
-			//TODO
-			
-			
+
 			break;
 		default:
 			System.out.println("Entra en default");

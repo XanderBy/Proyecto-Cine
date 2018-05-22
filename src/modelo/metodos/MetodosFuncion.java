@@ -337,7 +337,7 @@ public class MetodosFuncion extends ConexionManager {
 		// para formar la matriz de datos
 		try {
 			System.out.println("pruebass");
-			System.out.print(nombreCine.getNombreCine());
+			//System.out.print(nombreCine.getNombreCine());
 			try {
 				pstm = getConexion().prepareStatement(
 						"SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionpromocion fp ON f.diayHora= fp.funcion_diayHora WHERE f.cine_nombreCine = '"

@@ -45,7 +45,12 @@ public class MetodosCine extends ConexionManager {
 		eliminarCineBBDD(nombreCine);
 		eliminarCineArray();
 		cogerTodosLosCineBBDD();
-		metodossala.eliminarSalas(nombreCine);
+		try {
+			metodossala.eliminarSalasPorEliminacionCine(nombreCine);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		};
 		JOptionPane.showMessageDialog(null, "Cine eliminado");
 
 	}

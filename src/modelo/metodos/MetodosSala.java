@@ -15,11 +15,11 @@ import javax.swing.table.DefaultTableModel;
 
 import controlador.ConexionManager;
 
-
 public class MetodosSala {
 
 	/**
-	 * Declaramos map en el que se van a cargar las salas creadas sin relacionar con los cines
+	 * Declaramos map en el que se van a cargar las salas creadas sin relacionar con
+	 * los cines
 	 */
 	public static HashMap<String, Sala> salas = new HashMap<String, Sala>();
 
@@ -36,15 +36,15 @@ public class MetodosSala {
 	 * @throws SQLException
 	 */
 	public void cargarSalas() throws SQLException {
-		//0.Declaramos map
-		HashMap<String,Sala> cargaSalas=new HashMap<String,Sala>();
-		
+		// 0.Declaramos map
+		HashMap<String, Sala> cargaSalas = new HashMap<String, Sala>();
+
 		// 1.Variables
 		Cine c = new Cine();// Para acceder a salasCine
 		String idSalCine, nombreSal;
 		int numButacas;
 		Sala s;
-		
+
 		// 2. Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos el
 		// metodo crear()
 		ConexionManager conexionManager = new ConexionManager();
@@ -60,7 +60,7 @@ public class MetodosSala {
 			// 2.3.Iteramos sobre las tuplas de la base de datos
 			while (resultado.next()) {
 				idSalCine = resultado.getString("IDSALACINE");
-				System.out.println(idSalCine+"en el while");
+				System.out.println(idSalCine + "en el while");
 				nombreSal = resultado.getString("NOMBRESALA");
 				numButacas = resultado.getInt("NUMEROBUTACAS");
 				s = new Sala(nombreSal, numButacas);
@@ -72,10 +72,10 @@ public class MetodosSala {
 			System.err.println("Excepcion no controlada");
 			e.printStackTrace();
 		}
-		//3.Actualizamos maps
-		salas=cargaSalas;
-		c.salasCine=cargaSalas;
-		
+		// 3.Actualizamos maps
+		salas = cargaSalas;
+		c.salasCine = cargaSalas;
+
 		// 4.Cerramos la conexion
 		conexionManager.cerrar();
 	}
@@ -117,10 +117,10 @@ public class MetodosSala {
 	 * @throws SQLException
 	 */
 	public void aniadirSala(String nombreCin, String nombreSal, int seatsNumber) throws SQLException {
-		
-		//0.Declaramos valor idSalaCine
-		String idSalCine=nombreCin.concat(nombreSal);
-		
+
+		// 0.Declaramos valor idSalaCine
+		String idSalCine = nombreCin.concat(nombreSal);
+
 		// 1.Cargamos salas en el map
 		cargarSalas();
 
@@ -131,8 +131,9 @@ public class MetodosSala {
 		// insertamos
 
 		try {
-			if (nombreCin==null || nombreSal==null || seatsNumber == 0) {
-				JOptionPane.showMessageDialog(null, "Introduzca datos validos. Recuerde que debe introducir el nombre del cine al que desea aniadir una sala");
+			if (nombreCin == null || nombreSal == null || seatsNumber == 0) {
+				JOptionPane.showMessageDialog(null,
+						"Introduzca datos validos. Recuerde que debe introducir el nombre del cine al que desea aniadir una sala");
 			} else if (clavesPrimariasSalas.contains(idSalCine)) {
 				JOptionPane.showMessageDialog(null, "Ya existe una sala con ese nombre");
 			} else {
@@ -168,9 +169,10 @@ public class MetodosSala {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
 	 * Modifica la sala si existe en la BBDD
+	 * 
 	 * @param oldAuditoriumCineId
 	 * @param auditoriumCineId
 	 * @param seatsNumber
@@ -178,9 +180,9 @@ public class MetodosSala {
 	 */
 	public void modificarSala(String oldNombreSala, String nombreCin, String nombreSal, int seatsNumber)
 			throws SQLException {
-		//0.Declaramos valor idSalaCine
-		String idSalCine=nombreCin.concat(nombreSal);
-		String oldIdSalaCine=nombreCin.concat(oldNombreSala);
+		// 0.Declaramos valor idSalaCine
+		String idSalCine = nombreCin.concat(nombreSal);
+		String oldIdSalaCine = nombreCin.concat(oldNombreSala);
 
 		// 1.Cargamos salas en el map y generamos la tabla
 		System.out.println("En el metodo");
@@ -188,11 +190,11 @@ public class MetodosSala {
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos
-		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber==0) {
+		if (oldNombreSala == null || nombreCin == null || nombreSal == null || seatsNumber == 0) {
 			JOptionPane.showMessageDialog(null, "Hay algun valor nulo en modificar sala");
-			System.out.println(idSalCine+","+oldIdSalaCine);
+			System.out.println(idSalCine + "," + oldIdSalaCine);
 		} else {
-			System.out.println(idSalCine+","+oldIdSalaCine);
+			System.out.println(idSalCine + "," + oldIdSalaCine);
 			if (salas.containsKey(oldIdSalaCine)) {
 				// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
 				// el metodo crear()
@@ -205,7 +207,7 @@ public class MetodosSala {
 				try {
 					PreparedStatement preparedStatement = conexion.prepareStatement(
 							"UPDATE SALA SET IDSALACINE=?, NOMBRESALA=?, NUMEROBUTACAS=? WHERE IDSALACINE='"
-									+ oldIdSalaCine+"'");
+									+ oldIdSalaCine + "'");
 					// 2.2.2.Decimos que en el valor desconocido 1 inserte el valor del String
 					// auditoriumCode
 					preparedStatement.setString(1, idSalCine);
@@ -235,11 +237,35 @@ public class MetodosSala {
 		}
 
 	}
-	
-	public void eliminarSalas(String nombreCine) {
-		
+
+	public void eliminarSalasPorEliminacionCine(String nombreCine) throws SQLException {
+
+		// 1.Comprobamos que no haya valores nulos
+		if (nombreCine == null) {
+			JOptionPane.showMessageDialog(null, "Debe introducir un valor que sea correcto");
+		} else {
+			// 2.1 Creamos la conexion: Instanciamos objeto de ConexionManager e invocamos
+			// el metodo crear()
+			ConexionManager conexionManager = new ConexionManager();
+			Connection conexion = conexionManager.crear();
+
+			// 2.2 Realizamos la eliminacion
+			// 2.2.1.Creamos el PreparedStatement: Delete
+			try {
+				PreparedStatement preparedStatement = conexion
+						.prepareStatement("DELETE FROM SALA WHERE IDSALACINE LIKE '" + nombreCine + "'+%+'");
+				// 2.2.2.Ejecutamos el preparedStatement
+				preparedStatement.execute();
+				// 2.2.3.Cerramos la conexion
+				conexionManager.cerrar();
+			} catch (Exception e) {
+				System.err.println("Excepcion no controlada");
+				e.printStackTrace();
+			}
+			// 2.2.4.Informamos
+			JOptionPane.showMessageDialog(null, "Salas eliminadas correctamente");
+		}
 	}
-	
 
 	/**
 	 * Prepara una tabla para refrescar la contenida en modificar cine (salas cine)

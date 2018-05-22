@@ -489,7 +489,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 		case ANIADIR_SALA:
 			String nombreCin = pantallaAdministrador.jTextField1.getText();
 			String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
-			int numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
+			int numeroButacas = 0;
+			try {
+				numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
+			} catch (NumberFormatException e2) {
+				
+			}
 			try {
 				metodosSala.aniadirSala(nombreCin, nombreSala, numeroButacas);
 			} catch (NumberFormatException | SQLException e1) {
@@ -507,13 +512,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case MODIFICAR_SALA:
 			String oldNombreSala = oldNombreSal;
-			System.out.println(oldNombreSala + "oldNombreSala 376");
 			String nombreCinema = pantallaAdministrador.jTextField11.getText();
-			System.out.println(nombreCinema + "nombreCine378");
 			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
-			System.out.println(nombreSal + "Nombre sala 380");
 			int seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
-			System.out.println(seatsNumber + "seatsNumber382");
 			try {
 				if (oldNombreSala != null || nombreCinema != null || nombreSal != null || seatsNumber != 0) {
 					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);
@@ -627,7 +628,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			break;
 		default:
-			System.out.println("Entra en default");
 			break;
 		}
 
@@ -818,7 +818,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.tablaSalasmodificarCine.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				oldNombreSal = String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1));
-				System.out.println(oldNombreSal + " presionada tabla");// TODO: Comprobando el valor nulo
 				this.pantallaAdministrador.textoIdSalaCine.setText(
 						String.valueOf(this.pantallaAdministrador.tablaSalasmodificarCine.getValueAt(fila, 1)));
 				this.pantallaAdministrador.textoNumeroButacas.setText(

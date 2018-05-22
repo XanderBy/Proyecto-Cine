@@ -437,7 +437,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jRadioButton1.setText("Consultar Cartelera");
 
         gestionUsuario.add(jRadioButton2);
-        jRadioButton2.setText("Añadir Opinion");
+        jRadioButton2.setText("Anadir Opinion");
 
         gestionUsuario.add(jRadioButton3);
         jRadioButton3.setText("Comprar Entrada");

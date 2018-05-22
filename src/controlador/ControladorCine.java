@@ -150,8 +150,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		this.pantallaAdministrador.jButton23.addActionListener(this);
 
 		// Recargar tabla cine
-		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
-		this.pantallaAdministrador.jButton7.addActionListener(this);
+		//this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
+		//this.pantallaAdministrador.jButton7.addActionListener(this);
 
 		// Eliminar cine
 		this.pantallaAdministrador.jButton4.setActionCommand("ELIMINAR_CINE");

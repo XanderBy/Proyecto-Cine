@@ -507,24 +507,28 @@ public class ControladorCine implements ActionListener, MouseListener {
 			String nombreCin = pantallaAdministrador.jTextField1.getText();
 			String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
 			int numeroButacas = 0;
-			try {
-				numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
-			} catch (NumberFormatException e2) {
-				
-			}
-			try {
-				metodosSala.aniadirSala(nombreCin, nombreSala, numeroButacas);
-			} catch (NumberFormatException | SQLException e1) {
-				System.err.println("Excepcion SQL no controlada");
-				System.err.println("Excepcion NumberFormatException no controlada");
-				e1.printStackTrace();
-			}
-			try {
-				pantallaAdministrador.textoIdSalaCineAniadir.setText("");
-				pantallaAdministrador.textoNumeroButacasAniadir.setText("0");
-			} catch (Exception e1) {
-				System.err.println("Excepcion no controlada");
-				e1.printStackTrace();
+			if (nombreCin == null || nombreSala == null || numeroButacas == 0) {
+				JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
+			} else {
+				try {
+					numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
+				} catch (NumberFormatException e2) {
+
+				}
+				try {
+					metodosSala.aniadirSala(nombreCin, nombreSala, numeroButacas);
+				} catch (NumberFormatException | SQLException e1) {
+					System.err.println("Excepcion SQL no controlada");
+					System.err.println("Excepcion NumberFormatException no controlada");
+					e1.printStackTrace();
+				}
+				try {
+					pantallaAdministrador.textoIdSalaCineAniadir.setText("");
+					pantallaAdministrador.textoNumeroButacasAniadir.setText("0");
+				} catch (Exception e1) {
+					System.err.println("Excepcion no controlada al aniadir sala");
+					e1.printStackTrace();
+				}
 			}
 			break;
 		case MODIFICAR_SALA:

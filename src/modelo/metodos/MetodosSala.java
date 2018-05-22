@@ -121,7 +121,7 @@ public class MetodosSala {
 		String idSalCine = nombreCin.concat(nombreSal);
 
 		// 1.Cargamos salas en el map
-		obtenerClavesPrimariasSala();
+
 		cargarSalas();
 
 		// 2.Obtenemos claves primarias
@@ -187,7 +187,6 @@ public class MetodosSala {
 
 		// 1.Cargamos salas en el map y generamos la tabla
 		cargarSalas();
-		obtenerClavesPrimariasSala();
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos

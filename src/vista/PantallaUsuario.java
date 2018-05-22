@@ -199,7 +199,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addContainerGap(177, Short.MAX_VALUE)))
         );
 
-        AgnadirOpinion.setMinimumSize(new java.awt.Dimension(400, 300));
+        AgnadirOpinion.setMinimumSize(new java.awt.Dimension(450, 350));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pelicula 1", "Pelicula 2", "Pelicula 3", "Pelicula 4", "Pelicula 5", "Pelicula 6", "Pelicula 7", "Pelicula 8" }));
 
@@ -407,6 +407,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addComponent(jButton8))
                 .addGap(22, 22, 22))
         );
+
+        ConsultarCompras.setMinimumSize(new java.awt.Dimension(400, 350));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

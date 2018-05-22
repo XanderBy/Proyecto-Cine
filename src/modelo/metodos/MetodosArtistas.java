@@ -179,7 +179,7 @@ public class MetodosArtistas extends ConexionManager {
 	// ------------------------------------------------------
 	public void actualizarArtistaBBDD(String nombreCompeltoAntiguo, String nombreCompleto, String nacionalidad, int numeroPelicula) {
 		String q = " UPDATE artista " + "SET nombreCompleto = '" + nombreCompleto + "', nacionalidad='" + nacionalidad
-				+ "', cantidadPeliculas= "+ numeroPelicula + " WHERE diayHora= '" + nombreCompeltoAntiguo + " '";
+				+ "', cantidadPeliculas= "+ numeroPelicula + " WHERE nombreCompleto= '" + nombreCompeltoAntiguo + " '";
 
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

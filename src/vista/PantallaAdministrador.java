@@ -361,7 +361,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel12.setText("numero Butacas:");
 
-        jLabel13.setText("id Sala Cine:");
+        jLabel13.setText("Nombre Sala:");
 
         botonAniadirSala.setText("Añadir Sala");
         botonAniadirSala.addActionListener(new java.awt.event.ActionListener() {
@@ -519,7 +519,7 @@ public class PantallaAdministrador extends javax.swing.JFrame {
 
         jLabel18.setText("Precio Base:");
 
-        jLabel19.setText("Nueva Id Sala:");
+        jLabel19.setText("Nuevo nombre sala");
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Salas Cine");

@@ -19,7 +19,7 @@ import modelo.POJOs.Sala;
 import static modelo.metodos.MetodosFuncion.Funciones;
 
 public class MetodosCine extends ConexionManager {
-	MetodosSala metodossala=new MetodosSala();
+	MetodosSala metodossala = new MetodosSala();
 	// Crear Cine
 	// ---------------------------------------------------------
 
@@ -27,9 +27,6 @@ public class MetodosCine extends ConexionManager {
 		if (nombreCine == null || direccionCine == null || telefonoConsulta == 0 || precioBase == 0) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			// Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta,
-			// precioBase);
-			// Compagnia.listaCines.put(nombreCine, cine);
 			crearCineBBDD(nombreCine, direccionCine, telefonoConsulta, precioBase);
 			eliminarCineArray();
 			cogerTodosLosCineBBDD();
@@ -40,7 +37,6 @@ public class MetodosCine extends ConexionManager {
 	// Elimina el cine
 	// ----------------------------------------------------------
 	public void eliminarCine(String nombreCine) {
-		// Compagnia.listaCines.remove(nombreCine);
 
 		eliminarCineBBDD(nombreCine);
 		eliminarCineArray();
@@ -48,9 +44,8 @@ public class MetodosCine extends ConexionManager {
 		try {
 			metodossala.eliminarSalasPorEliminacionCine(nombreCine);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		};
+		}
 		JOptionPane.showMessageDialog(null, "Cine eliminado");
 
 	}
@@ -63,10 +58,6 @@ public class MetodosCine extends ConexionManager {
 				|| precioBase == 0) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			// Compagnia.listaCines.remove(nombreCineAntiguo);
-			// Cine cine = new Cine(nombreCine, direccionCine, telefonoConsulta,
-			// precioBase);
-			// Compagnia.listaCines.put(nombreCine, cine);
 			actualizarCineBBDD(nombreCineAntiguo, nombreCine, direccionCine, telefonoConsulta, precioBase);
 			eliminarCineArray();
 			cogerTodosLosCineBBDD();
@@ -152,7 +143,6 @@ public class MetodosCine extends ConexionManager {
 				Compagnia.listaCines.put(res.getString("nombreCine"), cine);
 				i++;
 			}
-			System.out.println("holaaaaaaaaaaaaaa" + Compagnia.listaCines.size());
 			res.close();
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -162,49 +152,7 @@ public class MetodosCine extends ConexionManager {
 
 	// ---------------------------------------------------------
 
-	public DefaultTableModel cogerCineBBDDNombre() {
-		System.out.println("prueba");
-		DefaultTableModel tablemodel = new DefaultTableModel();
-		int registros = 0;
-		PreparedStatement pstm = null;
-		String[] columNames = { "nombre Cine" };
-		// obtenemos la cantidad de registros existentes en la tabla y se almacena en la
-		// variable "registros"
-		// para formar la matriz de datos
-		try {
-			System.out.println("pruebass");
-			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM cine");
-			ResultSet res = pstm.executeQuery();
-			res.next();
-			registros = res.getInt("total");
-			res.close();
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-		// se crea una matriz con tantas filas y columnas que necesite
-		Object[][] data = new String[registros][1];
-		try {
-			// realizamos la consulta sql y llenamos los datos en la matriz "Object[][]
-			// data"
-			pstm = this.getConexion().prepareStatement("SELECT nombreCine FROM cine");
-			ResultSet res = pstm.executeQuery();
-			int i = 0;
-			while (res.next()) {
-				data[i][0] = res.getString("nombreCine");
-				i++;
-			}
-			res.close();
-			// se anade la matriz de datos en el DefaultTableModel
-			tablemodel.setDataVector(data, columNames);
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-		}
-		return tablemodel;
-
-	}
-
 	public DefaultTableModel cogerCineBBDDTodo() {
-		System.out.println("pruebaaaaaaaa");
 		DefaultTableModel tablemodel = new DefaultTableModel();
 		int registros = 0;
 		PreparedStatement pstm = null;
@@ -213,7 +161,6 @@ public class MetodosCine extends ConexionManager {
 		// variable "registros"
 		// para formar la matriz de datos
 		try {
-			System.out.println("pruebass");
 			pstm = getConexion().prepareStatement("SELECT count(*) as total FROM cine");
 			ResultSet res = pstm.executeQuery();
 			res.next();

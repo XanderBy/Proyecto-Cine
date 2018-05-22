@@ -121,6 +121,7 @@ public class MetodosSala {
 		String idSalCine = nombreCin.concat(nombreSal);
 
 		// 1.Cargamos salas en el map
+		obtenerClavesPrimariasSala();
 		cargarSalas();
 
 		// 2.Obtenemos claves primarias
@@ -130,7 +131,7 @@ public class MetodosSala {
 		// insertamos
 
 		try {
-			if (nombreCin == null || nombreSal == null || seatsNumber == 0) {
+			if (nombreCin == null || nombreSal == null || seatsNumber < 1) {
 				JOptionPane.showMessageDialog(null,
 						"Introduzca datos validos. Recuerde que debe introducir el nombre del cine al que desea aniadir una sala");
 			} else if (clavesPrimariasSalas.contains(idSalCine)) {
@@ -179,12 +180,14 @@ public class MetodosSala {
 	 */
 	public void modificarSala(String oldNombreSala, String nombreCin, String nombreSal, int seatsNumber)
 			throws SQLException {
+		
 		// 0.Declaramos valor idSalaCine
 		String idSalCine = nombreCin.concat(nombreSal);
 		String oldIdSalaCine = nombreCin.concat(oldNombreSala);
 
 		// 1.Cargamos salas en el map y generamos la tabla
 		cargarSalas();
+		obtenerClavesPrimariasSala();
 		generarTablaSalas();
 
 		// 2.Comprobamos que no haya valores nulos
@@ -215,7 +218,7 @@ public class MetodosSala {
 					// 2.2.5.Ejecutamos el preparedStatement
 					preparedStatement.execute();
 					// 2.2.6.Informamos
-					JOptionPane.showMessageDialog(null, "Promocion modificada correctamente");
+					JOptionPane.showMessageDialog(null, "Sala modificada correctamente");
 					// 2.2.7. Actualizamos map
 					cargarSalas();
 					// 2.2.8.Cerramos la conexion
@@ -225,7 +228,7 @@ public class MetodosSala {
 					e.printStackTrace();
 				}
 			} else {
-				JOptionPane.showMessageDialog(null, "La sala que busca ya no existe");
+				JOptionPane.showMessageDialog(null, "La sala sobre la que intenta operar tiene algun valor nulo y no se pude manipular");
 			}
 
 		}

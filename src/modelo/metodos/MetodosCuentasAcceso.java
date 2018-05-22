@@ -82,7 +82,7 @@ public class MetodosCuentasAcceso {
 						
 						if (pass1.startsWith("6xd")) {
 							
-							PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contrasenaAdministrador) VALUES (?, ?)");
+							PreparedStatement consulta = conexion.prepareStatement("INSERT INTO cuenta_administrador (nombreAcceso, contraseñaAdministrador) VALUES (?, ?)");
 							
 							consulta.setString(1, nomUs);
 							consulta.setString(2, pass1);
@@ -107,7 +107,7 @@ public class MetodosCuentasAcceso {
 					}
 					
 				}else{
-					JOptionPane.showMessageDialog(null, "Las contraseï¿½as deben coincidir", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Las contrasenas deben coincidir", "Informacion", JOptionPane.INFORMATION_MESSAGE);
 					return false;
 				}
 			}catch(Exception e) {

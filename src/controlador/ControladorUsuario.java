@@ -34,7 +34,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	
 	//Declaramos en un enum las acciones relacionadas con los usuarios
 	public enum accionesUsuario{
-		ENTRAR,
+		ENTRAR,VOLVER,
 		//TODO
 	}
 	
@@ -99,8 +99,9 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 				
 				pantallaUsuario.setVisible(false);
 				pantallaUsuario.ConsultarCompras.setVisible(true);
-				
 			}
+			break;
+		default:
 			break;
 		}
 	}

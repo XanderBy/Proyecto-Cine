@@ -319,8 +319,15 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 			break;
 		case INSERTAR_DIRECTOR_ANIADIR:
+			metodosArtistas.insertarArtistaDirectorBBDD(pantallaAdministrador.jTextField36.getText(),
+					Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
+
 			break;
 		case INSERTAR_ACTOR_ANIADIR:
+			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),
+					Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
+
+			
 			break;
 		case ANIADIR_ARTISTA:
 			metodosArtistas.CrearArtista(pantallaAdministrador.jTextField41.getText(),

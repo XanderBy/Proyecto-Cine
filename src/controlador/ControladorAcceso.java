@@ -24,7 +24,7 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 	//Declaracion enum de acciones
 	public enum accionesAcceso {
 		
-		INICIAR_SESION, CREAR_USUARIO,
+		INICIAR_SESION, CREAR_USUARIO, NUEVA_CUENTA,
 		
 	}
 	
@@ -50,12 +50,12 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 		//Declaramos las acciones y anidamos las escuchas al evento producido por el 
 		//componente
 		
-		//
-		
 		iniciarSesion.jButton1.setActionCommand("INICIAR_SESION");
 		iniciarSesion.jButton1.addActionListener(this);
 		iniciarSesion.jButton2.setActionCommand("CREAR_USUARIO");
 		iniciarSesion.jButton2.addActionListener(this);
+		iniciarSesion.jButton3.setActionCommand("NUEVA_CUENTA");
+		iniciarSesion.jButton3.addActionListener(this);
 
 	}
 	
@@ -90,7 +90,13 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 			break;
 		case CREAR_USUARIO:
 			
-			iniciarSesion.setVisible(false);
+			iniciarSesion.setVisible(false);//TODO
+			iniciarSesion.jDialog1.setVisible(true);
+			
+			break;
+		case NUEVA_CUENTA:
+			//TODO
+			
 			
 			break;
 		default:

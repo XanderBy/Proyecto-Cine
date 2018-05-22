@@ -57,7 +57,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public enum accionesAdministrador {// Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, // Este
 		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
-		INSERTAR_DIRECTOR, INSERTAR_ACTOR,
+		INSERTAR_DIRECTOR, INSERTAR_ACTOR, 
 		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
 
@@ -130,7 +130,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Eliminar Artista
 		this.pantallaAdministrador.jButton19.setActionCommand("ELIMINAR_ARTISTA");
 		this.pantallaAdministrador.jButton19.addActionListener(this);
-
+		//ANIADIR ARTISTA
+		this.pantallaAdministrador.jButton26.setActionCommand("ANIADIR_ARTISTA");
+		this.pantallaAdministrador.jButton26.addActionListener(this);
 		// Recargar tabla cine
 		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
 		this.pantallaAdministrador.jButton7.addActionListener(this);
@@ -256,6 +258,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox5.addItem(a.name());
 			pantallaAdministrador.jComboBox9.addItem(a.name());
 			pantallaAdministrador.jComboBox10.addItem(a.name());
+			pantallaAdministrador.jComboBox14.addItem(a.name());
 			
 			
 		}
@@ -301,7 +304,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		case INSERTAR_DIRECTOR:
 			break;
 		case ANIADIR_ARTISTA:
-			
+			metodosArtistas.CrearArtista(pantallaAdministrador.jTextField41.getText(), pantallaAdministrador.jComboBox14.getSelectedItem().toString());
 			pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 			pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 

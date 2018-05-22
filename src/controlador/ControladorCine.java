@@ -252,6 +252,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox12.addItem(a.name());
 			// Artistas
 			pantallaAdministrador.jComboBox13.addItem(a.name());
+			pantallaAdministrador.jComboBox4.addItem(a.name());
+			pantallaAdministrador.jComboBox5.addItem(a.name());
+			
+			
 		}
 		for (ValoracionPeli a : ValoracionPeli.values()) {
 
@@ -288,7 +292,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case INSERTAR_ACTOR:
-			//metodosArtistas.insertarArtistaActorBBDD(nombre, pelicula_idPelicula);
+			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),pantallaAdministrador.jComboBox5.getSelectedItem().toString() ,Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
 			break;
 		case INSERTAR_DIRECTOR:
 			break;

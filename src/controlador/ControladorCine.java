@@ -90,9 +90,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 		//this.pantallaAdministrador.jList9.addMouseListener(this);
 		//this.pantallaAdministrador.jList9.setListData(Pais.values());
 		pantallaAdministrador.jComboBox13.removeAllItems();
-		for (Pais p : Pais.values()) {
-			pantallaAdministrador.jComboBox13.addItem(p.name());
-			}
 		
 		this.pantallaAdministrador.jTable4.addMouseListener(this);
 		this.pantallaAdministrador.jTable4.setModel(new DefaultTableModel());
@@ -242,6 +239,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox4.addItem(a.name());
 			pantallaAdministrador.jComboBox5.addItem(a.name());
 			pantallaAdministrador.jComboBox12.addItem(a.name());
+			//Artistas
+			pantallaAdministrador.jComboBox13.addItem(a.name());
 		}
 		for (ValoracionPeli a : ValoracionPeli.values()) {
 
@@ -584,7 +583,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 2)));
 				pantallaAdministrador.jLabel109
 				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)));
-	
+				pantallaAdministrador.jComboBox13.setSelectedItem(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)).toString());
 			}
 		}
 	}

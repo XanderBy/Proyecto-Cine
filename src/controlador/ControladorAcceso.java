@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import modelo.metodos.MetodosCuentasAcceso;
+import vista.CrearUsuario;
 import vista.IniciarSesion;
 import vista.PantallaAdministrador;
 import vista.PantallaUsuario;
@@ -90,8 +91,8 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 			break;
 		case CREAR_USUARIO:
 			
-			//iniciarSesion.setVisible(false);
-			//new ControladorCrearUsuario(new CrearUsuario()).Iniciar();
+			iniciarSesion.setVisible(false);
+			new ControladorCrearUsuario(new CrearUsuario()).Iniciar();
 			
 			break;
 		default:

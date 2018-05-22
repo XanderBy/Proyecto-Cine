@@ -183,7 +183,7 @@ public class MetodosPelicula {
 		
 		generarTablaPeliculas();
 		
-		if (agnoProduccion == 0 || tituloDistribucion == null || tituloOriginal == null || genero == null || idioma == null || paisOrigen == null || sitioWeb == null || duracionPelicula == null || calificacionEdades == null || fechaEstrenoEs == null || resumen == null || idPelicula == 0) {
+		if (agnoProduccion <= 0 || agnoProduccion >9999 || tituloDistribucion == null || tituloOriginal == null || genero == null || idioma == null || paisOrigen == null || sitioWeb == null || duracionPelicula == null || calificacionEdades == null || fechaEstrenoEs == null || resumen == null || idPelicula == 0) {
 			
 			JOptionPane.showMessageDialog(null, "Introduce valores validos");
 			return false;

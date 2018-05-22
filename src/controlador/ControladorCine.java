@@ -133,6 +133,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 		//ANIADIR ARTISTA
 		this.pantallaAdministrador.jButton26.setActionCommand("ANIADIR_ARTISTA");
 		this.pantallaAdministrador.jButton26.addActionListener(this);
+		
+		//this.pantallaAdministrador.jButton28.setActionCommand("ANIADIR_ARTISTA");
+		//this.pantallaAdministrador.jButton28.addActionListener(this);
+		
 		// Recargar tabla cine
 		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
 		this.pantallaAdministrador.jButton7.addActionListener(this);
@@ -298,7 +302,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case INSERTAR_ACTOR:
 			
-			
+			System.out.println("awddwajiawdddddddddddddddddddddd");
 			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),pantallaAdministrador.jComboBox5.getSelectedItem().toString() ,Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
 			
 			break;

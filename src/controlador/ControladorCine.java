@@ -362,7 +362,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case ANIADIR_FUNCION:
 			// "2016-11-09 10:30" tengo que poner este formato
-
+			try {
+				metodosSala.cargarSalas();
+			} catch (SQLException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
 			now = pantallaAdministrador.jTextField19.getText();
 			
 			formatDateTime = LocalDateTime.parse(now, formatter);

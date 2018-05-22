@@ -680,7 +680,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	}
 
 	private void presionarJTable12(java.awt.event.MouseEvent e) {
-
+		System.out.println("wdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 		if (e.getButton() == 1)// boton izquierdo
 		{
 
@@ -696,7 +696,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		if (e.getButton() == 1)// boton izquierdo
 		{
-			int fila = this.pantallaAdministrador.jTable12.rowAtPoint(e.getPoint());
+			int fila = this.pantallaAdministrador.jTable1.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				try {
 					pantallaAdministrador.jLabel106
@@ -729,11 +729,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			if (fila > -1) {
 				this.pantallaAdministrador.jTextField27
 						.setText(String.valueOf(this.pantallaAdministrador.jTable11.getValueAt(fila, 0)));
-				pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-				pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-				pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-				pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-
+				
 			}
 		}
 	}
@@ -755,11 +751,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				this.pantallaAdministrador.jTextField26
 						.setText(String.valueOf(this.pantallaAdministrador.jTable6.getValueAt(fila, 4)));
 
-				pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-				pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-				pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-				pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-
+				
 			}
 		}
 	}
@@ -773,7 +765,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 						.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)));
 				try {
 
-					metodosCine.cogerTodosLosCineBBDD();
+					//metodosCine.cogerTodosLosCineBBDD();
 					// El error esta aqui
 
 					this.pantallaAdministrador.jTextField11
@@ -785,17 +777,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 					this.pantallaAdministrador.jTextField8
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
 
-					//metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-						//	.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+					
+					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
 
-					//pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-						//	.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
-
-					pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-					pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
-					pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-					pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-
+					
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
 				}
@@ -897,7 +883,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
-		
+
 		presionarJTable4(e);
 		presionarJTable1(e);
 		presionarJTable12(e);

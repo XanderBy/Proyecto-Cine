@@ -11,6 +11,7 @@ public class Entrada {
 	private String idCompania;
 	private String idUsuario;
 	private static int contador=1;
+	private String clavePrimaria;
 	
 	//CONSTRUCTOR VACIO
 	public Entrada() {
@@ -26,6 +27,7 @@ public class Entrada {
 		idCine=idCin;
 		idCompania=idCin;
 		idUsuario=idUser;
+		clavePrimaria=idHall.concat(idCine).concat(idCompania).concat(idUsuario);
 	}
 	
 	//ACCEDENTES Y MUTADORES
@@ -80,6 +82,16 @@ public class Entrada {
 	public String getIdCompania() {
 		return idCompania;
 	}
+
+	public String getClavePrimaria() {
+		return clavePrimaria;
+	}
+
+	public void setClavePrimaria(String clavePrimaria) {
+		this.clavePrimaria = clavePrimaria;
+	}
+	
+	
 	
 	
 	

@@ -108,8 +108,11 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		{
 			int fila = this.pantallaUsuario.jTable3.rowAtPoint(e.getPoint());
 			if (fila > -1) {
-				//pantallaUsuario.jLabel104
-					//	.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)));
+				pantallaUsuario.jTextField3.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)));
+				pantallaUsuario.jTextField4.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 1)));
+				pantallaUsuario.jTextField5.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 2)));
+				//pantallaUsuario.jTextField6.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 3)));
+				
 			}
 		}
 	}

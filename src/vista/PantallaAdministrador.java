@@ -2370,8 +2370,8 @@ public class PantallaAdministrador extends javax.swing.JFrame {
     public javax.swing.JButton jButton24;
     public javax.swing.JButton jButton25;
     public javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
+    public javax.swing.JButton jButton27;
+    public javax.swing.JButton jButton28;
     public javax.swing.JButton jButton29;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton30;

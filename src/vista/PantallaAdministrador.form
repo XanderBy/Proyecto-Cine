@@ -3250,6 +3250,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar director"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel77">
                       <Properties>
@@ -3305,6 +3308,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar actor(iz)"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton29">
                       <Properties>

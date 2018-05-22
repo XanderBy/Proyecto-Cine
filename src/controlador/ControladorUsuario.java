@@ -66,7 +66,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		//componente
 		
 		//TODO añadir acciones y escuchas
-		pantallaUsuario.jButton1.setActionCommand("");
+		pantallaUsuario.jButton1.setActionCommand("ENTRAR");
 		pantallaUsuario.jButton1.addActionListener(this);
 		
 		pantallaUsuario.jTable1.setModel(metodosCine.cogerCineBBDDTodo());

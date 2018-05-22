@@ -70,7 +70,7 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 
 				if (metodosCuentasAcceso.iniciarSesion(nombreUsuario, pass)) {
 					
-//					if (pass.startsWith("ADMIN")) {
+//					if (pass.startsWith("6xd")) {
 //						
 //						iniciarSesion.setVisible(false);
 //						new ControladorCine(new PantallaAdministrador()).Iniciar();

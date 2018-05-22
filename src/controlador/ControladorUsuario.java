@@ -61,14 +61,13 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		for (ValoracionPeli a : ValoracionPeli.values()) {
 
 		}
-		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (accionesUsuario.valueOf(e.getActionCommand())) {
 		case ENTRAR:
-			
+			//TODO hacer
 			break;
 		}
 	}

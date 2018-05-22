@@ -148,7 +148,7 @@ public class MetodosPelicula {
 					consulta.setBoolean(6, subtitulosEs);
 					consulta.setString(7, paisOrigen);
 					consulta.setString(8, sitioWeb);
-					consulta.setLong(9, duracionPelicula.toMinutes());
+					consulta.setInt(9, (int) duracionPelicula.toMinutes());
 					consulta.setString(10, calificacionEdades);
 					consulta.setDate(11, java.sql.Date.valueOf(fechaEstrenoEs));
 					//consulta.setString(11, fechaEstrenoEs.format(DateTimeFormatter.ofPattern("yyyy/MM/dd")));

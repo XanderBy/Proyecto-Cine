@@ -273,7 +273,7 @@ public class MetodosFuncion extends ConexionManager {
 					"SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, fp.promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
 			ResultSet res = pstm.executeQuery();
 			int i = 0;
-			eliminarFuncionesSemanasArray(res.getString("cine_nombreCine"));
+			
 			
 			while (res.next()) {
 				LocalDateTime tiempo = LocalDateTime.parse(res.getString("diaYHora"));
@@ -294,7 +294,7 @@ public class MetodosFuncion extends ConexionManager {
 		}
 
 	}
-
+	
 	// ---------------------------------------------------------
 	public DefaultTableModel cogerFuncionBBDDNombre() {
 		DefaultTableModel tablemodel = new DefaultTableModel();

@@ -244,7 +244,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jButton31.setActionCommand("ELIMINAR_PELICULA");
 		pantallaAdministrador.jButton31.addActionListener(this);
 		pantallaAdministrador.jButton31.addMouseListener(this);
-
+		System.out.println("dwaaaaaaa" + MetodosFuncion.Funciones.size());
 		// para introducir items en los jcombobox
 		for (GeneroPelicula a : GeneroPelicula.values()) {
 			pantallaAdministrador.jComboBox1.addItem(a.name());
@@ -522,7 +522,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 			break;
 		case MODIFICAR_SALA:
 
-
 			try {
 				String oldNombreSala = oldNombreSal;
 				System.out.println(oldNombreSala);
@@ -684,6 +683,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		if (e.getButton() == 1)// boton izquierdo
 		{
+
 			int fila = this.pantallaAdministrador.jTable12.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				pantallaAdministrador.jLabel104
@@ -698,8 +698,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 		{
 			int fila = this.pantallaAdministrador.jTable12.rowAtPoint(e.getPoint());
 			if (fila > -1) {
-				pantallaAdministrador.jLabel106
-						.setText(String.valueOf(this.pantallaAdministrador.jTable1.getValueAt(fila, 0)));
+				try {
+					pantallaAdministrador.jLabel106
+							.setText(String.valueOf(this.pantallaAdministrador.jTable1.getValueAt(fila, 0)));
+				} catch (ArrayIndexOutOfBoundsException ee) {
+					System.out.println("Error en las funciones");
+				}
 			}
 		}
 	}

@@ -792,6 +792,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 2)));
 					this.pantallaAdministrador.jTextField8
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
+					
 					metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
 

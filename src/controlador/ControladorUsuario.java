@@ -69,6 +69,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		//this.pantallaUsuario.jButton1.setActionCommand("");
 		//pantallaUsuario.jButton1.addActionListener(this);
 		
+		pantallaUsuario.jTable1.setModel(metodosCine.cogerCineBBDDTodo());
 		//para introducir items en los jcombobox
 		for (ValoracionPeli a : ValoracionPeli.values()) {
 

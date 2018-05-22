@@ -289,15 +289,15 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jLabel10.setText("Nº Entradas");
+        jLabel10.setText("N  Entradas");
 
         jLabel11.setText("Nombre Completo:");
 
-        jLabel12.setText("Nº Cuenta:");
+        jLabel12.setText("N  Cuenta:");
 
         jButton4.setText("Comprar");
 
-        jLabel13.setText("Importe Total €");
+        jLabel13.setText("Importe Total E");
 
         jButton8.setText("Salir");
 

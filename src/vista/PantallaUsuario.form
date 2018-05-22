@@ -540,7 +540,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xba; Entradas"/>
+            <Property name="text" type="java.lang.String" value="N  Entradas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -555,7 +555,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xba; Cuenta:"/>
+            <Property name="text" type="java.lang.String" value="N  Cuenta:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField2">
@@ -573,7 +573,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Importe Total &#x20ac;"/>
+            <Property name="text" type="java.lang.String" value="Importe Total E"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton8">

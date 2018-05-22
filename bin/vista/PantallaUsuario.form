@@ -406,7 +406,7 @@
     <Container class="javax.swing.JDialog" name="ComprarEntrada">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 400]"/>
+          <Dimension value="[700, 400]"/>
         </Property>
       </Properties>
       <AuxValues>

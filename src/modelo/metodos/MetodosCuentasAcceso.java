@@ -101,7 +101,7 @@ public class MetodosCuentasAcceso {
 							conManager.cerrar();
 							
 						}
-						
+						JOptionPane.showMessageDialog(null, "Cuenta creada correctamente");
 						cargarCuentasAcceso();
 						return true;
 					}

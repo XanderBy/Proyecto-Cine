@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -81,6 +82,7 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 						
 					}else{
 						
+						iniciarSesion.setVisible(false);
 						new ControladorUsuario(new PantallaUsuario()).Iniciar();
 						
 					}
@@ -117,6 +119,11 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 			}
 
 			break;
+		case CANCELAR:
+			
+			iniciarSesion.setVisible(true);
+			iniciarSesion.jDialog1.setVisible(false);
+			
 		default:
 			System.out.println("Entra en default");
 			break;

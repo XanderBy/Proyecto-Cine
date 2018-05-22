@@ -218,7 +218,7 @@
     <Container class="javax.swing.JDialog" name="AgnadirOpinion">
       <Properties>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 400]"/>
+          <Dimension value="[450, 350]"/>
         </Property>
       </Properties>
       <AuxValues>

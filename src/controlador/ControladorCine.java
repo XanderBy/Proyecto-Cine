@@ -56,9 +56,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 	public enum accionesAdministrador {// Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, // Este
-		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
-		INSERTAR_DIRECTOR, INSERTAR_ACTOR_MODIFICAR, 
-		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
+		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE, INSERTAR_DIRECTOR_MODIFICAR, INSERTAR_ACTOR_MODIFICAR, INSERTAR_ACTOR_ANIADIR, INSERTAR_DIRECTOR_ANIADIR, CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
 
 	// CONSTRUCTOR DE CLASE
@@ -115,11 +113,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jTable9.addMouseListener(this);
 		this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
-		//INSERTAR ACTOR
+		// INSERTAR ACTOR
 		this.pantallaAdministrador.jButton24.setActionCommand("INSERTAR_ACTOR");
 		this.pantallaAdministrador.jButton24.addActionListener(this);
 
-		//INSERTAR DIRECTOR
+		// INSERTAR DIRECTOR
 		this.pantallaAdministrador.jButton23.setActionCommand("INSERTAR_DIRECTOR");
 		this.pantallaAdministrador.jButton23.addActionListener(this);
 
@@ -130,13 +128,23 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Eliminar Artista
 		this.pantallaAdministrador.jButton19.setActionCommand("ELIMINAR_ARTISTA");
 		this.pantallaAdministrador.jButton19.addActionListener(this);
-		//ANIADIR ARTISTA
+		// ANIADIR ARTISTA
 		this.pantallaAdministrador.jButton26.setActionCommand("ANIADIR_ARTISTA");
 		this.pantallaAdministrador.jButton26.addActionListener(this);
-		
-		this.pantallaAdministrador.jButton28.setActionCommand("INSERTAR_ACTOR");
+		// INSERTAR ARTISTA MODIFICAR
+		this.pantallaAdministrador.jButton28.setActionCommand("INSERTAR_ACTOR_MODIFICAR");
 		this.pantallaAdministrador.jButton28.addActionListener(this);
-		
+
+		this.pantallaAdministrador.jButton27.setActionCommand("INSERTAR_DIRECTOR_MODIFICAR");
+		this.pantallaAdministrador.jButton27.addActionListener(this);
+
+		// INSERTAR ARTISTA ANIADIR
+		this.pantallaAdministrador.jButton24.setActionCommand("INSERTAR_ACTOR_ANIADIR");
+		this.pantallaAdministrador.jButton24.addActionListener(this);
+
+		this.pantallaAdministrador.jButton23.setActionCommand("INSERTAR_DIRECTOR_ANIADIR");
+		this.pantallaAdministrador.jButton23.addActionListener(this);
+
 		// Recargar tabla cine
 		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
 		this.pantallaAdministrador.jButton7.addActionListener(this);
@@ -263,8 +271,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox9.addItem(a.name());
 			pantallaAdministrador.jComboBox10.addItem(a.name());
 			pantallaAdministrador.jComboBox14.addItem(a.name());
-			
-			
+
 		}
 		for (ValoracionPeli a : ValoracionPeli.values()) {
 
@@ -301,21 +308,31 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case INSERTAR_ACTOR_MODIFICAR:
-			
-			System.out.println("awddwajiawdddddddddddddddddddddd");
-			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField47.getText() ,Integer.parseInt(pantallaAdministrador.jTextField50.getText()));
-			
+
+			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField47.getText(),
+					Integer.parseInt(pantallaAdministrador.jTextField50.getText()));
+
 			break;
-		case INSERTAR_DIRECTOR:
+		case INSERTAR_DIRECTOR_MODIFICAR:
+			metodosArtistas.insertarArtistaDirectorBBDD(pantallaAdministrador.jTextField46.getText(),
+					Integer.parseInt(pantallaAdministrador.jTextField50.getText()));
+
+			break;
+		case INSERTAR_DIRECTOR_ANIADIR:
+			break;
+		case INSERTAR_ACTOR_ANIADIR:
 			break;
 		case ANIADIR_ARTISTA:
-			metodosArtistas.CrearArtista(pantallaAdministrador.jTextField41.getText(), pantallaAdministrador.jComboBox14.getSelectedItem().toString());
+			metodosArtistas.CrearArtista(pantallaAdministrador.jTextField41.getText(),
+					pantallaAdministrador.jComboBox14.getSelectedItem().toString());
 			pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 			pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 
 			break;
 		case MODIFICAR_ARTISTA:
-			metodosArtistas.modificarArtista(pantallaAdministrador.jLabel107.getText(), pantallaAdministrador.jTextField17.getText(), pantallaAdministrador.jLabel109.getText(), Integer.parseInt(pantallaAdministrador.jTextField18.getText()));
+			metodosArtistas.modificarArtista(pantallaAdministrador.jLabel107.getText(),
+					pantallaAdministrador.jTextField17.getText(), pantallaAdministrador.jLabel109.getText(),
+					Integer.parseInt(pantallaAdministrador.jTextField18.getText()));
 			pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 			pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 
@@ -735,7 +752,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
 					metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
-					
+
 					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
 

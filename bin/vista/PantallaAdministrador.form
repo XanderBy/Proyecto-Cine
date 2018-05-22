@@ -405,7 +405,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel13">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="id Sala Cine:"/>
+                        <Property name="text" type="java.lang.String" value="Nombre Sala:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JButton" name="botonAniadirSala">
@@ -755,7 +755,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel19">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Nueva Id Sala:"/>
+                        <Property name="text" type="java.lang.String" value="Nuevo nombre sala"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel20">

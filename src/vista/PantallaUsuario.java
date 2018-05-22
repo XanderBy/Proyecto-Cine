@@ -199,7 +199,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addContainerGap(177, Short.MAX_VALUE)))
         );
 
-        AgnadirOpinion.setMinimumSize(new java.awt.Dimension(450, 350));
+        AgnadirOpinion.setMinimumSize(new java.awt.Dimension(500, 400));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pelicula 1", "Pelicula 2", "Pelicula 3", "Pelicula 4", "Pelicula 5", "Pelicula 6", "Pelicula 7", "Pelicula 8" }));
 

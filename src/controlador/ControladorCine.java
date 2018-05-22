@@ -717,7 +717,6 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
-					this.pantallaAdministrador.jTable2.setModel(new DefaultTableModel());
 				}
 
 			}

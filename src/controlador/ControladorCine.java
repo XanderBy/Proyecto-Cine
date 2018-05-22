@@ -282,6 +282,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		case ANIADIR_ARTISTA:
 			break;
 		case MODIFICAR_ARTISTA:
+			metodosArtistas.modificarArtista(pantallaAdministrador.jLabel107.getText(), pantallaAdministrador.jTextField17.getText(), pantallaAdministrador.jLabel109.getText(), Integer.parseInt(pantallaAdministrador.jTextField18.getText()));
 			break;
 		case ELIMINAR_ARTISTA:
 			metodosArtistas.eliminarArtista(pantallaAdministrador.jLabel106.getText());

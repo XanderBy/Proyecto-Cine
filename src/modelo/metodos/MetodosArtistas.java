@@ -40,7 +40,12 @@ public class MetodosArtistas extends ConexionManager {
 		JOptionPane.showMessageDialog(null, "Artista eliminado con exito");
 		}
 	}
-
+	// ------------------------------------------------------
+	public void modificarArtista(String nombreCompletoAntiguo, String nombreCompleto, String nacionalidad, int cantidadPeliculas) {
+		actualizarArtistaBBDD(nombreCompletoAntiguo, nombreCompleto, nacionalidad, cantidadPeliculas);
+		JOptionPane.showMessageDialog(null, "Artista modificado con exito");
+		
+	}
 	// ------------------------------------------------------
 	// Anade el artista al Array director
 	public void AnadirADirector(String nombreCompleto, Pelicula pelicula) {
@@ -172,9 +177,9 @@ public class MetodosArtistas extends ConexionManager {
 	}
 
 	// ------------------------------------------------------
-	public void actualizarArtistaBBDD(String nombreCompeltoAntiguo, String nombreCompleto, String nacionalidad) {
-		String q = " UPDATE artista " + "SET nombreCompleto = '" + nombreCompleto + "','" + nacionalidad
-				+ "' WHERE diayHora= '" + nombreCompeltoAntiguo + " '";
+	public void actualizarArtistaBBDD(String nombreCompeltoAntiguo, String nombreCompleto, String nacionalidad, int numeroPelicula) {
+		String q = " UPDATE artista " + "SET nombreCompleto = '" + nombreCompleto + "', nacionalidad='" + nacionalidad
+				+ "', cantidadPeliculas= "+ numeroPelicula + " WHERE diayHora= '" + nombreCompeltoAntiguo + " '";
 
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

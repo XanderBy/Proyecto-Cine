@@ -3,8 +3,10 @@ package modelo.metodos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -120,10 +122,13 @@ public class MetodosFuncion extends ConexionManager {
 	// funcionpromocion tambien)
 	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			Cine cine_nombreCine, Promocion promocionFuncion) {
-
+		LocalDateTime localDate =diaYHora;//For reference
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
+		String formattedString = localDate.format(formatter);
+		System.out.println(formattedString);
 		// se arma la consulta
-		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion)" + "VALUES ('" + diaYHora + "','"
-				+ salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ")";
+		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ('" + formattedString + "','"
+				+ salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula()+ ",'"+ "nop" +"')";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

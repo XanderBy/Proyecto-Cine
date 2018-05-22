@@ -38,7 +38,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario");
 
-        jLabel2.setText("Contraseña");
+        jLabel2.setText("Contrasena");
 
         jButton1.setText("Iniciar Sesion");
 

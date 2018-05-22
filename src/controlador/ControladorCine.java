@@ -374,6 +374,12 @@ public class ControladorCine implements ActionListener, MouseListener {
 				// TODO Auto-generated catch block
 				e3.printStackTrace();
 			}
+			try {
+				metodosPelicula.cargarPeliculas();
+			} catch (SQLException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
 			now = pantallaAdministrador.jTextField19.getText();
 			System.out.println(MetodosSala.salas.size());
 			formatDateTime = LocalDateTime.parse(now, formatter);

@@ -282,7 +282,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
-        ComprarEntrada.setMinimumSize(new java.awt.Dimension(500, 400));
+        ComprarEntrada.setMinimumSize(new java.awt.Dimension(700, 400));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Comprar Entrada");

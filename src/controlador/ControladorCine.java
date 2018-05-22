@@ -509,51 +509,39 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			break;
 		case ANIADIR_SALA:
-			String nombreCin = pantallaAdministrador.jTextField1.getText();
-			String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
-			int numeroButacas = 0;
-			if (nombreCin == null || nombreSala == null || numeroButacas == 0) {
-				JOptionPane.showMessageDialog(null, "Debe introducir datos validos. Recuerde escribir el nombre del cine al que desea aniadir la sala.");
-			} else {
-				try {
+			try {
+				String nombreCin = pantallaAdministrador.jTextField1.getText();
+				String nombreSala = pantallaAdministrador.textoIdSalaCineAniadir.getText();
+				int numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
+				if (nombreCin == null || nombreSala == null || numeroButacas == 0) {
+					JOptionPane.showMessageDialog(null,
+							"Debe introducir datos validos. Recuerde escribir el nombre del cine al que desea aniadir la sala.");
+				} else {
 					numeroButacas = Integer.parseInt(pantallaAdministrador.textoNumeroButacasAniadir.getText());
-				} catch (NumberFormatException e2) {
-
-				}
-				try {
 					metodosSala.aniadirSala(nombreCin, nombreSala, numeroButacas);
-				} catch (NumberFormatException | SQLException e1) {
-					System.err.println("Excepcion SQL no controlada");
-					System.err.println("Excepcion NumberFormatException no controlada");
-					e1.printStackTrace();
-				}
-				try {
 					pantallaAdministrador.textoIdSalaCineAniadir.setText("");
 					pantallaAdministrador.textoNumeroButacasAniadir.setText("0");
-				} catch (Exception e1) {
-					System.err.println("Excepcion no controlada al aniadir sala");
-					e1.printStackTrace();
 				}
+			} catch (NumberFormatException | HeadlessException | SQLException e3) {
+
 			}
 			break;
 		case MODIFICAR_SALA:
-			String oldNombreSala = oldNombreSal;
-			String nombreCinema = pantallaAdministrador.jTextField11.getText();
-			String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
-			int seatsNumber = 0;
-			if(oldNombreSala==null || nombreCinema==null || nombreSal==null || seatsNumber==0) {
-				JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
-			}else {
-				try {
-					seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
-				} catch (NumberFormatException e2) {
-				}
-				try {
+			try {
+				String oldNombreSala = oldNombreSal;
+				System.out.println(oldNombreSala);
+				String nombreCinema = pantallaAdministrador.jTextField11.getText();
+				System.out.println(nombreCinema);
+				String nombreSal = pantallaAdministrador.textoIdSalaCine.getText();
+				System.out.println(nombreSal);
+				int seatsNumber = Integer.parseInt(pantallaAdministrador.textoNumeroButacas.getText());
+				if (oldNombreSala == null || nombreCinema == null || nombreSal == null || seatsNumber == 0) {
+					JOptionPane.showMessageDialog(null, "Debe introducir datos validos");
+				} else {
 					metodosSala.modificarSala(oldNombreSala, nombreCinema, nombreSal, seatsNumber);
-				} catch (HeadlessException | SQLException e1) {
-					System.err.println("Excepcion no controlada en modifica sala");
-					e1.printStackTrace();
 				}
+			} catch (HeadlessException | NumberFormatException | SQLException e2) {
+
 			}
 			break;
 		case CREAR_PELICULA:

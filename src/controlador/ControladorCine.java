@@ -43,7 +43,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 	public MetodosPromocion metodosPromocion = new MetodosPromocion();
 	public MetodosSala metodosSala = new MetodosSala();
 	public MetodosPelicula metodosPelicula = new MetodosPelicula();
-	public MetodosArtistas metodosArtistas=new MetodosArtistas();
+	public MetodosArtistas metodosArtistas = new MetodosArtistas();
 	// Declaracion de variables
 	private String now = "2016-11-09 10:30";
 	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
@@ -56,8 +56,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 	public enum accionesAdministrador {// Fijate Antonio
 		ELIMINAR_CINE, ANIADIR_CINE, MODIFICAR_CINE, ELEGIR_CINE, ELIMINAR_FUNCION, ELIMINAR_FUNCION_CINE, ANIADIR_FUNCION, ANIADIR_FUNCION_CINE, MODIFICAR_FUNCION, // Este
-		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA,
-		CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
+		ANIADIR_ARTISTA, ELIMINAR_ARTISTA, MODIFICAR_ARTISTA, CREAR_PROMOCION, MODIFICAR_PROMOCION, ELIMINAR_PROMOCION, ANIADIR_SALA, MODIFICAR_SALA, ELIMINAR_SALAS_CINE,
 
 		CREAR_PELICULA, MODIFICAR_PELICULA, ELIMINAR_PELICULA, ANIADIR_ACTOR, ANIADIR_DIRECTOR,
 	}
@@ -86,11 +85,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 		// Artistas
 		this.pantallaAdministrador.jTable1.addMouseListener(this);
 		this.pantallaAdministrador.jTable1.setModel(new DefaultTableModel());
-		
-		//this.pantallaAdministrador.jList9.addMouseListener(this);
-		//this.pantallaAdministrador.jList9.setListData(Pais.values());
+
+		// this.pantallaAdministrador.jList9.addMouseListener(this);
+		// this.pantallaAdministrador.jList9.setListData(Pais.values());
 		pantallaAdministrador.jComboBox13.removeAllItems();
-		
+
 		this.pantallaAdministrador.jTable4.addMouseListener(this);
 		this.pantallaAdministrador.jTable4.setModel(new DefaultTableModel());
 
@@ -116,9 +115,13 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 		this.pantallaAdministrador.jTable9.addMouseListener(this);
 		this.pantallaAdministrador.jTable9.setModel(new DefaultTableModel());
-		//Eliminar Artista
-				this.pantallaAdministrador.jButton19.setActionCommand("ELIMINAR_ARTISTA");
-				this.pantallaAdministrador.jButton19.addActionListener(this);
+		// MDOFICAR ARTISTA
+		this.pantallaAdministrador.jButton16.setActionCommand("MODIFICAR_ARTISTA");
+		this.pantallaAdministrador.jButton16.addActionListener(this);
+
+		// Eliminar Artista
+		this.pantallaAdministrador.jButton19.setActionCommand("ELIMINAR_ARTISTA");
+		this.pantallaAdministrador.jButton19.addActionListener(this);
 
 		// Recargar tabla cine
 		this.pantallaAdministrador.jButton7.setActionCommand("RECARGAR_TABLA");
@@ -196,11 +199,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 		pantallaAdministrador.jTable11.setModel(metodosFuncion.cogerFuncionBBDDNombre());
 		pantallaAdministrador.jTable12.setModel(metodosFuncion.cogerFuncionBBDDNombre());
-		
-		//Artistas
+
+		// Artistas
 		pantallaAdministrador.jTable1.setModel(metodosArtistas.cogerArtistaBBDDTodo());
 		pantallaAdministrador.jTable4.setModel(metodosArtistas.cogerArtistaBBDDTodo());
-		
+
 		// Crear pelicula
 		pantallaAdministrador.jButton25.setActionCommand("CREAR_PELICULA");
 		pantallaAdministrador.jButton25.addActionListener(this);
@@ -212,8 +215,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 		pantallaAdministrador.jButton29.setActionCommand("MODIFICAR_PELICULA");
 		pantallaAdministrador.jButton29.addActionListener(this);
 		pantallaAdministrador.jButton29.addMouseListener(this);
-		
-		//Eliminar pelicula
+
+		// Eliminar pelicula
 		pantallaAdministrador.jTable3.addMouseListener(this);
 		pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
 		pantallaAdministrador.jButton31.setActionCommand("ELIMINAR_PELICULA");
@@ -239,7 +242,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox4.addItem(a.name());
 			pantallaAdministrador.jComboBox5.addItem(a.name());
 			pantallaAdministrador.jComboBox12.addItem(a.name());
-			//Artistas
+			// Artistas
 			pantallaAdministrador.jComboBox13.addItem(a.name());
 		}
 		for (ValoracionPeli a : ValoracionPeli.values()) {
@@ -513,10 +516,10 @@ public class ControladorCine implements ActionListener, MouseListener {
 				String resumen = pantallaAdministrador.jTextField45.getText();
 				int id = Integer.parseInt(idPelicula);
 
-				metodosPelicula.modificarPelicula(id, agnoProduccion, tituloDistribucion, tituloOriginal,
-						genero, idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades,
+				metodosPelicula.modificarPelicula(id, agnoProduccion, tituloDistribucion, tituloOriginal, genero,
+						idioma, subtitulosEs, paisOrigen, sitioWeb, duracionPelicula, calificacionEdades,
 						fechaEstrenoEs, resumen);
-				
+
 				pantallaAdministrador.jTextField38.setText("");
 				pantallaAdministrador.jTextField39.setText("");
 				pantallaAdministrador.jTextField40.setText("");
@@ -525,7 +528,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField44.setText("");
 				pantallaAdministrador.jTextField45.setText("");
 				pantallaAdministrador.jTextField50.setText("");
-				
+
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 
 			} catch (NumberFormatException e1) {
@@ -569,6 +572,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+
 	private void presionarJTable4(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo
@@ -576,17 +580,19 @@ public class ControladorCine implements ActionListener, MouseListener {
 			int fila = this.pantallaAdministrador.jTable4.rowAtPoint(e.getPoint());
 			if (fila > -1) {
 				pantallaAdministrador.jLabel107
-				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
+						.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
 				pantallaAdministrador.jTextField17
-				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
+						.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 0)));
 				pantallaAdministrador.jTextField18
-				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 2)));
+						.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 2)));
 				pantallaAdministrador.jLabel109
-				.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)));
-				pantallaAdministrador.jComboBox13.setSelectedItem(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)).toString());
+						.setText(String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)));
+				pantallaAdministrador.jComboBox13.setSelectedItem(
+						String.valueOf(this.pantallaAdministrador.jTable4.getValueAt(fila, 1)).toString());
 			}
 		}
 	}
+
 	private void presionarJTable12(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo
@@ -598,6 +604,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
+
 	private void presionarJTable1(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1)// boton izquierdo
@@ -763,7 +770,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 		}
 	}
-	
+
 	private void clickTablaEliminarPelicula(java.awt.event.MouseEvent e) {
 
 		if (e.getButton() == 1) {

@@ -61,13 +61,9 @@ public class MetodosFuncion extends ConexionManager {
 		if (diaYHoraAntiguo == null || diaYHora == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			// Funciones.remove(diaYHoraAntiguo);
-			// Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
-			// promocionFuncion);
-			// Funciones.put(diaYHora, funcion);
 			actualizarFuncionBBDD(diaYHoraAntiguo, diaYHora, salaFuncion, peliculaFuncion, cine_nombreCine);
-			// eliminarFuncionesArray();
-			// cogerTodasLasFuncionesBBDD();
+			eliminarFuncionesArray();
+			cogerTodasLasFuncionesBBDD();
 			JOptionPane.showMessageDialog(null, "Funcion modificada");
 		}
 	}
@@ -175,17 +171,25 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 	public void eliminarFuncionesArray() {
 		Iterator it = Funciones.keySet().iterator();
+		try {
 		while (it.hasNext()) {
 			String clave = (String) it.next();
 			Funciones.remove(clave);
+		}
+		}catch(Exception e) {
+			System.err.println("No existen funciones");
 		}
 	}
 
 	public void eliminarFuncionesSemanasArray(String nombreCine) {
 		Iterator it = Compagnia.listaCines.get(nombreCine).funcionesSemana.keySet().iterator();
+		try {
 		while (it.hasNext()) {
 			String clave = (String) it.next();
 			Compagnia.listaCines.get(nombreCine).funcionesSemana.remove(clave);
+		}
+		}catch(Exception e) {
+			System.err.println("No existen funciones");
 		}
 	}
 	// ---------------------------------------------------------
@@ -252,12 +256,14 @@ public class MetodosFuncion extends ConexionManager {
 
 	public void cogerTodasLasFuncionesBBDD() {
 		PreparedStatement pstm = null;
+		eliminarFuncionesArray();
 		try {
 			pstm = this.getConexion().prepareStatement(
 					"SELECT diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine, fp.promocion_descuentoPromo FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
 			ResultSet res = pstm.executeQuery();
 			int i = 0;
 			eliminarFuncionesSemanasArray(res.getString("cine_nombreCine"));
+			
 			while (res.next()) {
 				LocalDateTime tiempo = LocalDateTime.parse(res.getString("diaYHora"));
 				Sala sala = encuentraKeyStringHashMapSala(res.getString("sala_idSalaCine"));
@@ -280,7 +286,6 @@ public class MetodosFuncion extends ConexionManager {
 
 	// ---------------------------------------------------------
 	public DefaultTableModel cogerFuncionBBDDNombre() {
-		System.out.println("prueba");
 		DefaultTableModel tablemodel = new DefaultTableModel();
 		int registros = 0;
 		PreparedStatement pstm = null;
@@ -322,7 +327,6 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 
 	public DefaultTableModel cogerFuncionBBDDCine(Cine nombreCine) {
-		System.out.println("prueba");
 		DefaultTableModel tablemodel = new DefaultTableModel();
 		int registros = 0;
 		PreparedStatement pstm = null;
@@ -339,7 +343,6 @@ public class MetodosFuncion extends ConexionManager {
 						"SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionpromocion fp ON f.diayHora= fp.funcion_diayHora WHERE f.cine_nombreCine = '"
 								+ nombreCine.getNombreCine() + "'");
 			} catch (NullPointerException e) {
-				System.out.print("error creooooo");
 				return null;
 			}
 			ResultSet res = pstm.executeQuery();
@@ -380,7 +383,6 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 
 	public DefaultTableModel cogerFuncionBBDDTodo() {
-		System.out.println("prueba1");
 		DefaultTableModel tablemodel = new DefaultTableModel();
 		int registros = 0;
 		PreparedStatement pstm = null;
@@ -390,10 +392,8 @@ public class MetodosFuncion extends ConexionManager {
 		// variable "registros"
 		// para formar la matriz de datos
 		try {
-			System.out.println("pruebass1");
 			pstm = getConexion().prepareStatement(
 					"SELECT COUNT(*) AS total FROM funcion f INNER JOIN funcionPromocion fp ON f.diayHora= fp.funcion_diayHora");
-			System.out.println("pruebas2");
 			ResultSet res = pstm.executeQuery();
 			res.next();
 			registros = res.getInt("total");

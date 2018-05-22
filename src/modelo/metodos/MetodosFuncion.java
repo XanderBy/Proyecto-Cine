@@ -101,13 +101,10 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------(tiene la tabla
 	// funcionpromocion tambien)
 	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Promocion promocionFuncion) {
-		LocalDateTime localDate = diaYHora;// For reference
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S");
-		String formattedString = localDate.format(formatter);
-		System.out.println(formattedString);
+
 		// se arma la consulta
 		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ("
-				+ formattedString + ",'" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ",'"
+				+ diaYHora + ",'" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ",'"
 				+ "nop" + "')";
 		// se ejecuta la consulta
 		try {
@@ -119,7 +116,7 @@ public class MetodosFuncion extends ConexionManager {
 		}
 
 		// se arma la consulta
-		String qq = " INSERT INTO funcionPromocion (funcion_diayHora, promocion_descuentoPromo)" + "VALUES (" + formattedString
+		String qq = " INSERT INTO funcionPromocion (funcion_diayHora, promocion_descuentoPromo)" + "VALUES (" + diaYHora
 				+ "," + promocionFuncion.getDescuentoPromo() + ")";
 		// se ejecuta la consulta
 		try {

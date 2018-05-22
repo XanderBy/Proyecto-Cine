@@ -33,9 +33,7 @@ public class MetodosFuncion extends ConexionManager {
 	// ---------------------------------------------------------
 	public void crearFuncion(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion, Cine cine_nombreCine,
 			Promocion promocionFuncion) {
-		if (diaYHora == null || salaFuncion == null || peliculaFuncion == null || promocionFuncion == null) {
-			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
-		} else {
+		
 			// Funcion funcion = new Funcion(diaYHora, salaFuncion, peliculaFuncion,
 			// promocionFuncion);
 			// Funciones.put(diaYHora, funcion);
@@ -45,7 +43,7 @@ public class MetodosFuncion extends ConexionManager {
 			cogerTodasLasFuncionesBBDD();
 
 			JOptionPane.showMessageDialog(null, "Funcion Aniadida");
-		}
+		
 	}
 
 	// ---------------------------------------------------------
@@ -121,11 +119,10 @@ public class MetodosFuncion extends ConexionManager {
 	// funcionpromocion tambien)
 	public void crearFuncionBBDD(LocalDateTime diaYHora, Sala salaFuncion, Pelicula peliculaFuncion,
 			Cine cine_nombreCine, Promocion promocionFuncion) {
-
+		
 		// se arma la consulta
-		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion, cine_nombreCine)" + "VALUES ("
-				+ diaYHora + "," + salaFuncion.getIdSalaCine() + "," + peliculaFuncion.getIdPelicula() + ","
-				+ cine_nombreCine.getNombreCine() + ")";
+		String q = " INSERT INTO funcion (diayHora, sala_idSalaCine, peliculaFuncion)" + "VALUES ('"
+				+ diaYHora + "','" + salaFuncion.getIdSalaCine() + "'," + peliculaFuncion.getIdPelicula() + ")";
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);

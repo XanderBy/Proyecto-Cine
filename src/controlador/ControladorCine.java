@@ -364,9 +364,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 			// "2016-11-09 10:30" tengo que poner este formato
 
 			now = pantallaAdministrador.jTextField19.getText();
-
+			
 			formatDateTime = LocalDateTime.parse(now, formatter);
-
+			System.out.println(formatDateTime);
+			System.out.println(pantallaAdministrador.jTextField20.getText());
+			System.out.println(Integer.parseInt(pantallaAdministrador.jTextField21.getText()));
 			// pantallaAdministrador.jTextField20.getText() Sala
 			// pantallaAdministrador.jTextField21.getText() Pelicula
 			// pantallaAdministrador.jTextField22.getText() Promocion

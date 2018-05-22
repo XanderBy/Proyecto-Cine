@@ -55,6 +55,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel18 = new javax.swing.JLabel();
         ComprarEntrada = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -222,6 +224,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
         jButton7.setText("Cancelar");
 
+        jLabel18.setText("Valoracion:");
+
         javax.swing.GroupLayout AgnadirOpinionLayout = new javax.swing.GroupLayout(AgnadirOpinion.getContentPane());
         AgnadirOpinion.getContentPane().setLayout(AgnadirOpinionLayout);
         AgnadirOpinionLayout.setHorizontalGroup(
@@ -229,53 +233,56 @@ public class PantallaUsuario extends javax.swing.JFrame {
             .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                 .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgnadirOpinionLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jLabel2))
+                    .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(77, 77, 77)
+                                .addGap(80, 80, 80)
                                 .addComponent(jLabel5))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton3))))
-                    .addGroup(AgnadirOpinionLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel2))
-                    .addGroup(AgnadirOpinionLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jButton2)
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton7)))
+                                .addComponent(jButton3))
+                            .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(AgnadirOpinionLayout.createSequentialGroup()
+                                    .addComponent(jButton2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jButton7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel18)
+                                    .addGap(29, 29, 29)
+                                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         AgnadirOpinionLayout.setVerticalGroup(
             AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgnadirOpinionLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AgnadirOpinionLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel4))
-                    .addGroup(AgnadirOpinionLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(30, 30, 30)
                 .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
                     .addComponent(jButton2)
-                    .addComponent(jButton7))
+                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addGap(23, 23, 23))
         );
 
@@ -555,6 +562,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    public javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -564,6 +572,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

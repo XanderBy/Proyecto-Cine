@@ -29,7 +29,6 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	public MetodosEntrada metodosEntrada = new MetodosEntrada();
 	public MetodosCine metodosCine = new MetodosCine();
 	public MetodosFuncion metodosFuncion = new MetodosFuncion();
-	//TODO
 	//Declaracion de variables
 	
 	//Declaramos en un enum las acciones relacionadas con los usuarios
@@ -88,7 +87,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		pantallaUsuario.jTable1.setModel(metodosCine.cogerCineBBDDTodo());
 		//para introducir items en los jcombobox
 		for (ValoracionPeli a : ValoracionPeli.values()) {
-
+			pantallaUsuario.jComboBox6.addItem(a.name());
 		}
 	}
 	

@@ -382,6 +382,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 			}
 			now = pantallaAdministrador.jTextField19.getText();
 			System.out.println(MetodosSala.salas.size());
+			System.out.println(metodosPelicula.peliculas.size());
+			System.out.println(metodosPromocion.mapPromocionesCreadas.size());
 			formatDateTime = LocalDateTime.parse(now, formatter);
 			System.out.println(formatDateTime);
 			System.out.println(pantallaAdministrador.jTextField20.getText());

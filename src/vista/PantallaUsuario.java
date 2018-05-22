@@ -54,6 +54,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         ComprarEntrada = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -70,6 +71,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         ConsultarCompras = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -214,6 +216,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
 
         jLabel5.setText("Nombre Pelicula");
 
+        jButton7.setText("Cancelar");
+
         javax.swing.GroupLayout AgnadirOpinionLayout = new javax.swing.GroupLayout(AgnadirOpinion.getContentPane());
         AgnadirOpinion.getContentPane().setLayout(AgnadirOpinionLayout);
         AgnadirOpinionLayout.setHorizontalGroup(
@@ -223,9 +227,6 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AgnadirOpinionLayout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addComponent(jButton2))
                             .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(77, 77, 77)
@@ -240,7 +241,12 @@ public class PantallaUsuario extends javax.swing.JFrame {
                                 .addComponent(jButton3))))
                     .addGroup(AgnadirOpinionLayout.createSequentialGroup()
                         .addGap(114, 114, 114)
-                        .addComponent(jLabel2)))
+                        .addComponent(jLabel2))
+                    .addGroup(AgnadirOpinionLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jButton2)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton7)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         AgnadirOpinionLayout.setVerticalGroup(
@@ -263,7 +269,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addGroup(AgnadirOpinionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton7))
                 .addGap(23, 23, 23))
         );
 
@@ -293,6 +301,8 @@ public class PantallaUsuario extends javax.swing.JFrame {
         jButton4.setText("Comprar");
 
         jLabel13.setText("Importe Total €");
+
+        jButton8.setText("Salir");
 
         javax.swing.GroupLayout ComprarEntradaLayout = new javax.swing.GroupLayout(ComprarEntrada.getContentPane());
         ComprarEntrada.getContentPane().setLayout(ComprarEntradaLayout);
@@ -333,23 +343,25 @@ public class PantallaUsuario extends javax.swing.JFrame {
                         .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ComprarEntradaLayout.createSequentialGroup()
                                 .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8))
-                                .addGap(54, 54, 54))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprarEntradaLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)))
+                                    .addGroup(ComprarEntradaLayout.createSequentialGroup()
+                                        .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel8))
+                                        .addGap(54, 54, 54))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprarEntradaLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(ComprarEntradaLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(jButton8)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                        .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprarEntradaLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(77, 77, 77))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ComprarEntradaLayout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(69, 69, 69))))))
+                            .addComponent(jButton4)
+                            .addComponent(jLabel13))
+                        .addGap(64, 64, 64))))
         );
         ComprarEntradaLayout.setVerticalGroup(
             ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,6 +377,11 @@ public class PantallaUsuario extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ComprarEntradaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ComprarEntradaLayout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -376,18 +393,13 @@ public class PantallaUsuario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(ComprarEntradaLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(22, 22, 22))))
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel13))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGroup(ComprarEntradaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton8))
+                .addGap(22, 22, 22))
         );
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -415,7 +427,7 @@ public class PantallaUsuario extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ConsultarComprasLayout.createSequentialGroup()
-                        .addGap(166, 166, 166)
+                        .addGap(160, 160, 160)
                         .addComponent(jButton5)))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -523,12 +535,14 @@ public class PantallaUsuario extends javax.swing.JFrame {
     public javax.swing.JDialog ConsultarCompras;
     private javax.swing.ButtonGroup gestionUsuario;
     public javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
     public javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
+    public javax.swing.JButton jButton7;
+    public javax.swing.JButton jButton8;
+    public javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -561,9 +575,9 @@ public class PantallaUsuario extends javax.swing.JFrame {
     public javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     public javax.swing.JTable jTable3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
     public javax.swing.JTextField jTextField5;

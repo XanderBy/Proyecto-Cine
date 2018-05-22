@@ -353,9 +353,6 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ComprarEntrada">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -601,9 +598,6 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ConsultarCompras">
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

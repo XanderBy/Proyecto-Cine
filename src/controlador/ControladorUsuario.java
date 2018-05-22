@@ -10,10 +10,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
 
+import modelo.POJOs.Compagnia;
 import modelo.POJOs.ValoracionPeli;
 import modelo.metodos.MetodosCine;
 import modelo.metodos.MetodosCuentasAcceso;
 import modelo.metodos.MetodosEntrada;
+import modelo.metodos.MetodosFuncion;
 import modelo.metodos.MetodosOpinion;
 import vista.PantallaUsuario;
 
@@ -26,6 +28,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	public MetodosOpinion metodosOpinion = new MetodosOpinion();
 	public MetodosEntrada metodosEntrada = new MetodosEntrada();
 	public MetodosCine metodosCine;
+	public MetodosFuncion metodosFuncion;
 	//TODO
 	//Declaracion de variables
 	
@@ -80,10 +83,30 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 			break;
 		}
 	}
+	
+	private void presionarJTable1(java.awt.event.MouseEvent e) {
 
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaUsuario.jTable1.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				//pantallaUsuario.jLabel104
+					//	.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)));
+				metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+						.get(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0))));
+
+				pantallaUsuario.jTable3.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+						.get(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)))));
+
+			}
+		}
+	}
+
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		presionarJTable1(e);
 		
 	}
 

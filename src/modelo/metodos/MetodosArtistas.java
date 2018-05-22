@@ -21,13 +21,13 @@ public class MetodosArtistas extends ConexionManager {
 
 	// Creas Artista
 	// ------------------------------------------------------
-	public void CrearArtista(String nombreCompleto, Pais nacionalidad) {
+	public void CrearArtista(String nombreCompleto, String nacionalidad) {
 		if (nombreCompleto == null || nacionalidad == null) {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
-			Artista artista = new Artista(nombreCompleto, nacionalidad);
-			Artistas.put(nombreCompleto, artista);
+			insertarArtistaBBDD(nombreCompleto, nacionalidad);
 			JOptionPane.showMessageDialog(null, "Artista creador con exito");
+			
 		}
 	}
 
@@ -95,11 +95,12 @@ public class MetodosArtistas extends ConexionManager {
 		}
 		devolverArtistasArray();
 	}
+	
 	// ------------------------------------------------------
-		public void insertarArtistaBBDD(String nombre, String nacionalidad, int cantidadPeliculas) {
+		public void insertarArtistaBBDD(String nombre, String nacionalidad) {
 			// se arma la consulta
 			String q = " INSERT INTO artista (nombreCompleto, nacionalidad, cantidadPeliculas)" + "VALUES ('" + nombre + "','"
-					+ nacionalidad + "'," + cantidadPeliculas + ")";
+					+ nacionalidad + "')";
 			// se ejecuta la consulta
 			try {
 				PreparedStatement pstm = this.getConexion().prepareStatement(q);

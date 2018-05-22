@@ -58,6 +58,7 @@ public class ControladorAcceso implements ActionListener, MouseListener {
 		iniciarSesion.jButton3.addActionListener(this);
 		iniciarSesion.jButton4.setActionCommand("CANCELAR");
 		iniciarSesion.jButton4.addActionListener(this);
+		iniciarSesion.jDialog1.setLocationRelativeTo(null);
 
 	}
 	

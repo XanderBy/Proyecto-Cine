@@ -28,7 +28,11 @@ public class MetodosCine extends ConexionManager {
 			JOptionPane.showMessageDialog(null, "No has introducido todos los valores");
 		} else {
 			crearCineBBDD(nombreCine, direccionCine, telefonoConsulta, precioBase);
+			try {
 			eliminarCineArray();
+			}catch(Exception e) {
+				System.err.println("No existen cines y se ha intentado borrar todo el array");
+			}
 			cogerTodosLosCineBBDD();
 			JOptionPane.showMessageDialog(null, "Cine creado con exito");
 		}

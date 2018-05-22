@@ -102,12 +102,23 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 			}
 		}
 	}
+	private void presionarJTable3(java.awt.event.MouseEvent e) {
 
+		if (e.getButton() == 1)// boton izquierdo
+		{
+			int fila = this.pantallaUsuario.jTable3.rowAtPoint(e.getPoint());
+			if (fila > -1) {
+				//pantallaUsuario.jLabel104
+					//	.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)));
+			}
+		}
+	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		presionarJTable1(e);
+		presionarJTable3(e);
 		
 	}
 

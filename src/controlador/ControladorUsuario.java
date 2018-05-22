@@ -163,8 +163,7 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 			if (fila > -1) {
 				//pantallaUsuario.jLabel104
 					//	.setText(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)));
-				metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-						.get(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0))));
+				
 
 				pantallaUsuario.jTable3.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 						.get(String.valueOf(this.pantallaUsuario.jTable1.getValueAt(fila, 0)))));

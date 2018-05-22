@@ -254,6 +254,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jComboBox13.addItem(a.name());
 			pantallaAdministrador.jComboBox4.addItem(a.name());
 			pantallaAdministrador.jComboBox5.addItem(a.name());
+			pantallaAdministrador.jComboBox9.addItem(a.name());
+			pantallaAdministrador.jComboBox10.addItem(a.name());
 			
 			
 		}
@@ -292,6 +294,8 @@ public class ControladorCine implements ActionListener, MouseListener {
 			pantallaAdministrador.jTable9.setModel(metodosCine.cogerCineBBDDTodo());
 			break;
 		case INSERTAR_ACTOR:
+			
+			
 			metodosArtistas.insertarArtistaActorBBDD(pantallaAdministrador.jTextField37.getText(),pantallaAdministrador.jComboBox5.getSelectedItem().toString() ,Integer.parseInt(pantallaAdministrador.jTextField34.getText()));
 			break;
 		case INSERTAR_DIRECTOR:

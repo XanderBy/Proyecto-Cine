@@ -72,11 +72,13 @@ public class MetodosArtistas extends ConexionManager {
 		} else if (Artistas.get(nombreCompleto).PeliculasParticipaDirector.containsKey(nombreCompleto)) {
 			Artistas.get(nombreCompleto)
 					.setCantidadPeliculaParticipa(Artistas.get(nombreCompleto).getCantidadPeliculaParticipa() + 1);
+			actualizarArtistaBBDDCantidadPeliculas(nombreCompleto);
 			System.out.println("Se suma + 1 en cantidad pelicula");
 
 		} else if (Artistas.get(nombreCompleto).PeliculasParticipaActor.containsKey(nombreCompleto)) {
 			Artistas.get(nombreCompleto)
 					.setCantidadPeliculaParticipa(Artistas.get(nombreCompleto).getCantidadPeliculaParticipa() + 1);
+			actualizarArtistaBBDDCantidadPeliculas(nombreCompleto);
 			System.out.println("Se suma + 1 en cantidad pelicula");
 
 		}
@@ -117,6 +119,7 @@ public class MetodosArtistas extends ConexionManager {
 		String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, actor)" + "VALUES ('" + nombre + "',"
 				+ pelicula_idPelicula + "," + 1 + ")";
 		JOptionPane.showMessageDialog(null, "Artista Aniadido ha Actor");
+		masUnoCantidadPeliculas(nombre);
 		// se ejecuta la consulta
 		try {
 			PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -132,6 +135,8 @@ public class MetodosArtistas extends ConexionManager {
 			// se arma la consulta
 			String q = " INSERT INTO artistapelicula (artista_nombreCompleto, pelicula_idPelicula, director)" + "VALUES ('" + nombre + "','"
 					+ pelicula_idPelicula + "'," + 1 + ")";
+			JOptionPane.showMessageDialog(null, "Artista Aniadido ha Director");
+			masUnoCantidadPeliculas(nombre);
 			// se ejecuta la consulta
 			try {
 				PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -177,6 +182,18 @@ public class MetodosArtistas extends ConexionManager {
 			System.err.println(e.getMessage());
 		}
 	}
+	// ------------------------------------------------------
+		public void actualizarArtistaBBDDCantidadPeliculas( String nombreCompleto) {
+			String q = " UPDATE artista " + "SET cantidadPeliculas= cantidadPeliculas"+ 1 + " WHERE nombreCompleto= '" + nombreCompleto+ " '";
+
+			try {
+				PreparedStatement pstm = this.getConexion().prepareStatement(q);
+				pstm.execute();
+				pstm.close();
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
+			}
+		}
 
 	// ------------------------------------------------------
 	public void actualizarArtistaBBDD(String nombreCompeltoAntiguo, String nombreCompleto, String nacionalidad, int numeroPelicula) {

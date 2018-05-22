@@ -58,13 +58,13 @@ public class MetodosPelicula {
 				agnoProduccion = resultado.getInt("agnoProduccion");
 				titulo = resultado.getString("titulo");
 				tituloOriginal = resultado.getString("tituloOriginal");
-				genero = GeneroPelicula.valueOf(resultado.getString("genero").toUpperCase());
-				idioma = IdiomaOriginal.valueOf(resultado.getString("idioma").toUpperCase());
+				genero = GeneroPelicula.valueOf(resultado.getString("genero"));
+				idioma = IdiomaOriginal.valueOf(resultado.getString("idioma"));
 				subtitulosEs = resultado.getBoolean("subtitulos");
-				paisOrigen = Pais.valueOf(resultado.getString("paisOrigen").toUpperCase());
+				paisOrigen = Pais.valueOf(resultado.getString("paisOrigen"));
 				sitioWeb = resultado.getString("sitioWeb");
 				duracion = Duration.ofMinutes(resultado.getInt("duracionPelicula"));
-				calificacionEdades = CalificacionEdades.valueOf(resultado.getString("calificacionEdades").toUpperCase());
+				calificacionEdades = CalificacionEdades.valueOf(resultado.getString("calificacionEdades"));
 				fechaEstrenoEs = resultado.getDate("fechaEstrenoEspagna").toLocalDate();
 				resumen = resultado.getString("resumen");
 				idPelicula = resultado.getInt("idPelicula");

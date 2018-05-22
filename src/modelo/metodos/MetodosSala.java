@@ -249,7 +249,7 @@ public class MetodosSala {
 			// 2.2.1.Creamos el PreparedStatement: Delete
 			try {
 				PreparedStatement preparedStatement = conexion
-						.prepareStatement("DELETE FROM SALA WHERE IDSALACINE LIKE '" + nombreCine + "'+%+'");
+						.prepareStatement("DELETE FROM SALA WHERE IDSALACINE LIKE '" + nombreCine +"%'");
 				// 2.2.2.Ejecutamos el preparedStatement
 				preparedStatement.execute();
 				// 2.2.3.Cerramos la conexion

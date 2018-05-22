@@ -785,11 +785,11 @@ public class ControladorCine implements ActionListener, MouseListener {
 					this.pantallaAdministrador.jTextField8
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
 
-					metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+					//metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+						//	.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
 
-					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
-							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
+					//pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
+						//	.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
 
 					pantallaAdministrador.jTable6.setModel(metodosFuncion.cogerFuncionBBDDTodo());
 					pantallaAdministrador.jTable8.setModel(metodosFuncion.cogerFuncionBBDDTodo());
@@ -897,6 +897,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 		} catch (ArrayIndexOutOfBoundsException we) {
 			System.out.println("No tiene funciones");
 		}
+		
 		presionarJTable4(e);
 		presionarJTable1(e);
 		presionarJTable12(e);

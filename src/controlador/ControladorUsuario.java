@@ -66,8 +66,8 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 		//componente
 		
 		//TODO añadir acciones y escuchas
-		//this.pantallaUsuario.jButton1.setActionCommand("");
-		//pantallaUsuario.jButton1.addActionListener(this);
+		pantallaUsuario.jButton1.setActionCommand("");
+		pantallaUsuario.jButton1.addActionListener(this);
 		
 		pantallaUsuario.jTable1.setModel(metodosCine.cogerCineBBDDTodo());
 		//para introducir items en los jcombobox
@@ -80,7 +80,23 @@ public class ControladorUsuario implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		switch (accionesUsuario.valueOf(e.getActionCommand())) {
 		case ENTRAR:
-			//TODO hacer
+			if (pantallaUsuario.jRadioButton1.isSelected()) {
+				
+				pantallaUsuario.setVisible(false);
+				
+			}else if (pantallaUsuario.jRadioButton2.isSelected()) {
+				
+				pantallaUsuario.setVisible(false);
+				
+			}else if (pantallaUsuario.jRadioButton3.isSelected()) {
+				
+				pantallaUsuario.setVisible(false);
+				
+			}else if (pantallaUsuario.jRadioButton4.isSelected()) {
+				
+				pantallaUsuario.setVisible(false);
+				
+			}
 			break;
 		}
 	}

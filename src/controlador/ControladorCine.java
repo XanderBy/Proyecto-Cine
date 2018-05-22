@@ -706,6 +706,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 							.setText(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 3)));
 					metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0))));
+					
 					pantallaAdministrador.jTable2.setModel(metodosFuncion.cogerFuncionBBDDCine(Compagnia.listaCines
 							.get(String.valueOf(this.pantallaAdministrador.jTable9.getValueAt(fila, 0)))));
 
@@ -716,7 +717,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 
 				} catch (IllegalArgumentException ew) {
 					System.out.print("no tiene funciones");
-
+					this.pantallaAdministrador.jTable2.setModel(new DefaultTableModel());
 				}
 
 			}

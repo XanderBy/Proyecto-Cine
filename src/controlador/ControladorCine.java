@@ -557,6 +557,9 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField49.setText("");
 				pantallaAdministrador.jTextField35.setText("");
 				pantallaAdministrador.jTextField34.setText("");
+				
+				pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
+				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 
 			} catch (NumberFormatException e1) {
 				JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
@@ -598,6 +601,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				pantallaAdministrador.jTextField50.setText("");
 
 				pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
+				pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
 
 			} catch (NumberFormatException e1) {
 				JOptionPane.showMessageDialog(null, "Debe introducir valores correctos");
@@ -612,6 +616,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				if (id != 0) {
 					metodosPelicula.eliminarPelicula(id);
 					pantallaAdministrador.jTable3.setModel(metodosPelicula.generarTablaPeliculas());
+					pantallaAdministrador.jTable13.setModel(metodosPelicula.generarTablaPeliculas());
 				} else {
 					JOptionPane.showMessageDialog(null, "La pelicula no existe");
 				}

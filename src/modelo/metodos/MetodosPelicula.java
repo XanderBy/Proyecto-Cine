@@ -123,7 +123,7 @@ public class MetodosPelicula {
 	
 	public boolean agnadirPelicula(int agnoProduccion,String tituloDistribucion, String tituloOriginal, String genero, String idioma, boolean subtitulosEs,String paisOrigen,String sitioWeb, Duration duracionPelicula, String calificacionEdades,LocalDate fechaEstrenoEs,String resumen,int idPelicula) throws SQLException {
 
-		if (agnoProduccion == 0 || tituloDistribucion == null || tituloOriginal == null || genero == null || idioma == null || paisOrigen == null || sitioWeb == null || duracionPelicula == null || calificacionEdades == null || fechaEstrenoEs == null || resumen == null || idPelicula == 0) {
+		if (agnoProduccion <= 0 || agnoProduccion >9999 || tituloDistribucion == null || tituloOriginal == null || genero == null || idioma == null || paisOrigen == null || sitioWeb == null || duracionPelicula == null || calificacionEdades == null || fechaEstrenoEs == null || resumen == null || idPelicula == 0) {
 			
 			JOptionPane.showMessageDialog(null, "Introduce valores validos");
 			return false;

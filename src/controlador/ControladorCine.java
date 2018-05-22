@@ -379,13 +379,7 @@ public class ControladorCine implements ActionListener, MouseListener {
 				e3.printStackTrace();
 			}
 			now = pantallaAdministrador.jTextField19.getText();
-			System.out.println(MetodosSala.salas.size());
-			System.out.println(metodosPelicula.peliculas.size());
-			System.out.println(metodosPromocion.mapPromocionesCreadas.size());
 			formatDateTime = LocalDateTime.parse(now, formatter);
-			System.out.println(formatDateTime);
-			System.out.println(pantallaAdministrador.jTextField20.getText());
-			System.out.println(Integer.parseInt(pantallaAdministrador.jTextField21.getText()));
 			// pantallaAdministrador.jTextField20.getText() Sala
 			// pantallaAdministrador.jTextField21.getText() Pelicula
 			// pantallaAdministrador.jTextField22.getText() Promocion
